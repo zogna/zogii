@@ -1,7 +1,7 @@
 #include "main_win.h"
-#include "main_gl.h"
+#include "zogii_gl.h"
 
-#define ZOGII_TITLE_NAME (L"zogii v20120610 <powered by zogna>")
+#define ZOGII_TITLE_NAME (L"zogii build:20120610 <powered by zogna>")
 
 HDC			hDC = NULL;		// Private GDI Device Context
 HGLRC		hRC = NULL;		// Permanent Rendering Context

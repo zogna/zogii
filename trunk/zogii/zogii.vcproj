@@ -60,7 +60,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="OPENGL32.LIB"
+				AdditionalDependencies="OPENGL32.LIB freetype245MT_D.lib"
 				LinkIncremental="2"
 				GenerateDebugInformation="true"
 				SubSystem="2"
@@ -176,11 +176,19 @@
 			UniqueIdentifier="{4FC737F1-C7A5-4376-A066-2A32D752A2FF}"
 			>
 			<File
-				RelativePath=".\main_gl.cpp"
+				RelativePath=".\main_win.cpp"
 				>
 			</File>
 			<File
-				RelativePath=".\main_win.cpp"
+				RelativePath=".\zogftes.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\zogii_gl.cpp"
+				>
+			</File>
+			<File
+				RelativePath=".\zogii_ui.cpp"
 				>
 			</File>
 		</Filter>
@@ -190,11 +198,19 @@
 			UniqueIdentifier="{93995380-89BD-4b04-88EB-625FBE52EBFB}"
 			>
 			<File
-				RelativePath=".\main_gl.h"
+				RelativePath=".\main_win.h"
 				>
 			</File>
 			<File
-				RelativePath=".\main_win.h"
+				RelativePath=".\zogftes.h"
+				>
+			</File>
+			<File
+				RelativePath=".\zogii_gl.h"
+				>
+			</File>
+			<File
+				RelativePath=".\zogii_ui.h"
 				>
 			</File>
 		</Filter>

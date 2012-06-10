@@ -1,6 +1,7 @@
 #ifndef FTES_ZOG_H
 #define FTES_ZOG_H
 
+#define ZOGFTES_WINCE_MODE 0
 //FreeType Headers
 #include <ft2build.h>
 #include <freetype/freetype.h>
@@ -10,7 +11,12 @@
 
 //OpenGL Headers 
 #include <windows.h>		//(the GL headers need it)
+
+#if ZOGFTES_WINCE_MODE
 #include <GLES/gl.h>
+#else
+#include <gl\gl.h>	
+#endif
 
 //Ô¤¼ÓÔØ×Ö·û
 struct zogftes_font_data 
