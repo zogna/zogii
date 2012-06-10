@@ -1,15 +1,49 @@
 #include "main_win.h"
 #include "main_gl.h"
 
+#define ZOGII_TITLE_NAME (L"zogii v20120610 <powered by zogna>")
+
 HDC			hDC = NULL;		// Private GDI Device Context
 HGLRC		hRC = NULL;		// Permanent Rendering Context
 HWND		hWnd = NULL;		// Holds Our Window Handle
 HINSTANCE	hInstance;		// Holds The Instance Of The Application
 
-unsigned short width_win = 1000, height_win = 700;
+unsigned short width_win = 1024, height_win = 696;
 
 bool active = TRUE;		// Window Active Flag Set To TRUE By Default
 bool done = FALSE;
+
+int winOpenFileJPG(wchar_t *buf, int len)
+{
+	OPENFILENAME ofn;
+	buf[0] = 0;
+	memset(&ofn, 0, sizeof(OPENFILENAME));
+	ofn.lStructSize = sizeof(OPENFILENAME);
+	ofn.hwndOwner = hWnd;
+	ofn.lpstrFile = buf;
+	ofn.nMaxFile = len;
+	ofn.lpstrInitialDir = NULL;
+	ofn.lpstrTitle = L"zogii: Open JPEG file";
+	ofn.lpstrFilter = L"JPEG Files (*.jpg)\0*.jpg\0All Files\0*\0\0";
+	ofn.Flags = OFN_FILEMUSTEXIST|OFN_HIDEREADONLY;
+	return GetOpenFileNameW(&ofn);
+}
+
+int winOpenFileTXT(wchar_t *buf, int len)
+{
+	OPENFILENAME ofn;
+	buf[0] = 0;
+	memset(&ofn, 0, sizeof(OPENFILENAME));
+	ofn.lStructSize = sizeof(OPENFILENAME);
+	ofn.hwndOwner = hWnd;
+	ofn.lpstrFile = buf;
+	ofn.nMaxFile = len;
+	ofn.lpstrInitialDir = NULL;
+	ofn.lpstrTitle = L"zogii: Open TXT file";
+	ofn.lpstrFilter = L"TXT Files (*.txt)\0*.txt\0All Files\0*\0\0";
+	ofn.Flags = OFN_FILEMUSTEXIST|OFN_HIDEREADONLY;
+	return GetOpenFileNameW(&ofn);
+}
 
 void KillGLWindow(void)								// Properly Kill The Window
 {
@@ -39,7 +73,7 @@ void KillGLWindow(void)								// Properly Kill The Window
         hWnd = NULL;										// Set hWnd To NULL
     }
 
-    if (!UnregisterClass(L"zogii", hInstance))			// Are We Able To Unregister Class
+    if (!UnregisterClass(ZOGII_TITLE_NAME, hInstance))			// Are We Able To Unregister Class
     {
         MessageBox(NULL, L"Could Not Unregister Class.", L"SHUTDOWN ERROR", MB_OK | MB_ICONINFORMATION);
         hInstance = NULL;									// Set hInstance To NULL
@@ -75,7 +109,7 @@ BOOL CreateGLWindow(WCHAR *title, int width, int height, int bits)
     wc.hCursor			= LoadCursor(NULL, IDC_ARROW);			// Load The Arrow Pointer
     wc.hbrBackground	= NULL;									// No Background Required For GL
     wc.lpszMenuName		= NULL;									// We Don't Want A Menu
-    wc.lpszClassName	= L"zogii";								// Set The Class Name
+    wc.lpszClassName	= ZOGII_TITLE_NAME;								// Set The Class Name
 
     if (!RegisterClass(&wc))									// Attempt To Register The Window Class
     {
@@ -89,7 +123,7 @@ BOOL CreateGLWindow(WCHAR *title, int width, int height, int bits)
     AdjustWindowRectEx(&WindowRect, dwStyle, FALSE, dwExStyle);		// Adjust Window To True Requested Size
 
     hWnd = CreateWindowEx(	dwExStyle,							// Extended Style For The Window
-                            L"zogii",							// Class Name
+                            ZOGII_TITLE_NAME,							// Class Name
                             title,								// Window Title
                             dwStyle |							// Defined Window Style
                             WS_CLIPSIBLINGS |					// Required Window Style
@@ -258,9 +292,15 @@ LRESULT CALLBACK WndProc(	HWND	hWnd,			// Handle For This Window
 
     case WM_SIZE:								// Resize The OpenGL Window
     {
+		/*
+		int a=LOWORD(lParam);
+		int b=HIWORD(lParam);
+		*/
         //改变尺寸无效
         //ReSizeGLScene(LOWORD(lParam),HIWORD(lParam));  // LoWord=Width, HiWord=Height
         MoveWindow(hWnd, 0, 0, width_win, height_win, 1);
+
+		
         return 0;								// Jump Back
     }
 
@@ -282,8 +322,10 @@ int WINAPI WinMain(	HINSTANCE	hInstance,			// Instance
     MSG		msg = {0};									// Windows Message Structure
 
     // Create Our OpenGL Window
-    if (!CreateGLWindow(L"zogii", width_win, height_win, 24))
+    if (!CreateGLWindow(ZOGII_TITLE_NAME, width_win, height_win, 24))
         return 0;									// Quit If Window Was Not Created
+
+	InitGL();
 
     while(!done)									// Loop That Runs While done=FALSE
     {
@@ -312,7 +354,7 @@ int WINAPI WinMain(	HINSTANCE	hInstance,			// Instance
                 	SetWindowText(hWnd,str);
                 */
 
-                Sleep(30);
+                Sleep(3);
             }
         }
     }
