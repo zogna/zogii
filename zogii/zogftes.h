@@ -52,8 +52,8 @@ void zogftes_load_single(FT_Face face, unsigned long int charcode,int fontsize);
 void zogftes_draw_single(int texid);
 void zogftes_spec_single(FT_Face face, unsigned long int charcode);
 
-void zogftes_print(float x, float y,  wchar_t  *fmt,int fmtsize,int fontsize);
-void zogftes_print_lite(float x, float y,  wchar_t  *fmt,int fmtsize,int fontsize);
+void zogftes_print(float x, float y,  wchar_t  *fmt,size_t fmtsize,int fontsize);
+void zogftes_print_lite(float x, float y,  wchar_t  *fmt,size_t fmtsize,int fontsize);
 
 
 
