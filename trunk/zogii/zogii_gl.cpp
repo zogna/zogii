@@ -4,6 +4,7 @@
 
 extern HWND		hWnd ;
 
+#define ClearColor	0.6f,0.87451f,0.58431f,1.0f
 
 int winOpenFileJPG(wchar_t *buf, int len)
 {
@@ -60,10 +61,9 @@ void InitGL(void)										// All Setup For OpenGL Goes Here
 {
 //	glShadeModel(GL_SMOOTH);							// Enable Smooth Shading
 	glShadeModel(GL_FLAT);
-	glClearColor(0.6f, 0.87451f, 0.58431f, 1.0f);				// Black Background
+	glClearColor(ClearColor);				// Black Background
 
-glDisable(GL_DEPTH_TEST);
-
+	glDisable(GL_DEPTH_TEST);
 
 	//glGenTextures(10, textureID);
 	// glPixelStorei(GL_UNPACK_ALIGNMENT, 1);	
@@ -82,9 +82,12 @@ void DrawGLScene(void)
 	glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);	// Clear Screen And Depth Buffer
 	glLoadIdentity();		
 
-	zogiiui_printftest();
 
-	zogiijpg_drawJPG(50,50,64,64,0);
+
+zogiiui_main();
+
+//zogiiui_printftest();
+//zogiijpg_drawJPG(50,50,64,64,0);
 }
 
 void clearGL(void)

@@ -438,7 +438,7 @@ void zogftes_pop_projection_matrix(void)
 
 ///Much like Nehe's glPrint function, but modified to work
 ///with freetype fonts.
-void zogftes_print(float x, float y,  wchar_t  *fmt, int fmtsize, int fontsize)
+void zogftes_print(float x, float y,  wchar_t  *fmt, size_t fmtsize, int fontsize)
 {
     int tempmove = 0;
     int flag = 0;
@@ -482,7 +482,7 @@ void zogftes_print(float x, float y,  wchar_t  *fmt, int fmtsize, int fontsize)
     glEnableClientState(GL_VERTEX_ARRAY);
     glEnableClientState(GL_TEXTURE_COORD_ARRAY);
 
-    for(int i = 0; i < fmtsize; i++)
+    for(size_t i = 0; i < fmtsize; i++)
     {
         glTranslatef((float)tempmove, 0.0, 0.0);
 
@@ -534,7 +534,7 @@ void zogftes_print(float x, float y,  wchar_t  *fmt, int fmtsize, int fontsize)
 
 ///Much like Nehe's glPrint function, but modified to work
 ///with freetype fonts.
-void zogftes_print_lite(float x, float y,  wchar_t  *fmt, int fmtsize, int fontsize)
+void zogftes_print_lite(float x, float y,  wchar_t  *fmt, size_t fmtsize, int fontsize)
 {
     int tempmove = 0;
     int flag = 0;
@@ -543,7 +543,7 @@ void zogftes_print_lite(float x, float y,  wchar_t  *fmt, int fmtsize, int fonts
     glPushMatrix();
 
     glTranslatef(x, y, 0);
-    for(int i = 0; i < fmtsize; i++)
+    for(size_t i = 0; i < fmtsize; i++)
     {
         glTranslatef((float)tempmove, 0.0, 0.0);
 
