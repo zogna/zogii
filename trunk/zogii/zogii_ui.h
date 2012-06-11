@@ -7,5 +7,6 @@
 
 void zogiiui_loadfont(void);
 void zogiiui_printftest(void);
+void zogiiui_clear(void);
 
 #endif

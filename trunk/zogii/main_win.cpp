@@ -13,37 +13,6 @@ unsigned short width_win = 1024, height_win = 696;
 bool active = TRUE;		// Window Active Flag Set To TRUE By Default
 bool done = FALSE;
 
-int winOpenFileJPG(wchar_t *buf, int len)
-{
-	OPENFILENAME ofn;
-	buf[0] = 0;
-	memset(&ofn, 0, sizeof(OPENFILENAME));
-	ofn.lStructSize = sizeof(OPENFILENAME);
-	ofn.hwndOwner = hWnd;
-	ofn.lpstrFile = buf;
-	ofn.nMaxFile = len;
-	ofn.lpstrInitialDir = NULL;
-	ofn.lpstrTitle = L"zogii: Open JPEG file";
-	ofn.lpstrFilter = L"JPEG Files (*.jpg)\0*.jpg\0All Files\0*\0\0";
-	ofn.Flags = OFN_FILEMUSTEXIST|OFN_HIDEREADONLY;
-	return GetOpenFileNameW(&ofn);
-}
-
-int winOpenFileTXT(wchar_t *buf, int len)
-{
-	OPENFILENAME ofn;
-	buf[0] = 0;
-	memset(&ofn, 0, sizeof(OPENFILENAME));
-	ofn.lStructSize = sizeof(OPENFILENAME);
-	ofn.hwndOwner = hWnd;
-	ofn.lpstrFile = buf;
-	ofn.nMaxFile = len;
-	ofn.lpstrInitialDir = NULL;
-	ofn.lpstrTitle = L"zogii: Open TXT file";
-	ofn.lpstrFilter = L"TXT Files (*.txt)\0*.txt\0All Files\0*\0\0";
-	ofn.Flags = OFN_FILEMUSTEXIST|OFN_HIDEREADONLY;
-	return GetOpenFileNameW(&ofn);
-}
 
 void KillGLWindow(void)								// Properly Kill The Window
 {
@@ -358,8 +327,11 @@ int WINAPI WinMain(	HINSTANCE	hInstance,			// Instance
             }
         }
     }
+
+	clearGL();
     // Shutdown
     KillGLWindow();									// Kill The Window
+
     return (int)(msg.wParam);							// Exit The Program
 }
 
