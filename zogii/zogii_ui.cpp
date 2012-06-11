@@ -30,3 +30,8 @@ void zogiiui_printftest(void)
 zogftes_print(500,500,L"0123456789",10,32);
 
 }
+
+void zogiiui_clear(void)
+{
+	zogftes_clean();
+}

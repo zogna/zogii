@@ -60,7 +60,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
-				AdditionalDependencies="OPENGL32.LIB freetype245MT_D.lib"
+				AdditionalDependencies="OPENGL32.LIB freetype245MT_D.lib Jpeg_vs2005debug.lib"
 				LinkIncremental="2"
 				GenerateDebugInformation="true"
 				SubSystem="2"
@@ -134,6 +134,7 @@
 			/>
 			<Tool
 				Name="VCLinkerTool"
+				AdditionalDependencies="OPENGL32.LIB freetype245MT.lib Jpeg_vs2005relase.lib"
 				LinkIncremental="1"
 				GenerateDebugInformation="true"
 				SubSystem="2"
@@ -188,6 +189,10 @@
 				>
 			</File>
 			<File
+				RelativePath=".\zogii_jpg.cpp"
+				>
+			</File>
+			<File
 				RelativePath=".\zogii_ui.cpp"
 				>
 			</File>
@@ -207,6 +212,10 @@
 			</File>
 			<File
 				RelativePath=".\zogii_gl.h"
+				>
+			</File>
+			<File
+				RelativePath=".\zogii_jpg.h"
 				>
 			</File>
 			<File
