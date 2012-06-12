@@ -181,9 +181,9 @@ void MenuListA(void)
 //一直变的二级菜单数量
 int menulistB_num[10]=
 {
-	15,
-	24,
-	21,
+	16,
+	25,
+	22,
 
 };
 
@@ -212,6 +212,8 @@ struct MENUNAME_FONT menulistB_info[10][50] =
         {L"Larvae of Query", L"幼虫查询", L"幼蟲查詢", MENULIST_B_BOXX, 570, MENULIST_B_BOXW, MENULIST_BOXH, 0},
         {L"Pupa of Query", L"蛹<茧>查询", L"蛹<繭>查詢", MENULIST_B_BOXX, 590, MENULIST_B_BOXW, MENULIST_BOXH, 1},
         {L"Eggs of Query", L"虫卵查询", L"蟲卵查詢", MENULIST_B_BOXX, 610, MENULIST_B_BOXW, MENULIST_BOXH, 0},
+		 
+		{L"Browse or Results", L"浏览结果", L"浏覽結果", MENULIST_B_BOXX, 680, MENULIST_B_BOXW, MENULIST_BOXH, 0},
     },
     {
         {L"All", L"全部", L"全部", MENULIST_B_BOXX, 50, MENULIST_B_BOXW, MENULIST_BOXH, 1},
@@ -241,6 +243,8 @@ struct MENUNAME_FONT menulistB_info[10][50] =
         {L"Larvae of Query", L"幼虫查询", L"幼蟲查詢", MENULIST_B_BOXX, 570, MENULIST_B_BOXW, MENULIST_BOXH, 0},
         {L"Pupa of Query", L"蛹<茧>查询", L"蛹<繭>查詢", MENULIST_B_BOXX, 590, MENULIST_B_BOXW, MENULIST_BOXH, 1},
         {L"Eggs of Query", L"虫卵查询", L"蟲卵查詢", MENULIST_B_BOXX, 610, MENULIST_B_BOXW, MENULIST_BOXH, 0},
+		
+		{L"Browse or Results", L"浏览结果", L"浏覽結果", MENULIST_B_BOXX, 680, MENULIST_B_BOXW, MENULIST_BOXH, 0},
     },
     {
         {L"All", L"全部", L"全部", MENULIST_B_BOXX, 50, MENULIST_B_BOXW, MENULIST_BOXH, 1},
@@ -267,6 +271,8 @@ struct MENUNAME_FONT menulistB_info[10][50] =
         {L"Larvae of Query", L"幼虫查询", L"幼蟲查詢", MENULIST_B_BOXX, 570, MENULIST_B_BOXW, MENULIST_BOXH, 0},
         {L"Eye of Query", L"眼式查询", L"眼式查詢", MENULIST_B_BOXX, 590, MENULIST_B_BOXW, MENULIST_BOXH, 0},
         {L"Cobweb of Query", L"蜘蛛网查询", L"蜘蛛網查詢", MENULIST_B_BOXX, 610, MENULIST_B_BOXW, MENULIST_BOXH, 0},
+
+		{L"Browse or Results", L"浏览结果", L"浏覽結果", MENULIST_B_BOXX, 680, MENULIST_B_BOXW, MENULIST_BOXH, 0},
     }
 };
 
