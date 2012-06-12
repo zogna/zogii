@@ -19,7 +19,7 @@ struct MENUNAME_FONT
 	int starty;
 	int w;
 	int h;
-	int select;//当此为1=选中 0=没选中
+	int select;//当此为1=选中 0=没选中 
 };
 
 struct MENUNAME_PIC
