@@ -4,7 +4,7 @@
 
 extern HWND		hWnd ;
 
-#define ClearColor	0.6f,0.87451f,0.58431f,1.0f
+#define ClearColor	0.6627f,0.89019f,0.643137f,1.0f
 
 int winOpenFileJPG(wchar_t *buf, int len)
 {
