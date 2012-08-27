@@ -339,4 +339,13 @@ void WRITEFILE(CvSeq* objectKeypoints)
 	//遇到释放文件  contour1也会被释放
 	cvReleaseFileStorage(&fs);
 
+
+	 //另一种写入 读取XML方式
+	   CvMemStorage* storage = cvCreateMemStorage(0);
+    const char* attrs[] = {"recursive", "1", 0};
+    cvSave("contours.xml", objectKeypoints, 0, 0, cvAttrList(attrs, 0));
+	//读取
+    objectKeypoints = (CvSeq*)cvLoad("contours.xml", storage, 0, 0);
+    
+
 }
