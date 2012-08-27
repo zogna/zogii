@@ -4,27 +4,16 @@
 * Author: Liu Liu
 * liuliu.1987+opencv@gmail.com
 */
-#include <opencv2/objdetect/objdetect.hpp>
+
 #include <opencv2/features2d/features2d.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <opencv2/calib3d/calib3d.hpp>
-#include <opencv2/imgproc/imgproc_c.h>
 
 #include <iostream>
 #include <vector>
 
 using namespace std;
-void help()
-{
-	printf(
-		"This program demonstrated the use of the SURF Detector and Descriptor using\n"
-		"either FLANN (fast approx nearst neighbor classification) or brute force matching\n"
-		"on planar objects.\n"
-		"Call:\n"
-		"./find_obj [<object_filename default box.png> <scene_filename default box_in_scene.png>]\n\n"
-		);
 
-}
 
 // define whether to use approximate nearest-neighbor search
 #define USE_FLANN
@@ -49,7 +38,6 @@ compareSURFDescriptors( const float* d1, const float* d2, double best, int lengt
 	}
 	return total_cost;
 }
-
 
 int
 naiveNearestNeighbor( const float* vec, int laplacian,
@@ -211,82 +199,31 @@ locatePlanarObject( const CvSeq* objectKeypoints, const CvSeq* objectDescriptors
 
 int main(int argc, char** argv)
 {
-	const char* object_filename = argc == 3 ? argv[1] : "box.png";
+	const char* xml_filename = argc == 3 ? argv[1] : "contour.xml";
 	const char* scene_filename = argc == 3 ? argv[2] : "box_in_scene.png";
 
 	CvMemStorage* storage = cvCreateMemStorage(0);
-	help();
-	cvNamedWindow("Object", 1);
-	cvNamedWindow("Object Correspond", 1);
 
-	static CvScalar colors[] = 
-	{
-		{{0,0,255}},
-		{{0,128,255}},
-		{{0,255,255}},
-		{{0,255,0}},
-		{{255,128,0}},
-		{{255,255,0}},
-		{{255,0,0}},
-		{{255,0,255}},
-		{{255,255,255}}
-	};
+	//从文件中读出
+	CvFileStorage* fs = cvOpenFileStorage(xml_filename,0,CV_STORAGE_READ);
+	CvSeq* objectKeypoints = (CvSeq*) cvReadByName(fs,NULL,"Keypoints",NULL);
+	CvSeq* objectDescriptors = (CvSeq*) cvReadByName(fs,NULL,"Descriptors",NULL);
 
-	IplImage* object = cvLoadImage( object_filename, CV_LOAD_IMAGE_GRAYSCALE );
-	IplImage* image = cvLoadImage( scene_filename, CV_LOAD_IMAGE_GRAYSCALE );
-	if( !object || !image )
-	{
-		fprintf( stderr, "Can not load %s and/or %s\n"
-			"Usage: find_obj [<object_filename> <scene_filename>]\n",
-			object_filename, scene_filename );
-		exit(-1);
-	}
-
-	IplImage* object_color = cvCreateImage(cvGetSize(object), 8, 3);
-	cvCvtColor( object, object_color, CV_GRAY2BGR );
-
-	CvSeq *objectKeypoints = 0, *objectDescriptors = 0;
-	CvSeq *imageKeypoints = 0, *imageDescriptors = 0;
-	int i;
 	// 特征点选取的 hessian 阈值 500  
 	// 是否扩展，1 - 生成128维描述符，0 - 64维描述符
 	CvSURFParams params = cvSURFParams(500, 1);
 
-	double tt = (double)cvGetTickCount();
+	CvSeq *imageKeypoints = 0, *imageDescriptors = 0;
+	
+	IplImage* image = cvLoadImage( scene_filename, CV_LOAD_IMAGE_GRAYSCALE );
 	//计算两个图的特征 返回特征点总数。 特征点和特征点描述符
-	cvExtractSURF( object, 0, &objectKeypoints, &objectDescriptors, storage, params );
-	printf("Object Descriptors: %d\n", objectDescriptors->total);
 	cvExtractSURF( image, 0, &imageKeypoints, &imageDescriptors, storage, params );
 	printf("Image Descriptors: %d\n", imageDescriptors->total);
-	//特征计算时间 秒
-	tt = (double)cvGetTickCount() - tt;
-	printf( "Extraction time = %gms\n", tt/(cvGetTickFrequency()*1000.));
-	//下面将两个图片载合并载到一个大图片里。方便显示
-	CvPoint src_corners[4] = {{0,0}, {object->width,0}, {object->width, object->height}, {0, object->height}};
-	CvPoint dst_corners[4];
-	IplImage* correspond = cvCreateImage( cvSize(image->width, object->height+image->height), 8, 1);
-	cvSetImageROI( correspond, cvRect( 0, 0, object->width, object->height ) );
-	cvCopy( object, correspond );
-	cvSetImageROI( correspond, cvRect( 0, object->height, correspond->width, correspond->height ) );
-	cvCopy( image, correspond );
-	cvResetImageROI( correspond );
-
+	
 #ifdef USE_FLANN
 	printf("Using approximate nearest neighbor search USE_FLANN\n");
 #endif
-	//	画平行四边形
-	if( locatePlanarObject( objectKeypoints, objectDescriptors, imageKeypoints,
-		imageDescriptors, src_corners, dst_corners ))
-	{
-		for( i = 0; i < 4; i++ )
-		{
-			CvPoint r1 = dst_corners[i%4];
-			CvPoint r2 = dst_corners[(i+1)%4];
-			cvLine( correspond, cvPoint(r1.x, r1.y+object->height ),
-				cvPoint(r2.x, r2.y+object->height ), colors[8] );
-		}
 
-	}
 	//计算匹配
 	vector<int> ptpairs;
 #ifdef USE_FLANN
@@ -294,49 +231,12 @@ int main(int argc, char** argv)
 #else
 	findPairs( objectKeypoints, objectDescriptors, imageKeypoints, imageDescriptors, ptpairs );
 #endif
-	//画匹配线
-	for( i = 0; i < (int)ptpairs.size(); i += 2 )
-	{
-		CvSURFPoint* r1 = (CvSURFPoint*)cvGetSeqElem( objectKeypoints, ptpairs[i] );
-		CvSURFPoint* r2 = (CvSURFPoint*)cvGetSeqElem( imageKeypoints, ptpairs[i+1] );
-		cvLine( correspond, cvPointFrom32f(r1->pt),
-			cvPoint(cvRound(r2->pt.x), cvRound(r2->pt.y+object->height)), colors[8] );
-	}
-	printf("match num=%d\n",(int)ptpairs.size());
-	cvShowImage( "Object Correspond", correspond );
-	//画BOX的特征点
-	for( i = 0; i < objectKeypoints->total; i++ )
-	{
-		CvSURFPoint* r = (CvSURFPoint*)cvGetSeqElem( objectKeypoints, i );
-		CvPoint center;
-		int radius;
-		center.x = cvRound(r->pt.x);
-		center.y = cvRound(r->pt.y);
-		radius = cvRound(r->size*1.2/9.*2);
-		cvCircle( object_color, center, radius, colors[0], 1, 8, 0 );
-	}
-	cvShowImage( "Object", object_color );
+	
+	//源特征点数目。与图片相匹配的数目
+	printf("Descriptor_total=%d,keypoint_total=%d,match num=%d\n",objectDescriptors->total,objectKeypoints->total,(int)ptpairs.size());
 
-	//退出
-	cvWaitKey(0);
-
-	cvDestroyWindow("Object");
-	cvDestroyWindow("Object Correspond");
-
-	return 0;
-}
-
-void WRITEFILE(CvSeq* objectKeypoints)
-{
-	//CvSeq 写入文件
-	CvFileStorage* fileStorage = cvOpenFileStorage("contour.xml",0,CV_STORAGE_WRITE);
-	//contour1 为XML字段标记名
-	cvWrite(fileStorage,"contour1",objectKeypoints);
-	cvReleaseFileStorage(&fileStorage);
-	//从文件中读出
-	CvFileStorage* fs = cvOpenFileStorage("contour.xml",0,CV_STORAGE_READ);
-	CvSeq* contour = (CvSeq*) cvReadByName(fs,NULL,"contour1",NULL);
 	//遇到释放文件  contour1也会被释放
 	cvReleaseFileStorage(&fs);
 
+	return 0;
 }

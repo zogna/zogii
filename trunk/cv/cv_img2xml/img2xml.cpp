@@ -21,8 +21,9 @@ int main(int argc, char** argv)
 	
 	//CvSeq 写入文件
 	CvFileStorage* fileStorage = cvOpenFileStorage("contour.xml",0,CV_STORAGE_WRITE);
-	//contour1 为XML字段标记名
-	cvWrite(fileStorage,"contour1",objectKeypoints);
+	//Keypoints 为XML字段标记名
+	cvWrite(fileStorage,"Keypoints",objectKeypoints);
+	cvWrite(fileStorage,"Descriptors",objectDescriptors);
 	cvReleaseFileStorage(&fileStorage);
 
 	return 0;
