@@ -318,6 +318,7 @@ dstQuad[i].y +=20;
 		cvResetImageROI(dstpp);  
 */
 
+
 	cvNamedWindow("warp", 1);
 
 	cvShowImage( "warp", dstpp );
