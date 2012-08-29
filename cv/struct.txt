@@ -1,0 +1,78 @@
+struct 瓢虫
+{
+	//亚科名
+	char enSubFamily[128];
+	char csSubFamily[128];	
+ 	char ctSubFamily[128];	
+	//属名	
+	char enGenus[128];
+	char csGenus[128];	
+ 	char ctGenus[128];	
+	//种名	
+	char enName[128];
+	char csName[128];	
+ 	char ctName[128];	
+	//变种名	
+	char enSpName[128];
+	char csSpName[128];	
+ 	char ctSpName[128];	
+
+	//发现者名字 年代
+	char DiscoveryName[128];
+	int DiscoveryYear;
+	//发现地地图 图片
+	char Discoverypic[260];	
+
+	//基本信息文档目录
+	char enText[260];
+	char csText[260];	
+ 	char ctText[260];	
+	
+};
+
+struct 成年
+{
+	//性别 0未知 1雄 2雌
+	int sex;
+	//颜色
+	int color[5];
+	//是否有绒毛 0 无 1有
+	int Villus; 
+	//是否有斑点 0无 1有斑点或条纹 2竖状条纹
+	int Spot;
+	//图片目录
+	char pic[260];
+};
+
+struct 卵
+{
+	//性别 0未知 1雄 2雌
+	int sex;
+
+	//颜色
+	int color[5];
+	//图片目录
+	char pic[260];
+};
+
+struct 蛹
+{
+	//性别 0未知 1雄 2雌
+	int sex;
+
+	//颜色
+	int color[5];
+	//图片目录
+	char pic[260];
+};
+
+struct 幼虫
+{
+	//性别 0未知 1雄 2雌
+	int sex;
+
+	//颜色
+	int color[5];
+	//图片目录
+	char pic[260];
+};
