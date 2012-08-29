@@ -160,8 +160,6 @@ flannFindPairs( const CvSeq*, const CvSeq* objectDescriptors,
 	}
 }
 
-double h[9];
-CvMat _h = cvMat(3, 3, CV_64F, h);
 
 /* a rough implementation for object location */
 int
@@ -170,6 +168,8 @@ locatePlanarObject( const CvSeq* objectKeypoints, const CvSeq* objectDescriptors
 				   const CvPoint src_corners[4], CvPoint dst_corners[4] )
 {
 
+double h[9];
+CvMat _h = cvMat(3, 3, CV_64F, h);
 	vector<int> ptpairs;
 	vector<CvPoint2D32f> pt1, pt2;
 	CvMat _pt1, _pt2;
@@ -288,6 +288,40 @@ int main(int argc, char** argv)
 		}
 
 	}
+	/////////////////////////////透视变换
+	CvPoint2D32f srcQuad[4]={cvPointTo32f(src_corners[0]),cvPointTo32f(src_corners[1]),cvPointTo32f(src_corners[2]),cvPointTo32f(src_corners[3])};
+	CvPoint2D32f dstQuad[4]={cvPointTo32f(dst_corners[0]),cvPointTo32f(dst_corners[1]),cvPointTo32f(dst_corners[2]),cvPointTo32f(dst_corners[3])};
+
+	CvMat* warp_matrix=cvCreateMat(3,3,CV_32FC1);
+	IplImage *dstpp= cvCreateImage(cvSize(512,512), 8, 1);
+	cvZero(dstpp);
+
+
+for(int i=0;i<4;i++)
+{
+dstQuad[i].x +=150;
+dstQuad[i].y +=20;
+}
+
+	cvGetPerspectiveTransform(srcQuad,dstQuad,warp_matrix);
+
+	cvWarpPerspective (object,dstpp,warp_matrix);
+
+	//cvWarpPerspective (object,dstpp,&_h);
+
+	/*
+
+	CvRect	rect_src = cvRect(200, 200, 256, 256);  
+		cvSetImageROI(dstpp, rect_src);  
+	
+
+		cvResetImageROI(dstpp);  
+*/
+
+	cvNamedWindow("warp", 1);
+
+	cvShowImage( "warp", dstpp );
+
 
 	//计算匹配
 	vector<int> ptpairs;
@@ -322,6 +356,7 @@ int main(int argc, char** argv)
 	//退出
 	cvWaitKey(0);
 
+	cvDestroyWindow("warp");
 	cvDestroyWindow("Object");
 	cvDestroyWindow("Object Correspond");
 
