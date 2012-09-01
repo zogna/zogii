@@ -204,9 +204,9 @@ locatePlanarObject( const CvSeq* objectKeypoints, const CvSeq* objectDescriptors
 int
 zoglocatePlanarObject( const CvSeq* objectKeypoints, const CvSeq* objectDescriptors,
 					  const CvSeq* imageKeypoints, const CvSeq* imageDescriptors,
-					  CvMat *_h)
+					  CvMat *_h,vector<int>& ptpairs,
+					  const CvPoint2D32f src_corners[4], CvPoint2D32f dst_corners[4] )
 {
-	vector<int> ptpairs;
 	vector<CvPoint2D32f> pt1, pt2;
 	CvMat _pt1, _pt2;
 	int i, n;
@@ -234,10 +234,19 @@ zoglocatePlanarObject( const CvSeq* objectKeypoints, const CvSeq* objectDescript
 	if( !cvFindHomography( &_pt1, &_pt2, _h, CV_RANSAC, 5 ))
 		return 0;
 
+	for( i = 0; i < 4; i++ )
+	{
+		double x = src_corners[i].x, y = src_corners[i].y;
+		double Z = 1./(cvGetReal1D(_h,6)*x + cvGetReal1D(_h,7)*y + cvGetReal1D(_h,8));
+		double X = (cvGetReal1D(_h,0)*x + cvGetReal1D(_h,1)*y + cvGetReal1D(_h,2))*Z;
+		double Y = (cvGetReal1D(_h,3)*x + cvGetReal1D(_h,4)*y + cvGetReal1D(_h,5))*Z;
+		dst_corners[i] = cvPoint2D32f(cvRound(X), cvRound(Y));
+	}
+
 	return 1;
 }
 
-//同通道 两个图片相融合 支持ROI
+//同通道 两个图片相融合 支持ROI SRC拷贝到DST中
 void zogAlpha(IplImage *src,IplImage *dst,float alpha,float beta)
 {
 	int i,j,m,n,k;
@@ -281,8 +290,16 @@ void zogAlpha(IplImage *src,IplImage *dst,float alpha,float beta)
 			//有值用融合
 			if(nullflag)
 			{
-				for(k=0;k<dst->nChannels;k++)
-					dstp[dst->nChannels*j+k]=(unsigned char)(int)(dstp[dst->nChannels*j+k]*alpha + srcp[src->nChannels*n+k]*beta);
+				//如果原始无值 则不做任何事
+				nullflag=0;
+				for(k=0;k<src->nChannels;k++)
+					nullflag=srcp[src->nChannels*n+k];
+
+				if(nullflag)
+				{
+					for(k=0;k<dst->nChannels;k++)
+						dstp[dst->nChannels*j+k]=(unsigned char)(int)(dstp[dst->nChannels*j+k]*alpha + srcp[src->nChannels*n+k]*beta);
+				}
 			}
 			else
 			{
@@ -292,6 +309,42 @@ void zogAlpha(IplImage *src,IplImage *dst,float alpha,float beta)
 			}
 		}
 	}
+}
+
+//对齐，输入未对齐到00点的数组 输出对齐到00点的数组
+void zogAlignment(const CvPoint2D32f src_corners[4], CvPoint2D32f dst_corners[4],int *x,int *y,int *w,int *h)
+{
+	int i;
+	float minx=60000,miny=60000;
+	float maxx=-60000,maxy=-60000;
+
+	for( i = 0; i < 4; i++ )
+	{
+		//找最小值
+		if(minx>src_corners[i].x)
+			minx=src_corners[i].x;
+		if(miny>src_corners[i].y)
+			miny=src_corners[i].y;
+
+		//找最大值
+		if(maxx<src_corners[i].x)
+			maxx=src_corners[i].x;
+		if(maxy<src_corners[i].y)
+			maxy=src_corners[i].y;
+	}
+	//偏移
+	for( i = 0; i < 4; i++ )
+	{
+		dst_corners[i].x=src_corners[i].x-minx;
+		dst_corners[i].y=src_corners[i].y-miny;
+	}
+	//图像偏移值
+	*x=(int)minx;
+	*y=(int)miny;
+
+	//图像宽度和高度
+	*w=(int)(maxx-minx);
+	*h=(int)(maxy-miny);
 
 }
 
@@ -336,12 +389,6 @@ int main(int argc, char** argv)
 	cvCopy( gray_image[0], dstgray_image );
 	cvResetImageROI( dstgray_image );
 
-	CvPoint dst_corners[4];
-
-	double h[9];
-	CvMat _h = cvMat(3, 3, CV_64F, h);
-
-	CvMat* warp_matrix=cvCreateMat(3,3,CV_32FC1);
 
 	for( i=2;i<argc;i++)
 	{
@@ -351,26 +398,77 @@ int main(int argc, char** argv)
 
 		cvExtractSURF( dstgray_image, 0, &imageKeypoints, &imageDescriptors, storage, params );
 
+
+#if 0
 		CvPoint src_corners[4] = {{0,0}, {gray_image[i-1]->width,0}, {gray_image[i-1]->width, gray_image[i-1]->height}, {0, gray_image[i-1]->height}};
+		CvPoint dst_corners[4];
 
+		CvPoint temp_corners[4];
+		int tempw,temph;
+		CvMat* warp_matrix=cvCreateMat(3,3,CV_32FC1);
 
-		//if( zoglocatePlanarObject( objectKeypoints, objectDescriptors, imageKeypoints,imageDescriptors, &_h ))
 		if( locatePlanarObject( objectKeypoints, objectDescriptors, imageKeypoints,
 			imageDescriptors, src_corners, dst_corners ))
 		{
 			CvPoint2D32f srcQuad[4]={cvPointTo32f(src_corners[0]),cvPointTo32f(src_corners[1]),cvPointTo32f(src_corners[2]),cvPointTo32f(src_corners[3])};
 			CvPoint2D32f dstQuad[4]={cvPointTo32f(dst_corners[0]),cvPointTo32f(dst_corners[1]),cvPointTo32f(dst_corners[2]),cvPointTo32f(dst_corners[3])};
 
+
+			zogAlignment(dst_corners,temp_corners,&tempw,&temph);
+
 			cvGetPerspectiveTransform(srcQuad,dstQuad,warp_matrix);
 
-		cvWarpPerspective (gray_image[i-1],dstgray_image,warp_matrix);
-
+			cvWarpPerspective (gray_image[i-1],dstgray_image,warp_matrix);
 
 
 		}
+		cvReleaseMat(&warp_matrix);
+#else
+
+		double h[9];
+		CvMat _h = cvMat(3, 3, CV_64F, h);
+		vector<int> ptpairs;
+		CvPoint2D32f src_corners[4] = {{0,0}, {gray_image[i-1]->width,0}, {gray_image[i-1]->width, gray_image[i-1]->height}, {0, gray_image[i-1]->height}};
+		CvPoint2D32f dst_corners[4];
+		CvPoint2D32f temp_corners[4];
+		int tempw,temph;
+		int tempx,tempy;
+
+		CvMat* warp_matrix=cvCreateMat(3,3,CV_32FC1);
+		//得到匹配点和透视变换矩阵
+		if( zoglocatePlanarObject( objectKeypoints, objectDescriptors, imageKeypoints,imageDescriptors,
+			&_h,ptpairs ,src_corners,dst_corners))
+		{
+
+			//对齐到00
+			zogAlignment(dst_corners,temp_corners,&tempx,&tempy,&tempw,&temph);
+
+			cvGetPerspectiveTransform(src_corners,temp_corners,warp_matrix);
+			//临时存放的彩色图像 灰色
+			IplImage*	temp_image = cvCreateImage(cvSize(tempw,temph), 8, 3);
+			IplImage* tempgray_image = cvCreateImage(cvSize(tempw,temph), 8, 1);
+			cvZero(temp_image);
+			cvZero(tempgray_image);
+
+			cvWarpPerspective (src_image[i-1],temp_image,warp_matrix);
+			cvWarpPerspective (gray_image[i-1],tempgray_image,warp_matrix);
+			//拷贝彩色和灰色图像
+			cvSetImageROI( dst_image, cvRect( tempx,tempy, tempw, temph ) );
+			zogAlpha(temp_image,dst_image,0.5,0.5);
+			cvResetImageROI( dst_image );
+
+			cvSetImageROI( dstgray_image, cvRect( tempx,tempy, tempw, temph ) );
+			zogAlpha(tempgray_image,dstgray_image,0.5,0.5);
+			cvResetImageROI( dstgray_image );
+
+			cvReleaseImage(&temp_image);
+			cvReleaseImage(&tempgray_image);
+
+		}
+
+		cvReleaseMat(&warp_matrix);
+#endif 
 	}
-
-
 
 	cvNamedWindow("warp", 1);
 
