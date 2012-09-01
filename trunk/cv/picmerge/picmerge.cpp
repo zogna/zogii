@@ -14,17 +14,6 @@
 #include <vector>
 
 using namespace std;
-void help()
-{
-	printf(
-		"This program demonstrated the use of the SURF Detector and Descriptor using\n"
-		"either FLANN (fast approx nearst neighbor classification) or brute force matching\n"
-		"on planar objects.\n"
-		"Call:\n"
-		"./find_obj [<object_filename default box.png> <scene_filename default box_in_scene.png>]\n\n"
-		);
-
-}
 
 // define whether to use approximate nearest-neighbor search
 #define USE_FLANN
@@ -168,8 +157,8 @@ locatePlanarObject( const CvSeq* objectKeypoints, const CvSeq* objectDescriptors
 				   const CvPoint src_corners[4], CvPoint dst_corners[4] )
 {
 
-double h[9];
-CvMat _h = cvMat(3, 3, CV_64F, h);
+	double h[9];
+	CvMat _h = cvMat(3, 3, CV_64F, h);
 	vector<int> ptpairs;
 	vector<CvPoint2D32f> pt1, pt2;
 	CvMat _pt1, _pt2;
@@ -210,55 +199,200 @@ CvMat _h = cvMat(3, 3, CV_64F, h);
 	return 1;
 }
 
-int main(int argc, char** argv)
+
+/* a rough implementation for object location */
+int
+zoglocatePlanarObject( const CvSeq* objectKeypoints, const CvSeq* objectDescriptors,
+					  const CvSeq* imageKeypoints, const CvSeq* imageDescriptors,
+					  CvMat *_h)
 {
-	const char* object_filename = argc == 3 ? argv[1] : "box.png";
-	const char* scene_filename = argc == 3 ? argv[2] : "box_in_scene.png";
+	vector<int> ptpairs;
+	vector<CvPoint2D32f> pt1, pt2;
+	CvMat _pt1, _pt2;
+	int i, n;
 
-	CvMemStorage* storage = cvCreateMemStorage(0);
-	help();
-	cvNamedWindow("Object", 1);
-	cvNamedWindow("Object Correspond", 1);
+#ifdef USE_FLANN
+	flannFindPairs( objectKeypoints, objectDescriptors, imageKeypoints, imageDescriptors, ptpairs );
+#else
+	findPairs( objectKeypoints, objectDescriptors, imageKeypoints, imageDescriptors, ptpairs );
+#endif
 
-	static CvScalar colors[] = 
+	n = (int)(ptpairs.size()/2);
+	if( n < 4 )
+		return 0;
+
+	pt1.resize(n);
+	pt2.resize(n);
+	for( i = 0; i < n; i++ )
 	{
-		{{0,0,255}},
-		{{0,128,255}},
-		{{0,255,255}},
-		{{0,255,0}},
-		{{255,128,0}},
-		{{255,255,0}},
-		{{255,0,0}},
-		{{255,0,255}},
-		{{255,255,255}}
-	};
-
-	IplImage* object = cvLoadImage( object_filename, CV_LOAD_IMAGE_GRAYSCALE );
-	IplImage* image = cvLoadImage( scene_filename, CV_LOAD_IMAGE_GRAYSCALE );
-	if( !object || !image )
-	{
-		fprintf( stderr, "Can not load %s and/or %s\n"
-			"Usage: find_obj [<object_filename> <scene_filename>]\n",
-			object_filename, scene_filename );
-		exit(-1);
+		pt1[i] = ((CvSURFPoint*)cvGetSeqElem(objectKeypoints,(ptpairs)[i*2]))->pt;
+		pt2[i] = ((CvSURFPoint*)cvGetSeqElem(imageKeypoints,(ptpairs)[i*2+1]))->pt;
 	}
 
-	IplImage* object_color = cvCreateImage(cvGetSize(object), 8, 3);
-	cvCvtColor( object, object_color, CV_GRAY2BGR );
+	_pt1 = cvMat(1, n, CV_32FC2, &pt1[0] );
+	_pt2 = cvMat(1, n, CV_32FC2, &pt2[0] );
+	if( !cvFindHomography( &_pt1, &_pt2, _h, CV_RANSAC, 5 ))
+		return 0;
 
-	CvSeq *objectKeypoints = 0, *objectDescriptors = 0;
-	CvSeq *imageKeypoints = 0, *imageDescriptors = 0;
+	return 1;
+}
+
+//同通道 两个图片相融合 支持ROI
+void zogAlpha(IplImage *src,IplImage *dst,float alpha,float beta)
+{
+	int i,j,m,n,k;
+	int dsty,dsth,dstx,dstw;
+	//设置ROI
+	if(dst->roi)
+	{
+		dsty=dst->roi->yOffset;
+		dsth=dst->roi->yOffset + dst->roi->height;
+		dstx=dst->roi->xOffset;
+		dstw=dst->roi->xOffset + dst->roi->width;
+	}
+	else
+	{
+		dsty=0;
+		dsth=dst->height;
+		dstx=0;
+		dstw=dst->width;
+	}
+
+	unsigned char *srcp,*dstp;
+	int nullflag=0;
+
+	for(i=dsty,m=0;i<dsth && m< src->height ;i++,m++)
+	{
+		if(i< 0 || i>= dst->height)
+			continue;
+
+		srcp=(unsigned char *)(src->imageData + m*src->widthStep);
+		dstp=(unsigned char *)(dst->imageData + i*dst->widthStep);
+
+		for(j=dstx,n=0;j<dstw && n< src->width ;j++,n++)
+		{
+			if(j< 0 || j>= dst->width)
+				continue;
+
+			//判断是否有值
+			nullflag=0;
+			for(k=0;k<dst->nChannels;k++)
+				nullflag=dstp[dst->nChannels*j+k];
+			//有值用融合
+			if(nullflag)
+			{
+				for(k=0;k<dst->nChannels;k++)
+					dstp[dst->nChannels*j+k]=(unsigned char)(int)(dstp[dst->nChannels*j+k]*alpha + srcp[src->nChannels*n+k]*beta);
+			}
+			else
+			{
+				//无值就直接拷贝
+				for(k=0;k<dst->nChannels;k++)
+					dstp[dst->nChannels*j+k]=srcp[src->nChannels*n+k];
+			}
+		}
+	}
+
+}
+
+int main(int argc, char** argv)
+{
+
+	IplImage* src_image[100];
+	IplImage* gray_image[100];
+	IplImage* dst_image,*dstgray_image;
+
 	int i;
+
+	CvMemStorage* storage = cvCreateMemStorage(0);
+
+	int dstw=0,dsth=0;
+
+	for( i=1;i<argc;i++)
+	{
+		src_image[i-1] = cvLoadImage( argv[i], CV_LOAD_IMAGE_COLOR );
+		gray_image[i-1] = cvCreateImage(cvGetSize(src_image[i-1]), 8, 1);
+		cvCvtColor( src_image[i-1], gray_image[i-1], CV_BGR2GRAY );
+		dstw+=src_image[i-1]->width;
+		dsth+=src_image[i-1]->height;
+	}
+	dst_image = cvCreateImage(cvSize(dstw,dsth), 8, 3);
+	dstgray_image = cvCreateImage(cvSize(dstw,dsth), 8, 1);
+	cvZero(dst_image);
+	cvZero(dstgray_image);
+
 	// 特征点选取的 hessian 阈值 500  
 	// 是否扩展，1 - 生成128维描述符，0 - 64维描述符
 	CvSURFParams params = cvSURFParams(500, 1);
+	CvSeq *objectKeypoints = 0, *objectDescriptors = 0;
+	CvSeq *imageKeypoints = 0, *imageDescriptors = 0;
+
+	//拷贝第一张图到原始位置
+	cvSetImageROI( dst_image, cvRect( 0,0,  src_image[0]->width,  src_image[0]->height ) );
+	cvCopy( src_image[0], dst_image );
+	cvResetImageROI( dst_image );
+
+	cvSetImageROI( dstgray_image, cvRect( 0,0,  gray_image[0]->width,  gray_image[0]->height ) );
+	cvCopy( gray_image[0], dstgray_image );
+	cvResetImageROI( dstgray_image );
+
+	CvPoint dst_corners[4];
+
+	double h[9];
+	CvMat _h = cvMat(3, 3, CV_64F, h);
+
+	CvMat* warp_matrix=cvCreateMat(3,3,CV_32FC1);
+
+	for( i=2;i<argc;i++)
+	{
+
+		//计算两个图的特征 返回特征点总数。 特征点和特征点描述符
+		cvExtractSURF( gray_image[i-1], 0, &objectKeypoints, &objectDescriptors, storage, params );
+
+		cvExtractSURF( dstgray_image, 0, &imageKeypoints, &imageDescriptors, storage, params );
+
+		CvPoint src_corners[4] = {{0,0}, {gray_image[i-1]->width,0}, {gray_image[i-1]->width, gray_image[i-1]->height}, {0, gray_image[i-1]->height}};
+
+
+		//if( zoglocatePlanarObject( objectKeypoints, objectDescriptors, imageKeypoints,imageDescriptors, &_h ))
+		if( locatePlanarObject( objectKeypoints, objectDescriptors, imageKeypoints,
+			imageDescriptors, src_corners, dst_corners ))
+		{
+			CvPoint2D32f srcQuad[4]={cvPointTo32f(src_corners[0]),cvPointTo32f(src_corners[1]),cvPointTo32f(src_corners[2]),cvPointTo32f(src_corners[3])};
+			CvPoint2D32f dstQuad[4]={cvPointTo32f(dst_corners[0]),cvPointTo32f(dst_corners[1]),cvPointTo32f(dst_corners[2]),cvPointTo32f(dst_corners[3])};
+
+			cvGetPerspectiveTransform(srcQuad,dstQuad,warp_matrix);
+
+		cvWarpPerspective (gray_image[i-1],dstgray_image,warp_matrix);
+
+
+
+		}
+	}
+
+
+
+	cvNamedWindow("warp", 1);
+
+	cvShowImage( "warp", dstgray_image );
+	cvWaitKey(0);
+
+	cvDestroyWindow("warp");
+
+	for( i=1;i<argc;i++)
+	{
+		cvReleaseImage(&src_image[i-1] );
+		cvReleaseImage(&gray_image[i-1] );
+	}
+	cvReleaseImage(&dst_image);
+	cvReleaseImage(&dstgray_image);
+#if 0
+
+
+
 
 	double tt = (double)cvGetTickCount();
-	//计算两个图的特征 返回特征点总数。 特征点和特征点描述符
-	cvExtractSURF( object, 0, &objectKeypoints, &objectDescriptors, storage, params );
-	printf("Object Descriptors: %d\n", objectDescriptors->total);
-	cvExtractSURF( image, 0, &imageKeypoints, &imageDescriptors, storage, params );
-	printf("Image Descriptors: %d\n", imageDescriptors->total);
+
 	//特征计算时间 秒
 	tt = (double)cvGetTickCount() - tt;
 	printf( "Extraction time = %gms\n", tt/(cvGetTickFrequency()*1000.));
@@ -297,11 +431,11 @@ int main(int argc, char** argv)
 	cvZero(dstpp);
 
 
-for(int i=0;i<4;i++)
-{
-dstQuad[i].x +=150;
-dstQuad[i].y +=20;
-}
+	for(int i=0;i<4;i++)
+	{
+		dstQuad[i].x +=150;
+		dstQuad[i].y +=20;
+	}
 
 	cvGetPerspectiveTransform(srcQuad,dstQuad,warp_matrix);
 
@@ -312,11 +446,11 @@ dstQuad[i].y +=20;
 	/*
 
 	CvRect	rect_src = cvRect(200, 200, 256, 256);  
-		cvSetImageROI(dstpp, rect_src);  
-	
+	cvSetImageROI(dstpp, rect_src);  
 
-		cvResetImageROI(dstpp);  
-*/
+
+	cvResetImageROI(dstpp);  
+	*/
 
 
 	cvNamedWindow("warp", 1);
@@ -324,34 +458,11 @@ dstQuad[i].y +=20;
 	cvShowImage( "warp", dstpp );
 
 
-	//计算匹配
-	vector<int> ptpairs;
-#ifdef USE_FLANN
-	flannFindPairs( objectKeypoints, objectDescriptors, imageKeypoints, imageDescriptors, ptpairs );
-#else
-	findPairs( objectKeypoints, objectDescriptors, imageKeypoints, imageDescriptors, ptpairs );
-#endif
-	//画匹配线
-	for( i = 0; i < (int)ptpairs.size(); i += 2 )
-	{
-		CvSURFPoint* r1 = (CvSURFPoint*)cvGetSeqElem( objectKeypoints, ptpairs[i] );
-		CvSURFPoint* r2 = (CvSURFPoint*)cvGetSeqElem( imageKeypoints, ptpairs[i+1] );
-		cvLine( correspond, cvPointFrom32f(r1->pt),
-			cvPoint(cvRound(r2->pt.x), cvRound(r2->pt.y+object->height)), colors[8] );
-	}
-	printf("match num=%d\n",(int)ptpairs.size());
+	cvNamedWindow("Object", 1);
+	cvNamedWindow("Object Correspond", 1);
+
+
 	cvShowImage( "Object Correspond", correspond );
-	//画BOX的特征点
-	for( i = 0; i < objectKeypoints->total; i++ )
-	{
-		CvSURFPoint* r = (CvSURFPoint*)cvGetSeqElem( objectKeypoints, i );
-		CvPoint center;
-		int radius;
-		center.x = cvRound(r->pt.x);
-		center.y = cvRound(r->pt.y);
-		radius = cvRound(r->size*1.2/9.*2);
-		cvCircle( object_color, center, radius, colors[0], 1, 8, 0 );
-	}
 	cvShowImage( "Object", object_color );
 
 	//退出
@@ -360,30 +471,6 @@ dstQuad[i].y +=20;
 	cvDestroyWindow("warp");
 	cvDestroyWindow("Object");
 	cvDestroyWindow("Object Correspond");
-
+#endif
 	return 0;
-}
-
-void WRITEFILE(CvSeq* objectKeypoints)
-{
-	//CvSeq 写入文件
-	CvFileStorage* fileStorage = cvOpenFileStorage("contour.xml",0,CV_STORAGE_WRITE);
-	//contour1 为XML字段标记名
-	cvWrite(fileStorage,"contour1",objectKeypoints);
-	cvReleaseFileStorage(&fileStorage);
-	//从文件中读出
-	CvFileStorage* fs = cvOpenFileStorage("contour.xml",0,CV_STORAGE_READ);
-	CvSeq* contour = (CvSeq*) cvReadByName(fs,NULL,"contour1",NULL);
-	//遇到释放文件  contour1也会被释放
-	cvReleaseFileStorage(&fs);
-
-
-	//另一种写入 读取XML方式
-	CvMemStorage* storage = cvCreateMemStorage(0);
-	const char* attrs[] = {"recursive", "1", 0};
-	cvSave("contours.xml", objectKeypoints, 0, 0, cvAttrList(attrs, 0));
-	//读取
-	objectKeypoints = (CvSeq*)cvLoad("contours.xml", storage, 0, 0);
-
-
 }
