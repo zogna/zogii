@@ -167,7 +167,7 @@ int main( int argc, char** argv )
 
 	IplImage* canny_plane = cvCreateImage(cvGetSize(frame),8,1);
 
-	cvCanny(gray_plane,canny_plane,110,70,3);
+	cvCanny(gray_plane,canny_plane,130,85,3);
 
 	double  minv,maxv;
 
@@ -236,13 +236,19 @@ int main( int argc, char** argv )
 		else
 			break;
 	}
-	//显示
-	cvNamedWindow("src",1);
-	cvMoveWindow("src",0,0);
-	cvShowImage("src",frame);  
+	cvResetImageROI(canny_plane);
 
-	cvWaitKey(0);
-	cvDestroyWindow("src");
+	//默认不显示
+	if(3==argc)
+	{
+		//显示
+		cvNamedWindow("src",1);
+		cvMoveWindow("src",0,0);
+		cvShowImage("src",canny_plane);  
+
+		cvWaitKey(0);
+		cvDestroyWindow("src");
+	}
 
 	//保存成新文件
 	IplImage* newframe = cvCreateImage(cvSize(frame->width-xleft-xright,frame->height-ytop-ybottom),
@@ -252,7 +258,7 @@ int main( int argc, char** argv )
 
 	cvSetImageROI(frame,newrect);
 	cvCopyImage(frame,newframe);
-
+	
 	cvSaveImage( argv[1], frame );
 
 	cvReleaseImage(&frame);
