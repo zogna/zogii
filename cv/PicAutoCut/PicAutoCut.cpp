@@ -24,6 +24,9 @@ int main( int argc, char** argv )
 	cvCvtPixToPlane(frame,b_plane,g_plane,r_plane,0);
 	cvCvtColor(frame,gray_plane,CV_BGR2GRAY);
 
+	//直方图均衡化
+	//cvEqualizeHist(gray_plane,gray_plane);
+
 	int hist_size=256;
 	float range[] = {0,255};
 	float* ranges[]={range};
@@ -32,7 +35,6 @@ int main( int argc, char** argv )
 	CvHistogram* g_hist = cvCreateHist(1,&hist_size,CV_HIST_ARRAY,ranges,1);
 	CvHistogram* b_hist = cvCreateHist(1,&hist_size,CV_HIST_ARRAY,ranges,1);
 	CvHistogram* gray_hist = cvCreateHist(1,&hist_size,CV_HIST_ARRAY,ranges,1);
-
 
 	//CvRect rect={0,0,1,frame->height};
 	//cvSetImageROI(b_plane,rect);
@@ -43,20 +45,54 @@ int main( int argc, char** argv )
 	cvCalcHist( &gray_plane, gray_hist, 0, 0 );
 
 	//归一成1.0为最高
-	cvNormalizeHist(b_hist,1.0);
+	cvNormalizeHist(gray_hist,1.0);
+
+#if 1
+	//替代的功能相同的直方图均衡化算法
+	float F[256];
+	unsigned char G[256];
+
+	for (int i=0;i<hist_size;i++)
+	{
+		float s= cvQueryHistValue_1D(gray_hist,i) *255;
+		if(0==i)
+			F[i]=s;
+		else
+			F[i]=F[i-1]+s;
+	}
+	
+	for (int i=0;i<hist_size;i++)
+		G[i]=(unsigned char)(int)F[i];
+
+	CvMat lookup=cvMat(1,256,CV_8U,G);
+
+	cvLUT(gray_plane,gray_plane,&lookup);
+
+	cvCalcHist( &gray_plane, gray_hist, 0, 0 );
+
+	//归一成1.0为最高
+	cvNormalizeHist(gray_hist,1.0);
+#endif
+
 
 	//获取直方图的最大值和最大值处在的位置
 	float max_value = 0;
 	int max_idx=0;
-	cvGetMinMaxHistValue(b_hist, NULL, &max_value, 0, &max_idx);
+	cvGetMinMaxHistValue(gray_hist, NULL, &max_value, 0, &max_idx);
 
 	double k=0;
 	for (int i=0;i<hist_size;i++)
 	{
-		float  bins= cvQueryHistValue_1D(b_hist,i);
+		float  bins= cvQueryHistValue_1D(gray_hist,i);
 		//	if(i>=179 &&i<=200)
-		k+=bins;
-		printf("%d=%f\n",i,bins);
+	//	k+=bins;
+	//	printf("%d=%f\n",i,bins);
+		printf("%d=%f",i,bins);
+		for(int j=0;j<(int)(bins/0.0001);j++)
+		{
+			printf("-");
+		}
+		printf("\n");
 
 	}
 	printf("%f",k);
@@ -152,6 +188,7 @@ int XCut(double stopv,double cutv,int curx,CvHistogram* gray_hist,IplImage* gray
 
 #endif 
 
+#if 1
 //命令模式： 程序名 文件名1 文件名2.。。。。。
 int main( int argc, char** argv ) 
 {
@@ -265,3 +302,5 @@ int main( int argc, char** argv )
 	return 0;
 
 }
+
+#endif

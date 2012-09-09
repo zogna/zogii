@@ -427,6 +427,7 @@ int main(int argc, char** argv)
 
 		double h[9];
 		CvMat _h = cvMat(3, 3, CV_64F, h);
+	
 		vector<int> ptpairs;
 		CvPoint2D32f src_corners[4] = {{0,0}, {gray_image[i-1]->width,0}, {gray_image[i-1]->width, gray_image[i-1]->height}, {0, gray_image[i-1]->height}};
 		CvPoint2D32f dst_corners[4];
@@ -477,6 +478,8 @@ int main(int argc, char** argv)
 
 	cvDestroyWindow("warp");
 
+	cvSaveImage( "dst.jpg", dst_image );
+
 	for( i=1;i<argc;i++)
 	{
 		cvReleaseImage(&src_image[i-1] );
@@ -484,91 +487,6 @@ int main(int argc, char** argv)
 	}
 	cvReleaseImage(&dst_image);
 	cvReleaseImage(&dstgray_image);
-#if 0
 
-
-
-
-	double tt = (double)cvGetTickCount();
-
-	//特征计算时间 秒
-	tt = (double)cvGetTickCount() - tt;
-	printf( "Extraction time = %gms\n", tt/(cvGetTickFrequency()*1000.));
-	//下面将两个图片载合并载到一个大图片里。方便显示
-	CvPoint src_corners[4] = {{0,0}, {object->width,0}, {object->width, object->height}, {0, object->height}};
-	CvPoint dst_corners[4];
-	IplImage* correspond = cvCreateImage( cvSize(image->width, object->height+image->height), 8, 1);
-	cvSetImageROI( correspond, cvRect( 0, 0, object->width, object->height ) );
-	cvCopy( object, correspond );
-	cvSetImageROI( correspond, cvRect( 0, object->height, correspond->width, correspond->height ) );
-	cvCopy( image, correspond );
-	cvResetImageROI( correspond );
-
-#ifdef USE_FLANN
-	printf("Using approximate nearest neighbor search USE_FLANN\n");
-#endif
-	//	画平行四边形
-	if( locatePlanarObject( objectKeypoints, objectDescriptors, imageKeypoints,
-		imageDescriptors, src_corners, dst_corners ))
-	{
-		for( i = 0; i < 4; i++ )
-		{
-			CvPoint r1 = dst_corners[i%4];
-			CvPoint r2 = dst_corners[(i+1)%4];
-			cvLine( correspond, cvPoint(r1.x, r1.y+object->height ),
-				cvPoint(r2.x, r2.y+object->height ), colors[8] );
-		}
-
-	}
-	/////////////////////////////透视变换
-	CvPoint2D32f srcQuad[4]={cvPointTo32f(src_corners[0]),cvPointTo32f(src_corners[1]),cvPointTo32f(src_corners[2]),cvPointTo32f(src_corners[3])};
-	CvPoint2D32f dstQuad[4]={cvPointTo32f(dst_corners[0]),cvPointTo32f(dst_corners[1]),cvPointTo32f(dst_corners[2]),cvPointTo32f(dst_corners[3])};
-
-	CvMat* warp_matrix=cvCreateMat(3,3,CV_32FC1);
-	IplImage *dstpp= cvCreateImage(cvSize(512,512), 8, 1);
-	cvZero(dstpp);
-
-
-	for(int i=0;i<4;i++)
-	{
-		dstQuad[i].x +=150;
-		dstQuad[i].y +=20;
-	}
-
-	cvGetPerspectiveTransform(srcQuad,dstQuad,warp_matrix);
-
-	cvWarpPerspective (object,dstpp,warp_matrix);
-
-	//cvWarpPerspective (object,dstpp,&_h);
-
-	/*
-
-	CvRect	rect_src = cvRect(200, 200, 256, 256);  
-	cvSetImageROI(dstpp, rect_src);  
-
-
-	cvResetImageROI(dstpp);  
-	*/
-
-
-	cvNamedWindow("warp", 1);
-
-	cvShowImage( "warp", dstpp );
-
-
-	cvNamedWindow("Object", 1);
-	cvNamedWindow("Object Correspond", 1);
-
-
-	cvShowImage( "Object Correspond", correspond );
-	cvShowImage( "Object", object_color );
-
-	//退出
-	cvWaitKey(0);
-
-	cvDestroyWindow("warp");
-	cvDestroyWindow("Object");
-	cvDestroyWindow("Object Correspond");
-#endif
 	return 0;
 }
