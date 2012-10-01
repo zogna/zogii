@@ -1,3 +1,12 @@
+struct pic
+{
+	//图片目录
+	char path[260];
+	//图片作者来源
+	char info[260];
+
+};
+
 struct 瓢虫
 {
 	//亚科名
@@ -19,9 +28,9 @@ struct 瓢虫
 
 	//发现者名字 年代
 	char DiscoveryName[128];
-	int DiscoveryYear;
+
 	//发现地地图 图片
-	char Discoverypic[260];	
+	struct pic Discoverymap;
 
 	//基本信息文档目录
 	char enText[260];
@@ -40,8 +49,8 @@ struct 成年
 	int Villus; 
 	//是否有斑点 0无 1有斑点或条纹 2竖状条纹
 	int Spot;
-	//图片目录
-	char pic[260];
+
+	struct pic photo;
 };
 
 struct 卵
@@ -52,7 +61,7 @@ struct 卵
 	//颜色
 	int color[5];
 	//图片目录
-	char pic[260];
+	struct pic photo;
 };
 
 struct 蛹
@@ -63,7 +72,7 @@ struct 蛹
 	//颜色
 	int color[5];
 	//图片目录
-	char pic[260];
+	struct pic photo;
 };
 
 struct 幼虫
@@ -74,5 +83,5 @@ struct 幼虫
 	//颜色
 	int color[5];
 	//图片目录
-	char pic[260];
+	struct pic photo;
 };
