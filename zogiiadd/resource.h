@@ -15,6 +15,7 @@
 #define IDC_COMBO2                      1008
 #define IDC_COMBO3                      1009
 #define IDC_COMBO4                      1010
+#define IDC_COMBO10                     1011
 #define IDC_BUTTON1                     1012
 #define IDC_BUTTON2                     1013
 #define IDC_EDIT15                      1014
@@ -22,6 +23,7 @@
 #define IDC_BUTTON4                     1016
 #define IDC_EDIT16                      1017
 #define IDC_BUTTON5                     1018
+#define IDC_BUTTON13                    1019
 #define IDC_EDIT18                      1020
 #define IDC_EDIT7                       1021
 #define IDC_EDIT8                       1022
@@ -48,15 +50,49 @@
 #define IDC_BUTTON10                    1043
 #define IDC_BUTTON11                    1044
 #define IDC_BUTTON12                    1045
+#define IDC_BUTTON15                    1046
 #define IDC_BUTTON14                    1047
+#define IDC_COMBO11                     1048
+#define IDC_COMBO9                      1049
+#define IDC_COMBO15                     1053
+#define IDC_EDIT23                      1055
+#define IDC_EDIT24                      1056
+#define IDC_BUTTON16                    1057
+#define IDC_BUTTON17                    1058
+#define IDC_BUTTON18                    1059
+#define IDC_BUTTON19                    1060
+#define IDC_COMBO12                     1061
+#define IDC_COMBO14                     1063
+#define IDC_COMBO16                     1064
+#define IDC_COMBO17                     1065
+#define IDC_COMBO18                     1066
+#define IDC_COMBO19                     1067
+#define IDC_EDIT25                      1068
+#define IDC_EDIT26                      1069
+#define IDC_BUTTON20                    1070
+#define IDC_BUTTON21                    1071
+#define IDC_COMBO20                     1072
+#define IDC_BUTTON22                    1073
+#define IDC_BUTTON23                    1074
+#define IDC_COMBO13                     1075
+#define IDC_COMBO21                     1076
+#define IDC_COMBO22                     1079
+#define IDC_EDIT27                      1080
+#define IDC_EDIT28                      1081
+#define IDC_EDIT29                      1082
+#define IDC_EDIT30                      1083
+#define IDC_EDIT31                      1085
+#define IDC_EDIT32                      1086
+#define IDC_EDIT33                      1087
+#define IDC_BUTTON24                    1089
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        129
+#define _APS_NEXT_RESOURCE_VALUE        130
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1047
+#define _APS_NEXT_CONTROL_VALUE         1050
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
