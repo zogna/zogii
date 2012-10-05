@@ -54,7 +54,11 @@
 #define IDC_BUTTON14                    1047
 #define IDC_COMBO11                     1048
 #define IDC_COMBO9                      1049
+#define IDC_COMBO23                     1050
+#define IDC_COMBO24                     1051
+#define IDC_COMBO26                     1052
 #define IDC_COMBO15                     1053
+#define IDC_COMBO25                     1054
 #define IDC_EDIT23                      1055
 #define IDC_EDIT24                      1056
 #define IDC_BUTTON16                    1057
@@ -62,6 +66,7 @@
 #define IDC_BUTTON18                    1059
 #define IDC_BUTTON19                    1060
 #define IDC_COMBO12                     1061
+#define IDC_EDIT34                      1062
 #define IDC_COMBO14                     1063
 #define IDC_COMBO16                     1064
 #define IDC_COMBO17                     1065
@@ -76,15 +81,30 @@
 #define IDC_BUTTON23                    1074
 #define IDC_COMBO13                     1075
 #define IDC_COMBO21                     1076
+#define IDC_EDIT35                      1077
+#define IDC_BUTTON25                    1078
 #define IDC_COMBO22                     1079
 #define IDC_EDIT27                      1080
+#define IDC_BUTTON26                    1080
 #define IDC_EDIT28                      1081
 #define IDC_EDIT29                      1082
 #define IDC_EDIT30                      1083
+#define IDC_BUTTON27                    1084
 #define IDC_EDIT31                      1085
 #define IDC_EDIT32                      1086
 #define IDC_EDIT33                      1087
+#define IDC_BUTTON28                    1088
 #define IDC_BUTTON24                    1089
+#define IDC_COMBO27                     1090
+#define IDC_COMBO28                     1091
+#define IDC_COMBO29                     1092
+#define IDC_EDIT36                      1093
+#define IDC_EDIT37                      1094
+#define IDC_EDIT38                      1095
+#define IDC_EDIT39                      1096
+#define IDC_EDIT40                      1097
+#define IDC_EDIT41                      1098
+#define IDC_BUTTON29                    1099
 
 // Next default values for new objects
 // 
