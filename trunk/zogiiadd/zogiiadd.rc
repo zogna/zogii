@@ -74,7 +74,8 @@ IDR_MAINFRAME           ICON    DISCARDABLE     "res\\zogiiadd.ico"
 //
 
 IDD_ZOGIIADD_DIALOG DIALOGEX 0, 0, 672, 441
-STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+STYLE DS_MODALFRAME | DS_3DLOOK | DS_CENTER | WS_MINIMIZEBOX | WS_POPUP | 
+    WS_VISIBLE | WS_CAPTION | WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "zogiiadd"
 FONT 9, "宋体"
@@ -82,43 +83,43 @@ BEGIN
     CONTROL         "Tree1",IDC_TREE,"SysTreeView32",TVS_HASBUTTONS | 
                     TVS_HASLINES | TVS_LINESATROOT | TVS_SHOWSELALWAYS | 
                     TVS_NOTOOLTIPS | WS_BORDER | WS_TABSTOP,8,7,159,427
-    EDITTEXT        IDC_EDIT1,207,17,144,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT2,207,33,144,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT3,387,17,144,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT4,387,32,144,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SubFamilyEN,207,17,144,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SubFamilyCN,207,33,144,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_GenusEN,387,17,144,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_GenusCN,387,32,144,12,ES_AUTOHSCROLL
     GROUPBOX        "基本信息",IDC_STATIC,172,7,493,162
-    EDITTEXT        IDC_EDIT5,207,47,144,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT6,387,47,144,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT7,207,64,144,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT8,207,79,144,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT9,387,64,144,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT10,387,79,144,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT11,207,93,144,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT12,387,93,144,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT13,246,108,285,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT14,215,122,233,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT17,215,137,314,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SubFamilyTW,207,47,144,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_GenusTW,387,47,144,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_NameEN,207,64,144,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_NameCN,207,79,144,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SpNameEN,387,64,144,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SpNameCN,387,79,144,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_NameTW,207,93,144,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_SpNameTW,387,93,144,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_DiscoveryName,246,108,285,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_DiscoveryPicPath,215,122,233,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_DiscoveryPicInfo,215,137,314,12,ES_AUTOHSCROLL
     GROUPBOX        "成年",IDC_STATIC,172,173,196,140
-    COMBOBOX        IDC_COMBO1,200,185,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
-    COMBOBOX        IDC_COMBO2,213,215,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
-    COMBOBOX        IDC_COMBO3,316,199,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
-    COMBOBOX        IDC_COMBO4,200,199,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
-    COMBOBOX        IDC_COMBO5,265,215,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
-    COMBOBOX        IDC_COMBO6,316,215,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
-    COMBOBOX        IDC_COMBO7,316,231,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
-    COMBOBOX        IDC_COMBO8,316,183,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
-    EDITTEXT        IDC_EDIT20,200,249,163,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT21,200,279,163,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "添加",IDC_BUTTON1,341,295,21,14
-    PUSHBUTTON      "删除",IDC_BUTTON2,176,295,21,14
+    COMBOBOX        IDC_COMBO_ImagoSex,200,182,48,63,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_ImagoColorA,213,215,48,96,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_ImagoVillus,316,199,48,87,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_ImagoTexture,200,199,48,64,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_ImagoColorB,265,215,48,97,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_ImagoColorC,316,215,48,99,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_ImagoColorD,316,231,48,76,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_ImagoNo,316,183,48,92,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT_ImagoPicPath,200,249,163,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ImagoPicInfo,200,279,163,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "添加",IDC_BUTTON_SaveImago,341,295,21,14
+    PUSHBUTTON      "删除",IDC_BUTTON_DeleteImago,176,295,21,14
     LTEXT           "性别",IDC_STATIC,178,187,17,8
     LTEXT           "颜色数量",IDC_STATIC,178,231,33,8
     LTEXT           "亚科EN",IDC_STATIC,178,19,25,8
@@ -136,139 +137,141 @@ BEGIN
     LTEXT           "命名者名字,年代;",IDC_STATIC,178,109,65,8
     LTEXT           "发现地图",IDC_STATIC,177,124,33,8
     LTEXT           "地图来源",IDC_STATIC,177,138,33,8
-    EDITTEXT        IDC_EDIT15,273,151,79,14,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_EDIT_Code,273,151,79,14,ES_AUTOHSCROLL | WS_DISABLED
     LTEXT           "数据内部编号",IDC_STATIC,219,155,49,8
-    PUSHBUTTON      "选择文件路径",IDC_BUTTON3,451,120,53,14
-    PUSHBUTTON      "保存本类信息",IDC_BUTTON4,606,152,53,14
+    PUSHBUTTON      "选择文件路径",IDC_BUTTON_DiscoveryPicPath,451,120,53,14
+    PUSHBUTTON      "保存本类信息",IDC_BUTTON_SaveData,606,152,53,14
     LTEXT           "基本信息EN",IDC_STATIC,536,20,41,8
     LTEXT           "基本信息CN",IDC_STATIC,533,51,41,8
     LTEXT           "基本信息TW",IDC_STATIC,533,88,41,8
-    EDITTEXT        IDC_EDIT16,534,34,125,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "选择文件路径",IDC_BUTTON5,579,17,53,14
-    EDITTEXT        IDC_EDIT18,534,69,125,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "选择文件路径",IDC_BUTTON6,579,51,55,14
-    EDITTEXT        IDC_EDIT19,534,105,125,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "选择文件路径",IDC_BUTTON7,579,87,55,14
+    EDITTEXT        IDC_EDIT_TextENPath,534,34,125,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "选择文件路径",IDC_BUTTON_TextENPath,579,17,53,14
+    EDITTEXT        IDC_EDIT_TextCNPath,534,69,125,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "选择文件路径",IDC_BUTTON_TextCNPath,579,51,55,14
+    EDITTEXT        IDC_EDIT_TextTWPath,534,105,125,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "选择文件路径",IDC_BUTTON_TextTWPath,579,87,55,14
     LTEXT           "数据最后更新时间",IDC_STATIC,367,154,65,8
-    CONTROL         "DateTimePicker1",IDC_DATETIMEPICKER1,"SysDateTimePick32",
-                    DTS_RIGHTALIGN | WS_TABSTOP,435,151,60,15
+    CONTROL         "DateTimePicker1",IDC_DATETIMEPICKER_Date,
+                    "SysDateTimePick32",DTS_RIGHTALIGN | WS_TABSTOP,435,151,
+                    60,15
     LTEXT           "纹理",IDC_STATIC,178,199,17,8
     LTEXT           "图片",IDC_STATIC,178,251,17,8
     LTEXT           "来源",IDC_STATIC,178,281,17,8
     LTEXT           "序号",IDC_STATIC,293,185,17,8
-    PUSHBUTTON      "查看",IDC_BUTTON8,509,120,21,14
-    PUSHBUTTON      "查看",IDC_BUTTON9,637,17,21,14
-    PUSHBUTTON      "查看",IDC_BUTTON10,637,51,21,14
-    PUSHBUTTON      "查看",IDC_BUTTON11,637,87,21,14
-    PUSHBUTTON      "删除",IDC_BUTTON12,175,151,21,14
+    PUSHBUTTON      "查看",IDC_BUTTON_DiscoveryPicView,509,120,21,14
+    PUSHBUTTON      "查看",IDC_BUTTON_TextENView,637,17,21,14
+    PUSHBUTTON      "查看",IDC_BUTTON_TextCNView,637,51,21,14
+    PUSHBUTTON      "查看",IDC_BUTTON_TextTWView,637,87,21,14
+    PUSHBUTTON      "删除",IDC_BUTTON_DeleteData,175,151,21,14
     LTEXT           "导出",IDC_STATIC,533,124,17,8
-    EDITTEXT        IDC_EDIT22,534,137,125,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "选择导出路径",IDC_BUTTON14,601,120,55,14
-    COMBOBOX        IDC_COMBO9,213,231,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
+    EDITTEXT        IDC_EDIT_DataOutputPath,534,137,125,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "选择导出路径",IDC_BUTTON_DataOutputPath,579,120,55,14
+    COMBOBOX        IDC_COMBO_ImagoColorNum,213,231,48,79,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
     LTEXT           "颜色种类",IDC_STATIC,178,215,33,8
     LTEXT           "绒毛",IDC_STATIC,293,201,17,8
-    PUSHBUTTON      "选择文件路径",IDC_BUTTON13,283,263,53,14
-    PUSHBUTTON      "查看",IDC_BUTTON15,341,263,21,14
+    PUSHBUTTON      "选择文件路径",IDC_BUTTON_ImagoPicPath,283,263,53,14
+    PUSHBUTTON      "查看",IDC_BUTTON_ImagoPicView,341,263,21,14
     GROUPBOX        "卵",IDC_STATIC,173,315,194,105
-    COMBOBOX        IDC_COMBO10,197,323,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
-    COMBOBOX        IDC_COMBO11,197,339,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
-    COMBOBOX        IDC_COMBO15,311,323,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
+    COMBOBOX        IDC_COMBO_OvumSex,197,323,48,72,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_OvumColor,197,339,48,81,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_OvumNo,311,323,48,97,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
     LTEXT           "性别",IDC_STATIC,177,325,17,8
     LTEXT           "颜色",IDC_STATIC,177,343,17,8
-    EDITTEXT        IDC_EDIT23,197,353,163,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT24,197,385,163,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "添加",IDC_BUTTON16,339,399,21,14
-    PUSHBUTTON      "删除",IDC_BUTTON17,177,399,21,14
+    EDITTEXT        IDC_EDIT_OvumPicPath,197,353,163,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_OvumPicInfo,197,385,163,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "添加",IDC_BUTTON_SaveOvum,339,399,21,14
+    PUSHBUTTON      "删除",IDC_BUTTON_DeleteOvum,177,399,21,14
     LTEXT           "图片",IDC_STATIC,177,357,17,8
     LTEXT           "来源",IDC_STATIC,177,385,17,8
-    PUSHBUTTON      "选择文件路径",IDC_BUTTON18,281,367,53,14
-    PUSHBUTTON      "查看",IDC_BUTTON19,339,367,21,14
+    PUSHBUTTON      "选择文件路径",IDC_BUTTON_OvumPicPath,281,367,53,14
+    PUSHBUTTON      "查看",IDC_BUTTON_OvumPicView,339,367,21,14
     LTEXT           "序号",IDC_STATIC,290,327,17,8
-    GROUPBOX        "幼虫",IDC_STATIC,375,173,196,140
-    COMBOBOX        IDC_COMBO12,403,183,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
-    COMBOBOX        IDC_COMBO14,403,199,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
-    COMBOBOX        IDC_COMBO16,469,215,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
-    COMBOBOX        IDC_COMBO17,519,215,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
-    COMBOBOX        IDC_COMBO18,519,229,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
-    COMBOBOX        IDC_COMBO19,519,181,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
-    EDITTEXT        IDC_EDIT25,403,247,163,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT26,403,279,163,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "添加",IDC_BUTTON20,545,293,21,14
-    PUSHBUTTON      "删除",IDC_BUTTON21,379,293,21,14
-    LTEXT           "性别",IDC_STATIC,381,185,17,8
-    LTEXT           "颜色数量",IDC_STATIC,381,229,33,8
-    LTEXT           "棘刺",IDC_STATIC,381,199,17,8
-    LTEXT           "图片",IDC_STATIC,381,251,17,8
-    LTEXT           "来源",IDC_STATIC,381,279,17,8
-    LTEXT           "序号",IDC_STATIC,497,185,17,8
-    COMBOBOX        IDC_COMBO20,417,229,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
-    LTEXT           "颜色种类",IDC_STATIC,381,215,33,8
-    PUSHBUTTON      "选择文件路径",IDC_BUTTON22,487,261,53,14
-    PUSHBUTTON      "查看",IDC_BUTTON23,545,261,21,14
-    COMBOBOX        IDC_COMBO13,417,213,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
-    COMBOBOX        IDC_COMBO21,519,197,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
-    LTEXT           "龄期",IDC_STATIC,497,199,17,8
-    GROUPBOX        "食物",IDC_STATIC,577,173,88,128
-    COMBOBOX        IDC_COMBO22,600,183,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
+    GROUPBOX        "幼虫",IDC_STATIC,373,173,196,140
+    COMBOBOX        IDC_COMBO_LarvaSex,401,183,48,64,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_LarvaCalthrop,401,199,48,102,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_LarvaColorB,467,215,48,96,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_LarvaColorC,517,215,48,98,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_LarvaColorD,517,231,48,72,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_LarvaNo,517,181,48,126,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    EDITTEXT        IDC_EDIT_LarvaPicPath,401,249,163,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_LarvaPicInfo,401,279,163,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "添加",IDC_BUTTON_SaveLarva,543,295,21,14
+    PUSHBUTTON      "删除",IDC_BUTTON_DeleteLarva,377,295,21,14
+    LTEXT           "性别",IDC_STATIC,379,185,17,8
+    LTEXT           "颜色数量",IDC_STATIC,379,231,33,8
+    LTEXT           "棘刺",IDC_STATIC,379,199,17,8
+    LTEXT           "图片",IDC_STATIC,379,251,17,8
+    LTEXT           "来源",IDC_STATIC,379,279,17,8
+    LTEXT           "序号",IDC_STATIC,495,185,17,8
+    COMBOBOX        IDC_COMBO_LarvaColorNum,415,231,48,80,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "颜色种类",IDC_STATIC,379,215,33,8
+    PUSHBUTTON      "选择文件路径",IDC_BUTTON_LarvaPicPath,485,263,53,14
+    PUSHBUTTON      "查看",IDC_BUTTON_LarvaPicView,543,263,21,14
+    COMBOBOX        IDC_COMBO_LarvaColorA,415,215,48,97,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_LarvaInstar,517,197,48,109,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "龄期",IDC_STATIC,495,199,17,8
+    GROUPBOX        "食物",IDC_STATIC,573,173,92,128
+    COMBOBOX        IDC_COMBO_Food,600,183,48,76,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
     LTEXT           "类别",IDC_STATIC,580,187,17,8
-    EDITTEXT        IDC_EDIT28,600,199,59,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_FoodNameA,600,199,59,12,ES_AUTOHSCROLL
     LTEXT           "名称",IDC_STATIC,579,201,17,8
-    EDITTEXT        IDC_EDIT29,600,213,59,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT30,600,227,59,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT31,600,241,59,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT32,600,255,59,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT33,600,269,59,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "保存本类信息",IDC_BUTTON24,605,283,53,14
+    EDITTEXT        IDC_EDIT_FoodNameB,578,213,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_FoodNameC,578,227,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_FoodNameD,578,241,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_FoodNameE,578,255,81,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_FoodNameF,578,269,81,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "保存本类信息",IDC_BUTTON_SaveFood,605,283,53,14
     GROUPBOX        "蛹",IDC_STATIC,374,315,191,119
-    COMBOBOX        IDC_COMBO23,398,323,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
-    COMBOBOX        IDC_COMBO25,513,321,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
+    COMBOBOX        IDC_COMBO_PupaSex,398,323,48,73,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_PupaNo,513,321,48,113,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
     LTEXT           "性别",IDC_STATIC,378,325,17,8
-    EDITTEXT        IDC_EDIT34,398,369,163,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT35,398,400,163,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "添加",IDC_BUTTON25,540,414,21,14
-    PUSHBUTTON      "删除",IDC_BUTTON26,378,414,21,14
+    EDITTEXT        IDC_EDIT_PupaPicPath,398,369,163,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_PupaPicInfo,398,400,163,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "添加",IDC_BUTTON_SavePupa,540,414,21,14
+    PUSHBUTTON      "删除",IDC_BUTTON_DeletePupa,378,414,21,14
     LTEXT           "图片",IDC_STATIC,378,373,17,8
     LTEXT           "来源",IDC_STATIC,378,400,17,8
-    PUSHBUTTON      "选择文件路径",IDC_BUTTON27,482,383,53,14
-    PUSHBUTTON      "查看",IDC_BUTTON28,540,383,21,14
+    PUSHBUTTON      "选择文件路径",IDC_BUTTON_PupaPicPath,482,383,53,14
+    PUSHBUTTON      "查看",IDC_BUTTON_PupaPicView,540,383,21,14
     LTEXT           "序号",IDC_STATIC,493,323,17,8
-    COMBOBOX        IDC_COMBO24,411,337,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
-    COMBOBOX        IDC_COMBO26,463,337,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
-    COMBOBOX        IDC_COMBO27,513,337,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
-    COMBOBOX        IDC_COMBO28,513,353,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
+    COMBOBOX        IDC_COMBO_PupaColorA,411,337,48,97,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_PupaColorB,463,337,48,97,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_PupaColorC,513,337,48,97,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    COMBOBOX        IDC_COMBO_PupaColorD,513,353,48,81,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
     LTEXT           "颜色数量",IDC_STATIC,378,353,33,8
-    COMBOBOX        IDC_COMBO29,411,353,48,30,CBS_DROPDOWNLIST | WS_VSCROLL | 
-                    WS_TABSTOP
+    COMBOBOX        IDC_COMBO_PupaColorNum,411,353,48,81,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
     LTEXT           "颜色种类",IDC_STATIC,378,341,33,8
     GROUPBOX        "别名",IDC_STATIC,570,312,95,122
-    EDITTEXT        IDC_EDIT36,575,322,83,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT37,575,337,83,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT38,575,353,83,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT39,575,368,83,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT40,575,384,83,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT41,575,398,83,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "保存本类信息",IDC_BUTTON29,606,414,53,14
+    EDITTEXT        IDC_EDIT_OtherNameA,575,322,83,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_OtherNameB,575,337,83,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_OtherNameC,575,353,83,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_OtherNameD,575,368,83,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_OtherNameE,575,384,83,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_OtherNameF,575,398,83,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "保存本类信息",IDC_BUTTON_SaveOtherName,606,414,53,14
     LTEXT           "contact me:gbaup_01@163.com  ",IDC_STATIC,177,423,180,8
+    PUSHBUTTON      "导出",IDC_BUTTON_DataOutput,638,120,21,14
 END
 
 
@@ -341,567 +344,565 @@ END
 
 IDD_ZOGIIADD_DIALOG DLGINIT
 BEGIN
-    IDC_COMBO1, 0x403, 5, 0
+    IDC_COMBO_ImagoSex, 0x403, 5, 0
 0xb4ce, 0xaad6, "\000" 
-    IDC_COMBO1, 0x403, 3, 0
+    IDC_COMBO_ImagoSex, 0x403, 3, 0
 0xdbd0, "\000" 
-    IDC_COMBO1, 0x403, 3, 0
+    IDC_COMBO_ImagoSex, 0x403, 3, 0
 0xc6b4, "\000" 
-    IDC_COMBO2, 0x403, 7, 0
+    IDC_COMBO_ImagoColorA, 0x403, 7, 0
 0xfbc4, 0xcac3, 0xc6bb, "\000" 
-    IDC_COMBO2, 0x403, 5, 0
+    IDC_COMBO_ImagoColorA, 0x403, 5, 0
 0xc8b3, 0xc6bb, "\000" 
-    IDC_COMBO2, 0x403, 3, 0
+    IDC_COMBO_ImagoColorA, 0x403, 3, 0
 0xecba, "\000" 
-    IDC_COMBO2, 0x403, 3, 0
+    IDC_COMBO_ImagoColorA, 0x403, 3, 0
 0xb6c0, "\000" 
-    IDC_COMBO2, 0x403, 3, 0
+    IDC_COMBO_ImagoColorA, 0x403, 3, 0
 0xccc2, "\000" 
-    IDC_COMBO2, 0x403, 3, 0
+    IDC_COMBO_ImagoColorA, 0x403, 3, 0
 0xdaba, "\000" 
-    IDC_COMBO2, 0x403, 3, 0
+    IDC_COMBO_ImagoColorA, 0x403, 3, 0
 0xd7b0, "\000" 
-    IDC_COMBO2, 0x403, 3, 0
+    IDC_COMBO_ImagoColorA, 0x403, 3, 0
 0xd3d0, "\000" 
-    IDC_COMBO2, 0x403, 3, 0
+    IDC_COMBO_ImagoColorA, 0x403, 3, 0
 0xd6ba, "\000" 
-    IDC_COMBO2, 0x403, 5, 0
+    IDC_COMBO_ImagoColorA, 0x403, 5, 0
 0xf8d2, 0xd2bb, "\000" 
-    IDC_COMBO3, 0x403, 7, 0
+    IDC_COMBO_ImagoVillus, 0x403, 7, 0
 0xdece, 0xdec8, 0xabc3, "\000" 
-    IDC_COMBO3, 0x403, 7, 0
+    IDC_COMBO_ImagoVillus, 0x403, 7, 0
 0xd0d3, 0xdec8, 0xabc3, "\000" 
-    IDC_COMBO4, 0x403, 3, 0
+    IDC_COMBO_ImagoTexture, 0x403, 3, 0
 0xdece, "\000" 
-    IDC_COMBO4, 0x403, 5, 0
+    IDC_COMBO_ImagoTexture, 0x403, 5, 0
 0xf5cc, 0xc6ce, "\000" 
-    IDC_COMBO4, 0x403, 5, 0
+    IDC_COMBO_ImagoTexture, 0x403, 5, 0
 0xdfb0, 0xe3b5, "\000" 
-    IDC_COMBO4, 0x403, 10, 0
+    IDC_COMBO_ImagoTexture, 0x403, 10, 0
 0xdfb0, 0xe3b5, 0xcc2b, 0xcef5, 0x00c6, 
-    IDC_COMBO5, 0x403, 7, 0
+    IDC_COMBO_ImagoColorB, 0x403, 7, 0
 0xfbc4, 0xcac3, 0xc6bb, "\000" 
-    IDC_COMBO5, 0x403, 5, 0
+    IDC_COMBO_ImagoColorB, 0x403, 5, 0
 0xc8b3, 0xc6bb, "\000" 
-    IDC_COMBO5, 0x403, 3, 0
+    IDC_COMBO_ImagoColorB, 0x403, 3, 0
 0xecba, "\000" 
-    IDC_COMBO5, 0x403, 3, 0
+    IDC_COMBO_ImagoColorB, 0x403, 3, 0
 0xb6c0, "\000" 
-    IDC_COMBO5, 0x403, 3, 0
+    IDC_COMBO_ImagoColorB, 0x403, 3, 0
 0xccc2, "\000" 
-    IDC_COMBO5, 0x403, 3, 0
+    IDC_COMBO_ImagoColorB, 0x403, 3, 0
 0xdaba, "\000" 
-    IDC_COMBO5, 0x403, 3, 0
+    IDC_COMBO_ImagoColorB, 0x403, 3, 0
 0xd7b0, "\000" 
-    IDC_COMBO5, 0x403, 3, 0
+    IDC_COMBO_ImagoColorB, 0x403, 3, 0
 0xd3d0, "\000" 
-    IDC_COMBO5, 0x403, 3, 0
+    IDC_COMBO_ImagoColorB, 0x403, 3, 0
 0xd6ba, "\000" 
-    IDC_COMBO5, 0x403, 5, 0
+    IDC_COMBO_ImagoColorB, 0x403, 5, 0
 0xf8d2, 0xd2bb, "\000" 
-    IDC_COMBO6, 0x403, 7, 0
+    IDC_COMBO_ImagoColorC, 0x403, 7, 0
 0xfbc4, 0xcac3, 0xc6bb, "\000" 
-    IDC_COMBO6, 0x403, 5, 0
+    IDC_COMBO_ImagoColorC, 0x403, 5, 0
 0xc8b3, 0xc6bb, "\000" 
-    IDC_COMBO6, 0x403, 3, 0
+    IDC_COMBO_ImagoColorC, 0x403, 3, 0
 0xecba, "\000" 
-    IDC_COMBO6, 0x403, 3, 0
+    IDC_COMBO_ImagoColorC, 0x403, 3, 0
 0xb6c0, "\000" 
-    IDC_COMBO6, 0x403, 3, 0
+    IDC_COMBO_ImagoColorC, 0x403, 3, 0
 0xccc2, "\000" 
-    IDC_COMBO6, 0x403, 3, 0
+    IDC_COMBO_ImagoColorC, 0x403, 3, 0
 0xdaba, "\000" 
-    IDC_COMBO6, 0x403, 3, 0
+    IDC_COMBO_ImagoColorC, 0x403, 3, 0
 0xd7b0, "\000" 
-    IDC_COMBO6, 0x403, 3, 0
+    IDC_COMBO_ImagoColorC, 0x403, 3, 0
 0xd3d0, "\000" 
-    IDC_COMBO6, 0x403, 3, 0
+    IDC_COMBO_ImagoColorC, 0x403, 3, 0
 0xd6ba, "\000" 
-    IDC_COMBO6, 0x403, 5, 0
+    IDC_COMBO_ImagoColorC, 0x403, 5, 0
 0xf8d2, 0xd2bb, "\000" 
-    IDC_COMBO7, 0x403, 7, 0
+    IDC_COMBO_ImagoColorD, 0x403, 7, 0
 0xfbc4, 0xcac3, 0xc6bb, "\000" 
-    IDC_COMBO7, 0x403, 5, 0
+    IDC_COMBO_ImagoColorD, 0x403, 5, 0
 0xc8b3, 0xc6bb, "\000" 
-    IDC_COMBO7, 0x403, 3, 0
+    IDC_COMBO_ImagoColorD, 0x403, 3, 0
 0xecba, "\000" 
-    IDC_COMBO7, 0x403, 3, 0
+    IDC_COMBO_ImagoColorD, 0x403, 3, 0
 0xb6c0, "\000" 
-    IDC_COMBO7, 0x403, 3, 0
+    IDC_COMBO_ImagoColorD, 0x403, 3, 0
 0xccc2, "\000" 
-    IDC_COMBO7, 0x403, 3, 0
+    IDC_COMBO_ImagoColorD, 0x403, 3, 0
 0xdaba, "\000" 
-    IDC_COMBO7, 0x403, 3, 0
+    IDC_COMBO_ImagoColorD, 0x403, 3, 0
 0xd7b0, "\000" 
-    IDC_COMBO7, 0x403, 3, 0
+    IDC_COMBO_ImagoColorD, 0x403, 3, 0
 0xd3d0, "\000" 
-    IDC_COMBO7, 0x403, 3, 0
+    IDC_COMBO_ImagoColorD, 0x403, 3, 0
 0xd6ba, "\000" 
-    IDC_COMBO7, 0x403, 5, 0
+    IDC_COMBO_ImagoColorD, 0x403, 5, 0
 0xf8d2, 0xd2bb, "\000" 
-    IDC_COMBO8, 0x403, 2, 0
+    IDC_COMBO_ImagoNo, 0x403, 2, 0
 0x0031, 
-    IDC_COMBO8, 0x403, 2, 0
+    IDC_COMBO_ImagoNo, 0x403, 2, 0
 0x0032, 
-    IDC_COMBO8, 0x403, 2, 0
+    IDC_COMBO_ImagoNo, 0x403, 2, 0
 0x0033, 
-    IDC_COMBO8, 0x403, 2, 0
+    IDC_COMBO_ImagoNo, 0x403, 2, 0
 0x0034, 
-    IDC_COMBO8, 0x403, 2, 0
+    IDC_COMBO_ImagoNo, 0x403, 2, 0
 0x0035, 
-    IDC_COMBO8, 0x403, 2, 0
+    IDC_COMBO_ImagoNo, 0x403, 2, 0
 0x0036, 
-    IDC_COMBO8, 0x403, 2, 0
+    IDC_COMBO_ImagoNo, 0x403, 2, 0
 0x0037, 
-    IDC_COMBO8, 0x403, 2, 0
+    IDC_COMBO_ImagoNo, 0x403, 2, 0
 0x0038, 
-    IDC_COMBO8, 0x403, 2, 0
+    IDC_COMBO_ImagoNo, 0x403, 2, 0
 0x0039, 
-    IDC_COMBO8, 0x403, 3, 0
+    IDC_COMBO_ImagoNo, 0x403, 3, 0
 0x3131, "\000" 
-    IDC_COMBO8, 0x403, 3, 0
+    IDC_COMBO_ImagoNo, 0x403, 3, 0
 0x3231, "\000" 
-    IDC_COMBO8, 0x403, 3, 0
+    IDC_COMBO_ImagoNo, 0x403, 3, 0
 0x3331, "\000" 
-    IDC_COMBO8, 0x403, 3, 0
+    IDC_COMBO_ImagoNo, 0x403, 3, 0
 0x3431, "\000" 
-    IDC_COMBO8, 0x403, 3, 0
+    IDC_COMBO_ImagoNo, 0x403, 3, 0
 0x3531, "\000" 
-    IDC_COMBO8, 0x403, 3, 0
+    IDC_COMBO_ImagoNo, 0x403, 3, 0
 0x3631, "\000" 
-    IDC_COMBO8, 0x403, 3, 0
+    IDC_COMBO_ImagoNo, 0x403, 3, 0
 0x3731, "\000" 
-    IDC_COMBO8, 0x403, 3, 0
+    IDC_COMBO_ImagoNo, 0x403, 3, 0
 0x3831, "\000" 
-    IDC_COMBO8, 0x403, 3, 0
+    IDC_COMBO_ImagoNo, 0x403, 3, 0
 0x3931, "\000" 
-    IDC_COMBO8, 0x403, 3, 0
+    IDC_COMBO_ImagoNo, 0x403, 3, 0
 0x3032, "\000" 
-    IDC_COMBO8, 0x403, 3, 0
+    IDC_COMBO_ImagoNo, 0x403, 3, 0
 0x3132, "\000" 
-    IDC_COMBO8, 0x403, 3, 0
+    IDC_COMBO_ImagoNo, 0x403, 3, 0
 0x3232, "\000" 
-    IDC_COMBO8, 0x403, 3, 0
+    IDC_COMBO_ImagoNo, 0x403, 3, 0
 0x3332, "\000" 
-    IDC_COMBO8, 0x403, 3, 0
+    IDC_COMBO_ImagoNo, 0x403, 3, 0
 0x3432, "\000" 
-    IDC_COMBO9, 0x403, 2, 0
+    IDC_COMBO_ImagoColorNum, 0x403, 2, 0
 0x0030, 
-    IDC_COMBO9, 0x403, 2, 0
+    IDC_COMBO_ImagoColorNum, 0x403, 2, 0
 0x0031, 
-    IDC_COMBO9, 0x403, 2, 0
+    IDC_COMBO_ImagoColorNum, 0x403, 2, 0
 0x0032, 
-    IDC_COMBO9, 0x403, 2, 0
+    IDC_COMBO_ImagoColorNum, 0x403, 2, 0
 0x0033, 
-    IDC_COMBO9, 0x403, 2, 0
+    IDC_COMBO_ImagoColorNum, 0x403, 2, 0
 0x0034, 
-    IDC_COMBO9, 0x403, 2, 0
+    IDC_COMBO_ImagoColorNum, 0x403, 2, 0
 0x0035, 
-    IDC_COMBO9, 0x403, 2, 0
+    IDC_COMBO_ImagoColorNum, 0x403, 2, 0
 0x0036, 
-    IDC_COMBO9, 0x403, 2, 0
+    IDC_COMBO_ImagoColorNum, 0x403, 2, 0
 0x0037, 
-    IDC_COMBO9, 0x403, 2, 0
+    IDC_COMBO_ImagoColorNum, 0x403, 2, 0
 0x0038, 
-    IDC_COMBO9, 0x403, 2, 0
+    IDC_COMBO_ImagoColorNum, 0x403, 2, 0
 0x0039, 
-    IDC_COMBO10, 0x403, 5, 0
+    IDC_COMBO_OvumSex, 0x403, 5, 0
 0xb4ce, 0xaad6, "\000" 
-    IDC_COMBO10, 0x403, 3, 0
+    IDC_COMBO_OvumSex, 0x403, 3, 0
 0xdbd0, "\000" 
-    IDC_COMBO10, 0x403, 3, 0
+    IDC_COMBO_OvumSex, 0x403, 3, 0
 0xc6b4, "\000" 
-    IDC_COMBO11, 0x403, 7, 0
+    IDC_COMBO_OvumColor, 0x403, 7, 0
 0xfbc4, 0xcac3, 0xc6bb, "\000" 
-    IDC_COMBO11, 0x403, 5, 0
+    IDC_COMBO_OvumColor, 0x403, 5, 0
 0xc8b3, 0xc6bb, "\000" 
-    IDC_COMBO11, 0x403, 3, 0
+    IDC_COMBO_OvumColor, 0x403, 3, 0
 0xecba, "\000" 
-    IDC_COMBO11, 0x403, 3, 0
+    IDC_COMBO_OvumColor, 0x403, 3, 0
 0xb6c0, "\000" 
-    IDC_COMBO11, 0x403, 3, 0
+    IDC_COMBO_OvumColor, 0x403, 3, 0
 0xccc2, "\000" 
-    IDC_COMBO11, 0x403, 3, 0
+    IDC_COMBO_OvumColor, 0x403, 3, 0
 0xdaba, "\000" 
-    IDC_COMBO11, 0x403, 3, 0
+    IDC_COMBO_OvumColor, 0x403, 3, 0
 0xd7b0, "\000" 
-    IDC_COMBO11, 0x403, 3, 0
+    IDC_COMBO_OvumColor, 0x403, 3, 0
 0xd3d0, "\000" 
-    IDC_COMBO11, 0x403, 3, 0
+    IDC_COMBO_OvumColor, 0x403, 3, 0
 0xd6ba, "\000" 
-    IDC_COMBO11, 0x403, 5, 0
+    IDC_COMBO_OvumColor, 0x403, 5, 0
 0xf8d2, 0xd2bb, "\000" 
-    IDC_COMBO15, 0x403, 2, 0
+    IDC_COMBO_OvumNo, 0x403, 2, 0
 0x0031, 
-    IDC_COMBO15, 0x403, 2, 0
+    IDC_COMBO_OvumNo, 0x403, 2, 0
 0x0032, 
-    IDC_COMBO15, 0x403, 2, 0
+    IDC_COMBO_OvumNo, 0x403, 2, 0
 0x0033, 
-    IDC_COMBO15, 0x403, 2, 0
+    IDC_COMBO_OvumNo, 0x403, 2, 0
 0x0034, 
-    IDC_COMBO15, 0x403, 2, 0
+    IDC_COMBO_OvumNo, 0x403, 2, 0
 0x0035, 
-    IDC_COMBO15, 0x403, 2, 0
+    IDC_COMBO_OvumNo, 0x403, 2, 0
 0x0036, 
-    IDC_COMBO15, 0x403, 2, 0
+    IDC_COMBO_OvumNo, 0x403, 2, 0
 0x0037, 
-    IDC_COMBO15, 0x403, 2, 0
+    IDC_COMBO_OvumNo, 0x403, 2, 0
 0x0038, 
-    IDC_COMBO15, 0x403, 2, 0
+    IDC_COMBO_OvumNo, 0x403, 2, 0
 0x0039, 
-    IDC_COMBO15, 0x403, 3, 0
+    IDC_COMBO_OvumNo, 0x403, 3, 0
 0x3131, "\000" 
-    IDC_COMBO15, 0x403, 3, 0
+    IDC_COMBO_OvumNo, 0x403, 3, 0
 0x3231, "\000" 
-    IDC_COMBO15, 0x403, 3, 0
+    IDC_COMBO_OvumNo, 0x403, 3, 0
 0x3331, "\000" 
-    IDC_COMBO15, 0x403, 3, 0
+    IDC_COMBO_OvumNo, 0x403, 3, 0
 0x3431, "\000" 
-    IDC_COMBO15, 0x403, 3, 0
+    IDC_COMBO_OvumNo, 0x403, 3, 0
 0x3531, "\000" 
-    IDC_COMBO15, 0x403, 3, 0
+    IDC_COMBO_OvumNo, 0x403, 3, 0
 0x3631, "\000" 
-    IDC_COMBO15, 0x403, 3, 0
+    IDC_COMBO_OvumNo, 0x403, 3, 0
 0x3731, "\000" 
-    IDC_COMBO15, 0x403, 3, 0
+    IDC_COMBO_OvumNo, 0x403, 3, 0
 0x3831, "\000" 
-    IDC_COMBO15, 0x403, 3, 0
+    IDC_COMBO_OvumNo, 0x403, 3, 0
 0x3931, "\000" 
-    IDC_COMBO15, 0x403, 3, 0
+    IDC_COMBO_OvumNo, 0x403, 3, 0
 0x3032, "\000" 
-    IDC_COMBO15, 0x403, 3, 0
+    IDC_COMBO_OvumNo, 0x403, 3, 0
 0x3132, "\000" 
-    IDC_COMBO15, 0x403, 3, 0
+    IDC_COMBO_OvumNo, 0x403, 3, 0
 0x3232, "\000" 
-    IDC_COMBO15, 0x403, 3, 0
+    IDC_COMBO_OvumNo, 0x403, 3, 0
 0x3332, "\000" 
-    IDC_COMBO15, 0x403, 3, 0
+    IDC_COMBO_OvumNo, 0x403, 3, 0
 0x3432, "\000" 
-    IDC_COMBO12, 0x403, 5, 0
+    IDC_COMBO_LarvaSex, 0x403, 5, 0
 0xb4ce, 0xaad6, "\000" 
-    IDC_COMBO12, 0x403, 3, 0
+    IDC_COMBO_LarvaSex, 0x403, 3, 0
 0xdbd0, "\000" 
-    IDC_COMBO12, 0x403, 3, 0
+    IDC_COMBO_LarvaSex, 0x403, 3, 0
 0xc6b4, "\000" 
-    IDC_COMBO14, 0x403, 5, 0
+    IDC_COMBO_LarvaCalthrop, 0x403, 5, 0
 0xa3b3, 0xe6b9, "\000" 
-    IDC_COMBO14, 0x403, 5, 0
+    IDC_COMBO_LarvaCalthrop, 0x403, 5, 0
 0xabc3, 0xb4d7, "\000" 
-    IDC_COMBO14, 0x403, 5, 0
+    IDC_COMBO_LarvaCalthrop, 0x403, 5, 0
 0xa4b3, 0xccb4, "\000" 
-    IDC_COMBO16, 0x403, 7, 0
+    IDC_COMBO_LarvaColorB, 0x403, 7, 0
 0xfbc4, 0xcac3, 0xc6bb, "\000" 
-    IDC_COMBO16, 0x403, 5, 0
+    IDC_COMBO_LarvaColorB, 0x403, 5, 0
 0xc8b3, 0xc6bb, "\000" 
-    IDC_COMBO16, 0x403, 3, 0
+    IDC_COMBO_LarvaColorB, 0x403, 3, 0
 0xecba, "\000" 
-    IDC_COMBO16, 0x403, 3, 0
+    IDC_COMBO_LarvaColorB, 0x403, 3, 0
 0xb6c0, "\000" 
-    IDC_COMBO16, 0x403, 3, 0
+    IDC_COMBO_LarvaColorB, 0x403, 3, 0
 0xccc2, "\000" 
-    IDC_COMBO16, 0x403, 3, 0
+    IDC_COMBO_LarvaColorB, 0x403, 3, 0
 0xdaba, "\000" 
-    IDC_COMBO16, 0x403, 3, 0
+    IDC_COMBO_LarvaColorB, 0x403, 3, 0
 0xd7b0, "\000" 
-    IDC_COMBO16, 0x403, 3, 0
+    IDC_COMBO_LarvaColorB, 0x403, 3, 0
 0xd3d0, "\000" 
-    IDC_COMBO16, 0x403, 3, 0
+    IDC_COMBO_LarvaColorB, 0x403, 3, 0
 0xd6ba, "\000" 
-    IDC_COMBO16, 0x403, 5, 0
+    IDC_COMBO_LarvaColorB, 0x403, 5, 0
 0xf8d2, 0xd2bb, "\000" 
-    IDC_COMBO17, 0x403, 7, 0
+    IDC_COMBO_LarvaColorC, 0x403, 7, 0
 0xfbc4, 0xcac3, 0xc6bb, "\000" 
-    IDC_COMBO17, 0x403, 5, 0
+    IDC_COMBO_LarvaColorC, 0x403, 5, 0
 0xc8b3, 0xc6bb, "\000" 
-    IDC_COMBO17, 0x403, 3, 0
+    IDC_COMBO_LarvaColorC, 0x403, 3, 0
 0xecba, "\000" 
-    IDC_COMBO17, 0x403, 3, 0
+    IDC_COMBO_LarvaColorC, 0x403, 3, 0
 0xb6c0, "\000" 
-    IDC_COMBO17, 0x403, 3, 0
+    IDC_COMBO_LarvaColorC, 0x403, 3, 0
 0xccc2, "\000" 
-    IDC_COMBO17, 0x403, 3, 0
+    IDC_COMBO_LarvaColorC, 0x403, 3, 0
 0xdaba, "\000" 
-    IDC_COMBO17, 0x403, 3, 0
+    IDC_COMBO_LarvaColorC, 0x403, 3, 0
 0xd7b0, "\000" 
-    IDC_COMBO17, 0x403, 3, 0
+    IDC_COMBO_LarvaColorC, 0x403, 3, 0
 0xd3d0, "\000" 
-    IDC_COMBO17, 0x403, 3, 0
+    IDC_COMBO_LarvaColorC, 0x403, 3, 0
 0xd6ba, "\000" 
-    IDC_COMBO17, 0x403, 5, 0
+    IDC_COMBO_LarvaColorC, 0x403, 5, 0
 0xf8d2, 0xd2bb, "\000" 
-    IDC_COMBO18, 0x403, 7, 0
+    IDC_COMBO_LarvaColorD, 0x403, 7, 0
 0xfbc4, 0xcac3, 0xc6bb, "\000" 
-    IDC_COMBO18, 0x403, 5, 0
+    IDC_COMBO_LarvaColorD, 0x403, 5, 0
 0xc8b3, 0xc6bb, "\000" 
-    IDC_COMBO18, 0x403, 3, 0
+    IDC_COMBO_LarvaColorD, 0x403, 3, 0
 0xecba, "\000" 
-    IDC_COMBO18, 0x403, 3, 0
+    IDC_COMBO_LarvaColorD, 0x403, 3, 0
 0xb6c0, "\000" 
-    IDC_COMBO18, 0x403, 3, 0
+    IDC_COMBO_LarvaColorD, 0x403, 3, 0
 0xccc2, "\000" 
-    IDC_COMBO18, 0x403, 3, 0
+    IDC_COMBO_LarvaColorD, 0x403, 3, 0
 0xdaba, "\000" 
-    IDC_COMBO18, 0x403, 3, 0
+    IDC_COMBO_LarvaColorD, 0x403, 3, 0
 0xd7b0, "\000" 
-    IDC_COMBO18, 0x403, 3, 0
+    IDC_COMBO_LarvaColorD, 0x403, 3, 0
 0xd3d0, "\000" 
-    IDC_COMBO18, 0x403, 3, 0
+    IDC_COMBO_LarvaColorD, 0x403, 3, 0
 0xd6ba, "\000" 
-    IDC_COMBO18, 0x403, 5, 0
+    IDC_COMBO_LarvaColorD, 0x403, 5, 0
 0xf8d2, 0xd2bb, "\000" 
-    IDC_COMBO19, 0x403, 2, 0
+    IDC_COMBO_LarvaNo, 0x403, 2, 0
 0x0031, 
-    IDC_COMBO19, 0x403, 2, 0
+    IDC_COMBO_LarvaNo, 0x403, 2, 0
 0x0032, 
-    IDC_COMBO19, 0x403, 2, 0
+    IDC_COMBO_LarvaNo, 0x403, 2, 0
 0x0033, 
-    IDC_COMBO19, 0x403, 2, 0
+    IDC_COMBO_LarvaNo, 0x403, 2, 0
 0x0034, 
-    IDC_COMBO19, 0x403, 2, 0
+    IDC_COMBO_LarvaNo, 0x403, 2, 0
 0x0035, 
-    IDC_COMBO19, 0x403, 2, 0
+    IDC_COMBO_LarvaNo, 0x403, 2, 0
 0x0036, 
-    IDC_COMBO19, 0x403, 2, 0
+    IDC_COMBO_LarvaNo, 0x403, 2, 0
 0x0037, 
-    IDC_COMBO19, 0x403, 2, 0
+    IDC_COMBO_LarvaNo, 0x403, 2, 0
 0x0038, 
-    IDC_COMBO19, 0x403, 2, 0
+    IDC_COMBO_LarvaNo, 0x403, 2, 0
 0x0039, 
-    IDC_COMBO19, 0x403, 3, 0
+    IDC_COMBO_LarvaNo, 0x403, 3, 0
 0x3131, "\000" 
-    IDC_COMBO19, 0x403, 3, 0
+    IDC_COMBO_LarvaNo, 0x403, 3, 0
 0x3231, "\000" 
-    IDC_COMBO19, 0x403, 3, 0
+    IDC_COMBO_LarvaNo, 0x403, 3, 0
 0x3331, "\000" 
-    IDC_COMBO19, 0x403, 3, 0
+    IDC_COMBO_LarvaNo, 0x403, 3, 0
 0x3431, "\000" 
-    IDC_COMBO19, 0x403, 3, 0
+    IDC_COMBO_LarvaNo, 0x403, 3, 0
 0x3531, "\000" 
-    IDC_COMBO19, 0x403, 3, 0
+    IDC_COMBO_LarvaNo, 0x403, 3, 0
 0x3631, "\000" 
-    IDC_COMBO19, 0x403, 3, 0
+    IDC_COMBO_LarvaNo, 0x403, 3, 0
 0x3731, "\000" 
-    IDC_COMBO19, 0x403, 3, 0
+    IDC_COMBO_LarvaNo, 0x403, 3, 0
 0x3831, "\000" 
-    IDC_COMBO19, 0x403, 3, 0
+    IDC_COMBO_LarvaNo, 0x403, 3, 0
 0x3931, "\000" 
-    IDC_COMBO19, 0x403, 3, 0
+    IDC_COMBO_LarvaNo, 0x403, 3, 0
 0x3032, "\000" 
-    IDC_COMBO19, 0x403, 3, 0
+    IDC_COMBO_LarvaNo, 0x403, 3, 0
 0x3132, "\000" 
-    IDC_COMBO19, 0x403, 3, 0
+    IDC_COMBO_LarvaNo, 0x403, 3, 0
 0x3232, "\000" 
-    IDC_COMBO19, 0x403, 3, 0
+    IDC_COMBO_LarvaNo, 0x403, 3, 0
 0x3332, "\000" 
-    IDC_COMBO19, 0x403, 3, 0
+    IDC_COMBO_LarvaNo, 0x403, 3, 0
 0x3432, "\000" 
-    IDC_COMBO20, 0x403, 1, 0
-"\000" 
-    IDC_COMBO20, 0x403, 2, 0
+    IDC_COMBO_LarvaColorNum, 0x403, 2, 0
 0x0030, 
-    IDC_COMBO20, 0x403, 2, 0
+    IDC_COMBO_LarvaColorNum, 0x403, 2, 0
 0x0031, 
-    IDC_COMBO20, 0x403, 2, 0
+    IDC_COMBO_LarvaColorNum, 0x403, 2, 0
 0x0032, 
-    IDC_COMBO20, 0x403, 2, 0
+    IDC_COMBO_LarvaColorNum, 0x403, 2, 0
 0x0033, 
-    IDC_COMBO20, 0x403, 2, 0
+    IDC_COMBO_LarvaColorNum, 0x403, 2, 0
 0x0034, 
-    IDC_COMBO20, 0x403, 2, 0
+    IDC_COMBO_LarvaColorNum, 0x403, 2, 0
 0x0035, 
-    IDC_COMBO20, 0x403, 2, 0
+    IDC_COMBO_LarvaColorNum, 0x403, 2, 0
 0x0036, 
-    IDC_COMBO20, 0x403, 2, 0
+    IDC_COMBO_LarvaColorNum, 0x403, 2, 0
 0x0037, 
-    IDC_COMBO20, 0x403, 2, 0
+    IDC_COMBO_LarvaColorNum, 0x403, 2, 0
 0x0038, 
-    IDC_COMBO20, 0x403, 2, 0
+    IDC_COMBO_LarvaColorNum, 0x403, 2, 0
 0x0039, 
-    IDC_COMBO13, 0x403, 7, 0
+    IDC_COMBO_LarvaColorA, 0x403, 7, 0
 0xfbc4, 0xcac3, 0xc6bb, "\000" 
-    IDC_COMBO13, 0x403, 5, 0
+    IDC_COMBO_LarvaColorA, 0x403, 5, 0
 0xc8b3, 0xc6bb, "\000" 
-    IDC_COMBO13, 0x403, 3, 0
+    IDC_COMBO_LarvaColorA, 0x403, 3, 0
 0xecba, "\000" 
-    IDC_COMBO13, 0x403, 3, 0
+    IDC_COMBO_LarvaColorA, 0x403, 3, 0
 0xb6c0, "\000" 
-    IDC_COMBO13, 0x403, 3, 0
+    IDC_COMBO_LarvaColorA, 0x403, 3, 0
 0xccc2, "\000" 
-    IDC_COMBO13, 0x403, 3, 0
+    IDC_COMBO_LarvaColorA, 0x403, 3, 0
 0xdaba, "\000" 
-    IDC_COMBO13, 0x403, 3, 0
+    IDC_COMBO_LarvaColorA, 0x403, 3, 0
 0xd7b0, "\000" 
-    IDC_COMBO13, 0x403, 3, 0
+    IDC_COMBO_LarvaColorA, 0x403, 3, 0
 0xd3d0, "\000" 
-    IDC_COMBO13, 0x403, 3, 0
+    IDC_COMBO_LarvaColorA, 0x403, 3, 0
 0xd6ba, "\000" 
-    IDC_COMBO13, 0x403, 5, 0
+    IDC_COMBO_LarvaColorA, 0x403, 5, 0
 0xf8d2, 0xd2bb, "\000" 
-    IDC_COMBO21, 0x403, 5, 0
+    IDC_COMBO_LarvaInstar, 0x403, 5, 0
 0xbbd2, 0xe4c1, "\000" 
-    IDC_COMBO21, 0x403, 5, 0
+    IDC_COMBO_LarvaInstar, 0x403, 5, 0
 0xfeb6, 0xe4c1, "\000" 
-    IDC_COMBO21, 0x403, 5, 0
+    IDC_COMBO_LarvaInstar, 0x403, 5, 0
 0xfdc8, 0xe4c1, "\000" 
-    IDC_COMBO21, 0x403, 5, 0
+    IDC_COMBO_LarvaInstar, 0x403, 5, 0
 0xc4cb, 0xe4c1, "\000" 
-    IDC_COMBO22, 0x403, 5, 0
+    IDC_COMBO_Food, 0x403, 5, 0
 0xe2c8, 0xb3ca, "\000" 
-    IDC_COMBO22, 0x403, 5, 0
+    IDC_COMBO_Food, 0x403, 5, 0
 0xfabe, 0xb3ca, "\000" 
-    IDC_COMBO22, 0x403, 5, 0
+    IDC_COMBO_Food, 0x403, 5, 0
 0xb2d6, 0xb3ca, "\000" 
-    IDC_COMBO23, 0x403, 5, 0
+    IDC_COMBO_PupaSex, 0x403, 5, 0
 0xb4ce, 0xaad6, "\000" 
-    IDC_COMBO23, 0x403, 3, 0
+    IDC_COMBO_PupaSex, 0x403, 3, 0
 0xdbd0, "\000" 
-    IDC_COMBO23, 0x403, 3, 0
+    IDC_COMBO_PupaSex, 0x403, 3, 0
 0xc6b4, "\000" 
-    IDC_COMBO25, 0x403, 2, 0
+    IDC_COMBO_PupaNo, 0x403, 2, 0
 0x0031, 
-    IDC_COMBO25, 0x403, 2, 0
+    IDC_COMBO_PupaNo, 0x403, 2, 0
 0x0032, 
-    IDC_COMBO25, 0x403, 2, 0
+    IDC_COMBO_PupaNo, 0x403, 2, 0
 0x0033, 
-    IDC_COMBO25, 0x403, 2, 0
+    IDC_COMBO_PupaNo, 0x403, 2, 0
 0x0034, 
-    IDC_COMBO25, 0x403, 2, 0
+    IDC_COMBO_PupaNo, 0x403, 2, 0
 0x0035, 
-    IDC_COMBO25, 0x403, 2, 0
+    IDC_COMBO_PupaNo, 0x403, 2, 0
 0x0036, 
-    IDC_COMBO25, 0x403, 2, 0
+    IDC_COMBO_PupaNo, 0x403, 2, 0
 0x0037, 
-    IDC_COMBO25, 0x403, 2, 0
+    IDC_COMBO_PupaNo, 0x403, 2, 0
 0x0038, 
-    IDC_COMBO25, 0x403, 2, 0
+    IDC_COMBO_PupaNo, 0x403, 2, 0
 0x0039, 
-    IDC_COMBO25, 0x403, 3, 0
+    IDC_COMBO_PupaNo, 0x403, 3, 0
 0x3131, "\000" 
-    IDC_COMBO25, 0x403, 3, 0
+    IDC_COMBO_PupaNo, 0x403, 3, 0
 0x3231, "\000" 
-    IDC_COMBO25, 0x403, 3, 0
+    IDC_COMBO_PupaNo, 0x403, 3, 0
 0x3331, "\000" 
-    IDC_COMBO25, 0x403, 3, 0
+    IDC_COMBO_PupaNo, 0x403, 3, 0
 0x3431, "\000" 
-    IDC_COMBO25, 0x403, 3, 0
+    IDC_COMBO_PupaNo, 0x403, 3, 0
 0x3531, "\000" 
-    IDC_COMBO25, 0x403, 3, 0
+    IDC_COMBO_PupaNo, 0x403, 3, 0
 0x3631, "\000" 
-    IDC_COMBO25, 0x403, 3, 0
+    IDC_COMBO_PupaNo, 0x403, 3, 0
 0x3731, "\000" 
-    IDC_COMBO25, 0x403, 3, 0
+    IDC_COMBO_PupaNo, 0x403, 3, 0
 0x3831, "\000" 
-    IDC_COMBO25, 0x403, 3, 0
+    IDC_COMBO_PupaNo, 0x403, 3, 0
 0x3931, "\000" 
-    IDC_COMBO25, 0x403, 3, 0
+    IDC_COMBO_PupaNo, 0x403, 3, 0
 0x3032, "\000" 
-    IDC_COMBO25, 0x403, 3, 0
+    IDC_COMBO_PupaNo, 0x403, 3, 0
 0x3132, "\000" 
-    IDC_COMBO25, 0x403, 3, 0
+    IDC_COMBO_PupaNo, 0x403, 3, 0
 0x3232, "\000" 
-    IDC_COMBO25, 0x403, 3, 0
+    IDC_COMBO_PupaNo, 0x403, 3, 0
 0x3332, "\000" 
-    IDC_COMBO25, 0x403, 3, 0
+    IDC_COMBO_PupaNo, 0x403, 3, 0
 0x3432, "\000" 
-    IDC_COMBO24, 0x403, 7, 0
+    IDC_COMBO_PupaColorA, 0x403, 7, 0
 0xfbc4, 0xcac3, 0xc6bb, "\000" 
-    IDC_COMBO24, 0x403, 5, 0
+    IDC_COMBO_PupaColorA, 0x403, 5, 0
 0xc8b3, 0xc6bb, "\000" 
-    IDC_COMBO24, 0x403, 3, 0
+    IDC_COMBO_PupaColorA, 0x403, 3, 0
 0xecba, "\000" 
-    IDC_COMBO24, 0x403, 3, 0
+    IDC_COMBO_PupaColorA, 0x403, 3, 0
 0xb6c0, "\000" 
-    IDC_COMBO24, 0x403, 3, 0
+    IDC_COMBO_PupaColorA, 0x403, 3, 0
 0xccc2, "\000" 
-    IDC_COMBO24, 0x403, 3, 0
+    IDC_COMBO_PupaColorA, 0x403, 3, 0
 0xdaba, "\000" 
-    IDC_COMBO24, 0x403, 3, 0
+    IDC_COMBO_PupaColorA, 0x403, 3, 0
 0xd7b0, "\000" 
-    IDC_COMBO24, 0x403, 3, 0
+    IDC_COMBO_PupaColorA, 0x403, 3, 0
 0xd3d0, "\000" 
-    IDC_COMBO24, 0x403, 3, 0
+    IDC_COMBO_PupaColorA, 0x403, 3, 0
 0xd6ba, "\000" 
-    IDC_COMBO24, 0x403, 5, 0
+    IDC_COMBO_PupaColorA, 0x403, 5, 0
 0xf8d2, 0xd2bb, "\000" 
-    IDC_COMBO26, 0x403, 7, 0
+    IDC_COMBO_PupaColorB, 0x403, 7, 0
 0xfbc4, 0xcac3, 0xc6bb, "\000" 
-    IDC_COMBO26, 0x403, 5, 0
+    IDC_COMBO_PupaColorB, 0x403, 5, 0
 0xc8b3, 0xc6bb, "\000" 
-    IDC_COMBO26, 0x403, 3, 0
+    IDC_COMBO_PupaColorB, 0x403, 3, 0
 0xecba, "\000" 
-    IDC_COMBO26, 0x403, 3, 0
+    IDC_COMBO_PupaColorB, 0x403, 3, 0
 0xb6c0, "\000" 
-    IDC_COMBO26, 0x403, 3, 0
+    IDC_COMBO_PupaColorB, 0x403, 3, 0
 0xccc2, "\000" 
-    IDC_COMBO26, 0x403, 3, 0
+    IDC_COMBO_PupaColorB, 0x403, 3, 0
 0xdaba, "\000" 
-    IDC_COMBO26, 0x403, 3, 0
+    IDC_COMBO_PupaColorB, 0x403, 3, 0
 0xd7b0, "\000" 
-    IDC_COMBO26, 0x403, 3, 0
+    IDC_COMBO_PupaColorB, 0x403, 3, 0
 0xd3d0, "\000" 
-    IDC_COMBO26, 0x403, 3, 0
+    IDC_COMBO_PupaColorB, 0x403, 3, 0
 0xd6ba, "\000" 
-    IDC_COMBO26, 0x403, 5, 0
+    IDC_COMBO_PupaColorB, 0x403, 5, 0
 0xf8d2, 0xd2bb, "\000" 
-    IDC_COMBO27, 0x403, 7, 0
+    IDC_COMBO_PupaColorC, 0x403, 7, 0
 0xfbc4, 0xcac3, 0xc6bb, "\000" 
-    IDC_COMBO27, 0x403, 5, 0
+    IDC_COMBO_PupaColorC, 0x403, 5, 0
 0xc8b3, 0xc6bb, "\000" 
-    IDC_COMBO27, 0x403, 3, 0
+    IDC_COMBO_PupaColorC, 0x403, 3, 0
 0xecba, "\000" 
-    IDC_COMBO27, 0x403, 3, 0
+    IDC_COMBO_PupaColorC, 0x403, 3, 0
 0xb6c0, "\000" 
-    IDC_COMBO27, 0x403, 3, 0
+    IDC_COMBO_PupaColorC, 0x403, 3, 0
 0xccc2, "\000" 
-    IDC_COMBO27, 0x403, 3, 0
+    IDC_COMBO_PupaColorC, 0x403, 3, 0
 0xdaba, "\000" 
-    IDC_COMBO27, 0x403, 3, 0
+    IDC_COMBO_PupaColorC, 0x403, 3, 0
 0xd7b0, "\000" 
-    IDC_COMBO27, 0x403, 3, 0
+    IDC_COMBO_PupaColorC, 0x403, 3, 0
 0xd3d0, "\000" 
-    IDC_COMBO27, 0x403, 3, 0
+    IDC_COMBO_PupaColorC, 0x403, 3, 0
 0xd6ba, "\000" 
-    IDC_COMBO27, 0x403, 5, 0
+    IDC_COMBO_PupaColorC, 0x403, 5, 0
 0xf8d2, 0xd2bb, "\000" 
-    IDC_COMBO28, 0x403, 7, 0
+    IDC_COMBO_PupaColorD, 0x403, 7, 0
 0xfbc4, 0xcac3, 0xc6bb, "\000" 
-    IDC_COMBO28, 0x403, 5, 0
+    IDC_COMBO_PupaColorD, 0x403, 5, 0
 0xc8b3, 0xc6bb, "\000" 
-    IDC_COMBO28, 0x403, 3, 0
+    IDC_COMBO_PupaColorD, 0x403, 3, 0
 0xecba, "\000" 
-    IDC_COMBO28, 0x403, 3, 0
+    IDC_COMBO_PupaColorD, 0x403, 3, 0
 0xb6c0, "\000" 
-    IDC_COMBO28, 0x403, 3, 0
+    IDC_COMBO_PupaColorD, 0x403, 3, 0
 0xccc2, "\000" 
-    IDC_COMBO28, 0x403, 3, 0
+    IDC_COMBO_PupaColorD, 0x403, 3, 0
 0xdaba, "\000" 
-    IDC_COMBO28, 0x403, 3, 0
+    IDC_COMBO_PupaColorD, 0x403, 3, 0
 0xd7b0, "\000" 
-    IDC_COMBO28, 0x403, 3, 0
+    IDC_COMBO_PupaColorD, 0x403, 3, 0
 0xd3d0, "\000" 
-    IDC_COMBO28, 0x403, 3, 0
+    IDC_COMBO_PupaColorD, 0x403, 3, 0
 0xd6ba, "\000" 
-    IDC_COMBO28, 0x403, 5, 0
+    IDC_COMBO_PupaColorD, 0x403, 5, 0
 0xf8d2, 0xd2bb, "\000" 
-    IDC_COMBO29, 0x403, 2, 0
+    IDC_COMBO_PupaColorNum, 0x403, 2, 0
 0x0030, 
-    IDC_COMBO29, 0x403, 2, 0
+    IDC_COMBO_PupaColorNum, 0x403, 2, 0
 0x0031, 
-    IDC_COMBO29, 0x403, 2, 0
+    IDC_COMBO_PupaColorNum, 0x403, 2, 0
 0x0032, 
-    IDC_COMBO29, 0x403, 2, 0
+    IDC_COMBO_PupaColorNum, 0x403, 2, 0
 0x0033, 
-    IDC_COMBO29, 0x403, 2, 0
+    IDC_COMBO_PupaColorNum, 0x403, 2, 0
 0x0034, 
-    IDC_COMBO29, 0x403, 2, 0
+    IDC_COMBO_PupaColorNum, 0x403, 2, 0
 0x0035, 
-    IDC_COMBO29, 0x403, 2, 0
+    IDC_COMBO_PupaColorNum, 0x403, 2, 0
 0x0036, 
-    IDC_COMBO29, 0x403, 2, 0
+    IDC_COMBO_PupaColorNum, 0x403, 2, 0
 0x0037, 
-    IDC_COMBO29, 0x403, 2, 0
+    IDC_COMBO_PupaColorNum, 0x403, 2, 0
 0x0038, 
-    IDC_COMBO29, 0x403, 2, 0
+    IDC_COMBO_PupaColorNum, 0x403, 2, 0
 0x0039, 
     0
 END
