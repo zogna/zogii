@@ -4,6 +4,7 @@
 #include "stdafx.h"
 #include "zogiiadd.h"
 #include "zogiiaddDlg.h"
+#include "zogiidb.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -91,6 +92,9 @@ CZogiiaddDlg::CZogiiaddDlg(CWnd* pParent /*=NULL*/)
 	//}}AFX_DATA_INIT
 	// Note that LoadIcon does not require a subsequent DestroyIcon in Win32
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
+
+	DBtotal=0;
+	DBdata=NULL;
 }
 
 void CZogiiaddDlg::DoDataExchange(CDataExchange* pDX)
@@ -99,17 +103,17 @@ void CZogiiaddDlg::DoDataExchange(CDataExchange* pDX)
 	//{{AFX_DATA_MAP(CZogiiaddDlg)
 	DDX_Control(pDX, IDC_TREE, m_tree);
 	DDX_Text(pDX, IDC_EDIT_SubFamilyEN, m_SubFamilyEN);
-	DDV_MaxChars(pDX, m_SubFamilyEN, 260);
+	DDV_MaxChars(pDX, m_SubFamilyEN, 128);
 	DDX_Text(pDX, IDC_EDIT_SpNameTW, m_SpNameTW);
-	DDV_MaxChars(pDX, m_SpNameTW, 260);
+	DDV_MaxChars(pDX, m_SpNameTW, 128);
 	DDX_Text(pDX, IDC_EDIT_SpNameEN, m_SpNameEN);
-	DDV_MaxChars(pDX, m_SpNameEN, 260);
+	DDV_MaxChars(pDX, m_SpNameEN, 128);
 	DDX_Text(pDX, IDC_EDIT_SpNameCN, m_SpNameCN);
-	DDV_MaxChars(pDX, m_SpNameCN, 260);
+	DDV_MaxChars(pDX, m_SpNameCN, 128);
 	DDX_Text(pDX, IDC_EDIT_SubFamilyCN, m_SubFamilyCN);
-	DDV_MaxChars(pDX, m_SubFamilyCN, 260);
+	DDV_MaxChars(pDX, m_SubFamilyCN, 128);
 	DDX_Text(pDX, IDC_EDIT_SubFamilyTW, m_SubFamilyTW);
-	DDV_MaxChars(pDX, m_SubFamilyTW, 260);
+	DDV_MaxChars(pDX, m_SubFamilyTW, 128);
 	DDX_Text(pDX, IDC_EDIT_TextCNPath, m_TextCNPath);
 	DDV_MaxChars(pDX, m_TextCNPath, 260);
 	DDX_Text(pDX, IDC_EDIT_TextENPath, m_TextENPath);
@@ -119,64 +123,64 @@ void CZogiiaddDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_PupaPicPath, m_PupaPicPath);
 	DDV_MaxChars(pDX, m_PupaPicPath, 260);
 	DDX_Text(pDX, IDC_EDIT_PupaPicInfo, m_PupaPicInfo);
-	DDV_MaxChars(pDX, m_PupaPicInfo, 260);
+	DDV_MaxChars(pDX, m_PupaPicInfo, 128);
 	DDX_Text(pDX, IDC_EDIT_OvumPicPath, m_OvumPicPath);
 	DDV_MaxChars(pDX, m_OvumPicPath, 260);
 	DDX_Text(pDX, IDC_EDIT_OvumPicInfo, m_OvumPicInfo);
-	DDV_MaxChars(pDX, m_OvumPicInfo, 260);
+	DDV_MaxChars(pDX, m_OvumPicInfo, 128);
 	DDX_Text(pDX, IDC_EDIT_OtherNameA, m_OtherNameA);
-	DDV_MaxChars(pDX, m_OtherNameA, 260);
+	DDV_MaxChars(pDX, m_OtherNameA, 128);
 	DDX_Text(pDX, IDC_EDIT_OtherNameB, m_OtherNameB);
-	DDV_MaxChars(pDX, m_OtherNameB, 260);
+	DDV_MaxChars(pDX, m_OtherNameB, 128);
 	DDX_Text(pDX, IDC_EDIT_OtherNameC, m_OtherNameC);
-	DDV_MaxChars(pDX, m_OtherNameC, 260);
+	DDV_MaxChars(pDX, m_OtherNameC, 128);
 	DDX_Text(pDX, IDC_EDIT_OtherNameD, m_OtherNameD);
-	DDV_MaxChars(pDX, m_OtherNameD, 260);
+	DDV_MaxChars(pDX, m_OtherNameD, 128);
 	DDX_Text(pDX, IDC_EDIT_OtherNameE, m_OtherNameE);
-	DDV_MaxChars(pDX, m_OtherNameE, 260);
+	DDV_MaxChars(pDX, m_OtherNameE, 128);
 	DDX_Text(pDX, IDC_EDIT_OtherNameF, m_OtherNameF);
-	DDV_MaxChars(pDX, m_OtherNameF, 260);
+	DDV_MaxChars(pDX, m_OtherNameF, 128);
 	DDX_Text(pDX, IDC_EDIT_NameCN, m_NameCN);
-	DDV_MaxChars(pDX, m_NameCN, 260);
+	DDV_MaxChars(pDX, m_NameCN, 128);
 	DDX_Text(pDX, IDC_EDIT_NameEN, m_NameEN);
-	DDV_MaxChars(pDX, m_NameEN, 260);
+	DDV_MaxChars(pDX, m_NameEN, 128);
 	DDX_Text(pDX, IDC_EDIT_NameTW, m_NameTW);
-	DDV_MaxChars(pDX, m_NameTW, 260);
+	DDV_MaxChars(pDX, m_NameTW, 128);
 	DDX_Text(pDX, IDC_EDIT_LarvaPicPath, m_LarvaPicPath);
 	DDV_MaxChars(pDX, m_LarvaPicPath, 260);
 	DDX_Text(pDX, IDC_EDIT_LarvaPicInfo, m_LarvaPicInfo);
-	DDV_MaxChars(pDX, m_LarvaPicInfo, 260);
+	DDV_MaxChars(pDX, m_LarvaPicInfo, 128);
 	DDX_Text(pDX, IDC_EDIT_ImagoPicPath, m_ImagoPicPath);
 	DDV_MaxChars(pDX, m_ImagoPicPath, 260);
 	DDX_Text(pDX, IDC_EDIT_ImagoPicInfo, m_ImagoPicInfo);
-	DDV_MaxChars(pDX, m_ImagoPicInfo, 260);
+	DDV_MaxChars(pDX, m_ImagoPicInfo, 128);
 	DDX_DateTimeCtrl(pDX, IDC_DATETIMEPICKER_Date, m_Date);
 	DDX_Text(pDX, IDC_EDIT_Code, m_Code);
 	DDV_MinMaxLong(pDX, m_Code, 0, 2147483647);
 	DDX_Text(pDX, IDC_EDIT_GenusTW, m_GenusTW);
-	DDV_MaxChars(pDX, m_GenusTW, 260);
+	DDV_MaxChars(pDX, m_GenusTW, 128);
 	DDX_Text(pDX, IDC_EDIT_GenusEN, m_GenusEN);
-	DDV_MaxChars(pDX, m_GenusEN, 260);
+	DDV_MaxChars(pDX, m_GenusEN, 128);
 	DDX_Text(pDX, IDC_EDIT_GenusCN, m_GenusCN);
-	DDV_MaxChars(pDX, m_GenusCN, 260);
+	DDV_MaxChars(pDX, m_GenusCN, 128);
 	DDX_Text(pDX, IDC_EDIT_FoodNameF, m_FoodNameF);
-	DDV_MaxChars(pDX, m_FoodNameF, 260);
+	DDV_MaxChars(pDX, m_FoodNameF, 128);
 	DDX_Text(pDX, IDC_EDIT_FoodNameE, m_FoodNameE);
-	DDV_MaxChars(pDX, m_FoodNameE, 260);
+	DDV_MaxChars(pDX, m_FoodNameE, 128);
 	DDX_Text(pDX, IDC_EDIT_FoodNameD, m_FoodNameD);
-	DDV_MaxChars(pDX, m_FoodNameD, 260);
+	DDV_MaxChars(pDX, m_FoodNameD, 128);
 	DDX_Text(pDX, IDC_EDIT_FoodNameC, m_FoodNameC);
-	DDV_MaxChars(pDX, m_FoodNameC, 260);
+	DDV_MaxChars(pDX, m_FoodNameC, 128);
 	DDX_Text(pDX, IDC_EDIT_FoodNameB, m_FoodNameB);
-	DDV_MaxChars(pDX, m_FoodNameB, 260);
+	DDV_MaxChars(pDX, m_FoodNameB, 128);
 	DDX_Text(pDX, IDC_EDIT_FoodNameA, m_FoodNameA);
-	DDV_MaxChars(pDX, m_FoodNameA, 260);
+	DDV_MaxChars(pDX, m_FoodNameA, 128);
 	DDX_Text(pDX, IDC_EDIT_DiscoveryPicPath, m_DiscoveryPicPath);
 	DDV_MaxChars(pDX, m_DiscoveryPicPath, 260);
 	DDX_Text(pDX, IDC_EDIT_DiscoveryPicInfo, m_DiscoveryPicInfo);
-	DDV_MaxChars(pDX, m_DiscoveryPicInfo, 260);
+	DDV_MaxChars(pDX, m_DiscoveryPicInfo, 128);
 	DDX_Text(pDX, IDC_EDIT_DiscoveryName, m_DiscoveryName);
-	DDV_MaxChars(pDX, m_DiscoveryName, 260);
+	DDV_MaxChars(pDX, m_DiscoveryName, 128);
 	DDX_Text(pDX, IDC_EDIT_DataOutputPath, m_DataOutputPath);
 	DDV_MaxChars(pDX, m_DataOutputPath, 260);
 	DDX_CBIndex(pDX, IDC_COMBO_Food, m_Food);
@@ -261,7 +265,7 @@ BOOL CZogiiaddDlg::OnInitDialog()
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 	
 	// TODO: Add extra initialization here
-	
+	zogiiReadDB(&DBtotal,DBdata);
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
 
@@ -304,13 +308,14 @@ HCURSOR CZogiiaddDlg::OnQueryDragIcon()
 void CZogiiaddDlg::OnBUTTONDiscoveryPicPath() 
 {
 	// TODO: Add your control notification handler code here
-	
+	SaveToFile(IDC_EDIT_DiscoveryPicPath);
 }
 
 void CZogiiaddDlg::OnBUTTONDiscoveryPicView() 
 {
 	// TODO: Add your control notification handler code here
-	
+	UpdateData(TRUE);
+	ViewPic(m_DiscoveryPicPath);
 }
 
 void CZogiiaddDlg::OnBUTTONDeleteData() 
@@ -328,7 +333,7 @@ void CZogiiaddDlg::OnBUTTONSaveData()
 void CZogiiaddDlg::OnBUTTONDataOutputPath() 
 {
 	// TODO: Add your control notification handler code here
-	
+	SaveToDir(IDC_EDIT_DataOutputPath);
 }
 
 void CZogiiaddDlg::OnBUTTONDataOutput() 
@@ -340,37 +345,40 @@ void CZogiiaddDlg::OnBUTTONDataOutput()
 void CZogiiaddDlg::OnBUTTONTextTWPath() 
 {
 	// TODO: Add your control notification handler code here
-	
+	SaveToFile(IDC_EDIT_TextTWPath);
 }
 
 void CZogiiaddDlg::OnBUTTONTextTWView() 
 {
 	// TODO: Add your control notification handler code here
-	
+	UpdateData(TRUE);
+	ViewText(m_TextTWPath);
 }
 
 void CZogiiaddDlg::OnBUTTONTextCNPath() 
 {
 	// TODO: Add your control notification handler code here
-	
+	SaveToFile(IDC_EDIT_TextCNPath);
 }
 
 void CZogiiaddDlg::OnBUTTONTextCNView() 
 {
 	// TODO: Add your control notification handler code here
-	
+	UpdateData(TRUE);
+	ViewText(m_TextCNPath);
 }
 
 void CZogiiaddDlg::OnBUTTONTextENPath() 
 {
 	// TODO: Add your control notification handler code here
-	
+	SaveToFile(IDC_EDIT_TextENPath);
 }
 
 void CZogiiaddDlg::OnBUTTONTextENView() 
 {
 	// TODO: Add your control notification handler code here
-	
+	UpdateData(TRUE);
+	ViewText(m_TextENPath);
 }
 
 void CZogiiaddDlg::OnBUTTONImagoPicView() 
@@ -382,13 +390,14 @@ void CZogiiaddDlg::OnBUTTONImagoPicView()
 void CZogiiaddDlg::OnBUTTONImagoPicPath() 
 {
 	// TODO: Add your control notification handler code here
-	
+	SaveToFile(IDC_EDIT_ImagoPicPath);
 }
 
 void CZogiiaddDlg::OnBUTTONSaveImago() 
 {
 	// TODO: Add your control notification handler code here
-	
+	UpdateData(TRUE);
+	ViewPic(m_ImagoPicPath);
 }
 
 void CZogiiaddDlg::OnBUTTONDeleteImago() 
@@ -397,16 +406,17 @@ void CZogiiaddDlg::OnBUTTONDeleteImago()
 	
 }
 
-void CZogiiaddDlg::OnBUTTONLarvaPicView() 
-{
-	// TODO: Add your control notification handler code here
-	
-}
-
 void CZogiiaddDlg::OnBUTTONLarvaPicPath() 
 {
 	// TODO: Add your control notification handler code here
-	
+	SaveToFile(IDC_EDIT_LarvaPicPath);
+}
+
+void CZogiiaddDlg::OnBUTTONLarvaPicView() 
+{
+	// TODO: Add your control notification handler code here
+	UpdateData(TRUE);
+	ViewPic(m_LarvaPicPath);
 }
 
 void CZogiiaddDlg::OnBUTTONDeleteLarva() 
@@ -434,16 +444,17 @@ void CZogiiaddDlg::OnBUTTONSaveOtherName()
 	
 }
 
-void CZogiiaddDlg::OnBUTTONOvumPicView() 
-{
-	// TODO: Add your control notification handler code here
-	
-}
-
 void CZogiiaddDlg::OnBUTTONOvumPicPath() 
 {
 	// TODO: Add your control notification handler code here
-	
+	SaveToFile(IDC_EDIT_OvumPicPath);
+}
+
+void CZogiiaddDlg::OnBUTTONOvumPicView() 
+{
+	// TODO: Add your control notification handler code here
+	UpdateData(TRUE);
+	ViewPic(m_OvumPicPath);
 }
 
 void CZogiiaddDlg::OnBUTTONSaveOvum() 
@@ -461,13 +472,14 @@ void CZogiiaddDlg::OnBUTTONDeleteOvum()
 void CZogiiaddDlg::OnBUTTONPupaPicPath() 
 {
 	// TODO: Add your control notification handler code here
-	
+	SaveToFile(IDC_EDIT_PupaPicPath);	
 }
 
 void CZogiiaddDlg::OnBUTTONPupaPicView() 
 {
 	// TODO: Add your control notification handler code here
-	
+	UpdateData(TRUE);
+	ViewPic(m_PupaPicPath);
 }
 
 void CZogiiaddDlg::OnBUTTONSavePupa() 
@@ -480,4 +492,70 @@ void CZogiiaddDlg::OnBUTTONDeletePupa()
 {
 	// TODO: Add your control notification handler code here
 	
+}
+
+/////////////////////////////////////////////////////////////////////////////////////
+int CZogiiaddDlg::SaveToFile(int idc)
+{
+	// TODO: Add your control notification handler code here
+
+	char szFilter[]="*.*||";
+	//保存文件
+	//CFileDialog dlg(FALSE,"*.*","",OFN_HIDEREADONLY|OFN_OVERWRITEPROMPT, szFilter);
+	//打开文件
+	CFileDialog dlg(TRUE,"*.*","",OFN_HIDEREADONLY|OFN_OVERWRITEPROMPT, szFilter);
+
+	if(dlg.DoModal()==IDOK)
+	{
+		char filename[MAX_PATH];
+		GetDlgItem(idc)->SetWindowText(dlg.GetPathName());
+		GetDlgItem(idc)->GetWindowText(filename,sizeof(unsigned char)*MAX_PATH);
+		return 1;
+	}
+	else
+		return 0;
+}
+
+int CZogiiaddDlg::SaveToDir(int idc)
+{
+	//保存目录
+	BROWSEINFO   bi;                           //创建BROWSEINFO结构体
+	char   Buffer[MAX_PATH]= " ";
+	char   FullPath[MAX_PATH]= " ";
+	bi.hwndOwner   =   CZogiiaddDlg::GetSafeHwnd();               //窗口句柄
+	bi.pidlRoot   =   NULL;
+	bi.pszDisplayName   =   Buffer;            //返回选择的目录名的缓冲区
+	bi.lpszTitle   =   "Selection ";           //弹出的窗口的文字提示
+	bi.ulFlags   =   BIF_RETURNONLYFSDIRS   ;  //只返回目录。其他标志看MSDN
+	bi.lpfn   =   NULL;               //回调函数，有时很有用
+	bi.lParam   =   0;
+	bi.iImage   =   0;
+	ITEMIDLIST*   pidl   =   ::SHBrowseForFolder(&bi);   //显示弹出窗口，ITEMIDLIST很重要
+	if(::SHGetPathFromIDList(pidl,FullPath)) //在ITEMIDLIST中得到目录名的整个路径
+	{
+		GetDlgItem(idc)->SetWindowText(FullPath);
+		return 1;
+	}
+	else
+		return 0;
+}
+
+void CZogiiaddDlg::ViewText(CString filename)
+{
+	char str[300];
+	sprintf(str,"wordpad.exe \"%s\"",filename.GetBuffer(0));
+	WinExec(str,SW_NORMAL);
+}
+
+void CZogiiaddDlg::ViewPic(CString filename)
+{
+	char str[300];
+	sprintf(str,"mspaint.exe \"%s\"",filename.GetBuffer(0));
+	WinExec(str,SW_NORMAL);
+}
+
+void CZogiiaddDlg::BulidTree()
+{
+
+
 }

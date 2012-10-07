@@ -6,27 +6,19 @@
 --------------------Configuration: zogiiadd - Win32 Debug--------------------
 </h3>
 <h3>Command Lines</h3>
-Creating command line "rc.exe /l 0x804 /fo"Debug/zogiiadd.res" /d "_DEBUG" "D:\GGG\zogiiadd\zogiiadd.rc"" 
-Creating temporary file "C:\DOCUME~1\wyx\LOCALS~1\Temp\RSPA32.tmp" with contents
+Creating temporary file "C:\DOCUME~1\wyx\LOCALS~1\Temp\RSP39E.tmp" with contents
 [
 /nologo /MTd /W4 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D _WIN32_WINNT=0x0500 /D "_MBCS" /Fp"Debug/zogiiadd.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
-"D:\GGG\zogiiadd\zogiiadd.cpp"
 "D:\GGG\zogiiadd\zogiiaddDlg.cpp"
+"D:\GGG\zogiiadd\zogiiRWdb.cpp"
 ]
-Creating command line "cl.exe @C:\DOCUME~1\wyx\LOCALS~1\Temp\RSPA32.tmp" 
-Creating temporary file "C:\DOCUME~1\wyx\LOCALS~1\Temp\RSPA33.tmp" with contents
-[
-/nologo /MTd /W4 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D _WIN32_WINNT=0x0500 /D "_MBCS" /Fp"Debug/zogiiadd.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
-"D:\GGG\zogiiadd\StdAfx.cpp"
-]
-Creating command line "cl.exe @C:\DOCUME~1\wyx\LOCALS~1\Temp\RSPA33.tmp" 
-Creating command line "link.exe /nologo /subsystem:windows /incremental:no /pdb:"Debug/zogiiadd.pdb" /debug /machine:I386 /out:"Debug/zogiiadd.exe" /pdbtype:sept  .\Debug\StdAfx.obj .\Debug\zogiiadd.obj .\Debug\zogiiaddDlg.obj .\Debug\zogiiadd.res "
+Creating command line "cl.exe @C:\DOCUME~1\wyx\LOCALS~1\Temp\RSP39E.tmp" 
+Creating command line "link.exe /nologo /subsystem:windows /incremental:no /pdb:"Debug/zogiiadd.pdb" /debug /machine:I386 /out:"Debug/zogiiadd.exe" /pdbtype:sept  .\Debug\StdAfx.obj .\Debug\zogiiadd.obj .\Debug\zogiiaddDlg.obj .\Debug\zogiiRWdb.obj .\Debug\zogiiadd.res "
 <h3>Output Window</h3>
-Compiling resources...
 Compiling...
-StdAfx.cpp
+zogiiRWdb.cpp
+Generating Code...
 Compiling...
-zogiiadd.cpp
 zogiiaddDlg.cpp
 Generating Code...
 Linking...

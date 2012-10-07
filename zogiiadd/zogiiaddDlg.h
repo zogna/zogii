@@ -10,6 +10,19 @@
 
 /////////////////////////////////////////////////////////////////////////////
 // CZogiiaddDlg dialog
+typedef struct 
+{
+	HTREEITEM Parent_item; //父指针
+	HTREEITEM item; //本指针
+
+	unsigned char type;
+	//数据指针
+	unsigned int sf;
+	unsigned int ge;
+	unsigned int na;
+	unsigned int sp;
+
+}DATALIST;
 
 class CZogiiaddDlg : public CDialog
 {
@@ -140,6 +153,19 @@ protected:
 	afx_msg void OnBUTTONDeletePupa();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+
+	int SaveToFile(int idc);
+	int SaveToDir(int idc);
+	void ViewText(CString filename);
+	void ViewPic(CString filename);
+	void BulidTree();
+
+	DATALIST *datalist;
+	
+	unsigned int DBtotal;
+	struct ZOGII_Coccinellidae_SUBFamily *DBdata;
+	struct ZOGII_Coccinellidae_DATA *Newdata;
+
 };
 
 //{{AFX_INSERT_LOCATION}}

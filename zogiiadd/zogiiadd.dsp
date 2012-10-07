@@ -106,6 +106,10 @@ SOURCE=.\zogiiadd.rc
 
 SOURCE=.\zogiiaddDlg.cpp
 # End Source File
+# Begin Source File
+
+SOURCE=.\zogiiRWdb.cpp
+# End Source File
 # End Group
 # Begin Group "Header Files"
 
@@ -125,6 +129,10 @@ SOURCE=.\zogiiadd.h
 # Begin Source File
 
 SOURCE=.\zogiiaddDlg.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\zogiidb.h
 # End Source File
 # End Group
 # Begin Group "Resource Files"
