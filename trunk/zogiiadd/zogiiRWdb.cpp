@@ -1,8 +1,10 @@
 #include "stdafx.h"
 #include "zogiidb.h"
 
-int zogiiReadDB(unsigned int *total,struct ZOGII_Coccinellidae_SUBFamily *data)
+int zogiiReadDB(unsigned int *total,struct ZOGII_Coccinellidae_SUBFamily *data,	\
+				unsigned long int *pictotal,struct ZOGII_Pic *picdata)
 {
+
 	unsigned int i,j,k;
 	FILE *fp;
 	fp=fopen("zogci.db","rb");
@@ -46,6 +48,13 @@ int zogiiReadDB(unsigned int *total,struct ZOGII_Coccinellidae_SUBFamily *data)
 				}
 			}
 		}
+		//读图片索引
+		fread(pictotal,sizeof(unsigned long int),1,fp);
+		if(*pictotal)
+		{
+			picdata=(struct ZOGII_Pic *)calloc(*pictotal,sizeof(struct ZOGII_Pic));
+			fread(picdata,sizeof(struct ZOGII_Pic),*pictotal,fp);
+		}
 
 		fclose(fp);
 		return 1;
@@ -58,7 +67,9 @@ int zogiiReadDB(unsigned int *total,struct ZOGII_Coccinellidae_SUBFamily *data)
 	}
 }
 
-int zogiiWriteDB(unsigned int total,struct ZOGII_Coccinellidae_SUBFamily *data)
+int zogiiWriteDB(unsigned int total,struct ZOGII_Coccinellidae_SUBFamily *data,	\
+				 unsigned long int pictotal,struct ZOGII_Pic *picdata)
+
 {
 	unsigned int i,j,k;
 	FILE *fp;
@@ -94,15 +105,22 @@ int zogiiWriteDB(unsigned int total,struct ZOGII_Coccinellidae_SUBFamily *data)
 			}
 		}
 
+		fwrite(&pictotal,sizeof(unsigned int),1,fp);
+		if(pictotal)
+			fwrite(picdata,sizeof(struct ZOGII_Pic),pictotal,fp);
+
 		fclose(fp);
 		return 1;
 	}
 	return 0;
 }
 
-void zogiiAddDB(struct ZOGII_Coccinellidae_SUBFamily *data,unsigned int *total,	\
-			   unsigned char type,unsigned int sf,unsigned int ge,unsigned int na,	\
-				struct ZOGII_Coccinellidae_DATA *newdata)
+
+void zogiiAddDB(unsigned int *total,struct ZOGII_Coccinellidae_SUBFamily *data,	\
+				unsigned long int *pictotal,struct ZOGII_Pic *picdata,	\
+				unsigned char type,unsigned int sf,unsigned int ge,unsigned int na,	\
+				struct ZOGII_Coccinellidae_DATA *newdata,	\
+				unsigned char NewPictotal,struct ZOGII_Pic *NewPicdata)
 {
 	unsigned int t;
 
@@ -118,6 +136,9 @@ void zogiiAddDB(struct ZOGII_Coccinellidae_SUBFamily *data,unsigned int *total,	
 				(t+1),sizeof(struct ZOGII_Coccinellidae_SUBFamily));
 
 		memcpy(&data[t].SF,newdata,sizeof(struct ZOGII_Coccinellidae_DATA));
+
+		zogiiADDpicDB(&data[t].SF,pictotal,picdata,newdata, NewPictotal,NewPicdata);
+
 		data[t].GenusTotal=0;
 		(*total)++;
 	}
@@ -167,28 +188,28 @@ void zogiiAddDB(struct ZOGII_Coccinellidae_SUBFamily *data,unsigned int *total,	
 void zogiiDeleteDB(struct ZOGII_Coccinellidae_SUBFamily *data,unsigned int *total,	\
 			   unsigned char type,unsigned int sf,unsigned int ge,unsigned int na,unsigned int sp)
 {
-	if(TYPE_NEW_SubFamily == type)
+	if(TYPE_SubFamily == type)
 	{
 		//如果不是最后一个数据 则移动
 		if( sf != (*total -1))
 			memmove(&data[sf],&data[sf+1],sizeof(struct ZOGII_Coccinellidae_SUBFamily)*(*total-sf-1));
 		(*total)--;
 	}
-	else if(TYPE_NEW_Genus == type)
+	else if(TYPE_Genus == type)
 	{
 		if(ge != (data[sf].GenusTotal -1))
 			memmove(&data[sf].GenusData[ge],&data[sf].GenusData[ge+1],	\
 				sizeof(struct ZOGII_Coccinellidae_GENUS)*(data[sf].GenusTotal-ge-1));
 		data[sf].GenusTotal--;
 	}
-	else if(TYPE_NEW_Name == type)
+	else if(TYPE_Name == type)
 	{
 		if(na != (data[sf].GenusData[ge].NameTotal -1))
 			memmove(&data[sf].GenusData[ge].NameData[na],&data[sf].GenusData[ge].NameData[na+1],	\
 				sizeof(struct ZOGII_Coccinellidae_NAME)*(data[sf].GenusData[ge].NameTotal-na-1));
 		data[sf].GenusData[ge].NameTotal--;
 	}	
-	else if(TYPE_NEW_SpName == type)
+	else if(TYPE_SpName == type)
 	{
 		if(sp != (data[sf].GenusData[ge].NameData[na].SpTotal -1))
 			memmove(&data[sf].GenusData[ge].NameData[na].SpData[sp],&data[sf].GenusData[ge].NameData[na].SpData[sp+1],	\
@@ -197,7 +218,8 @@ void zogiiDeleteDB(struct ZOGII_Coccinellidae_SUBFamily *data,unsigned int *tota
 	}
 }
 
-void zogiiFreeDB(unsigned int *total,struct ZOGII_Coccinellidae_SUBFamily *data)
+void zogiiFreeDB(unsigned int *total,struct ZOGII_Coccinellidae_SUBFamily *data,	\
+				  unsigned long int *pictotal,struct ZOGII_Pic *picdata)
 {
 	unsigned int i,j,k;
 
@@ -230,4 +252,58 @@ void zogiiFreeDB(unsigned int *total,struct ZOGII_Coccinellidae_SUBFamily *data)
 	*total=0;
 	free(data);
 	data=NULL;
+
+	*pictotal=0;
+	free(picdata);
+	picdata=NULL;
+}
+
+void zogiiADDpicDB(struct ZOGII_Coccinellidae_DATA *data,	\
+				unsigned long int *pictotal,struct ZOGII_Pic *picdata,	\
+				struct ZOGII_Coccinellidae_DATA *newdata,	\
+				unsigned char NewPictotal,struct ZOGII_Pic *NewPicdata)
+{
+	if(NewPictotal)
+	{
+		if(-1 != newdata->DiscoverMap)
+			data->DiscoverMap=zogiiADDpicDBLite(pictotal,picdata,&NewPicdata[newdata->DiscoverMap]);
+
+	}
+
+}
+
+unsigned long int zogiiADDpicDBLite(unsigned long int *pictotal,struct ZOGII_Pic *picdata,	\
+								struct ZOGII_Pic *newpic)
+{
+	unsigned long int i,t;
+
+	t=*pictotal;
+
+	if(t)
+	{	
+		//先找无效的
+		for(i=0;i<t;i++)
+		{
+			if(0==picdata[i].flag)
+			{
+				memcpy(&picdata[i],newpic,sizeof(struct ZOGII_Pic));
+				return i;
+			}
+		}
+		//都是有效则新建
+		picdata=(struct ZOGII_Pic *)realloc(picdata,(t+1)*sizeof(struct ZOGII_Pic));
+	}
+	else
+		picdata=(struct ZOGII_Pic *)calloc((t+1),sizeof(struct ZOGII_Pic));
+
+	memcpy(&picdata[t],newpic,sizeof(struct ZOGII_Pic));
+	*pictotal++;
+	return t;
+}
+
+void zogiiDeletepicDBLite(unsigned long int i,struct ZOGII_Pic *picdata)
+{
+	picdata[i].flag=0;
+	memset(picdata[i].Path,0,sizeof(ZOGII_PAT_MAX));
+	memset(picdata[i].Info,0,sizeof(ZOGII_STR_MAX));
 }
