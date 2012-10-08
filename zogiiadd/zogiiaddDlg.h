@@ -8,14 +8,19 @@
 #pragma once
 #endif // _MSC_VER > 1000
 
+#include "zogiidb.h"
+
 /////////////////////////////////////////////////////////////////////////////
 // CZogiiaddDlg dialog
 typedef struct 
 {
 	HTREEITEM Parent_item; //父指针
 	HTREEITEM item; //本指针
-
+	
+	// 0=无效 1=有效
+	unsigned char flag;
 	unsigned char type;
+
 	//数据指针
 	unsigned int sf;
 	unsigned int ge;
@@ -151,6 +156,7 @@ protected:
 	afx_msg void OnBUTTONPupaPicView();
 	afx_msg void OnBUTTONSavePupa();
 	afx_msg void OnBUTTONDeletePupa();
+	afx_msg void OnSelchangedTree(NMHDR* pNMHDR, LRESULT* pResult);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 
@@ -158,13 +164,39 @@ protected:
 	int SaveToDir(int idc);
 	void ViewText(CString filename);
 	void ViewPic(CString filename);
-	void BulidTree();
+	void AddListBuf();
+	HTREEITEM AddTree(HTREEITEM parent,char *str,	\
+								unsigned char type,unsigned int sf,unsigned int ge,unsigned int na,unsigned int sp);
+	void BuildTree();
+	void BuildNewTree(DATALIST * dl,char *str);
+	void BuildDeleteTree(DATALIST *dl);
+	void InitInfoData();
+	void CopyInfoD2M(struct ZOGII_Coccinellidae_DATA* d);
+	void CopyInfoM2D(struct ZOGII_Coccinellidae_DATA* d);
+	/////////////////////////////////////////////////////////////////
+	//设定树语言 
+	// 0 =英语 拉丁 
+	// 1 =中文简体
+	// 2 =中文繁体	
+	unsigned char language;
+	//树
+	unsigned int ListTotal;
+	unsigned int ListbufTotal;
+	DATALIST *DataList;
+	//选择的树选项
+	DATALIST *curlist;
 
-	DATALIST *datalist;
-	
+	//数据
 	unsigned int DBtotal;
 	struct ZOGII_Coccinellidae_SUBFamily *DBdata;
-	struct ZOGII_Coccinellidae_DATA *Newdata;
+	unsigned long int DBPictotal;
+	struct ZOGII_Pic *DBPicdata;
+	//临时数据
+	unsigned char NewPictotal;
+	struct ZOGII_Pic NewPicdata[ZOGII_PIC_MAX*5];
+	struct ZOGII_Coccinellidae_DATA Newdata;
+	//指针
+	struct ZOGII_Coccinellidae_DATA* DataP;
 
 };
 

@@ -26,7 +26,7 @@ Type=0
 HeaderFile=zogiiaddDlg.h
 ImplementationFile=zogiiaddDlg.cpp
 Filter=D
-LastObject=IDC_EDIT_SubFamilyEN
+LastObject=IDC_TREE
 BaseClass=CDialog
 VirtualFilter=dWC
 

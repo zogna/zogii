@@ -17,6 +17,7 @@
 #define ZOGII_INF_MAX 6
 /* 
 //颜色表
+// -1=无效
 // 0 =柠檬黄
 // 1 =橙黄
 // 2 =红
@@ -42,10 +43,17 @@ enum
 	TYPE_NEW_SpName
 };
 
+#define NEWSubFamily_STR "New SubFamily"
+#define NEWGenus_STR	"New Genus"
+#define NEWName_STR		"New Name"
+#define NEWSpName_STR	"New SpName"
+
 #pragma pack(1)
 
 struct ZOGII_Pic
 {
+	// 1=数据有效 0=数据无效
+	unsigned char flag;
 	//图片目录
 	char Path[ZOGII_PAT_MAX];
 	//图片作者来源
@@ -56,87 +64,98 @@ struct ZOGII_Pic
 struct ZOGII_Imago
 {
 	//当前类型
+	// -1=无效
 	// 0 =未知
 	// 1 =雄
 	// 2 =雌
-	unsigned char Sex;
+	char Sex;
 	//颜色总数 0-9
+	// -1=无效
 	//0 =该结构体为无效数据
 	//1-9 有效数据 
-	unsigned char ColorNum;
+	char ColorNum;
 	//含有颜色 见颜色表
-	unsigned char Color[ZOGII_COR_MAX];
+	char Color[ZOGII_COR_MAX];
+	// -1=无效
 	// 0 =无绒毛
 	// 1 =有绒毛
-	unsigned char Villus; 
+	char Villus; 
 	//纹理
+	// -1=无效
 	// 0 =无
 	// 1 =条纹
 	// 2 =斑点
 	// 3 =斑点+条纹
-	unsigned char Texture; 
-	//图片
-	struct ZOGII_Pic Pic;
+	char Texture; 
+	//图片索引值 -1为无效
+	unsigned long int Pic;
 };
 
 //幼虫
 struct ZOGII_Larva
 {
 	//当前类型
+	// -1=无效
 	// 0 =未知
 	// 1 =雄
 	// 2 =雌
-	unsigned char Sex;
+	char Sex;
 	//颜色总数 0-9
+	// -1=无效
 	//0 =该结构体为无效数据
 	//1-9 有效数据 
-	unsigned char ColorNum;
+	char ColorNum;
 	//含有颜色 见颜色表
-	unsigned char Color[ZOGII_COR_MAX];
+	char Color[ZOGII_COR_MAX];
 	//棘刺
+	// -1=无效
 	// 0 =常规
 	// 1 =毛状
 	// 2 =长刺
-	unsigned char Calthrop;
+	char Calthrop;
 	//龄期
+	// -1=无效
 	// 0 =一龄
 	// 1 =二龄
 	// 2 =三龄
 	// 3 =四龄
-	unsigned char Instar;
-	//图片
-	struct ZOGII_Pic Pic;
+	char Instar;
+	//图片索引值 -1为无效
+	unsigned long int Pic;
 };
 //卵
 struct ZOGII_Ovum
 {
 	//当前类型
+	//-1=无效
 	// 0 =未知
 	// 1 =雄
 	// 2 =雌
-	unsigned char Sex;
+	char Sex;
 	//含有颜色 见颜色表
-	unsigned char Color;
-	//图片
-	struct ZOGII_Pic Pic;
+	char Color;
+	//图片索引值 -1为无效
+	unsigned long int Pic;
 };
 
 //蛹
 struct ZOGII_Pupa
 {
 	//当前类型
+	// -1 无效值
 	// 0 =未知
 	// 1 =雄
 	// 2 =雌
-	unsigned char Sex;
+	char Sex;
 	//颜色总数 0-9
+	//-1无效
 	//0 =该结构体为无效数据
 	//1-9 有效数据 
-	unsigned char ColorNum;
+	char ColorNum;
 	//含有颜色 见颜色表
-	unsigned char Color[ZOGII_COR_MAX];
-	//图片
-	struct ZOGII_Pic Pic;
+	char Color[ZOGII_COR_MAX];
+	//图片索引值 -1为无效
+	unsigned long int Pic;
 };
 
 //瓢虫科
@@ -150,9 +169,9 @@ struct ZOGII_Coccinellidae_DATA
 	// JK 变种
 	unsigned long int Code;
 	//最后更新时间 YY MM DD
-	unsigned char year;
-	unsigned char month;
-	unsigned char day;
+	char year;
+	char month;
+	char day;
 ///////////////////////////////////////////////////
 	//ZOGII_LAG_MAX 种语言 
 	// 0 =英语 拉丁 
@@ -172,29 +191,22 @@ struct ZOGII_Coccinellidae_DATA
 	//别名
 	char OtherName[ZOGII_INF_MAX][ZOGII_STR_MAX];
 	//食物
+	//-1 无效
 	// 0 =肉食
 	// 1 =菌食
 	// 2 =植食
-	unsigned char FoodType;	
+	char FoodType;	
 	//食物名称 6条
 	char FoodName[ZOGII_INF_MAX][ZOGII_STR_MAX];
 ///////////////////////////////////////////////////
-	//发现地地图
-	struct ZOGII_Pic DiscoverMap;
+	//发现地地图 -1为无效
+	unsigned long int DiscoverMap;
 	//命名者名称 年份
 	char DiscoverName[ZOGII_STR_MAX];
 ///////////////////////////////////////////////////
-	//当前张数 0或者更多
-	unsigned char ImagoNum;
 	struct ZOGII_Imago Imago[ZOGII_PIC_MAX];
-
-	unsigned char LarvaNum;
 	struct ZOGII_Larva Larva[ZOGII_PIC_MAX];
-
-	unsigned char PupaNum;
 	struct ZOGII_Pupa Pupa[ZOGII_PIC_MAX];
-
-	unsigned char OvumNum;
 	struct ZOGII_Ovum Ovum[ZOGII_PIC_MAX];
 };
 
@@ -228,14 +240,31 @@ struct ZOGII_Coccinellidae_SUBFamily
 
 #pragma pack()
 
-int zogiiReadDB(unsigned int *total,struct ZOGII_Coccinellidae_SUBFamily *data);
-int zogiiWriteDB(unsigned int *total,struct ZOGII_Coccinellidae_SUBFamily *data);
-void zogiiFreeDB(unsigned int *total,struct ZOGII_Coccinellidae_SUBFamily *data);
-void zogiiAddDB(struct ZOGII_Coccinellidae_SUBFamily *data,unsigned int *total,	\
-			   unsigned char type,unsigned int sf,unsigned int ge,unsigned int na,	\
-				struct ZOGII_Coccinellidae_DATA *newdata);
+int zogiiReadDB(unsigned int *total,struct ZOGII_Coccinellidae_SUBFamily *data,	\
+				unsigned long int *pictotal,struct ZOGII_Pic *picdata);
+int zogiiWriteDB(unsigned int total,struct ZOGII_Coccinellidae_SUBFamily *data,	\
+				 unsigned long int pictotal,struct ZOGII_Pic *picdata);
+void zogiiFreeDB(unsigned int *total,struct ZOGII_Coccinellidae_SUBFamily *data,	\
+				  unsigned long int *pictotal,struct ZOGII_Pic *picdata);
+
+void zogiiAddDB(unsigned int *total,struct ZOGII_Coccinellidae_SUBFamily *data,	\
+				unsigned long int *pictotal,struct ZOGII_Pic *picdata,	\
+				unsigned char type,unsigned int sf,unsigned int ge,unsigned int na,	\
+				struct ZOGII_Coccinellidae_DATA *newdata,	\
+				unsigned char NewPictotal,struct ZOGII_Pic *NewPicdata);
+
 void zogiiDeleteDB(struct ZOGII_Coccinellidae_SUBFamily *data,unsigned int *total,	\
 			  unsigned char type,unsigned int sf,unsigned int ge,unsigned int na,unsigned int sp);
+
+void zogiiADDpicDB(struct ZOGII_Coccinellidae_DATA *data,	\
+				unsigned long int *pictotal,struct ZOGII_Pic *picdata,	\
+				struct ZOGII_Coccinellidae_DATA *newdata,	\
+				unsigned char NewPictotal,struct ZOGII_Pic *NewPicdata);
+
+unsigned long int zogiiADDpicDBLite(unsigned long int *pictotal,struct ZOGII_Pic *picdata,	\
+								struct ZOGII_Pic *newpic);
+void zogiiDeletepicDBLite(unsigned long int i,struct ZOGII_Pic *picdata);
+
 
 
 #endif
