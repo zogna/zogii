@@ -45,9 +45,7 @@ CZogiiaddDlg::CZogiiaddDlg(CWnd* pParent /*=NULL*/)
 	m_LarvaPicInfo = _T("");
 	m_ImagoPicPath = _T("");
 	m_ImagoPicInfo = _T("");
-	CTime s(2012,10,10,20,20,20); 
-	m_Date = s;
-	m_Code = 0;
+	m_Date = 0;
 	m_GenusTW = _T("");
 	m_GenusEN = _T("");
 	m_GenusCN = _T("");
@@ -90,6 +88,10 @@ CZogiiaddDlg::CZogiiaddDlg(CWnd* pParent /*=NULL*/)
 	m_PupaColorNum = -1;
 	m_PupaNo = -1;
 	m_PupaSex = -1;
+	m_FoodNameG = _T("");
+	m_OtherNameG = _T("");
+	m_code = 0;
+	m_path = _T("");
 	//}}AFX_DATA_INIT
 	// Note that LoadIcon does not require a subsequent DestroyIcon in Win32
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -104,9 +106,11 @@ CZogiiaddDlg::CZogiiaddDlg(CWnd* pParent /*=NULL*/)
 	ListbufTotal=256;
 	DataList=(DATALIST *)calloc(ListbufTotal,sizeof(DATALIST));
 	curlist=NULL;
+	//第一个永远为无效
+	NewPictotal=1;
+	NewPicdata[0].flag=0;
 
-	NewPictotal=0;
-	memset(&Newdata,0,sizeof(ZOGII_Coccinellidae_DATA));
+	memset(&Newdata,0,sizeof(struct ZOGII_Coccinellidae_DATA));
 	DataP=NULL;
 }
 
@@ -168,8 +172,6 @@ void CZogiiaddDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_ImagoPicInfo, m_ImagoPicInfo);
 	DDV_MaxChars(pDX, m_ImagoPicInfo, 128);
 	DDX_DateTimeCtrl(pDX, IDC_DATETIMEPICKER_Date, m_Date);
-	DDX_Text(pDX, IDC_EDIT_Code, m_Code);
-	DDV_MinMaxLong(pDX, m_Code, 0, 2147483647);
 	DDX_Text(pDX, IDC_EDIT_GenusTW, m_GenusTW);
 	DDV_MaxChars(pDX, m_GenusTW, 128);
 	DDX_Text(pDX, IDC_EDIT_GenusEN, m_GenusEN);
@@ -225,6 +227,14 @@ void CZogiiaddDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_CBIndex(pDX, IDC_COMBO_PupaColorNum, m_PupaColorNum);
 	DDX_CBIndex(pDX, IDC_COMBO_PupaNo, m_PupaNo);
 	DDX_CBIndex(pDX, IDC_COMBO_PupaSex, m_PupaSex);
+	DDX_Text(pDX, IDC_EDIT_FoodNameG, m_FoodNameG);
+	DDV_MaxChars(pDX, m_FoodNameG, 128);
+	DDX_Text(pDX, IDC_EDIT_OtherNameG, m_OtherNameG);
+	DDV_MaxChars(pDX, m_OtherNameG, 128);
+	DDX_Text(pDX, IDC_EDIT_code, m_code);
+	DDV_MinMaxUInt(pDX, m_code, 0, 600000);
+	DDX_Text(pDX, IDC_EDIT_path, m_path);
+	DDV_MaxChars(pDX, m_path, 260);
 	//}}AFX_DATA_MAP
 }
 
@@ -263,6 +273,7 @@ BEGIN_MESSAGE_MAP(CZogiiaddDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_SavePupa, OnBUTTONSavePupa)
 	ON_BN_CLICKED(IDC_BUTTON_DeletePupa, OnBUTTONDeletePupa)
 	ON_NOTIFY(TVN_SELCHANGED, IDC_TREE, OnSelchangedTree)
+	ON_BN_CLICKED(IDC_BUTTON_SaveDB, OnBUTTONSaveDB)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -281,6 +292,12 @@ BOOL CZogiiaddDlg::OnInitDialog()
 	// TODO: Add extra initialization here
 	zogiiReadDB(&DBtotal,DBdata,&DBPictotal,DBPicdata);
 	BuildTree();
+	InitInfoData();
+
+  	char str[250];
+    sprintf(str,"zogci_db@zogna        Build:%s,%s        DataBaseVersion:%d",	\
+			__DATE__,__TIME__,zogiiVersionDB());
+    SetWindowText(str);
 
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
@@ -344,9 +361,15 @@ void CZogiiaddDlg::OnBUTTONDeleteData()
 		(TYPE_NEW_Name !=curlist->type) &&		\
 		(TYPE_NEW_SpName !=curlist->type))
 	{
-		zogiiDeleteDB(DBdata,&DBtotal,curlist->type,curlist->sf,curlist->ge,curlist->na,curlist->sp);
+		zogiiDeleteDB(&DBtotal,DBdata,curlist->type,curlist->sf,curlist->ge,curlist->na,curlist->sp,DBPicdata);
+		//这里做COPY是因为经过BuildDeleteTree函数以后，curlist指针被改变
+		memcpy(&templist,curlist,sizeof(DATALIST));
 		BuildDeleteTree(curlist);
+		BuildDeleteTreeMove(&templist);
 	}
+	//清空数据
+	InitInfoData();
+	UpdateData(FALSE);
 }
 
 void CZogiiaddDlg::OnBUTTONSaveData() 
@@ -354,8 +377,15 @@ void CZogiiaddDlg::OnBUTTONSaveData()
 	// TODO: Add your control notification handler code here
 	UpdateData(TRUE);
 
+	CopyInfoM2D(&Newdata);
 
-	//BuildNewTree(curlist,);
+	zogiiAddSaveDB(&DBtotal,DBdata,&DBPictotal,DBPicdata,
+					curlist->type,curlist->sf,curlist->ge,curlist->na,curlist->sp,
+					&Newdata,NewPictotal,NewPicdata);
+
+	BuildNewTree(curlist);
+
+	UpdateData(FALSE);
 	
 }
 
@@ -413,7 +443,8 @@ void CZogiiaddDlg::OnBUTTONTextENView()
 void CZogiiaddDlg::OnBUTTONImagoPicView() 
 {
 	// TODO: Add your control notification handler code here
-	
+	UpdateData(TRUE);
+	ViewPic(m_ImagoPicPath);
 }
 
 void CZogiiaddDlg::OnBUTTONImagoPicPath() 
@@ -425,8 +456,7 @@ void CZogiiaddDlg::OnBUTTONImagoPicPath()
 void CZogiiaddDlg::OnBUTTONSaveImago() 
 {
 	// TODO: Add your control notification handler code here
-	UpdateData(TRUE);
-	ViewPic(m_ImagoPicPath);
+
 }
 
 void CZogiiaddDlg::OnBUTTONDeleteImago() 
@@ -536,11 +566,18 @@ void CZogiiaddDlg::OnSelchangedTree(NMHDR* pNMHDR, LRESULT* pResult)
 		if((DataList[i].item == item_sel) && DataList[i].flag)
 		{
 			curlist=&DataList[i];
+			InitInfoData();
 			break;
 		}
 	}
 
 //	*pResult = 0;
+}
+
+void CZogiiaddDlg::OnBUTTONSaveDB() 
+{
+	// TODO: Add your control notification handler code here
+	zogiiWriteDB(DBtotal,DBdata,DBPictotal,DBPicdata);
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
@@ -700,16 +737,38 @@ void CZogiiaddDlg::BuildTree()
 	curlist=&DataList[0];
 }
 //在新增完数据之后调用 之前要遍历树一次
-void CZogiiaddDlg::BuildNewTree(DATALIST *dl,char *str)
+void CZogiiaddDlg::BuildNewTree(DATALIST *dl)
 {
-	//修改字符串
-	m_tree.SetItemText(dl->item,str);
-
-	if(TYPE_NEW_SubFamily == dl->type)
+	if(TYPE_SubFamily == dl->type)
+	{
+		//修改字符串
+		m_tree.SetItemText(dl->item,DBdata[curlist->sf].SF.SubFamily[language]);
+	}
+	else 	if(TYPE_Genus == dl->type)
+	{
+		//修改字符串
+		m_tree.SetItemText(dl->item,DBdata[curlist->sf].GenusData[curlist->ge].GE.Genus[language]);
+	}
+	else 	if(TYPE_Name == dl->type)
+	{
+		//修改字符串
+		m_tree.SetItemText(dl->item,	\
+			DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA.Name[language]);
+	}	
+	else 	if(TYPE_SpName == dl->type)
+	{
+		//修改字符串
+		m_tree.SetItemText(dl->item,	\
+			DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].SpData[curlist->sp].SpName[language]);
+	}
+	else if(TYPE_NEW_SubFamily == dl->type)
 	{
 		//修改状态
 		dl->type=TYPE_SubFamily;
 		dl->sf=DBtotal-1;
+		//修改字符串
+		m_tree.SetItemText(dl->item,DBdata[curlist->sf].SF.SubFamily[language]);
+
 		//加一个兄弟
 		AddTree(dl->Parent_item,NEWSubFamily_STR,TYPE_NEW_SubFamily,0,0,0,0);
 		//加一个子
@@ -720,6 +779,8 @@ void CZogiiaddDlg::BuildNewTree(DATALIST *dl,char *str)
 		//修改状态
 		dl->type=TYPE_Genus;
 		dl->ge=DBdata[dl->sf].GenusTotal-1;
+		//修改字符串
+		m_tree.SetItemText(dl->item,DBdata[curlist->sf].GenusData[curlist->ge].GE.Genus[language]);
 		//加一个兄弟
 		AddTree(dl->Parent_item,NEWGenus_STR,TYPE_NEW_Genus,dl->sf,0,0,0);
 		//加一个子
@@ -730,6 +791,9 @@ void CZogiiaddDlg::BuildNewTree(DATALIST *dl,char *str)
 		//修改状态
 		dl->type=TYPE_Name;
 		dl->na=DBdata[dl->sf].GenusData[dl->ge].NameTotal-1;
+		//修改字符串
+		m_tree.SetItemText(dl->item,	\
+			DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA.Name[language]);
 		//加一个兄弟
 		AddTree(dl->Parent_item,NEWName_STR,TYPE_NEW_Name,dl->sf,dl->ge,0,0);
 		//加一个子
@@ -740,10 +804,14 @@ void CZogiiaddDlg::BuildNewTree(DATALIST *dl,char *str)
 		//修改状态
 		dl->type=TYPE_SpName;
 		dl->sp=DBdata[dl->sf].GenusData[dl->ge].NameData[dl->na].SpTotal-1;
+		//修改字符串
+		m_tree.SetItemText(dl->item,	\
+			DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].SpData[curlist->sp].SpName[language]);
 	
 		//加一个兄弟
 		AddTree(dl->Parent_item,NEWSpName_STR,TYPE_NEW_SpName,dl->sf,dl->ge,dl->na,0);
 	}
+		
 }
 
 
@@ -770,75 +838,157 @@ void CZogiiaddDlg::BuildDeleteTree(DATALIST *dl)
 				m_tree.DeleteItem(DataList[i].item);
 			}
 		}
+		//自己被删除
+		dl->flag=0;
+		m_tree.DeleteItem(dl->item);
 	}
 	else if((TYPE_SpName == dl->type) || (TYPE_NEW_SpName ==dl->type))
 	{
-		//修改状态
-		for(i=0;i<ListTotal;i++)
+		//自己被删除
+		dl->flag=0;
+		m_tree.DeleteItem(dl->item);
+	}
+}
+void CZogiiaddDlg::BuildDeleteTreeMove(DATALIST *dl)
+{
+	unsigned int i;
+	
+	//移动具有相同父类的兄弟
+	for(i=0;i<ListTotal;i++)
+	{
+		if((DataList[i].Parent_item == dl->Parent_item) &&	DataList[i].flag )
 		{
-			if((DataList[i].Parent_item == dl->item) && DataList[i].flag)
+			switch(dl->type)
 			{
-				//被删除
-				DataList[i].flag=0;
-				m_tree.DeleteItem(DataList[i].item);
+			case TYPE_SubFamily:
+				if(	(DataList[i].sf > dl->sf) )
+				{
+					if(DataList[i].sf >0)
+						DataList[i].sf--;
+				}
+				break;
+				
+			case TYPE_Genus:
+				if(	(DataList[i].ge > dl->ge) )
+				{
+					if(DataList[i].ge >0)
+						DataList[i].ge--;
+				}
+				break;
+			case TYPE_Name:
+				if(	(DataList[i].na > dl->na) )
+				{
+					if(DataList[i].na >0)
+						DataList[i].na--;
+				}
+				break;
+			case TYPE_SpName:
+				if(	(DataList[i].sp > dl->sp) )
+				{
+					if(DataList[i].sp >0)
+						DataList[i].sp--;
+				}
+				break;
+			default:break;
 			}
 		}
 	}
-
 }
+
+	
 
 void CZogiiaddDlg::InitInfoData()
 {
 	if(TYPE_SubFamily == curlist->type)
 	{
 		CopyInfoD2M(&DBdata[curlist->sf].SF);
+		UpdateData(FALSE);
+		return ;
 	}
 	else	if(TYPE_Genus == curlist->type)
 	{
 		CopyInfoD2M(&DBdata[curlist->sf].GenusData[curlist->ge].GE);
+		UpdateData(FALSE);
+		return ;
 	}
 	else	if(TYPE_Name == curlist->type)
 	{
 		CopyInfoD2M(&DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA);
+		UpdateData(FALSE);
+		return ;
 	}
 	else	if(TYPE_SpName == curlist->type)
 	{
 		CopyInfoD2M(&DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].SpData[curlist->sp]);
+		UpdateData(FALSE);
+		return ;
 	}
 	else	if(TYPE_NEW_SubFamily == curlist->type)
 	{
-	
+		m_SubFamilyEN = _T("");
+		m_SubFamilyCN = _T("");
+		m_SubFamilyTW = _T("");
+
+		m_GenusEN = _T("");
+		m_GenusCN = _T("");
+		m_GenusTW = _T("");
+
+		m_NameEN = _T("");
+		m_NameCN = _T("");
+		m_NameTW = _T("");
 	}
 	else	if(TYPE_NEW_Genus == curlist->type)
 	{
-	
+		m_SubFamilyEN = DBdata[curlist->sf].SF.SubFamily[0];
+		m_SubFamilyCN = DBdata[curlist->sf].SF.SubFamily[1];
+		m_SubFamilyTW = DBdata[curlist->sf].SF.SubFamily[2];
+
+		m_GenusEN = _T("");
+		m_GenusCN = _T("");
+		m_GenusTW = _T("");
+
+		m_NameEN = _T("");
+		m_NameCN = _T("");
+		m_NameTW = _T("");
 	}
 	else	if(TYPE_NEW_Name == curlist->type)
 	{
-	
+		m_SubFamilyEN = DBdata[curlist->sf].SF.SubFamily[0];
+		m_SubFamilyCN = DBdata[curlist->sf].SF.SubFamily[1];
+		m_SubFamilyTW = DBdata[curlist->sf].SF.SubFamily[2];
+
+		m_GenusEN = DBdata[curlist->sf].GenusData[curlist->ge].GE.Genus[0];
+		m_GenusCN = DBdata[curlist->sf].GenusData[curlist->ge].GE.Genus[1];
+		m_GenusTW = DBdata[curlist->sf].GenusData[curlist->ge].GE.Genus[2];
+
+		m_NameEN = _T("");
+		m_NameCN = _T("");
+		m_NameTW = _T("");
 	}
 	else	if(TYPE_NEW_SpName == curlist->type)
 	{
-	
+		m_SubFamilyEN = DBdata[curlist->sf].SF.SubFamily[0];
+		m_SubFamilyCN = DBdata[curlist->sf].SF.SubFamily[1];
+		m_SubFamilyTW = DBdata[curlist->sf].SF.SubFamily[2];
+
+		m_GenusEN = DBdata[curlist->sf].GenusData[curlist->ge].GE.Genus[0];
+		m_GenusCN = DBdata[curlist->sf].GenusData[curlist->ge].GE.Genus[1];
+		m_GenusTW = DBdata[curlist->sf].GenusData[curlist->ge].GE.Genus[2];
+
+		m_NameEN = DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA.Name[0];
+		m_NameCN = DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA.Name[1];
+		m_NameTW = DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA.Name[2];
 	}
-	m_SubFamilyEN = _T("");
-	m_SubFamilyCN = _T("");
-	m_SubFamilyTW = _T("");
 
-	m_GenusTW = _T("");
-	m_GenusEN = _T("");
-	m_GenusCN = _T("");
-	
-	m_NameCN = _T("");
-	m_NameEN = _T("");
-	m_NameTW = _T("");
+	m_code = 0;
+	m_path = _T("");
 
-	m_SpNameTW = _T("");
 	m_SpNameEN = _T("");
 	m_SpNameCN = _T("");
+	m_SpNameTW = _T("");
 
-	m_TextCNPath = _T("");
 	m_TextENPath = _T("");
+	m_TextCNPath = _T("");
 	m_TextTWPath = _T("");
 
 	m_OtherNameA = _T("");
@@ -847,28 +997,30 @@ void CZogiiaddDlg::InitInfoData()
 	m_OtherNameD = _T("");
 	m_OtherNameE = _T("");
 	m_OtherNameF = _T("");
+	m_OtherNameG = _T("");
+
 	CTime s(2012,10,10,20,20,20); 
 	m_Date = s;
-	m_Code = 0;
-
 	m_Food = -1;
 
-	m_FoodNameF = _T("");
-	m_FoodNameE = _T("");
-	m_FoodNameD = _T("");
-	m_FoodNameC = _T("");
-	m_FoodNameB = _T("");
 	m_FoodNameA = _T("");
+	m_FoodNameB = _T("");
+	m_FoodNameC = _T("");
+	m_FoodNameD = _T("");
+	m_FoodNameE = _T("");
+	m_FoodNameF = _T("");
+	m_FoodNameG = _T("");
 
 	m_DiscoveryName = _T("");
-
 	UpdateData(FALSE);
+	return ;
 }
-
-
 
 void CZogiiaddDlg::CopyInfoD2M(struct ZOGII_Coccinellidae_DATA* d)
 {
+	m_code = d->code;
+	m_path = d->path;
+
 	m_SubFamilyEN = d->SubFamily[0];
 	m_SubFamilyCN = d->SubFamily[1];
 	m_SubFamilyTW = d->SubFamily[2];
@@ -895,12 +1047,11 @@ void CZogiiaddDlg::CopyInfoD2M(struct ZOGII_Coccinellidae_DATA* d)
 	m_OtherNameD = d->OtherName[3];
 	m_OtherNameE = d->OtherName[4];
 	m_OtherNameF = d->OtherName[5];
+	m_OtherNameG = d->OtherName[6];
 
 	CTime s(2000+d->year,d->month,d->day,20,20,20);
 
 	m_Date = s;
-	m_Code = d->Code;
-
 	m_Food = d->FoodType;
 
 	m_FoodNameA = d->FoodName[0];
@@ -909,6 +1060,7 @@ void CZogiiaddDlg::CopyInfoD2M(struct ZOGII_Coccinellidae_DATA* d)
 	m_FoodNameD = d->FoodName[3];
 	m_FoodNameE = d->FoodName[4];
 	m_FoodNameF = d->FoodName[5];
+	m_FoodNameG = d->FoodName[6];
 
 	m_DiscoveryName = d->DiscoverName;
 
@@ -919,11 +1071,14 @@ void CZogiiaddDlg::CopyInfoM2D(struct ZOGII_Coccinellidae_DATA* d)
 {
 	UpdateData(TRUE);
 
+	d->code = m_code;
+	memcpy(d->path , m_path.GetBuffer(0),m_path.GetAllocLength()); 
+
 	memcpy(d->SubFamily[0] , m_SubFamilyEN.GetBuffer(0),m_SubFamilyEN.GetAllocLength()); 
 	memcpy(d->SubFamily[1] , m_SubFamilyCN.GetBuffer(0),m_SubFamilyCN.GetAllocLength()); 
 	memcpy(d->SubFamily[2] , m_SubFamilyTW.GetBuffer(0),m_SubFamilyTW.GetAllocLength()); 
 
-	memcpy(d->Genus[0] , m_GenusEN.GetBuffer(0), m_GenusEN.GetAllocLength()); 
+	memcpy(d->Genus[0] , m_GenusEN.GetBuffer(0),m_GenusEN.GetAllocLength()); 
 	memcpy(d->Genus[1] , m_GenusCN.GetBuffer(0),m_GenusCN.GetAllocLength()); 
 	memcpy(d->Genus[2] , m_GenusTW.GetBuffer(0),m_GenusTW.GetAllocLength()); 
 
@@ -945,12 +1100,11 @@ void CZogiiaddDlg::CopyInfoM2D(struct ZOGII_Coccinellidae_DATA* d)
 	memcpy(d->OtherName[3] , m_OtherNameD.GetBuffer(0),m_OtherNameD.GetAllocLength()); 
 	memcpy(d->OtherName[4] , m_OtherNameE.GetBuffer(0),m_OtherNameE.GetAllocLength()); 
 	memcpy(d->OtherName[5] , m_OtherNameF.GetBuffer(0),m_OtherNameF.GetAllocLength()); 
+	memcpy(d->OtherName[6] , m_OtherNameG.GetBuffer(0),m_OtherNameG.GetAllocLength()); 
 
 	d->year=(char)(m_Date.GetYear()-2000);
 	d->month=(char)m_Date.GetMonth();
 	d->day=(char)m_Date.GetDay();
-
-	d->Code = m_Code; 
 
 	d->FoodType =(char)m_Food; 
 
@@ -960,6 +1114,9 @@ void CZogiiaddDlg::CopyInfoM2D(struct ZOGII_Coccinellidae_DATA* d)
 	memcpy(d->FoodName[3] , m_FoodNameD.GetBuffer(0),m_FoodNameD.GetAllocLength()); 
 	memcpy(d->FoodName[4] , m_FoodNameE.GetBuffer(0),m_FoodNameE.GetAllocLength()); 
 	memcpy(d->FoodName[5] , m_FoodNameF.GetBuffer(0),m_FoodNameF.GetAllocLength()); 
+	memcpy(d->FoodName[6] , m_FoodNameG.GetBuffer(0),m_FoodNameG.GetAllocLength()); 
 
 	memcpy(d->DiscoverName , m_DiscoveryName.GetBuffer(0),m_DiscoveryName.GetAllocLength()); 
+
 }
+

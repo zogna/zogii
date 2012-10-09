@@ -32,7 +32,7 @@
 #define IDC_BUTTON2                     1013
 #define IDC_BUTTON_DeleteImago          1013
 #define IDC_EDIT15                      1014
-#define IDC_EDIT_Code                   1014
+#define IDC_EDIT_code                   1014
 #define IDC_BUTTON3                     1015
 #define IDC_BUTTON_DiscoveryPicPath     1015
 #define IDC_BUTTON4                     1016
@@ -184,6 +184,7 @@
 #define IDC_BUTTON_PupaPicView          1088
 #define IDC_BUTTON24                    1089
 #define IDC_BUTTON_SaveFood             1089
+#define IDC_EDIT_FoodNameG              1089
 #define IDC_COMBO27                     1090
 #define IDC_COMBO_PupaColorC            1090
 #define IDC_COMBO28                     1091
@@ -204,8 +205,11 @@
 #define IDC_EDIT_OtherNameF             1098
 #define IDC_BUTTON29                    1099
 #define IDC_BUTTON_SaveOtherName        1099
+#define IDC_EDIT_OtherNameG             1099
 #define IDC_BUTTON_DataOutput           1100
 #define IDC_COMBO30                     1103
+#define IDC_BUTTON_SaveDB               1104
+#define IDC_EDIT_path                   1106
 
 // Next default values for new objects
 // 
@@ -213,7 +217,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        130
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1104
+#define _APS_NEXT_CONTROL_VALUE         1107
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
