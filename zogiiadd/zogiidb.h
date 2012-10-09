@@ -14,7 +14,10 @@
 //最大图片数
 #define ZOGII_PIC_MAX 12
 //最大别名数
-#define ZOGII_INF_MAX 6
+#define ZOGII_INF_MAX 7
+//	CreateDirectory(temppath, NULL);
+#define ZOGII_DB_DIRSTR "zogcidb"
+#define ZOGII_DB_FILSTR "zogci.db"
 /* 
 //颜色表
 // -1=无效
@@ -87,7 +90,7 @@ struct ZOGII_Imago
 	// 2 =斑点
 	// 3 =斑点+条纹
 	char Texture; 
-	//图片索引值 -1为无效
+	//图片索引值 0为无效
 	unsigned long int Pic;
 };
 
@@ -120,7 +123,7 @@ struct ZOGII_Larva
 	// 2 =三龄
 	// 3 =四龄
 	char Instar;
-	//图片索引值 -1为无效
+	//图片索引值 0为无效
 	unsigned long int Pic;
 };
 //卵
@@ -134,7 +137,7 @@ struct ZOGII_Ovum
 	char Sex;
 	//含有颜色 见颜色表
 	char Color;
-	//图片索引值 -1为无效
+	//图片索引值 0为无效
 	unsigned long int Pic;
 };
 
@@ -154,20 +157,17 @@ struct ZOGII_Pupa
 	char ColorNum;
 	//含有颜色 见颜色表
 	char Color[ZOGII_COR_MAX];
-	//图片索引值 -1为无效
+	//图片索引值 0为无效
 	unsigned long int Pic;
 };
 
 //瓢虫科
 struct ZOGII_Coccinellidae_DATA
 {
-	//内部编号 
-	// AB CDE FGHI JK(数字)	
-	// AB(前两位数字) 亚科
-	// CDE 属
-	// FGHI 种 
-	// JK 变种
-	unsigned long int Code;
+	//本体编号
+	unsigned int code;
+	//根据本体编号赋予的唯一文件夹
+	char path[ZOGII_PAT_MAX];
 	//最后更新时间 YY MM DD
 	char year;
 	char month;
@@ -199,7 +199,7 @@ struct ZOGII_Coccinellidae_DATA
 	//食物名称 6条
 	char FoodName[ZOGII_INF_MAX][ZOGII_STR_MAX];
 ///////////////////////////////////////////////////
-	//发现地地图 -1为无效
+	//发现地地图 0为无效
 	unsigned long int DiscoverMap;
 	//命名者名称 年份
 	char DiscoverName[ZOGII_STR_MAX];
@@ -240,30 +240,37 @@ struct ZOGII_Coccinellidae_SUBFamily
 
 #pragma pack()
 
-int zogiiReadDB(unsigned int *total,struct ZOGII_Coccinellidae_SUBFamily *data,	\
-				unsigned long int *pictotal,struct ZOGII_Pic *picdata);
-int zogiiWriteDB(unsigned int total,struct ZOGII_Coccinellidae_SUBFamily *data,	\
-				 unsigned long int pictotal,struct ZOGII_Pic *picdata);
-void zogiiFreeDB(unsigned int *total,struct ZOGII_Coccinellidae_SUBFamily *data,	\
-				  unsigned long int *pictotal,struct ZOGII_Pic *picdata);
+unsigned long int zogiiVersionDB(void);
 
-void zogiiAddDB(unsigned int *total,struct ZOGII_Coccinellidae_SUBFamily *data,	\
-				unsigned long int *pictotal,struct ZOGII_Pic *picdata,	\
-				unsigned char type,unsigned int sf,unsigned int ge,unsigned int na,	\
+int zogiiReadDB(unsigned int *total,struct ZOGII_Coccinellidae_SUBFamily *&data,	\
+				unsigned long int *pictotal,struct ZOGII_Pic *&picdata);
+int zogiiWriteDB(unsigned int total,struct ZOGII_Coccinellidae_SUBFamily *&data,	\
+				 unsigned long int pictotal,struct ZOGII_Pic *&picdata);
+void zogiiFreeDB(unsigned int *total,struct ZOGII_Coccinellidae_SUBFamily *&data,	\
+				  unsigned long int *pictotal,struct ZOGII_Pic *&picdata);
+
+unsigned int zogiiCodeGen(unsigned int *total,struct ZOGII_Coccinellidae_SUBFamily *&data,	\
+					unsigned char type,unsigned int sf,unsigned int ge,unsigned int na);
+
+void zogiiAddSaveDB(unsigned int *total,struct ZOGII_Coccinellidae_SUBFamily *&data,	\
+				unsigned long int *pictotal,struct ZOGII_Pic *&picdata,	\
+				unsigned char type,unsigned int sf,unsigned int ge,unsigned int na,	unsigned int sp,	\
 				struct ZOGII_Coccinellidae_DATA *newdata,	\
 				unsigned char NewPictotal,struct ZOGII_Pic *NewPicdata);
 
-void zogiiDeleteDB(struct ZOGII_Coccinellidae_SUBFamily *data,unsigned int *total,	\
-			  unsigned char type,unsigned int sf,unsigned int ge,unsigned int na,unsigned int sp);
+void zogiiDeleteDB(unsigned int *total,struct ZOGII_Coccinellidae_SUBFamily *&data,	\
+			   unsigned char type,unsigned int sf,unsigned int ge,unsigned int na,unsigned int sp,	\
+			   struct ZOGII_Pic *&picdata);
 
 void zogiiADDpicDB(struct ZOGII_Coccinellidae_DATA *data,	\
-				unsigned long int *pictotal,struct ZOGII_Pic *picdata,	\
+				unsigned long int *pictotal,struct ZOGII_Pic *&picdata,	\
 				struct ZOGII_Coccinellidae_DATA *newdata,	\
 				unsigned char NewPictotal,struct ZOGII_Pic *NewPicdata);
 
-unsigned long int zogiiADDpicDBLite(unsigned long int *pictotal,struct ZOGII_Pic *picdata,	\
+void zogiiDeletepicDB(struct ZOGII_Coccinellidae_DATA *data,struct ZOGII_Pic *&picdata);
+unsigned long int zogiiADDpicDBLite(unsigned long int *pictotal,struct ZOGII_Pic *&picdata,	\
 								struct ZOGII_Pic *newpic);
-void zogiiDeletepicDBLite(unsigned long int i,struct ZOGII_Pic *picdata);
+unsigned long int zogiiDeletepicDBLite(unsigned long int i,struct ZOGII_Pic *&picdata);
 
 
 

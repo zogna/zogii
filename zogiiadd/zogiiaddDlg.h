@@ -66,7 +66,6 @@ public:
 	CString	m_ImagoPicPath;
 	CString	m_ImagoPicInfo;
 	CTime	m_Date;
-	long	m_Code;
 	CString	m_GenusTW;
 	CString	m_GenusEN;
 	CString	m_GenusCN;
@@ -109,6 +108,10 @@ public:
 	int		m_PupaColorNum;
 	int		m_PupaNo;
 	int		m_PupaSex;
+	CString	m_FoodNameG;
+	CString	m_OtherNameG;
+	UINT	m_code;
+	CString	m_path;
 	//}}AFX_DATA
 
 	// ClassWizard generated virtual function overrides
@@ -157,6 +160,7 @@ protected:
 	afx_msg void OnBUTTONSavePupa();
 	afx_msg void OnBUTTONDeletePupa();
 	afx_msg void OnSelchangedTree(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnBUTTONSaveDB();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 
@@ -168,8 +172,9 @@ protected:
 	HTREEITEM AddTree(HTREEITEM parent,char *str,	\
 								unsigned char type,unsigned int sf,unsigned int ge,unsigned int na,unsigned int sp);
 	void BuildTree();
-	void BuildNewTree(DATALIST * dl,char *str);
+	void BuildNewTree(DATALIST * dl);
 	void BuildDeleteTree(DATALIST *dl);
+	void BuildDeleteTreeMove(DATALIST *dl);
 	void InitInfoData();
 	void CopyInfoD2M(struct ZOGII_Coccinellidae_DATA* d);
 	void CopyInfoM2D(struct ZOGII_Coccinellidae_DATA* d);
@@ -185,6 +190,8 @@ protected:
 	DATALIST *DataList;
 	//选择的树选项
 	DATALIST *curlist;
+	//临时
+	DATALIST templist;
 
 	//数据
 	unsigned int DBtotal;
