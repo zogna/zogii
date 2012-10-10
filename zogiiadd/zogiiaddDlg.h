@@ -22,10 +22,10 @@ typedef struct
 	unsigned char type;
 
 	//数据指针
-	unsigned int sf;
-	unsigned int ge;
-	unsigned int na;
-	unsigned int sp;
+	ZOGII_LONG_TYPE sf;
+	ZOGII_LONG_TYPE ge;
+	ZOGII_LONG_TYPE na;
+	ZOGII_LONG_TYPE sp;
 
 }DATALIST;
 
@@ -149,8 +149,6 @@ protected:
 	afx_msg void OnBUTTONLarvaPicPath();
 	afx_msg void OnBUTTONDeleteLarva();
 	afx_msg void OnBUTTONSaveLarva();
-	afx_msg void OnBUTTONSaveFood();
-	afx_msg void OnBUTTONSaveOtherName();
 	afx_msg void OnBUTTONOvumPicView();
 	afx_msg void OnBUTTONOvumPicPath();
 	afx_msg void OnBUTTONSaveOvum();
@@ -161,49 +159,79 @@ protected:
 	afx_msg void OnBUTTONDeletePupa();
 	afx_msg void OnSelchangedTree(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnBUTTONSaveDB();
+	afx_msg void OnCloseupCOMBOImagoNo();
+	afx_msg void OnCloseupCOMBOLarvaNo();
+	afx_msg void OnCloseupCOMBOOvumNo();
+	afx_msg void OnCloseupCOMBOPupaNo();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
-
+	/////////////////////////////////////////////////////////////////
 	int SaveToFile(int idc);
 	int SaveToDir(int idc);
 	void ViewText(CString filename);
 	void ViewPic(CString filename);
+	/////////////////////////////
 	void AddListBuf();
 	HTREEITEM AddTree(HTREEITEM parent,char *str,	\
-								unsigned char type,unsigned int sf,unsigned int ge,unsigned int na,unsigned int sp);
+								unsigned char type,ZOGII_LONG_TYPE sf,ZOGII_LONG_TYPE ge,ZOGII_LONG_TYPE na,ZOGII_LONG_TYPE sp);
 	void BuildTree();
 	void BuildNewTree(DATALIST * dl);
 	void BuildDeleteTree(DATALIST *dl);
 	void BuildDeleteTreeMove(DATALIST *dl);
+	/////////////////////////////
 	void InitInfoData();
-	void CopyInfoD2M(struct ZOGII_Coccinellidae_DATA* d);
-	void CopyInfoM2D(struct ZOGII_Coccinellidae_DATA* d);
+	void CopyInfoDBData2M(struct ZOGII_Coccinellidae_DATA* d);
+	void CopyInfoM2NewData();
+	/////////////////////////////
+	void CleanImago2M();
+	void SaveM2Imago(int i);
+	void ReadImago2M(int i);
+	void ReadDB2Imago(struct ZOGII_Coccinellidae_DATA* d);
+	/////////////////////////////
+	void CleanLarva2M();
+	void SaveM2Larva(int i);
+	void ReadLarva2M(int i);
+	void ReadDB2Larva(struct ZOGII_Coccinellidae_DATA* d);
+	/////////////////////////////
+	void CleanPupa2M();
+	void SaveM2Pupa(int i);
+	void ReadPupa2M(int i);
+	void ReadDB2Pupa(struct ZOGII_Coccinellidae_DATA* d);
+	/////////////////////////////
+	void CleanOvum2M();
+	void SaveM2Ovum(int i);
+	void ReadOvum2M(int i);
+	void ReadDB2Ovum(struct ZOGII_Coccinellidae_DATA* d);
 	/////////////////////////////////////////////////////////////////
+
+
 	//设定树语言 
 	// 0 =英语 拉丁 
 	// 1 =中文简体
 	// 2 =中文繁体	
 	unsigned char language;
 	//树
-	unsigned int ListTotal;
-	unsigned int ListbufTotal;
+	ZOGII_LONG_TYPE ListTotal;
+	ZOGII_LONG_TYPE ListbufTotal;
 	DATALIST *DataList;
 	//选择的树选项
 	DATALIST *curlist;
-	//临时
+	//临时 //防止删除树出错
 	DATALIST templist;
 
 	//数据
-	unsigned int DBtotal;
+	ZOGII_LONG_TYPE DBtotal;
 	struct ZOGII_Coccinellidae_SUBFamily *DBdata;
-	unsigned long int DBPictotal;
+	ZOGII_ULONG_TYPE DBPictotal;
 	struct ZOGII_Pic *DBPicdata;
 	//临时数据
-	unsigned char NewPictotal;
-	struct ZOGII_Pic NewPicdata[ZOGII_PIC_MAX*5];
+	// 0-11为Imago 
+	// 12-23为Larva
+	// 24-35为Pupa
+	// 36-47为Ovum
+	// 48 为MAP
+	struct ZOGII_Pic NewPicdata[ZOGII_ALL_PIC]; 
 	struct ZOGII_Coccinellidae_DATA Newdata;
-	//指针
-	struct ZOGII_Coccinellidae_DATA* DataP;
 
 };
 
