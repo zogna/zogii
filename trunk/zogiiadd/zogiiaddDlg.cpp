@@ -288,6 +288,8 @@ BOOL CZogiiaddDlg::OnInitDialog()
 	SetIcon(m_hIcon, TRUE);			// Set big icon
 	SetIcon(m_hIcon, FALSE);		// Set small icon
 	
+	GetCurrentDirectory(ZOGII_PAT_MAX,CurrentDir);
+	zogiiSetDirectory(CurrentDir);
 	// TODO: Add extra initialization here
 	zogiiReadDB(&DBtotal,DBdata,&DBPictotal,DBPicdata);
 	BuildTree();
@@ -340,7 +342,7 @@ HCURSOR CZogiiaddDlg::OnQueryDragIcon()
 void CZogiiaddDlg::OnBUTTONDiscoveryPicPath() 
 {
 	// TODO: Add your control notification handler code here
-	SaveToFile(IDC_EDIT_DiscoveryPicPath);
+	OpenToPicFile(IDC_EDIT_DiscoveryPicPath);
 }
 
 void CZogiiaddDlg::OnBUTTONDiscoveryPicView() 
@@ -401,17 +403,19 @@ void CZogiiaddDlg::OnBUTTONDataOutput()
 	// TODO: Add your control notification handler code here
 	UpdateData(TRUE);
 
-	char str[300];
+	char str[600];
+	if(m_DataOutputPath.IsEmpty())
+		return ;
 	//只会拷贝文件。 子文件夹不会被拷贝
-	sprintf(str,"copy /y \"%s\" \"%s\"",Newdata.Path,m_DataOutputPath);
-	WinExec(str,SW_NORMAL);
+	sprintf(str,"xcopy /y \"%s\\%s\" \"%s\"",CurrentDir,Newdata.Path,m_DataOutputPath);
+	WinExec(str,SW_HIDE);
 	MessageBox(_T("导出成功"), _T("导出"));
 }
 
 void CZogiiaddDlg::OnBUTTONTextTWPath() 
 {
 	// TODO: Add your control notification handler code here
-	SaveToFile(IDC_EDIT_TextTWPath);
+	OpenToTxtFile(IDC_EDIT_TextTWPath);
 }
 
 void CZogiiaddDlg::OnBUTTONTextTWView() 
@@ -424,7 +428,7 @@ void CZogiiaddDlg::OnBUTTONTextTWView()
 void CZogiiaddDlg::OnBUTTONTextCNPath() 
 {
 	// TODO: Add your control notification handler code here
-	SaveToFile(IDC_EDIT_TextCNPath);
+	OpenToTxtFile(IDC_EDIT_TextCNPath);
 }
 
 void CZogiiaddDlg::OnBUTTONTextCNView() 
@@ -437,7 +441,7 @@ void CZogiiaddDlg::OnBUTTONTextCNView()
 void CZogiiaddDlg::OnBUTTONTextENPath() 
 {
 	// TODO: Add your control notification handler code here
-	SaveToFile(IDC_EDIT_TextENPath);
+	OpenToTxtFile(IDC_EDIT_TextENPath);
 }
 
 void CZogiiaddDlg::OnBUTTONTextENView() 
@@ -457,7 +461,7 @@ void CZogiiaddDlg::OnBUTTONImagoPicView()
 void CZogiiaddDlg::OnBUTTONImagoPicPath() 
 {
 	// TODO: Add your control notification handler code here
-	SaveToFile(IDC_EDIT_ImagoPicPath);
+	OpenToPicFile(IDC_EDIT_ImagoPicPath);
 }
 
 void CZogiiaddDlg::OnBUTTONSaveImago() 
@@ -477,7 +481,7 @@ void CZogiiaddDlg::OnBUTTONDeleteImago()
 void CZogiiaddDlg::OnBUTTONLarvaPicPath() 
 {
 	// TODO: Add your control notification handler code here
-	SaveToFile(IDC_EDIT_LarvaPicPath);
+	OpenToPicFile(IDC_EDIT_LarvaPicPath);
 }
 
 void CZogiiaddDlg::OnBUTTONLarvaPicView() 
@@ -504,7 +508,7 @@ void CZogiiaddDlg::OnBUTTONSaveLarva()
 void CZogiiaddDlg::OnBUTTONOvumPicPath() 
 {
 	// TODO: Add your control notification handler code here
-	SaveToFile(IDC_EDIT_OvumPicPath);
+	OpenToPicFile(IDC_EDIT_OvumPicPath);
 }
 
 void CZogiiaddDlg::OnBUTTONOvumPicView() 
@@ -531,7 +535,7 @@ void CZogiiaddDlg::OnBUTTONDeleteOvum()
 void CZogiiaddDlg::OnBUTTONPupaPicPath() 
 {
 	// TODO: Add your control notification handler code here
-	SaveToFile(IDC_EDIT_PupaPicPath);	
+	OpenToPicFile(IDC_EDIT_PupaPicPath);	
 }
 
 void CZogiiaddDlg::OnBUTTONPupaPicView() 
@@ -579,8 +583,10 @@ void CZogiiaddDlg::OnSelchangedTree(NMHDR* pNMHDR, LRESULT* pResult)
 void CZogiiaddDlg::OnBUTTONSaveDB() 
 {
 	// TODO: Add your control notification handler code here
-	zogiiWriteDB(DBtotal,DBdata,DBPictotal,DBPicdata);
-	MessageBox(_T("数据库保存成功"), _T("数据库保存"));
+	if(zogiiWriteDB(DBtotal,DBdata,DBPictotal,DBPicdata))
+		MessageBox(_T("数据库保存成功"), _T("数据库保存"));
+	else
+		MessageBox(_T("数据库保存失败"), _T("数据库保存"));
 }
 
 void CZogiiaddDlg::OnCloseupCOMBOImagoNo() 
@@ -616,11 +622,56 @@ void CZogiiaddDlg::OnCloseupCOMBOPupaNo()
 }
 
 /////////////////////////////////////////////////////////////////////////////////////
+
+/*
 int CZogiiaddDlg::SaveToFile(int idc)
 {
 	// TODO: Add your control notification handler code here
+	char szFilter[]="Picture file(*.jpg;*.jpeg;*.bmp;*.png;*.dib;*.tga)|	\
+							*.jpg;*.jpeg;*.bmp;*.png;*.dib;*.tga|	\
+							Text files(*.txt)|*.txt|All files (*.*)|*.*||";
+	//保存文件
+	//CFileDialog dlg(FALSE,"*.*","",OFN_HIDEREADONLY|OFN_OVERWRITEPROMPT, szFilter);
+	//打开文件
+	CFileDialog dlg(TRUE,"*.*","",OFN_HIDEREADONLY|OFN_OVERWRITEPROMPT, szFilter);
 
-	char szFilter[]="*.*||";
+	if(dlg.DoModal()==IDOK)
+	{
+		char filename[MAX_PATH];
+		GetDlgItem(idc)->SetWindowText(dlg.GetPathName());
+		GetDlgItem(idc)->GetWindowText(filename,sizeof(unsigned char)*MAX_PATH);
+		return 1;
+	}
+	else
+		return 0;
+}
+*/
+
+int CZogiiaddDlg::OpenToPicFile(int idc)
+{
+	// TODO: Add your control notification handler code here
+	char szFilter[]="Picture file(*.jpg;*.jpeg;*.bmp;*.png;*.dib;*.tga)|	\
+							*.jpg;*.jpeg;*.bmp;*.png;*.dib;*.tga|All files (*.*)|*.*||";
+	//保存文件
+	//CFileDialog dlg(FALSE,"*.*","",OFN_HIDEREADONLY|OFN_OVERWRITEPROMPT, szFilter);
+	//打开文件
+	CFileDialog dlg(TRUE,"*.*","",OFN_HIDEREADONLY|OFN_OVERWRITEPROMPT, szFilter);
+
+	if(dlg.DoModal()==IDOK)
+	{
+		char filename[MAX_PATH];
+		GetDlgItem(idc)->SetWindowText(dlg.GetPathName());
+		GetDlgItem(idc)->GetWindowText(filename,sizeof(unsigned char)*MAX_PATH);
+		return 1;
+	}
+	else
+		return 0;
+}
+
+int CZogiiaddDlg::OpenToTxtFile(int idc)
+{
+	// TODO: Add your control notification handler code here
+	char szFilter[]="Text files(*.txt)|*.txt|All files (*.*)|*.*||";
 	//保存文件
 	//CFileDialog dlg(FALSE,"*.*","",OFN_HIDEREADONLY|OFN_OVERWRITEPROMPT, szFilter);
 	//打开文件
@@ -664,14 +715,24 @@ int CZogiiaddDlg::SaveToDir(int idc)
 void CZogiiaddDlg::ViewText(CString filename)
 {
 	char str[300];
-	sprintf(str,"wordpad.exe \"%s\"",filename.GetBuffer(0));
+
+	if('z'==filename[0])
+		sprintf(str,"notepad.exe \"%s\\%s\"",CurrentDir,filename.GetBuffer(0));
+	else
+		sprintf(str,"notepad.exe \"%s\"",filename.GetBuffer(0));
+
 	WinExec(str,SW_NORMAL);
 }
 //查看图片
 void CZogiiaddDlg::ViewPic(CString filename)
 {
 	char str[300];
-	sprintf(str,"mspaint.exe \"%s\"",filename.GetBuffer(0));
+
+	if('z'==filename[0])
+		sprintf(str,"mspaint.exe \"%s\\%s\"",CurrentDir,filename.GetBuffer(0));
+	else
+		sprintf(str,"mspaint.exe \"%s\"",filename.GetBuffer(0));
+
 	WinExec(str,SW_NORMAL);
 }
 //为树建立BUF
@@ -743,7 +804,7 @@ HTREEITEM CZogiiaddDlg::AddTree(HTREEITEM parent,char *str,	\
 void CZogiiaddDlg::BuildTree()
 {
 	HTREEITEM hItemA,hItemB,hItemC;
-	ZOGII_LONG_TYPE i,j,k,m;
+	ZOGII_ULONG_TYPE i,j,k,m;
 
 	m_tree.DeleteAllItems();
 
@@ -1196,52 +1257,51 @@ void CZogiiaddDlg::CopyInfoM2NewData()
 	UpdateData(TRUE);
 
 	Newdata.code = m_code;
-	memcpy(Newdata.Path , m_path.GetBuffer(0),m_path.GetAllocLength()); 
+	
+	sprintf(Newdata.Path ,"%s",m_path.GetBuffer(0));
 
-	memcpy(Newdata.SubFamily[0] , m_SubFamilyEN.GetBuffer(0),m_SubFamilyEN.GetAllocLength()); 
-	memcpy(Newdata.SubFamily[1] , m_SubFamilyCN.GetBuffer(0),m_SubFamilyCN.GetAllocLength()); 
-	memcpy(Newdata.SubFamily[2] , m_SubFamilyTW.GetBuffer(0),m_SubFamilyTW.GetAllocLength()); 
+	sprintf(Newdata.SubFamily[0] , "%s", m_SubFamilyEN.GetBuffer(0)); 
+	sprintf(Newdata.SubFamily[1] , "%s", m_SubFamilyCN.GetBuffer(0)); 
+	sprintf(Newdata.SubFamily[2] , "%s", m_SubFamilyTW.GetBuffer(0)); 
 
-	memcpy(Newdata.Genus[0] , m_GenusEN.GetBuffer(0),m_GenusEN.GetAllocLength()); 
-	memcpy(Newdata.Genus[1] , m_GenusCN.GetBuffer(0),m_GenusCN.GetAllocLength()); 
-	memcpy(Newdata.Genus[2] , m_GenusTW.GetBuffer(0),m_GenusTW.GetAllocLength()); 
+	sprintf(Newdata.Genus[0] , "%s", m_GenusEN.GetBuffer(0)); 
+	sprintf(Newdata.Genus[1] , "%s", m_GenusCN.GetBuffer(0)); 
+	sprintf(Newdata.Genus[2] , "%s", m_GenusTW.GetBuffer(0)); 
 
-	memcpy(Newdata.Name[0] , m_NameEN.GetBuffer(0),m_NameEN.GetAllocLength()); 
-	memcpy(Newdata.Name[1] , m_NameCN.GetBuffer(0),m_NameCN.GetAllocLength()); 
-	memcpy(Newdata.Name[2] , m_NameTW.GetBuffer(0),m_NameTW.GetAllocLength()); 
+	sprintf(Newdata.Name[0] , "%s", m_NameEN.GetBuffer(0)); 
+	sprintf(Newdata.Name[1] , "%s", m_NameCN.GetBuffer(0)); 
+	sprintf(Newdata.Name[2] , "%s", m_NameTW.GetBuffer(0)); 
 
-	memcpy(Newdata.SpName[0] , m_SpNameEN.GetBuffer(0),m_SpNameEN.GetAllocLength()); 
-	memcpy(Newdata.SpName[1] , m_SpNameCN.GetBuffer(0),m_SpNameCN.GetAllocLength()); 
-	memcpy(Newdata.SpName[2] , m_SpNameTW.GetBuffer(0),m_SpNameTW.GetAllocLength()); 
+	sprintf(Newdata.SpName[0] , "%s", m_SpNameEN.GetBuffer(0)); 
+	sprintf(Newdata.SpName[1] , "%s", m_SpNameCN.GetBuffer(0)); 
+	sprintf(Newdata.SpName[2] , "%s", m_SpNameTW.GetBuffer(0)); 
 
-	memcpy(Newdata.Text[0] , m_TextENPath.GetBuffer(0),m_TextENPath.GetAllocLength()); 
-	memcpy(Newdata.Text[1] , m_TextCNPath.GetBuffer(0),m_TextCNPath.GetAllocLength()); 
-	memcpy(Newdata.Text[2] , m_TextTWPath.GetBuffer(0),m_TextTWPath.GetAllocLength()); 
+	sprintf(Newdata.Text[0] , "%s", m_TextENPath.GetBuffer(0)); 
+	sprintf(Newdata.Text[1] , "%s", m_TextCNPath.GetBuffer(0)); 
+	sprintf(Newdata.Text[2] , "%s", m_TextTWPath.GetBuffer(0)); 
 
-	memcpy(Newdata.OtherName[0] , m_OtherNameA.GetBuffer(0),m_OtherNameA.GetAllocLength()); 
-	memcpy(Newdata.OtherName[1] , m_OtherNameB.GetBuffer(0),m_OtherNameB.GetAllocLength()); 
-	memcpy(Newdata.OtherName[2] , m_OtherNameC.GetBuffer(0),m_OtherNameC.GetAllocLength()); 
-	memcpy(Newdata.OtherName[3] , m_OtherNameD.GetBuffer(0),m_OtherNameD.GetAllocLength()); 
-	memcpy(Newdata.OtherName[4] , m_OtherNameE.GetBuffer(0),m_OtherNameE.GetAllocLength()); 
-	memcpy(Newdata.OtherName[5] , m_OtherNameF.GetBuffer(0),m_OtherNameF.GetAllocLength()); 
-	memcpy(Newdata.OtherName[6] , m_OtherNameG.GetBuffer(0),m_OtherNameG.GetAllocLength()); 
-
+	sprintf(Newdata.OtherName[0] , "%s", m_OtherNameA.GetBuffer(0)); 
+	sprintf(Newdata.OtherName[1] , "%s", m_OtherNameB.GetBuffer(0)); 
+	sprintf(Newdata.OtherName[2] , "%s", m_OtherNameC.GetBuffer(0)); 
+	sprintf(Newdata.OtherName[3] , "%s", m_OtherNameD.GetBuffer(0)); 
+	sprintf(Newdata.OtherName[4] , "%s", m_OtherNameE.GetBuffer(0)); 
+	sprintf(Newdata.OtherName[5] , "%s", m_OtherNameF.GetBuffer(0)); 
+	sprintf(Newdata.OtherName[6] , "%s", m_OtherNameG.GetBuffer(0)); 
 	Newdata.year=(char)(m_Date.GetYear()-2000);
 	Newdata.month=(char)m_Date.GetMonth();
 	Newdata.day=(char)m_Date.GetDay();
 
 	Newdata.FoodType =(char)m_Food; 
 
-	memcpy(Newdata.FoodName[0] , m_FoodNameA.GetBuffer(0),m_FoodNameA.GetAllocLength()); 
-	memcpy(Newdata.FoodName[1] , m_FoodNameB.GetBuffer(0),m_FoodNameB.GetAllocLength()); 
-	memcpy(Newdata.FoodName[2] , m_FoodNameC.GetBuffer(0),m_FoodNameC.GetAllocLength()); 
-	memcpy(Newdata.FoodName[3] , m_FoodNameD.GetBuffer(0),m_FoodNameD.GetAllocLength()); 
-	memcpy(Newdata.FoodName[4] , m_FoodNameE.GetBuffer(0),m_FoodNameE.GetAllocLength()); 
-	memcpy(Newdata.FoodName[5] , m_FoodNameF.GetBuffer(0),m_FoodNameF.GetAllocLength()); 
-	memcpy(Newdata.FoodName[6] , m_FoodNameG.GetBuffer(0),m_FoodNameG.GetAllocLength()); 
+	sprintf(Newdata.FoodName[0] , "%s" , m_FoodNameA.GetBuffer(0)); 
+	sprintf(Newdata.FoodName[1] , "%s" , m_FoodNameB.GetBuffer(0)); 
+	sprintf(Newdata.FoodName[2] , "%s" , m_FoodNameC.GetBuffer(0)); 
+	sprintf(Newdata.FoodName[3] , "%s" , m_FoodNameD.GetBuffer(0)); 
+	sprintf(Newdata.FoodName[4] , "%s" , m_FoodNameE.GetBuffer(0)); 
+	sprintf(Newdata.FoodName[5] , "%s" , m_FoodNameF.GetBuffer(0)); 
+	sprintf(Newdata.FoodName[6] , "%s" , m_FoodNameG.GetBuffer(0)); 
 
-	memcpy(Newdata.DiscoverName , m_DiscoveryName.GetBuffer(0),m_DiscoveryName.GetAllocLength()); 
-	
+	sprintf(Newdata.DiscoverName ,"%s" , m_DiscoveryName.GetBuffer(0)); 
 	//为空
 	if(m_DiscoveryPicPath.IsEmpty())
 	{
@@ -1249,10 +1309,8 @@ void CZogiiaddDlg::CopyInfoM2NewData()
 	}
 	else	//不为空 
 	{
-		memcpy(NewPicdata[ZOGII_ALL_PIC_Map_START].Path,	\
-			m_DiscoveryPicPath.GetBuffer(0),m_DiscoveryPicPath.GetAllocLength());
-		memcpy(NewPicdata[ZOGII_ALL_PIC_Map_START].Info,	\
-			m_DiscoveryPicInfo.GetBuffer(0),m_DiscoveryPicInfo.GetAllocLength());
+		sprintf(NewPicdata[ZOGII_ALL_PIC_Map_START].Path,"%s",m_DiscoveryPicPath.GetBuffer(0));
+		sprintf(NewPicdata[ZOGII_ALL_PIC_Map_START].Info,"%s",m_DiscoveryPicInfo.GetBuffer(0));
 		NewPicdata[ZOGII_ALL_PIC_Map_START].flag=1;
 	}
 }
@@ -1295,11 +1353,8 @@ void CZogiiaddDlg::SaveM2Imago(int i)
 	}
 	else	//不为空 
 	{
-		memcpy(NewPicdata[ZOGII_ALL_PIC_Imago_START+i].Path,	\
-			m_ImagoPicPath.GetBuffer(0),m_ImagoPicPath.GetAllocLength());
-
-		memcpy(NewPicdata[ZOGII_ALL_PIC_Imago_START+i].Info,	\
-			m_ImagoPicInfo.GetBuffer(0),m_ImagoPicInfo.GetAllocLength());
+		sprintf(NewPicdata[ZOGII_ALL_PIC_Imago_START+i].Path,"%s",m_ImagoPicPath.GetBuffer(0));
+		sprintf(NewPicdata[ZOGII_ALL_PIC_Imago_START+i].Info,"%s",m_ImagoPicInfo.GetBuffer(0));
 
 		NewPicdata[ZOGII_ALL_PIC_Imago_START+i].flag=1;
 	}
@@ -1357,6 +1412,7 @@ void CZogiiaddDlg::ReadDB2Imago(struct ZOGII_Coccinellidae_DATA* d)
 		{
 			memcpy(NewPicdata[ZOGII_ALL_PIC_Imago_START+i].Path,DBPicdata[d->Imago[i].Pic].Path,ZOGII_PAT_MAX);
 			memcpy(NewPicdata[ZOGII_ALL_PIC_Imago_START+i].Info,DBPicdata[d->Imago[i].Pic].Info,ZOGII_STR_MAX);
+
 			NewPicdata[ZOGII_ALL_PIC_Imago_START+i].flag=1;
 		}
 		else	
@@ -1404,11 +1460,8 @@ void CZogiiaddDlg::SaveM2Larva(int i)
 	}
 	else	//不为空 
 	{
-		memcpy(NewPicdata[ZOGII_ALL_PIC_Larva_START+i].Path,	\
-			m_LarvaPicPath.GetBuffer(0),m_LarvaPicPath.GetAllocLength());
-
-		memcpy(NewPicdata[ZOGII_ALL_PIC_Larva_START+i].Info,	\
-			m_LarvaPicInfo.GetBuffer(0),m_LarvaPicInfo.GetAllocLength());
+		sprintf(NewPicdata[ZOGII_ALL_PIC_Larva_START+i].Path,"%s",m_LarvaPicPath.GetBuffer(0));
+		sprintf(NewPicdata[ZOGII_ALL_PIC_Larva_START+i].Info,"%s",m_LarvaPicInfo.GetBuffer(0));
 
 		NewPicdata[ZOGII_ALL_PIC_Larva_START+i].flag=1;
 	}
@@ -1510,11 +1563,8 @@ void CZogiiaddDlg::SaveM2Pupa(int i)
 	}
 	else	//不为空 
 	{
-		memcpy(NewPicdata[ZOGII_ALL_PIC_Pupa_START+i].Path,	\
-			m_PupaPicPath.GetBuffer(0),m_PupaPicPath.GetAllocLength());
-
-		memcpy(NewPicdata[ZOGII_ALL_PIC_Pupa_START+i].Info,	\
-			m_PupaPicInfo.GetBuffer(0),m_PupaPicInfo.GetAllocLength());
+		sprintf(NewPicdata[ZOGII_ALL_PIC_Pupa_START+i].Path,"%s",m_PupaPicPath.GetBuffer(0));
+		sprintf(NewPicdata[ZOGII_ALL_PIC_Pupa_START+i].Info,"%s",m_PupaPicInfo.GetBuffer(0));
 
 		NewPicdata[ZOGII_ALL_PIC_Pupa_START+i].flag=1;
 	}
@@ -1603,11 +1653,8 @@ void CZogiiaddDlg::SaveM2Ovum(int i)
 	}
 	else	//不为空 
 	{
-		memcpy(NewPicdata[ZOGII_ALL_PIC_Ovum_START+i].Path,	\
-			m_OvumPicPath.GetBuffer(0),m_OvumPicPath.GetAllocLength());
-
-		memcpy(NewPicdata[ZOGII_ALL_PIC_Ovum_START+i].Info,	\
-			m_OvumPicInfo.GetBuffer(0),m_OvumPicInfo.GetAllocLength());
+		sprintf(NewPicdata[ZOGII_ALL_PIC_Ovum_START+i].Path,"%s",m_OvumPicPath.GetBuffer(0));
+		sprintf(NewPicdata[ZOGII_ALL_PIC_Ovum_START+i].Info,"%s",m_OvumPicInfo.GetBuffer(0));
 
 		NewPicdata[ZOGII_ALL_PIC_Ovum_START+i].flag=1;
 	}
