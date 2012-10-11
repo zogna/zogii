@@ -22,10 +22,10 @@ typedef struct
 	unsigned char type;
 
 	//数据指针
-	ZOGII_LONG_TYPE sf;
-	ZOGII_LONG_TYPE ge;
-	ZOGII_LONG_TYPE na;
-	ZOGII_LONG_TYPE sp;
+	ZOGII_ULONG_TYPE sf;
+	ZOGII_ULONG_TYPE ge;
+	ZOGII_ULONG_TYPE na;
+	ZOGII_ULONG_TYPE sp;
 
 }DATALIST;
 
@@ -166,7 +166,9 @@ protected:
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 	/////////////////////////////////////////////////////////////////
-	int SaveToFile(int idc);
+//	int SaveToFile(int idc);
+	int OpenToPicFile(int idc);
+	int OpenToTxtFile(int idc);
 	int SaveToDir(int idc);
 	void ViewText(CString filename);
 	void ViewPic(CString filename);
@@ -204,7 +206,7 @@ protected:
 	void ReadDB2Ovum(struct ZOGII_Coccinellidae_DATA* d);
 	/////////////////////////////////////////////////////////////////
 
-
+	char CurrentDir[ZOGII_PAT_MAX];
 	//设定树语言 
 	// 0 =英语 拉丁 
 	// 1 =中文简体
@@ -220,7 +222,7 @@ protected:
 	DATALIST templist;
 
 	//数据
-	ZOGII_LONG_TYPE DBtotal;
+	ZOGII_ULONG_TYPE DBtotal;
 	struct ZOGII_Coccinellidae_SUBFamily *DBdata;
 	ZOGII_ULONG_TYPE DBPictotal;
 	struct ZOGII_Pic *DBPicdata;
