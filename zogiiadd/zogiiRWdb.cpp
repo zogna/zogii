@@ -786,7 +786,7 @@ void zogiiAddtxtDBLite(struct ZOGII_Coccinellidae_DATA *data,struct ZOGII_Coccin
 
 	if( NULL!=newdata->Text[i][0] || NULL!=newdata->Text[i][1])
 	{
-		printf(str,"%s\\Text%02d%s",data->Path,i,strrchr(newdata->Text[i],'.'));
+		sprintf(str,"%s\\Text%02d%s",data->Path,i,strrchr(newdata->Text[i],'.'));
 		//值相同则不必拷
 		if(strcmp(newdata->Text[i],str))
 		{
