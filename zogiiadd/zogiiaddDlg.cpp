@@ -651,8 +651,7 @@ int CZogiiaddDlg::SaveToFile(int idc)
 int CZogiiaddDlg::OpenToPicFile(int idc)
 {
 	// TODO: Add your control notification handler code here
-	char szFilter[]="Picture file(*.jpg;*.jpeg;*.bmp;*.png;*.dib;*.tga)|	\
-							*.jpg;*.jpeg;*.bmp;*.png;*.dib;*.tga|All files (*.*)|*.*||";
+	char szFilter[]="Picture file(*.jpg;*.jpeg;*.bmp;*.png;*.dib;*.tga)|*.jpg;*.jpeg;*.bmp;*.png;*.dib;*.tga|All files (*.*)|*.*||";
 	//保存文件
 	//CFileDialog dlg(FALSE,"*.*","",OFN_HIDEREADONLY|OFN_OVERWRITEPROMPT, szFilter);
 	//打开文件
