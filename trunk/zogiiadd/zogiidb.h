@@ -148,10 +148,11 @@ struct ZOGII_Larva
 	char Calthrop;
 	//龄期
 	// -1=无效
-	// 0 =一龄
-	// 1 =二龄
-	// 2 =三龄
-	// 3 =四龄
+	// 0 =未知
+	// 1 =一龄
+	// 2 =二龄
+	// 3 =三龄
+	// 4 =四龄
 	char Instar;
 	//图片索引值 0为无效
 	ZOGII_ULONG_TYPE Pic;

@@ -672,6 +672,8 @@ BEGIN
     IDC_COMBO_LarvaColorA, 0x403, 5, 0
 0xf8d2, 0xd2bb, "\000" 
     IDC_COMBO_LarvaInstar, 0x403, 5, 0
+0xb4ce, 0xaad6, "\000" 
+    IDC_COMBO_LarvaInstar, 0x403, 5, 0
 0xbbd2, 0xe4c1, "\000" 
     IDC_COMBO_LarvaInstar, 0x403, 5, 0
 0xfeb6, 0xe4c1, "\000" 
