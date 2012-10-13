@@ -148,9 +148,9 @@ BEGIN
     PUSHBUTTON      "选择文件路径",IDC_BUTTON_TextCNPath,578,51,55,14
     EDITTEXT        IDC_EDIT_TextTWPath,515,102,143,12,ES_AUTOHSCROLL
     PUSHBUTTON      "选择文件路径",IDC_BUTTON_TextTWPath,578,85,55,14
-    LTEXT           "数据最后更新时间",IDC_STATIC,391,154,65,8
+    LTEXT           "数据最后更新时间",IDC_STATIC,421,154,65,8
     CONTROL         "DateTimePicker1",IDC_DATETIMEPICKER_Date,
-                    "SysDateTimePick32",DTS_RIGHTALIGN | WS_TABSTOP,459,151,
+                    "SysDateTimePick32",DTS_RIGHTALIGN | WS_TABSTOP,489,151,
                     60,15
     LTEXT           "纹理",IDC_STATIC,161,200,17,8
     LTEXT           "图片",IDC_STATIC,161,251,17,8
@@ -268,7 +268,7 @@ BEGIN
     EDITTEXT        IDC_EDIT_OtherNameF,556,400,103,12,ES_AUTOHSCROLL
     LTEXT           "contact me:gbaup_01@163.com  ",IDC_STATIC,158,426,112,8
     PUSHBUTTON      "导出",IDC_BUTTON_DataOutput,637,119,21,14
-    PUSHBUTTON      "保存数据库",IDC_BUTTON_SaveDB,526,151,45,14
+    PUSHBUTTON      "保存数据库",IDC_BUTTON_SaveDB,554,151,45,14
     EDITTEXT        IDC_EDIT_FoodNameG,559,283,100,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_OtherNameG,556,415,103,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_code,205,152,39,12,ES_AUTOHSCROLL | WS_DISABLED
@@ -276,6 +276,7 @@ BEGIN
                     WS_DISABLED
     LTEXT           "code",IDC_STATIC,187,155,17,8
     LTEXT           "path",IDC_STATIC,249,155,17,8
+    PUSHBUTTON      "打开",IDC_BUTTON_OpenPath,387,151,21,14
 END
 
 

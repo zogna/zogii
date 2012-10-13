@@ -207,6 +207,7 @@
 #define IDC_BUTTON_SaveOtherName        1099
 #define IDC_EDIT_OtherNameG             1099
 #define IDC_BUTTON_DataOutput           1100
+#define IDC_BUTTON_OpenPath             1101
 #define IDC_COMBO30                     1103
 #define IDC_BUTTON_SaveDB               1104
 #define IDC_EDIT_path                   1106

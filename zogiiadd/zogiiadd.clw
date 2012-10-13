@@ -26,14 +26,14 @@ Type=0
 BaseClass=CDialog
 HeaderFile=zogiiaddDlg.h
 ImplementationFile=zogiiaddDlg.cpp
-LastObject=IDC_EDIT_ImagoPicPath
+LastObject=IDC_EDIT_path
 Filter=D
 VirtualFilter=dWC
 
 [DLG:IDD_ZOGIIADD_DIALOG]
 Type=1
 Class=CZogiiaddDlg
-ControlCount=162
+ControlCount=163
 Control1=IDC_TREE,SysTreeView32,1350631591
 Control2=IDC_EDIT_SubFamilyEN,edit,1350631552
 Control3=IDC_EDIT_SubFamilyCN,edit,1350631552
@@ -196,4 +196,5 @@ Control159=IDC_EDIT_code,edit,1484849280
 Control160=IDC_EDIT_path,edit,1484849280
 Control161=IDC_STATIC,static,1342308352
 Control162=IDC_STATIC,static,1342308352
+Control163=IDC_BUTTON_OpenPath,button,1342242816
 

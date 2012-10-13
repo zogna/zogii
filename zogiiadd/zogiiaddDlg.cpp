@@ -273,6 +273,7 @@ BEGIN_MESSAGE_MAP(CZogiiaddDlg, CDialog)
 	ON_CBN_CLOSEUP(IDC_COMBO_LarvaNo, OnCloseupCOMBOLarvaNo)
 	ON_CBN_CLOSEUP(IDC_COMBO_OvumNo, OnCloseupCOMBOOvumNo)
 	ON_CBN_CLOSEUP(IDC_COMBO_PupaNo, OnCloseupCOMBOPupaNo)
+	ON_BN_CLICKED(IDC_BUTTON_OpenPath, OnBUTTONOpenPath)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -622,6 +623,17 @@ void CZogiiaddDlg::OnCloseupCOMBOPupaNo()
 	UpdateData(FALSE);
 }
 
+void CZogiiaddDlg::OnBUTTONOpenPath() 
+{
+	// TODO: Add your control notification handler code here
+	UpdateData(TRUE);
+
+	char str[300];
+	if(m_path.IsEmpty())
+		return ;
+	sprintf(str,"explorer.exe \"%s\\%s\"",CurrentDir,m_path.GetBuffer(0));
+	WinExec(str,SW_NORMAL);
+}
 /////////////////////////////////////////////////////////////////////////////////////
 
 /*
@@ -1698,3 +1710,4 @@ void CZogiiaddDlg::ReadDB2Ovum(struct ZOGII_Coccinellidae_DATA* d)
 		}
 	}
 }
+

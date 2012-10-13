@@ -163,6 +163,7 @@ protected:
 	afx_msg void OnCloseupCOMBOLarvaNo();
 	afx_msg void OnCloseupCOMBOOvumNo();
 	afx_msg void OnCloseupCOMBOPupaNo();
+	afx_msg void OnBUTTONOpenPath();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 	/////////////////////////////////////////////////////////////////
