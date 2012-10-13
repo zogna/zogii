@@ -466,6 +466,8 @@ BEGIN
     IDC_COMBO_ImagoNo, 0x403, 2, 0
 0x0039, 
     IDC_COMBO_ImagoNo, 0x403, 3, 0
+0x3031, "\000" 
+    IDC_COMBO_ImagoNo, 0x403, 3, 0
 0x3131, "\000" 
     IDC_COMBO_ImagoNo, 0x403, 3, 0
 0x3231, "\000" 
@@ -533,6 +535,8 @@ BEGIN
 0x0038, 
     IDC_COMBO_OvumNo, 0x403, 2, 0
 0x0039, 
+    IDC_COMBO_OvumNo, 0x403, 3, 0
+0x3031, "\000" 
     IDC_COMBO_OvumNo, 0x403, 3, 0
 0x3131, "\000" 
     IDC_COMBO_OvumNo, 0x403, 3, 0
@@ -628,6 +632,8 @@ BEGIN
     IDC_COMBO_LarvaNo, 0x403, 2, 0
 0x0039, 
     IDC_COMBO_LarvaNo, 0x403, 3, 0
+0x3031, "\000" 
+    IDC_COMBO_LarvaNo, 0x403, 3, 0
 0x3131, "\000" 
     IDC_COMBO_LarvaNo, 0x403, 3, 0
 0x3231, "\000" 
@@ -711,6 +717,8 @@ BEGIN
 0x0038, 
     IDC_COMBO_PupaNo, 0x403, 2, 0
 0x0039, 
+    IDC_COMBO_PupaNo, 0x403, 3, 0
+0x3031, "\000" 
     IDC_COMBO_PupaNo, 0x403, 3, 0
 0x3131, "\000" 
     IDC_COMBO_PupaNo, 0x403, 3, 0
