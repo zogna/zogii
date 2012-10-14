@@ -26,7 +26,7 @@ Type=0
 BaseClass=CDialog
 HeaderFile=zogiiaddDlg.h
 ImplementationFile=zogiiaddDlg.cpp
-LastObject=IDC_COMBO_ImagoElytraTexture
+LastObject=CZogiiaddDlg
 Filter=D
 VirtualFilter=dWC
 
