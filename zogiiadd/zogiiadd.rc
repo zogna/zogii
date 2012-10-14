@@ -152,7 +152,7 @@ BEGIN
     CONTROL         "DateTimePicker1",IDC_DATETIMEPICKER_Date,
                     "SysDateTimePick32",DTS_RIGHTALIGN | WS_TABSTOP,489,151,
                     60,15
-    LTEXT           "Œ∆¿Ì",IDC_STATIC,161,200,17,8
+    LTEXT           "∞ﬂŒ∆",IDC_STATIC,161,200,17,8
     LTEXT           "Õº∆¨",IDC_STATIC,161,251,17,8
     LTEXT           "¿¥‘¥",IDC_STATIC,161,281,17,8
     LTEXT           "–Ú∫≈",IDC_STATIC,275,185,17,8
