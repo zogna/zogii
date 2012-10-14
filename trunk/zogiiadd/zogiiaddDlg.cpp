@@ -1189,8 +1189,8 @@ void CZogiiaddDlg::InitInfoData()
 	m_OtherNameF = _T("");
 	m_OtherNameG = _T("");
 
-	CTime s(2012,10,10,20,20,20); 
-	m_Date = s;
+
+	m_Date = CTime::GetCurrentTime();
 	m_Food = -1;
 
 	m_FoodNameA = _T("");
@@ -1250,9 +1250,7 @@ void CZogiiaddDlg::CopyInfoDBData2M(struct ZOGII_Coccinellidae_DATA* d)
 	m_OtherNameF = d->OtherName[5];
 	m_OtherNameG = d->OtherName[6];
 
-	CTime s(2000+d->year,d->month,d->day,20,20,20);
-
-	m_Date = s;
+	m_Date = CTime::GetCurrentTime();
 	m_Food = d->FoodType;
 
 	m_FoodNameA = d->FoodName[0];
