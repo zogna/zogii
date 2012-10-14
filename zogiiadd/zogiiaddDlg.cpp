@@ -137,11 +137,11 @@ void CZogiiaddDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_PupaPicPath, m_PupaPicPath);
 	DDV_MaxChars(pDX, m_PupaPicPath, 260);
 	DDX_Text(pDX, IDC_EDIT_PupaPicInfo, m_PupaPicInfo);
-	DDV_MaxChars(pDX, m_PupaPicInfo, 128);
+	DDV_MaxChars(pDX, m_PupaPicInfo, 260);
 	DDX_Text(pDX, IDC_EDIT_OvumPicPath, m_OvumPicPath);
 	DDV_MaxChars(pDX, m_OvumPicPath, 260);
 	DDX_Text(pDX, IDC_EDIT_OvumPicInfo, m_OvumPicInfo);
-	DDV_MaxChars(pDX, m_OvumPicInfo, 128);
+	DDV_MaxChars(pDX, m_OvumPicInfo, 260);
 	DDX_Text(pDX, IDC_EDIT_OtherNameA, m_OtherNameA);
 	DDV_MaxChars(pDX, m_OtherNameA, 128);
 	DDX_Text(pDX, IDC_EDIT_OtherNameB, m_OtherNameB);
@@ -163,11 +163,11 @@ void CZogiiaddDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_LarvaPicPath, m_LarvaPicPath);
 	DDV_MaxChars(pDX, m_LarvaPicPath, 260);
 	DDX_Text(pDX, IDC_EDIT_LarvaPicInfo, m_LarvaPicInfo);
-	DDV_MaxChars(pDX, m_LarvaPicInfo, 128);
+	DDV_MaxChars(pDX, m_LarvaPicInfo, 260);
 	DDX_Text(pDX, IDC_EDIT_ImagoPicPath, m_ImagoPicPath);
 	DDV_MaxChars(pDX, m_ImagoPicPath, 260);
 	DDX_Text(pDX, IDC_EDIT_ImagoPicInfo, m_ImagoPicInfo);
-	DDV_MaxChars(pDX, m_ImagoPicInfo, 128);
+	DDV_MaxChars(pDX, m_ImagoPicInfo, 260);
 	DDX_DateTimeCtrl(pDX, IDC_DATETIMEPICKER_Date, m_Date);
 	DDX_Text(pDX, IDC_EDIT_GenusTW, m_GenusTW);
 	DDV_MaxChars(pDX, m_GenusTW, 128);
@@ -279,6 +279,10 @@ END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // CZogiiaddDlg message handlers
+//重载OK键 默认不关闭
+void CZogiiaddDlg::OnOK()
+{
+}
 
 BOOL CZogiiaddDlg::OnInitDialog()
 {
@@ -1252,7 +1256,7 @@ void CZogiiaddDlg::CopyInfoDBData2M(struct ZOGII_Coccinellidae_DATA* d)
 
 		NewPicdata[ZOGII_ALL_PIC_Map_START].flag=1;
 		memcpy(NewPicdata[ZOGII_ALL_PIC_Map_START].Path,DBPicdata[d->DiscoverMap].Path,ZOGII_PAT_MAX);
-		memcpy(NewPicdata[ZOGII_ALL_PIC_Map_START].Info,DBPicdata[d->DiscoverMap].Info,ZOGII_STR_MAX);
+		memcpy(NewPicdata[ZOGII_ALL_PIC_Map_START].Info,DBPicdata[d->DiscoverMap].Info,ZOGII_PAT_MAX);
 	}
 	else
 	{
@@ -1423,7 +1427,7 @@ void CZogiiaddDlg::ReadDB2Imago(struct ZOGII_Coccinellidae_DATA* d)
 		if(d->Imago[i].Pic && DBPicdata[d->Imago[i].Pic].flag)
 		{
 			memcpy(NewPicdata[ZOGII_ALL_PIC_Imago_START+i].Path,DBPicdata[d->Imago[i].Pic].Path,ZOGII_PAT_MAX);
-			memcpy(NewPicdata[ZOGII_ALL_PIC_Imago_START+i].Info,DBPicdata[d->Imago[i].Pic].Info,ZOGII_STR_MAX);
+			memcpy(NewPicdata[ZOGII_ALL_PIC_Imago_START+i].Info,DBPicdata[d->Imago[i].Pic].Info,ZOGII_PAT_MAX);
 
 			NewPicdata[ZOGII_ALL_PIC_Imago_START+i].flag=1;
 		}
@@ -1530,7 +1534,7 @@ void CZogiiaddDlg::ReadDB2Larva(struct ZOGII_Coccinellidae_DATA* d)
 		if(d->Larva[i].Pic && DBPicdata[d->Larva[i].Pic].flag)
 		{
 			memcpy(NewPicdata[ZOGII_ALL_PIC_Larva_START+i].Path,DBPicdata[d->Larva[i].Pic].Path,ZOGII_PAT_MAX);
-			memcpy(NewPicdata[ZOGII_ALL_PIC_Larva_START+i].Info,DBPicdata[d->Larva[i].Pic].Info,ZOGII_STR_MAX);
+			memcpy(NewPicdata[ZOGII_ALL_PIC_Larva_START+i].Info,DBPicdata[d->Larva[i].Pic].Info,ZOGII_PAT_MAX);
 			NewPicdata[ZOGII_ALL_PIC_Larva_START+i].flag=1;
 		}
 		else	
@@ -1629,7 +1633,7 @@ void CZogiiaddDlg::ReadDB2Pupa(struct ZOGII_Coccinellidae_DATA* d)
 		if(d->Pupa[i].Pic && DBPicdata[d->Pupa[i].Pic].flag)
 		{
 			memcpy(NewPicdata[ZOGII_ALL_PIC_Pupa_START+i].Path,DBPicdata[d->Pupa[i].Pic].Path,ZOGII_PAT_MAX);
-			memcpy(NewPicdata[ZOGII_ALL_PIC_Pupa_START+i].Info,DBPicdata[d->Pupa[i].Pic].Info,ZOGII_STR_MAX);
+			memcpy(NewPicdata[ZOGII_ALL_PIC_Pupa_START+i].Info,DBPicdata[d->Pupa[i].Pic].Info,ZOGII_PAT_MAX);
 			NewPicdata[ZOGII_ALL_PIC_Pupa_START+i].flag=1;
 		}
 		else	
@@ -1701,7 +1705,7 @@ void CZogiiaddDlg::ReadDB2Ovum(struct ZOGII_Coccinellidae_DATA* d)
 		if(d->Ovum[i].Pic && DBPicdata[d->Ovum[i].Pic].flag)
 		{
 			memcpy(NewPicdata[ZOGII_ALL_PIC_Ovum_START+i].Path,DBPicdata[d->Ovum[i].Pic].Path,ZOGII_PAT_MAX);
-			memcpy(NewPicdata[ZOGII_ALL_PIC_Ovum_START+i].Info,DBPicdata[d->Ovum[i].Pic].Info,ZOGII_STR_MAX);
+			memcpy(NewPicdata[ZOGII_ALL_PIC_Ovum_START+i].Info,DBPicdata[d->Ovum[i].Pic].Info,ZOGII_PAT_MAX);
 			NewPicdata[ZOGII_ALL_PIC_Ovum_START+i].flag=1;
 		}
 		else	

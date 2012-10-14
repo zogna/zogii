@@ -26,7 +26,7 @@ Type=0
 BaseClass=CDialog
 HeaderFile=zogiiaddDlg.h
 ImplementationFile=zogiiaddDlg.cpp
-LastObject=IDC_EDIT_path
+LastObject=IDC_EDIT_ImagoPicInfo
 Filter=D
 VirtualFilter=dWC
 

@@ -2,6 +2,7 @@
 #define _ZOGII_DB_H_
 
 #include "stdio.h"
+#include "windows.h"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #if 0
 
@@ -82,7 +83,7 @@ enum
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma pack(1)
 
-struct ZOGII_Pic
+struct ZOGII_Pic_NEW
 {
 	// 0=数据无效
 	// 1=数据有效
@@ -91,6 +92,21 @@ struct ZOGII_Pic
 	char Path[ZOGII_PAT_MAX];
 	//图片作者来源
 	char Info[ZOGII_PAT_MAX];
+};
+#pragma pack()
+
+
+#pragma pack(1)
+
+struct ZOGII_Pic
+{
+	// 0=数据无效
+	// 1=数据有效
+	unsigned char flag;
+	//图片目录
+	char Path[ZOGII_PAT_MAX];
+	//图片作者来源
+	char Info[ZOGII_STR_MAX];
 };
 
 //成虫
@@ -342,4 +358,6 @@ ZOGII_ULONG_TYPE zogiiDeletepicDBLite(ZOGII_ULONG_TYPE i,struct ZOGII_Pic *&picd
 
 
 
+int zogiiWriteNEWDB(ZOGII_ULONG_TYPE total,struct ZOGII_Coccinellidae_SUBFamily *&data,	\
+				 ZOGII_ULONG_TYPE pictotal,struct ZOGII_Pic_NEW *&picdataNEW);
 #endif
