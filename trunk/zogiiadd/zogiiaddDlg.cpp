@@ -226,12 +226,12 @@ void CZogiiaddDlg::DoDataExchange(CDataExchange* pDX)
 	DDV_MinMaxUInt(pDX, m_code, 0, 600000);
 	DDX_Text(pDX, IDC_EDIT_path, m_path);
 	DDV_MaxChars(pDX, m_path, 260);
-	DDX_CBIndex(pDX, IDC_COMBO_ImagoColorA, m_ImagoElytraColorA);
-	DDX_CBIndex(pDX, IDC_COMBO_ImagoColorB, m_ImagoElytraColorB);
-	DDX_CBIndex(pDX, IDC_COMBO_ImagoColorC, m_ImagoElytraColorC);
-	DDX_CBIndex(pDX, IDC_COMBO_ImagoColorD, m_ImagoElytraColorD);
-	DDX_CBIndex(pDX, IDC_COMBO_ImagoColorNum, m_ImagoElytraColorNum);
-	DDX_CBIndex(pDX, IDC_COMBO_ImagoTexture, m_ImagoElytraTexture);
+	DDX_CBIndex(pDX, IDC_COMBO_ImagoElytraColorA, m_ImagoElytraColorA);
+	DDX_CBIndex(pDX, IDC_COMBO_ImagoElytraColorB, m_ImagoElytraColorB);
+	DDX_CBIndex(pDX, IDC_COMBO_ImagoElytraColorC, m_ImagoElytraColorC);
+	DDX_CBIndex(pDX, IDC_COMBO_ImagoElytraColorD, m_ImagoElytraColorD);
+	DDX_CBIndex(pDX, IDC_COMBO_ImagoElytraColorNum, m_ImagoElytraColorNum);
+	DDX_CBIndex(pDX, IDC_COMBO_ImagoElytraTexture, m_ImagoElytraTexture);
 	//}}AFX_DATA_MAP
 }
 

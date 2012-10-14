@@ -21,10 +21,12 @@
 #define IDC_COMBO_ImagoSex              1007
 #define IDC_COMBO2                      1008
 #define IDC_COMBO_ImagoColorA           1008
+#define IDC_COMBO_ImagoElytraColorA     1008
 #define IDC_COMBO3                      1009
 #define IDC_COMBO_ImagoVillus           1009
 #define IDC_COMBO4                      1010
 #define IDC_COMBO_ImagoTexture          1010
+#define IDC_COMBO_ImagoElytraTexture    1010
 #define IDC_COMBO10                     1011
 #define IDC_COMBO_OvumSex               1011
 #define IDC_BUTTON1                     1012
@@ -71,10 +73,13 @@
 #define IDC_BUTTON_TextTWPath           1032
 #define IDC_COMBO5                      1033
 #define IDC_COMBO_ImagoColorB           1033
+#define IDC_COMBO_ImagoElytraColorB     1033
 #define IDC_COMBO6                      1034
 #define IDC_COMBO_ImagoColorC           1034
+#define IDC_COMBO_ImagoElytraColorC     1034
 #define IDC_COMBO7                      1035
 #define IDC_COMBO_ImagoColorD           1035
+#define IDC_COMBO_ImagoElytraColorD     1035
 #define IDC_COMBO8                      1036
 #define IDC_COMBO_ImagoNo               1036
 #define IDC_EDIT20                      1037
@@ -103,6 +108,7 @@
 #define IDC_COMBO_OvumColor             1048
 #define IDC_COMBO9                      1049
 #define IDC_COMBO_ImagoColorNum         1049
+#define IDC_COMBO_ImagoElytraColorNum   1049
 #define IDC_COMBO23                     1050
 #define IDC_COMBO_PupaSex               1050
 #define IDC_COMBO24                     1051
@@ -209,16 +215,24 @@
 #define IDC_BUTTON_DataOutput           1100
 #define IDC_BUTTON_OpenPath             1101
 #define IDC_COMBO_ImagoColorA2          1102
+#define IDC_COMBO_ImagoPronotumColorA   1102
 #define IDC_COMBO30                     1103
 #define IDC_COMBO_PointNum              1103
+#define IDC_COMBO_ImagoElytraPointNum   1103
 #define IDC_BUTTON_SaveDB               1104
 #define IDC_COMBO_ImagoColorB2          1105
+#define IDC_COMBO_ImagoPronotumColorB   1105
 #define IDC_EDIT_path                   1106
 #define IDC_COMBO31                     1107
+#define IDC_COMBO_ImagoPronotumTexture  1107
 #define IDC_COMBO_ImagoColorC2          1108
+#define IDC_COMBO_ImagoPronotumColorC   1108
 #define IDC_COMBO_ImagoColorD2          1109
+#define IDC_COMBO_ImagoPronotumColorD   1109
 #define IDC_COMBO_ImagoColorNum2        1110
+#define IDC_COMBO_ImagoPronotumColorNum 1110
 #define IDC_COMBO_PointNum2             1111
+#define IDC_COMBO_ImagoPronotumPointNum 1111
 
 // Next default values for new objects
 // 

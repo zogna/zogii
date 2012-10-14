@@ -18,7 +18,7 @@ typedef unsigned __int32 ZOGII_ULONG_TYPE;
 #endif
 
 //结构体剩余扩展容量
-#define ZOGII_EXP_SIZ 1024
+#define ZOGII_EXP_SIZ 928
 //最大路径长度
 #define ZOGII_PAT_MAX 260 
 //最大字符串长度
@@ -91,6 +91,31 @@ struct ZOGII_Pic
 	char Path[ZOGII_PAT_MAX];
 	//图片作者来源
 	char Info[ZOGII_PAT_MAX];
+};
+
+//成虫 扩展
+struct ZOGII_Imago_2EX
+{
+	//////////////////////////鞘翅
+	//斑点数 0-50
+	char ElytraPointNum; 
+	//////////////////////////前胸背板
+	//颜色总数 0-9
+	// -1=无效
+	//0 =该结构体为无效数据
+	//1-9 有效数据 
+	char PronotumColorNum;
+	//含有颜色 见颜色表
+	char PronotumColor[ZOGII_COR_MAX];
+	//斑纹
+	// -1=无效
+	// 0 =无
+	// 1 =条纹
+	// 2 =斑点
+	// 3 =斑点+条纹
+	char PronotumTexture; 
+	//斑点数 0-50
+	char PronotumPointNum; 
 };
 
 //成虫
@@ -241,6 +266,9 @@ struct ZOGII_Coccinellidae_DATA
 	struct ZOGII_Larva Larva[ZOGII_PIC_MAX];
 	struct ZOGII_Pupa Pupa[ZOGII_PIC_MAX];
 	struct ZOGII_Ovum Ovum[ZOGII_PIC_MAX];
+
+	//使用扩展
+	struct ZOGII_Imago_2EX Imago2ex[ZOGII_PIC_MAX];
 
 	//扩展容量 为了以后更新
 	char Expand[ZOGII_EXP_SIZ];
