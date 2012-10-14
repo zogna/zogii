@@ -208,9 +208,17 @@
 #define IDC_EDIT_OtherNameG             1099
 #define IDC_BUTTON_DataOutput           1100
 #define IDC_BUTTON_OpenPath             1101
+#define IDC_COMBO_ImagoColorA2          1102
 #define IDC_COMBO30                     1103
+#define IDC_COMBO_PointNum              1103
 #define IDC_BUTTON_SaveDB               1104
+#define IDC_COMBO_ImagoColorB2          1105
 #define IDC_EDIT_path                   1106
+#define IDC_COMBO31                     1107
+#define IDC_COMBO_ImagoColorC2          1108
+#define IDC_COMBO_ImagoColorD2          1109
+#define IDC_COMBO_ImagoColorNum2        1110
+#define IDC_COMBO_PointNum2             1111
 
 // Next default values for new objects
 // 
@@ -218,7 +226,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        130
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1107
+#define _APS_NEXT_CONTROL_VALUE         1108
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

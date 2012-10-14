@@ -80,14 +80,8 @@ public:
 	CString	m_DiscoveryName;
 	CString	m_DataOutputPath;
 	int		m_Food;
-	int		m_ImagoColorA;
-	int		m_ImagoColorB;
-	int		m_ImagoColorC;
-	int		m_ImagoColorD;
-	int		m_ImagoColorNum;
 	int		m_ImagoNo;
 	int		m_ImagoSex;
-	int		m_ImagoTexture;
 	int		m_ImagoVillus;
 	int		m_LarvaCalthrop;
 	int		m_LarvaColorA;
@@ -112,6 +106,12 @@ public:
 	CString	m_OtherNameG;
 	UINT	m_code;
 	CString	m_path;
+	int		m_ImagoElytraColorA;
+	int		m_ImagoElytraColorB;
+	int		m_ImagoElytraColorC;
+	int		m_ImagoElytraColorD;
+	int		m_ImagoElytraColorNum;
+	int		m_ImagoElytraTexture;
 	//}}AFX_DATA
 
 	// ClassWizard generated virtual function overrides
