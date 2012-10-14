@@ -918,7 +918,7 @@ ZOGII_ULONG_TYPE zogiiADDpicDBLite(ZOGII_ULONG_TYPE *pictotal,struct ZOGII_Pic *
 			if(0==picdata[i].flag)
 			{
 				picdata[i].flag=1;
-				memcpy(picdata[i].Info,newpic->Info,ZOGII_STR_MAX);
+				memcpy(picdata[i].Info,newpic->Info,ZOGII_PAT_MAX);
 				memcpy(picdata[i].Path,Path,ZOGII_PAT_MAX);
 			
 				//¸²¸Ç
@@ -933,7 +933,7 @@ ZOGII_ULONG_TYPE zogiiADDpicDBLite(ZOGII_ULONG_TYPE *pictotal,struct ZOGII_Pic *
 		picdata=(struct ZOGII_Pic *)calloc((t+1),sizeof(struct ZOGII_Pic));
 
 	picdata[t].flag=1;
-	memcpy(picdata[t].Info,newpic->Info,ZOGII_STR_MAX);
+	memcpy(picdata[t].Info,newpic->Info,ZOGII_PAT_MAX);
 	memcpy(picdata[t].Path,Path,ZOGII_PAT_MAX);
 		
 	//¸²¸Ç
@@ -952,7 +952,7 @@ void zogiiModifypicDBLite(struct ZOGII_Pic *pdata,struct ZOGII_Pic *newpic,char 
 		//¸²¸Ç
 		zogiiCopyFile(newpic->Path,pdata->Path);
 	}
-	memcpy(pdata->Info,newpic->Info,ZOGII_STR_MAX);
+	memcpy(pdata->Info,newpic->Info,ZOGII_PAT_MAX);
 }
 
 void zogiiInitpicDB(struct ZOGII_Coccinellidae_DATA *data)
@@ -998,7 +998,7 @@ ZOGII_ULONG_TYPE zogiiDeletepicDBLite(ZOGII_ULONG_TYPE i,struct ZOGII_Pic *&picd
 	//É¾³ýÍ¼Æ¬
 	zogiiDeleteFile(picdata[i].Path);
 	memset(picdata[i].Path,0,sizeof(ZOGII_PAT_MAX));
-	memset(picdata[i].Info,0,sizeof(ZOGII_STR_MAX));
+	memset(picdata[i].Info,0,sizeof(ZOGII_PAT_MAX));
 	return 0;
 }
 

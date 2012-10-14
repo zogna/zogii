@@ -90,7 +90,7 @@ struct ZOGII_Pic
 	//图片目录
 	char Path[ZOGII_PAT_MAX];
 	//图片作者来源
-	char Info[ZOGII_STR_MAX];
+	char Info[ZOGII_PAT_MAX];
 };
 
 //成虫

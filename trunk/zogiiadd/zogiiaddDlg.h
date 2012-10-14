@@ -166,6 +166,7 @@ protected:
 	afx_msg void OnBUTTONOpenPath();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
+	void OnOK();
 	/////////////////////////////////////////////////////////////////
 //	int SaveToFile(int idc);
 	int OpenToPicFile(int idc);
