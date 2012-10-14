@@ -135,6 +135,11 @@ struct ZOGII_Imago
 	char ElytraColorNum;
 	//含有颜色 见颜色表
 	char ElytraColor[ZOGII_COR_MAX];
+
+	// -1=无效
+	// 0 =无绒毛
+	// 1 =有绒毛
+	char Villus; 
 	//斑纹
 	// -1=无效
 	// 0 =无
@@ -142,11 +147,6 @@ struct ZOGII_Imago
 	// 2 =斑点
 	// 3 =斑点+条纹
 	char ElytraTexture; 
-
-	// -1=无效
-	// 0 =无绒毛
-	// 1 =有绒毛
-	char Villus; 
 
 	//图片索引值 0为无效
 	ZOGII_ULONG_TYPE Pic;
