@@ -112,6 +112,14 @@ public:
 	int		m_ImagoElytraColorD;
 	int		m_ImagoElytraColorNum;
 	int		m_ImagoElytraTexture;
+	int		m_ImagoPronotumColorA;
+	int		m_ImagoPronotumColorB;
+	int		m_ImagoPronotumColorC;
+	int		m_ImagoPronotumColorD;
+	int		m_ImagoPronotumColorNum;
+	int		m_ImagoPronotumPointNum;
+	int		m_ImagoPronotumTexture;
+	int		m_ImagoElytraPointNum;
 	//}}AFX_DATA
 
 	// ClassWizard generated virtual function overrides

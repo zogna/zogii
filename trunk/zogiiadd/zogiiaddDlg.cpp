@@ -92,6 +92,14 @@ CZogiiaddDlg::CZogiiaddDlg(CWnd* pParent /*=NULL*/)
 	m_ImagoElytraColorD = -1;
 	m_ImagoElytraColorNum = -1;
 	m_ImagoElytraTexture = -1;
+	m_ImagoPronotumColorA = -1;
+	m_ImagoPronotumColorB = -1;
+	m_ImagoPronotumColorC = -1;
+	m_ImagoPronotumColorD = -1;
+	m_ImagoPronotumColorNum = -1;
+	m_ImagoPronotumPointNum = -1;
+	m_ImagoPronotumTexture = -1;
+	m_ImagoElytraPointNum = -1;
 	//}}AFX_DATA_INIT
 	// Note that LoadIcon does not require a subsequent DestroyIcon in Win32
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -232,6 +240,14 @@ void CZogiiaddDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_CBIndex(pDX, IDC_COMBO_ImagoElytraColorD, m_ImagoElytraColorD);
 	DDX_CBIndex(pDX, IDC_COMBO_ImagoElytraColorNum, m_ImagoElytraColorNum);
 	DDX_CBIndex(pDX, IDC_COMBO_ImagoElytraTexture, m_ImagoElytraTexture);
+	DDX_CBIndex(pDX, IDC_COMBO_ImagoPronotumColorA, m_ImagoPronotumColorA);
+	DDX_CBIndex(pDX, IDC_COMBO_ImagoPronotumColorB, m_ImagoPronotumColorB);
+	DDX_CBIndex(pDX, IDC_COMBO_ImagoPronotumColorC, m_ImagoPronotumColorC);
+	DDX_CBIndex(pDX, IDC_COMBO_ImagoPronotumColorD, m_ImagoPronotumColorD);
+	DDX_CBIndex(pDX, IDC_COMBO_ImagoPronotumColorNum, m_ImagoPronotumColorNum);
+	DDX_CBIndex(pDX, IDC_COMBO_ImagoPronotumPointNum, m_ImagoPronotumPointNum);
+	DDX_CBIndex(pDX, IDC_COMBO_ImagoPronotumTexture, m_ImagoPronotumTexture);
+	DDX_CBIndex(pDX, IDC_COMBO_ImagoElytraPointNum, m_ImagoElytraPointNum);
 	//}}AFX_DATA_MAP
 }
 
@@ -1345,6 +1361,15 @@ void CZogiiaddDlg::CleanImago2M()
 	m_ImagoVillus = -1;
 	m_ImagoPicPath = _T("");
 	m_ImagoPicInfo = _T("");
+	//ex
+	m_ImagoElytraPointNum = -1;
+	m_ImagoPronotumColorA = -1;
+	m_ImagoPronotumColorB = -1;
+	m_ImagoPronotumColorC = -1;
+	m_ImagoPronotumColorD = -1;
+	m_ImagoPronotumColorNum = -1;
+	m_ImagoPronotumPointNum = -1;
+	m_ImagoPronotumTexture = -1;
 }
 
 //M到临时数据 必须按“保存本类信息” 才会保存到数据库
@@ -1374,6 +1399,15 @@ void CZogiiaddDlg::SaveM2Imago(int i)
 
 		NewPicdata[ZOGII_ALL_PIC_Imago_START+i].flag=1;
 	}
+
+	Newdata.Imago2ex[i].ElytraPointNum =	(char)m_ImagoElytraPointNum;
+	Newdata.Imago2ex[i].PronotumColor[0] = (char)m_ImagoPronotumColorA;
+	Newdata.Imago2ex[i].PronotumColor[1] =	(char)m_ImagoPronotumColorB;
+	Newdata.Imago2ex[i].PronotumColor[2] =	(char)m_ImagoPronotumColorC;
+	Newdata.Imago2ex[i].PronotumColor[3] =	(char)m_ImagoPronotumColorD;
+	Newdata.Imago2ex[i].PronotumTexture = (char)m_ImagoPronotumColorNum;
+	Newdata.Imago2ex[i].PronotumPointNum =	(char)m_ImagoPronotumPointNum;
+	Newdata.Imago2ex[i].PronotumTexture =	(char)m_ImagoPronotumTexture;
 }
 //临时数据到M
 void CZogiiaddDlg::ReadImago2M(int i)
@@ -1402,6 +1436,15 @@ void CZogiiaddDlg::ReadImago2M(int i)
 			m_ImagoPicPath = _T("");
 			m_ImagoPicInfo = _T("");
 		}
+
+		m_ImagoElytraPointNum = Newdata.Imago2ex[i].ElytraPointNum;
+		m_ImagoPronotumColorA = Newdata.Imago2ex[i].PronotumColor[0];
+		m_ImagoPronotumColorB = Newdata.Imago2ex[i].PronotumColor[1];
+		m_ImagoPronotumColorC = Newdata.Imago2ex[i].PronotumColor[2];
+		m_ImagoPronotumColorD = Newdata.Imago2ex[i].PronotumColor[3];
+		m_ImagoPronotumColorNum=Newdata.Imago2ex[i].PronotumTexture;
+		m_ImagoPronotumPointNum=Newdata.Imago2ex[i].PronotumPointNum;
+		m_ImagoPronotumTexture=Newdata.Imago2ex[i].PronotumTexture;
 	}
 	else
 		CleanImago2M();
@@ -1435,6 +1478,15 @@ void CZogiiaddDlg::ReadDB2Imago(struct ZOGII_Coccinellidae_DATA* d)
 		{
 			NewPicdata[ZOGII_ALL_PIC_Imago_START+i].flag=0;
 		}
+
+		Newdata.Imago2ex[i].ElytraPointNum =	d->Imago2ex[i].ElytraPointNum;
+		Newdata.Imago2ex[i].PronotumColor[0] = 	d->Imago2ex[i].PronotumColor[0]; 
+		Newdata.Imago2ex[i].PronotumColor[1] =	d->Imago2ex[i].PronotumColor[1];
+		Newdata.Imago2ex[i].PronotumColor[2] =	d->Imago2ex[i].PronotumColor[2];
+		Newdata.Imago2ex[i].PronotumColor[3] =	d->Imago2ex[i].PronotumColor[3];
+		Newdata.Imago2ex[i].PronotumTexture = 	d->Imago2ex[i].PronotumTexture; 
+		Newdata.Imago2ex[i].PronotumPointNum =	d->Imago2ex[i].PronotumPointNum;
+		Newdata.Imago2ex[i].PronotumTexture =	d->Imago2ex[i].PronotumTexture;	
 	}
 }
 
