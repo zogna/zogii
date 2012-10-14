@@ -2,7 +2,6 @@
 #define _ZOGII_DB_H_
 
 #include "stdio.h"
-#include "windows.h"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #if 0
 
@@ -83,21 +82,6 @@ enum
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma pack(1)
 
-struct ZOGII_Pic_NEW
-{
-	// 0=数据无效
-	// 1=数据有效
-	unsigned char flag;
-	//图片目录
-	char Path[ZOGII_PAT_MAX];
-	//图片作者来源
-	char Info[ZOGII_PAT_MAX];
-};
-#pragma pack()
-
-
-#pragma pack(1)
-
 struct ZOGII_Pic
 {
 	// 0=数据无效
@@ -106,7 +90,7 @@ struct ZOGII_Pic
 	//图片目录
 	char Path[ZOGII_PAT_MAX];
 	//图片作者来源
-	char Info[ZOGII_STR_MAX];
+	char Info[ZOGII_PAT_MAX];
 };
 
 //成虫
@@ -122,20 +106,22 @@ struct ZOGII_Imago
 	// -1=无效
 	//0 =该结构体为无效数据
 	//1-9 有效数据 
-	char ColorNum;
+	char ElytraColorNum;
 	//含有颜色 见颜色表
-	char Color[ZOGII_COR_MAX];
-	// -1=无效
-	// 0 =无绒毛
-	// 1 =有绒毛
-	char Villus; 
-	//纹理
+	char ElytraColor[ZOGII_COR_MAX];
+	//斑纹
 	// -1=无效
 	// 0 =无
 	// 1 =条纹
 	// 2 =斑点
 	// 3 =斑点+条纹
-	char Texture; 
+	char ElytraTexture; 
+
+	// -1=无效
+	// 0 =无绒毛
+	// 1 =有绒毛
+	char Villus; 
+
 	//图片索引值 0为无效
 	ZOGII_ULONG_TYPE Pic;
 };
@@ -358,6 +344,4 @@ ZOGII_ULONG_TYPE zogiiDeletepicDBLite(ZOGII_ULONG_TYPE i,struct ZOGII_Pic *&picd
 
 
 
-int zogiiWriteNEWDB(ZOGII_ULONG_TYPE total,struct ZOGII_Coccinellidae_SUBFamily *&data,	\
-				 ZOGII_ULONG_TYPE pictotal,struct ZOGII_Pic_NEW *&picdataNEW);
 #endif
