@@ -106,20 +106,22 @@ struct ZOGII_Imago
 	// -1=无效
 	//0 =该结构体为无效数据
 	//1-9 有效数据 
-	char ColorNum;
+	char ElytraColorNum;
 	//含有颜色 见颜色表
-	char Color[ZOGII_COR_MAX];
-	// -1=无效
-	// 0 =无绒毛
-	// 1 =有绒毛
-	char Villus; 
-	//纹理
+	char ElytraColor[ZOGII_COR_MAX];
+	//斑纹
 	// -1=无效
 	// 0 =无
 	// 1 =条纹
 	// 2 =斑点
 	// 3 =斑点+条纹
-	char Texture; 
+	char ElytraTexture; 
+
+	// -1=无效
+	// 0 =无绒毛
+	// 1 =有绒毛
+	char Villus; 
+
 	//图片索引值 0为无效
 	ZOGII_ULONG_TYPE Pic;
 };

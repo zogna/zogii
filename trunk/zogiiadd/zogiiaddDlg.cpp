@@ -60,14 +60,8 @@ CZogiiaddDlg::CZogiiaddDlg(CWnd* pParent /*=NULL*/)
 	m_DiscoveryName = _T("");
 	m_DataOutputPath = _T("");
 	m_Food = -1;
-	m_ImagoColorA = -1;
-	m_ImagoColorB = -1;
-	m_ImagoColorC = -1;
-	m_ImagoColorD = -1;
-	m_ImagoColorNum = -1;
 	m_ImagoNo = 0;
 	m_ImagoSex = -1;
-	m_ImagoTexture = -1;
 	m_ImagoVillus = -1;
 	m_LarvaCalthrop = -1;
 	m_LarvaColorA = -1;
@@ -92,6 +86,12 @@ CZogiiaddDlg::CZogiiaddDlg(CWnd* pParent /*=NULL*/)
 	m_OtherNameG = _T("");
 	m_code = 0;
 	m_path = _T("");
+	m_ImagoElytraColorA = -1;
+	m_ImagoElytraColorB = -1;
+	m_ImagoElytraColorC = -1;
+	m_ImagoElytraColorD = -1;
+	m_ImagoElytraColorNum = -1;
+	m_ImagoElytraTexture = -1;
 	//}}AFX_DATA_INIT
 	// Note that LoadIcon does not require a subsequent DestroyIcon in Win32
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -196,14 +196,8 @@ void CZogiiaddDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_DataOutputPath, m_DataOutputPath);
 	DDV_MaxChars(pDX, m_DataOutputPath, 260);
 	DDX_CBIndex(pDX, IDC_COMBO_Food, m_Food);
-	DDX_CBIndex(pDX, IDC_COMBO_ImagoColorA, m_ImagoColorA);
-	DDX_CBIndex(pDX, IDC_COMBO_ImagoColorB, m_ImagoColorB);
-	DDX_CBIndex(pDX, IDC_COMBO_ImagoColorC, m_ImagoColorC);
-	DDX_CBIndex(pDX, IDC_COMBO_ImagoColorD, m_ImagoColorD);
-	DDX_CBIndex(pDX, IDC_COMBO_ImagoColorNum, m_ImagoColorNum);
 	DDX_CBIndex(pDX, IDC_COMBO_ImagoNo, m_ImagoNo);
 	DDX_CBIndex(pDX, IDC_COMBO_ImagoSex, m_ImagoSex);
-	DDX_CBIndex(pDX, IDC_COMBO_ImagoTexture, m_ImagoTexture);
 	DDX_CBIndex(pDX, IDC_COMBO_ImagoVillus, m_ImagoVillus);
 	DDX_CBIndex(pDX, IDC_COMBO_LarvaCalthrop, m_LarvaCalthrop);
 	DDX_CBIndex(pDX, IDC_COMBO_LarvaColorA, m_LarvaColorA);
@@ -232,6 +226,12 @@ void CZogiiaddDlg::DoDataExchange(CDataExchange* pDX)
 	DDV_MinMaxUInt(pDX, m_code, 0, 600000);
 	DDX_Text(pDX, IDC_EDIT_path, m_path);
 	DDV_MaxChars(pDX, m_path, 260);
+	DDX_CBIndex(pDX, IDC_COMBO_ImagoColorA, m_ImagoElytraColorA);
+	DDX_CBIndex(pDX, IDC_COMBO_ImagoColorB, m_ImagoElytraColorB);
+	DDX_CBIndex(pDX, IDC_COMBO_ImagoColorC, m_ImagoElytraColorC);
+	DDX_CBIndex(pDX, IDC_COMBO_ImagoColorD, m_ImagoElytraColorD);
+	DDX_CBIndex(pDX, IDC_COMBO_ImagoColorNum, m_ImagoElytraColorNum);
+	DDX_CBIndex(pDX, IDC_COMBO_ImagoTexture, m_ImagoElytraTexture);
 	//}}AFX_DATA_MAP
 }
 
@@ -1335,13 +1335,13 @@ void CZogiiaddDlg::CopyInfoM2NewData()
 //清除M
 void CZogiiaddDlg::CleanImago2M()
 {
-	m_ImagoColorA = -1;
-	m_ImagoColorB = -1;
-	m_ImagoColorC = -1;
-	m_ImagoColorD = -1;
-	m_ImagoColorNum = -1;
+	m_ImagoElytraColorA = -1;
+	m_ImagoElytraColorB = -1;
+	m_ImagoElytraColorC = -1;
+	m_ImagoElytraColorD = -1;
+	m_ImagoElytraColorNum = -1;
 	m_ImagoSex = -1;
-	m_ImagoTexture = -1;
+	m_ImagoElytraTexture = -1;
 	m_ImagoVillus = -1;
 	m_ImagoPicPath = _T("");
 	m_ImagoPicInfo = _T("");
@@ -1353,13 +1353,13 @@ void CZogiiaddDlg::SaveM2Imago(int i)
 	if(i<0)
 		return ;
 
-	Newdata.Imago[i].ColorNum =	(char)m_ImagoColorNum;
-	Newdata.Imago[i].Color[0] = (char)m_ImagoColorA;
-	Newdata.Imago[i].Color[1] =	(char)m_ImagoColorB;
-	Newdata.Imago[i].Color[2] =	(char)m_ImagoColorC;
-	Newdata.Imago[i].Color[3] =	(char)m_ImagoColorD;
+	Newdata.Imago[i].ElytraColorNum =	(char)m_ImagoElytraColorNum;
+	Newdata.Imago[i].ElytraColor[0] = (char)m_ImagoElytraColorA;
+	Newdata.Imago[i].ElytraColor[1] =	(char)m_ImagoElytraColorB;
+	Newdata.Imago[i].ElytraColor[2] =	(char)m_ImagoElytraColorC;
+	Newdata.Imago[i].ElytraColor[3] =	(char)m_ImagoElytraColorD;
+	Newdata.Imago[i].ElytraTexture = (char)m_ImagoElytraTexture;
 	Newdata.Imago[i].Sex = (char)m_ImagoSex;
-	Newdata.Imago[i].Texture = (char)m_ImagoTexture;
 	Newdata.Imago[i].Villus = (char)m_ImagoVillus;
 
 	//为空
@@ -1381,15 +1381,15 @@ void CZogiiaddDlg::ReadImago2M(int i)
 	if(i<0)
 		return ;
 	//颜色数必须大于0
-	if(Newdata.Imago[i].ColorNum >0)
+	if(Newdata.Imago[i].ElytraColorNum >0)
 	{
-		m_ImagoColorNum = Newdata.Imago[i].ColorNum;
-		m_ImagoColorA = Newdata.Imago[i].Color[0];
-		m_ImagoColorB = Newdata.Imago[i].Color[1];
-		m_ImagoColorC = Newdata.Imago[i].Color[2];
-		m_ImagoColorD = Newdata.Imago[i].Color[3];
+		m_ImagoElytraColorNum = Newdata.Imago[i].ElytraColorNum;
+		m_ImagoElytraColorA = Newdata.Imago[i].ElytraColor[0];
+		m_ImagoElytraColorB = Newdata.Imago[i].ElytraColor[1];
+		m_ImagoElytraColorC = Newdata.Imago[i].ElytraColor[2];
+		m_ImagoElytraColorD = Newdata.Imago[i].ElytraColor[3];
+		m_ImagoElytraTexture = Newdata.Imago[i].ElytraTexture;
 		m_ImagoSex = Newdata.Imago[i].Sex;
-		m_ImagoTexture = Newdata.Imago[i].Texture;
 		m_ImagoVillus =	Newdata.Imago[i].Villus;
 		
 		if(NewPicdata[ZOGII_ALL_PIC_Imago_START+i].flag)
@@ -1414,13 +1414,13 @@ void CZogiiaddDlg::ReadDB2Imago(struct ZOGII_Coccinellidae_DATA* d)
 
 	for(i=0;i<ZOGII_PIC_MAX;i++)
 	{
-		Newdata.Imago[i].ColorNum =	d->Imago[i].ColorNum;
-		Newdata.Imago[i].Color[0] = d->Imago[i].Color[0];
-		Newdata.Imago[i].Color[1] =	d->Imago[i].Color[1];
-		Newdata.Imago[i].Color[2] =	d->Imago[i].Color[2];
-		Newdata.Imago[i].Color[3] =	d->Imago[i].Color[3];
+		Newdata.Imago[i].ElytraColorNum =	d->Imago[i].ElytraColorNum;
+		Newdata.Imago[i].ElytraColor[0] =	d->Imago[i].ElytraColor[0];
+		Newdata.Imago[i].ElytraColor[1] =	d->Imago[i].ElytraColor[1];
+		Newdata.Imago[i].ElytraColor[2] =	d->Imago[i].ElytraColor[2];
+		Newdata.Imago[i].ElytraColor[3] =	d->Imago[i].ElytraColor[3];
+		Newdata.Imago[i].ElytraTexture = d->Imago[i].ElytraTexture;
 		Newdata.Imago[i].Sex = d->Imago[i].Sex;
-		Newdata.Imago[i].Texture = d->Imago[i].Texture;
 		Newdata.Imago[i].Villus = d->Imago[i].Villus;
 
 		//不为空 
