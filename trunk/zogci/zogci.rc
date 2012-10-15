@@ -103,30 +103,30 @@ BEGIN
     PUSHBUTTON      "选择图片路径",IDC_BUTTON_ChoosePath,310,134,53,14
     CONTROL         "List1",IDC_LIST_SearchReport,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
-                    WS_TABSTOP,601,33,240,153
+                    WS_TABSTOP,616,33,225,153
     GROUPBOX        "输入查询",IDC_STATIC,163,7,267,73
     PUSHBUTTON      "查看结果图像",IDC_BUTTON_SeeSearchPic,377,172,53,14
-    GROUPBOX        "单项信息",IDC_STATIC,333,188,508,264
+    GROUPBOX        "单项信息",IDC_STATIC,163,188,678,264
     LTEXT           "名称",IDC_STATIC,169,203,17,8
     LTEXT           "命名者",IDC_STATIC,169,219,25,8
     EDITTEXT        IDC_EDIT_Name,195,201,230,14
     EDITTEXT        IDC_EDIT_DiscoverName,195,217,230,14
     CONTROL         "List1",IDC_LIST_Picture,"SysListView32",LVS_REPORT | 
                     LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
-                    WS_TABSTOP,168,312,327,134
-    CTEXT           "",IDC_STATIC_Picture,499,295,168,132,SS_NOTIFY | 
+                    WS_TABSTOP,168,312,495,134
+    CTEXT           "",IDC_STATIC_Picture,667,295,168,151,SS_NOTIFY | 
                     WS_BORDER | NOT WS_GROUP
-    PUSHBUTTON      "查看全部图像",IDC_BUTTON_SeeAllPicture,501,432,53,14
-    PUSHBUTTON      "查看原始图像",IDC_BUTTON_SeeSrcPicture,613,431,53,14
-    LTEXT           "食物类型",IDC_STATIC,549,197,33,8
+    PUSHBUTTON      "查看全部图像",IDC_BUTTON_SeeAllPicture,551,294,53,14
+    PUSHBUTTON      "查看原始图像",IDC_BUTTON_SeeSrcPicture,607,294,53,14
+    LTEXT           "食物类型",IDC_STATIC,635,197,33,8
     LTEXT           "别名",IDC_STATIC,429,197,17,8
     CONTROL         "List1",IDC_LIST_OtherName,"SysListView32",LVS_LIST | 
-                    LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,427,207,117,
+                    LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,427,207,202,
                     81
     CONTROL         "List1",IDC_LIST_Food,"SysListView32",LVS_LIST | 
-                    LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,549,207,117,
+                    LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,635,207,200,
                     81
-    LTEXT           "类型名",IDC_STATIC_FoodType,587,197,25,8
+    LTEXT           "类型名",IDC_STATIC_FoodType,673,197,25,8
     PUSHBUTTON      "查看原始文本",IDC_BUTTON_SeeSrcText,427,293,53,14
     EDITTEXT        IDC_EDIT_Text,169,235,254,74,ES_MULTILINE | WS_VSCROLL
     GROUPBOX        "成虫",IDC_STATIC,165,125,201,42
@@ -190,7 +190,7 @@ BEGIN
     LTEXT           "其数据，图片来自网络搜索。",IDC_STATIC,13,132,105,8
     LTEXT           "如有您的数据未被署名，请联系作者。",IDC_STATIC,13,154,
                     137,8
-    GROUPBOX        "再次 免责声明",IDC_STATIC,200,62,306,112
+    GROUPBOX        "再次 免责声明",IDC_STATIC,200,62,306,126
     LTEXT           "您应该对使用程序的结果自行承担风险。",IDC_STATIC,207,74,
                     145,8
     LTEXT           "作者不做任何形式的保证：",IDC_STATIC,207,85,97,8
@@ -209,6 +209,8 @@ BEGIN
     LTEXT           "作者在收到上述文件后，将会去除其图片或数据。",
                     IDC_STATIC,207,162,177,8
     LTEXT           "作者不负法律责任。",IDC_STATIC,13,176,73,8
+    GROUPBOX        "非常感谢",IDC_STATIC,7,189,189,89
+    LTEXT           "嘎嘎昆虫网 gaga.biodiv.tw",IDC_STATIC,13,202,101,8
 END
 
 

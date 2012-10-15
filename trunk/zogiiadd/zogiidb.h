@@ -324,6 +324,12 @@ int zogiiWriteDB(ZOGII_ULONG_TYPE total,struct ZOGII_Coccinellidae_SUBFamily *&d
 				 ZOGII_ULONG_TYPE pictotal,struct ZOGII_Pic *&picdata);
 void zogiiFreeDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily *&data,	\
 				  ZOGII_ULONG_TYPE *pictotal,struct ZOGII_Pic *&picdata);
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+int zogiiSort_SF(const void *A,const void *B);
+int zogiiSort_GE(const void *A,const void *B);
+int zogiiSort_NA(const void *A,const void *B);
+int zogiiSort_SP(const void *A,const void *B);
+void zogiiSortDB(ZOGII_ULONG_TYPE total,struct ZOGII_Coccinellidae_SUBFamily *&data);
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ZOGII_ULONG_TYPE zogiiCodeGen(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily *&data,	\
 					unsigned char type,ZOGII_ULONG_TYPE sf,ZOGII_ULONG_TYPE ge,ZOGII_ULONG_TYPE na);
