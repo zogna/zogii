@@ -18,7 +18,7 @@ typedef unsigned __int32 ZOGII_ULONG_TYPE;
 #endif
 
 //结构体剩余扩展容量
-#define ZOGII_EXP_SIZ 1024
+#define ZOGII_EXP_SIZ 928
 //最大路径长度
 #define ZOGII_PAT_MAX 260 
 //最大字符串长度
@@ -50,16 +50,17 @@ typedef unsigned __int32 ZOGII_ULONG_TYPE;
 /* 
 //颜色表
 // -1=无效
-// 0 =柠檬黄
-// 1 =橙黄
-// 2 =红
-// 3 =蓝
-// 4 =绿
-// 5 =黑
-// 6 =白
-// 7 =杏
-// 8 =褐
-// 9 =银灰
+// 0=无
+// 1 =柠檬黄
+// 2 =橙黄
+// 3 =红
+// 4 =蓝
+// 5 =绿
+// 6 =黑
+// 7 =白
+// 8 =杏
+// 9 =褐
+// 10 =银灰
 */
 
 //数据类型 TYPE
@@ -93,6 +94,31 @@ struct ZOGII_Pic
 	char Info[ZOGII_PAT_MAX];
 };
 
+//成虫 扩展
+struct ZOGII_Imago_2EX
+{
+	//////////////////////////鞘翅
+	//斑点数 0-50
+	char ElytraPointNum; 
+	//////////////////////////前胸背板
+	//颜色总数 0-9
+	// -1=无效
+	//0 =该结构体为无效数据
+	//1-9 有效数据 
+	char PronotumColorNum;
+	//含有颜色 见颜色表
+	char PronotumColor[ZOGII_COR_MAX];
+	//斑纹
+	// -1=无效
+	// 0 =无
+	// 1 =条纹
+	// 2 =斑点
+	// 3 =斑点+条纹
+	char PronotumTexture; 
+	//斑点数 0-50
+	char PronotumPointNum; 
+};
+
 //成虫
 struct ZOGII_Imago
 {
@@ -106,20 +132,22 @@ struct ZOGII_Imago
 	// -1=无效
 	//0 =该结构体为无效数据
 	//1-9 有效数据 
-	char ColorNum;
+	char ElytraColorNum;
 	//含有颜色 见颜色表
-	char Color[ZOGII_COR_MAX];
+	char ElytraColor[ZOGII_COR_MAX];
+
 	// -1=无效
 	// 0 =无绒毛
 	// 1 =有绒毛
 	char Villus; 
-	//纹理
+	//斑纹
 	// -1=无效
 	// 0 =无
 	// 1 =条纹
 	// 2 =斑点
 	// 3 =斑点+条纹
-	char Texture; 
+	char ElytraTexture; 
+
 	//图片索引值 0为无效
 	ZOGII_ULONG_TYPE Pic;
 };
@@ -240,6 +268,9 @@ struct ZOGII_Coccinellidae_DATA
 	struct ZOGII_Pupa Pupa[ZOGII_PIC_MAX];
 	struct ZOGII_Ovum Ovum[ZOGII_PIC_MAX];
 
+	//使用扩展
+	struct ZOGII_Imago_2EX Imago2ex[ZOGII_PIC_MAX];
+
 	//扩展容量 为了以后更新
 	char Expand[ZOGII_EXP_SIZ];
 };
@@ -293,6 +324,12 @@ int zogiiWriteDB(ZOGII_ULONG_TYPE total,struct ZOGII_Coccinellidae_SUBFamily *&d
 				 ZOGII_ULONG_TYPE pictotal,struct ZOGII_Pic *&picdata);
 void zogiiFreeDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily *&data,	\
 				  ZOGII_ULONG_TYPE *pictotal,struct ZOGII_Pic *&picdata);
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+int zogiiSort_SF(const void *A,const void *B);
+int zogiiSort_GE(const void *A,const void *B);
+int zogiiSort_NA(const void *A,const void *B);
+int zogiiSort_SP(const void *A,const void *B);
+void zogiiSortDB(ZOGII_ULONG_TYPE total,struct ZOGII_Coccinellidae_SUBFamily *&data);
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ZOGII_ULONG_TYPE zogiiCodeGen(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily *&data,	\
 					unsigned char type,ZOGII_ULONG_TYPE sf,ZOGII_ULONG_TYPE ge,ZOGII_ULONG_TYPE na);
