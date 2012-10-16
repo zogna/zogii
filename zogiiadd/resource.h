@@ -233,6 +233,7 @@
 #define IDC_COMBO_ImagoPronotumColorNum 1110
 #define IDC_COMBO_PointNum2             1111
 #define IDC_COMBO_ImagoPronotumPointNum 1111
+#define IDC_COMBO_ImagobellyColor       1112
 
 // Next default values for new objects
 // 
