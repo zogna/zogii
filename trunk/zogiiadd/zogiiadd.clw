@@ -26,14 +26,14 @@ Type=0
 BaseClass=CDialog
 HeaderFile=zogiiaddDlg.h
 ImplementationFile=zogiiaddDlg.cpp
-LastObject=CZogiiaddDlg
+LastObject=IDC_COMBO_ImagoPronotumColorNum
 Filter=D
 VirtualFilter=dWC
 
 [DLG:IDD_ZOGIIADD_DIALOG]
 Type=1
 Class=CZogiiaddDlg
-ControlCount=178
+ControlCount=180
 Control1=IDC_TREE,SysTreeView32,1350631591
 Control2=IDC_EDIT_SubFamilyEN,edit,1350631552
 Control3=IDC_EDIT_SubFamilyCN,edit,1350631552
@@ -212,4 +212,6 @@ Control175=IDC_STATIC,static,1342308352
 Control176=IDC_COMBO_ImagoPronotumPointNum,combobox,1344339971
 Control177=IDC_COMBO_ImagoPronotumTexture,combobox,1344339971
 Control178=IDC_STATIC,static,1342308352
+Control179=IDC_COMBO_ImagobellyColor,combobox,1344339971
+Control180=IDC_STATIC,static,1342308352
 

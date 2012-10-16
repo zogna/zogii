@@ -102,14 +102,14 @@ BEGIN
     GROUPBOX        "成年",IDC_STATIC,153,173,288,170
     COMBOBOX        IDC_COMBO_ImagoSex,181,182,48,63,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_COMBO_ImagoVillus,259,182,48,87,CBS_DROPDOWNLIST | 
+    COMBOBOX        IDC_COMBO_ImagoVillus,254,182,48,87,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_COMBO_ImagoNo,388,182,48,92,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    EDITTEXT        IDC_EDIT_ImagoPicPath,178,293,174,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_ImagoPicInfo,178,309,259,12,ES_AUTOHSCROLL
-    PUSHBUTTON      "保存",IDC_BUTTON_SaveImago,414,324,21,14
-    PUSHBUTTON      "清空",IDC_BUTTON_DeleteImago,159,325,21,14
+    EDITTEXT        IDC_EDIT_ImagoPicPath,178,297,174,12,ES_AUTOHSCROLL
+    EDITTEXT        IDC_EDIT_ImagoPicInfo,178,311,259,12,ES_AUTOHSCROLL
+    PUSHBUTTON      "保存",IDC_BUTTON_SaveImago,414,326,21,14
+    PUSHBUTTON      "清空",IDC_BUTTON_DeleteImago,159,326,21,14
     LTEXT           "性别",IDC_STATIC,161,185,17,8
     LTEXT           "亚科EN",IDC_STATIC,159,19,25,8
     LTEXT           "亚科CN",IDC_STATIC,159,34,25,8
@@ -141,8 +141,8 @@ BEGIN
     CONTROL         "DateTimePicker1",IDC_DATETIMEPICKER_Date,
                     "SysDateTimePick32",DTS_RIGHTALIGN | WS_TABSTOP,489,151,
                     60,15
-    LTEXT           "图片",IDC_STATIC,159,293,17,8
-    LTEXT           "来源",IDC_STATIC,159,311,17,8
+    LTEXT           "图片",IDC_STATIC,159,299,17,8
+    LTEXT           "来源",IDC_STATIC,159,313,17,8
     LTEXT           "序号",IDC_STATIC,366,185,17,8
     PUSHBUTTON      "查看",IDC_BUTTON_DiscoveryPicView,491,120,21,14
     PUSHBUTTON      "查看",IDC_BUTTON_TextENView,795,19,21,14
@@ -152,9 +152,9 @@ BEGIN
     LTEXT           "导出",IDC_STATIC,516,135,17,8
     EDITTEXT        IDC_EDIT_DataOutputPath,537,135,197,12,ES_AUTOHSCROLL
     PUSHBUTTON      "选择导出路径",IDC_BUTTON_DataOutputPath,738,135,53,14
-    LTEXT           "绒毛",IDC_STATIC,237,185,17,8
-    PUSHBUTTON      "选择文件路径",IDC_BUTTON_ImagoPicPath,354,292,53,14
-    PUSHBUTTON      "查看",IDC_BUTTON_ImagoPicView,414,293,21,14
+    LTEXT           "绒毛",IDC_STATIC,232,185,17,8
+    PUSHBUTTON      "选择文件路径",IDC_BUTTON_ImagoPicPath,354,295,53,14
+    PUSHBUTTON      "查看",IDC_BUTTON_ImagoPicView,414,295,21,14
     GROUPBOX        "卵",IDC_STATIC,153,345,288,74
     COMBOBOX        IDC_COMBO_OvumSex,179,355,48,72,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
@@ -256,15 +256,15 @@ BEGIN
     PUSHBUTTON      "保存数据库",IDC_BUTTON_SaveDB,554,151,45,14
     EDITTEXT        IDC_EDIT_FoodNameG,719,281,117,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_OtherNameG,717,414,117,12,ES_AUTOHSCROLL
-    EDITTEXT        IDC_EDIT_code,205,152,39,12,ES_AUTOHSCROLL | WS_DISABLED
-    EDITTEXT        IDC_EDIT_path,268,152,113,12,ES_AUTOHSCROLL | 
+    EDITTEXT        IDC_EDIT_code,205,152,26,12,ES_AUTOHSCROLL | WS_DISABLED
+    EDITTEXT        IDC_EDIT_path,252,152,113,12,ES_AUTOHSCROLL | 
                     WS_DISABLED
     LTEXT           "code",IDC_STATIC,187,155,17,8
-    LTEXT           "path",IDC_STATIC,249,155,17,8
-    PUSHBUTTON      "打开",IDC_BUTTON_OpenPath,387,151,21,14
+    LTEXT           "path",IDC_STATIC,233,155,17,8
+    PUSHBUTTON      "打开",IDC_BUTTON_OpenPath,371,151,21,14
     COMBOBOX        IDC_COMBO_ImagoElytraColorA,339,261,48,96,
                     CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_COMBO_ImagoElytraTexture,187,259,48,64,
+    COMBOBOX        IDC_COMBO_ImagoElytraTexture,187,259,66,64,
                     CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_COMBO_ImagoElytraColorB,391,261,48,97,
                     CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
@@ -297,9 +297,12 @@ BEGIN
     LTEXT           "斑点数",IDC_STATIC,161,227,25,8
     COMBOBOX        IDC_COMBO_ImagoPronotumPointNum,187,225,48,143,
                     CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_COMBO_ImagoPronotumTexture,187,209,48,64,
+    COMBOBOX        IDC_COMBO_ImagoPronotumTexture,187,209,66,64,
                     CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "斑纹",IDC_STATIC,161,211,17,8
+    COMBOBOX        IDC_COMBO_ImagobellyColor,286,326,48,96,CBS_DROPDOWNLIST | 
+                    WS_VSCROLL | WS_TABSTOP
+    LTEXT           "腹部颜色",IDC_STATIC,249,329,33,8
 END
 
 
@@ -1192,6 +1195,28 @@ BEGIN
 0xdfb0, 0xe3b5, "\000" 
     IDC_COMBO_ImagoPronotumTexture, 0x403, 10, 0
 0xdfb0, 0xe3b5, 0xcc2b, 0xcef5, 0x00c6, 
+    IDC_COMBO_ImagobellyColor, 0x403, 3, 0
+0xdece, "\000" 
+    IDC_COMBO_ImagobellyColor, 0x403, 7, 0
+0xfbc4, 0xcac3, 0xc6bb, "\000" 
+    IDC_COMBO_ImagobellyColor, 0x403, 5, 0
+0xc8b3, 0xc6bb, "\000" 
+    IDC_COMBO_ImagobellyColor, 0x403, 3, 0
+0xecba, "\000" 
+    IDC_COMBO_ImagobellyColor, 0x403, 3, 0
+0xb6c0, "\000" 
+    IDC_COMBO_ImagobellyColor, 0x403, 3, 0
+0xccc2, "\000" 
+    IDC_COMBO_ImagobellyColor, 0x403, 3, 0
+0xdaba, "\000" 
+    IDC_COMBO_ImagobellyColor, 0x403, 3, 0
+0xd7b0, "\000" 
+    IDC_COMBO_ImagobellyColor, 0x403, 3, 0
+0xd3d0, "\000" 
+    IDC_COMBO_ImagobellyColor, 0x403, 3, 0
+0xd6ba, "\000" 
+    IDC_COMBO_ImagobellyColor, 0x403, 5, 0
+0xf8d2, 0xd2bb, "\000" 
     0
 END
 

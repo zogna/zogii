@@ -100,6 +100,7 @@ CZogiiaddDlg::CZogiiaddDlg(CWnd* pParent /*=NULL*/)
 	m_ImagoPronotumPointNum = -1;
 	m_ImagoPronotumTexture = -1;
 	m_ImagoElytraPointNum = -1;
+	m_ImagobellyColor = -1;
 	//}}AFX_DATA_INIT
 	// Note that LoadIcon does not require a subsequent DestroyIcon in Win32
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -248,6 +249,7 @@ void CZogiiaddDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_CBIndex(pDX, IDC_COMBO_ImagoPronotumPointNum, m_ImagoPronotumPointNum);
 	DDX_CBIndex(pDX, IDC_COMBO_ImagoPronotumTexture, m_ImagoPronotumTexture);
 	DDX_CBIndex(pDX, IDC_COMBO_ImagoElytraPointNum, m_ImagoElytraPointNum);
+	DDX_CBIndex(pDX, IDC_COMBO_ImagobellyColor, m_ImagobellyColor);
 	//}}AFX_DATA_MAP
 }
 
@@ -748,6 +750,8 @@ void CZogiiaddDlg::ViewText(CString filename)
 {
 	char str[300];
 
+	if(filename.IsEmpty())
+		return ;
 	if('z'==filename[0])
 		sprintf(str,"notepad.exe \"%s\\%s\"",CurrentDir,filename.GetBuffer(0));
 	else
@@ -759,6 +763,9 @@ void CZogiiaddDlg::ViewText(CString filename)
 void CZogiiaddDlg::ViewPic(CString filename)
 {
 	char str[300];
+
+	if(filename.IsEmpty())
+		return ;
 
 	if('z'==filename[0])
 		sprintf(str,"mspaint.exe \"%s\\%s\"",CurrentDir,filename.GetBuffer(0));
@@ -1368,6 +1375,7 @@ void CZogiiaddDlg::CleanImago2M()
 	m_ImagoPronotumColorNum = -1;
 	m_ImagoPronotumPointNum = -1;
 	m_ImagoPronotumTexture = -1;
+	m_ImagobellyColor = -1;
 }
 
 //M到临时数据 必须按“保存本类信息” 才会保存到数据库
@@ -1405,9 +1413,10 @@ void CZogiiaddDlg::SaveM2Imago(int i)
 	Newdata.Imago2ex[i].PronotumColor[1] =	(char)m_ImagoPronotumColorB;
 	Newdata.Imago2ex[i].PronotumColor[2] =	(char)m_ImagoPronotumColorC;
 	Newdata.Imago2ex[i].PronotumColor[3] =	(char)m_ImagoPronotumColorD;
-	Newdata.Imago2ex[i].PronotumTexture = (char)m_ImagoPronotumColorNum;
+	Newdata.Imago2ex[i].PronotumColorNum = (char)m_ImagoPronotumColorNum;
 	Newdata.Imago2ex[i].PronotumPointNum =	(char)m_ImagoPronotumPointNum;
 	Newdata.Imago2ex[i].PronotumTexture =	(char)m_ImagoPronotumTexture;
+	Newdata.Imago3ex[i].ImagobellyColor=	(char)m_ImagobellyColor;
 }
 //临时数据到M
 void CZogiiaddDlg::ReadImago2M(int i)
@@ -1434,9 +1443,10 @@ void CZogiiaddDlg::ReadImago2M(int i)
 		m_ImagoPronotumColorB = Newdata.Imago2ex[i].PronotumColor[1];
 		m_ImagoPronotumColorC = Newdata.Imago2ex[i].PronotumColor[2];
 		m_ImagoPronotumColorD = Newdata.Imago2ex[i].PronotumColor[3];
-		m_ImagoPronotumColorNum=Newdata.Imago2ex[i].PronotumTexture;
+		m_ImagoPronotumColorNum=Newdata.Imago2ex[i].PronotumColorNum;
 		m_ImagoPronotumPointNum=Newdata.Imago2ex[i].PronotumPointNum;
 		m_ImagoPronotumTexture=Newdata.Imago2ex[i].PronotumTexture;
+		m_ImagobellyColor=Newdata.Imago3ex[i].ImagobellyColor;
 	}
 	else	if(0==i)
 		CleanImago2M();
@@ -1478,9 +1488,10 @@ void CZogiiaddDlg::ReadDB2Imago(struct ZOGII_Coccinellidae_DATA* d)
 		Newdata.Imago2ex[i].PronotumColor[1] =	d->Imago2ex[i].PronotumColor[1];
 		Newdata.Imago2ex[i].PronotumColor[2] =	d->Imago2ex[i].PronotumColor[2];
 		Newdata.Imago2ex[i].PronotumColor[3] =	d->Imago2ex[i].PronotumColor[3];
-		Newdata.Imago2ex[i].PronotumTexture = 	d->Imago2ex[i].PronotumTexture; 
+		Newdata.Imago2ex[i].PronotumColorNum = 	d->Imago2ex[i].PronotumColorNum; 
 		Newdata.Imago2ex[i].PronotumPointNum =	d->Imago2ex[i].PronotumPointNum;
 		Newdata.Imago2ex[i].PronotumTexture =	d->Imago2ex[i].PronotumTexture;	
+		Newdata.Imago3ex[i].ImagobellyColor=d->Imago3ex[i].ImagobellyColor;
 	}
 }
 

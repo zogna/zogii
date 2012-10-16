@@ -120,6 +120,7 @@ public:
 	int		m_ImagoPronotumPointNum;
 	int		m_ImagoPronotumTexture;
 	int		m_ImagoElytraPointNum;
+	int		m_ImagobellyColor;
 	//}}AFX_DATA
 
 	// ClassWizard generated virtual function overrides
