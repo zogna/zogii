@@ -234,6 +234,9 @@
 #define IDC_COMBO_PointNum2             1111
 #define IDC_COMBO_ImagoPronotumPointNum 1111
 #define IDC_COMBO_ImagobellyColor       1112
+#define IDC_COMBO_LIGHT                 1113
+#define IDC_COMBO_LIVING                1114
+#define IDC_COMBO_SIZE                  1115
 
 // Next default values for new objects
 // 
@@ -241,7 +244,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        130
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1108
+#define _APS_NEXT_CONTROL_VALUE         1116
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
