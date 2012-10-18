@@ -101,6 +101,9 @@ CZogiiaddDlg::CZogiiaddDlg(CWnd* pParent /*=NULL*/)
 	m_ImagoPronotumTexture = -1;
 	m_ImagoElytraPointNum = -1;
 	m_ImagobellyColor = -1;
+	m_Size = -1;
+	m_Light = -1;
+	m_Living = -1;
 	//}}AFX_DATA_INIT
 	// Note that LoadIcon does not require a subsequent DestroyIcon in Win32
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -250,6 +253,9 @@ void CZogiiaddDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_CBIndex(pDX, IDC_COMBO_ImagoPronotumTexture, m_ImagoPronotumTexture);
 	DDX_CBIndex(pDX, IDC_COMBO_ImagoElytraPointNum, m_ImagoElytraPointNum);
 	DDX_CBIndex(pDX, IDC_COMBO_ImagobellyColor, m_ImagobellyColor);
+	DDX_CBIndex(pDX, IDC_COMBO_SIZE, m_Size);
+	DDX_CBIndex(pDX, IDC_COMBO_LIGHT, m_Light);
+	DDX_CBIndex(pDX, IDC_COMBO_LIVING, m_Living);
 	//}}AFX_DATA_MAP
 }
 
@@ -1196,7 +1202,6 @@ void CZogiiaddDlg::InitInfoData()
 	m_OtherNameF = _T("");
 	m_OtherNameG = _T("");
 
-
 	m_Date = CTime::GetCurrentTime();
 	m_Food = -1;
 
@@ -1212,6 +1217,10 @@ void CZogiiaddDlg::InitInfoData()
 
 	m_DiscoveryPicPath = _T("");
 	m_DiscoveryPicInfo = _T("");
+
+	m_Size = -1;
+	m_Light = -1;
+	m_Living = -1;
 
 	CleanImago2M();
 	CleanLarva2M();
@@ -1286,6 +1295,10 @@ void CZogiiaddDlg::CopyInfoDBData2M(struct ZOGII_Coccinellidae_DATA* d)
 		NewPicdata[ZOGII_ALL_PIC_Map_START].flag=0;
 	}
 
+	m_Size = d->Size;
+	m_Light = d->Light;
+	m_Living = d->Living;
+
 	UpdateData(FALSE);
 }
 //将M拷贝到临时数据  必须按“保存本类信息” 才会保存到数据库
@@ -1350,6 +1363,10 @@ void CZogiiaddDlg::CopyInfoM2NewData()
 		sprintf(NewPicdata[ZOGII_ALL_PIC_Map_START].Info,"%s",m_DiscoveryPicInfo.GetBuffer(0));
 		NewPicdata[ZOGII_ALL_PIC_Map_START].flag=1;
 	}
+
+	Newdata.Size=(char)m_Size;
+	Newdata.Light=(char)m_Light;
+	Newdata.Living=	(char)m_Living ;
 }
 
 ////////////////////Imago////////////////////////////////////////////////////////

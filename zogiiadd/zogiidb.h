@@ -18,7 +18,7 @@ typedef unsigned __int32 ZOGII_ULONG_TYPE;
 #endif
 
 //结构体剩余扩展容量
-#define ZOGII_EXP_SIZ 916
+#define ZOGII_EXP_SIZ 913
 //最大路径长度
 #define ZOGII_PAT_MAX 260 
 //最大字符串长度
@@ -61,6 +61,7 @@ typedef unsigned __int32 ZOGII_ULONG_TYPE;
 // 8 =杏
 // 9 =褐
 // 10 =银灰
+// 11 =紫红
 */
 
 //数据类型 TYPE
@@ -279,6 +280,29 @@ struct ZOGII_Coccinellidae_DATA
 	//使用扩展
 	struct ZOGII_Imago_2EX Imago2ex[ZOGII_PIC_MAX];
 	struct ZOGII_Imago_3EX Imago3ex[ZOGII_PIC_MAX];
+
+	// -1=无效
+	// 0=未知
+	// 1=3mm以下
+	// 2=2mm-4mm
+	// 3=3mm-5mm
+	// 4=4mm-6mm
+	// 5=5mm-7mm
+	// 6=6mm-8mm
+	// 7=7mm-9mm
+	// 8=8mm以上
+	char Size;
+	// -1=无效
+	// 0=未知
+	// 1=山地
+	// 2=农田
+	// 3=森林
+	char Living;
+	// -1=无效
+	// 0=未知
+	// 1=趋光
+	// 2=不趋光
+	char Light;
 
 	//扩展容量 为了以后更新
 	char Expand[ZOGII_EXP_SIZ];
