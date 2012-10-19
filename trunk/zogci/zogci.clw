@@ -2,12 +2,12 @@
 
 [General Info]
 Version=1
-LastClass=CZogciDlg
+LastClass=CDLGABOUT
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "zogci.h"
 
-ClassCount=3
+ClassCount=4
 Class1=CZogciApp
 Class2=CZogciDlg
 
@@ -15,6 +15,7 @@ ResourceCount=3
 Resource1=IDR_MAINFRAME
 Resource2=IDD_ZOGCI_DIALOG
 Class3=CDLGABOUT
+Class4=Cabout
 Resource3=IDD_ABOUT
 
 [CLS:CZogciApp]
@@ -135,8 +136,8 @@ Control27=IDC_STATIC,button,1342177287
 Control28=IDC_STATIC,static,1342308352
 Control29=IDC_STATIC,static,1342308352
 Control30=IDC_STATIC,static,1342308352
-Control31=IDC_STATIC,static,1342308352
-Control32=IDC_STATIC,static,1342308352
+Control31=IDC_BUTTON_GAGA,button,1342242816
+Control32=IDC_BUTTON_TAIBNET,button,1342242816
 
 [CLS:CDLGABOUT]
 Type=0
@@ -145,4 +146,13 @@ ImplementationFile=DLGABOUT.cpp
 BaseClass=CDialog
 Filter=D
 LastObject=CDLGABOUT
+VirtualFilter=dWC
+
+[CLS:Cabout]
+Type=0
+HeaderFile=about.h
+ImplementationFile=about.cpp
+BaseClass=CDialog
+Filter=D
+LastObject=Cabout
 

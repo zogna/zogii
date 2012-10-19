@@ -210,15 +210,16 @@ BEGIN
                     IDC_STATIC,207,162,177,8
     LTEXT           "作者不负法律责任。",IDC_STATIC,13,176,73,8
     GROUPBOX        "非常感谢-参考来源",IDC_STATIC,7,189,235,89
-    LTEXT           "嘎嘎昆虫网 gaga.biodiv.tw",IDC_STATIC,13,202,101,8
-    LTEXT           "台湾物种名录 taibnet.sinica.edu.tw",IDC_STATIC,13,216,
-                    137,8
     LTEXT           "《中国瓢虫亚科图志》2010 虞国跃",IDC_STATIC,13,230,125,
                     8
     LTEXT           "《台湾瓢虫图鉴》2011 虞国跃,林义祥",IDC_STATIC,13,244,
                     137,8
     LTEXT           "《中国瓢虫原色图鉴》2009 任顺祥,王兴民,庞虹,彭正强,曾涛",
                     IDC_STATIC,13,258,221,8
+    PUSHBUTTON      "嘎嘎昆虫网 gaga.biodiv.tw",IDC_BUTTON_GAGA,19,199,105,
+                    14
+    PUSHBUTTON      "台湾物种名录 taibnet.sinica.edu.tw",IDC_BUTTON_TAIBNET,
+                    19,214,141,14
 END
 
 
