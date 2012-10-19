@@ -35,9 +35,23 @@ void CDLGABOUT::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CDLGABOUT, CDialog)
 	//{{AFX_MSG_MAP(CDLGABOUT)
-		// NOTE: the ClassWizard will add message map macros here
+	ON_BN_CLICKED(IDC_BUTTON_GAGA, OnButtonGaga)
+	ON_BN_CLICKED(IDC_BUTTON_TAIBNET, OnButtonTaibnet)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
 // CDLGABOUT message handlers
+
+void CDLGABOUT::OnButtonGaga() 
+{
+	// TODO: Add your control notification handler code here
+	ShellExecute(0, "open", "http://gaga.biodiv.tw/", 0, 0, SW_SHOWNORMAL);
+
+}
+
+void CDLGABOUT::OnButtonTaibnet() 
+{
+	// TODO: Add your control notification handler code here
+	ShellExecute(0, "open", "http://taibnet.sinica.edu.tw/", 0, 0, SW_SHOWNORMAL);
+}

@@ -35,7 +35,8 @@ protected:
 
 	// Generated message map functions
 	//{{AFX_MSG(CDLGABOUT)
-		// NOTE: the ClassWizard will add member functions here
+	afx_msg void OnButtonGaga();
+	afx_msg void OnButtonTaibnet();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

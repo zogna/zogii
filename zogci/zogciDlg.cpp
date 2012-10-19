@@ -31,8 +31,10 @@ static char THIS_FILE[] = __FILE__;
 
 	CDC dcComp;
 	dcComp.CreateCompatibleDC(aa);
-	CBitmap *oldbmp=dcComp.SelectObject(&bitmap);
 
+	CBitmap *oldbmp=dcComp.SelectObject(&bitmap);
+bitmap.CreateBitmap(1280,720,1,32,data);
+aa->SetStretchBltMode(COLORONCOLOR);
 	aa->StretchBlt(0,0,w,h, &dcComp, 0,0,1280,720,SRCCOPY);
 
 	dcComp.SelectObject(oldbmp);
