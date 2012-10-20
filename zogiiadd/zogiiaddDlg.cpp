@@ -49,8 +49,6 @@ CZogiiaddDlg::CZogiiaddDlg(CWnd* pParent /*=NULL*/)
 	m_GenusTW = _T("");
 	m_GenusEN = _T("");
 	m_GenusCN = _T("");
-	m_FoodNameF = _T("");
-	m_FoodNameE = _T("");
 	m_FoodNameD = _T("");
 	m_FoodNameC = _T("");
 	m_FoodNameB = _T("");
@@ -82,7 +80,6 @@ CZogiiaddDlg::CZogiiaddDlg(CWnd* pParent /*=NULL*/)
 	m_PupaColorNum = -1;
 	m_PupaNo = 0;
 	m_PupaSex = -1;
-	m_FoodNameG = _T("");
 	m_OtherNameG = _T("");
 	m_code = 0;
 	m_path = _T("");
@@ -104,6 +101,9 @@ CZogiiaddDlg::CZogiiaddDlg(CWnd* pParent /*=NULL*/)
 	m_Size = -1;
 	m_Light = -1;
 	m_Living = -1;
+	m_LivingNameB = _T("");
+	m_LivingNameA = _T("");
+	m_LivingNameC = _T("");
 	//}}AFX_DATA_INIT
 	// Note that LoadIcon does not require a subsequent DestroyIcon in Win32
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -187,10 +187,6 @@ void CZogiiaddDlg::DoDataExchange(CDataExchange* pDX)
 	DDV_MaxChars(pDX, m_GenusEN, 128);
 	DDX_Text(pDX, IDC_EDIT_GenusCN, m_GenusCN);
 	DDV_MaxChars(pDX, m_GenusCN, 128);
-	DDX_Text(pDX, IDC_EDIT_FoodNameF, m_FoodNameF);
-	DDV_MaxChars(pDX, m_FoodNameF, 128);
-	DDX_Text(pDX, IDC_EDIT_FoodNameE, m_FoodNameE);
-	DDV_MaxChars(pDX, m_FoodNameE, 128);
 	DDX_Text(pDX, IDC_EDIT_FoodNameD, m_FoodNameD);
 	DDV_MaxChars(pDX, m_FoodNameD, 128);
 	DDX_Text(pDX, IDC_EDIT_FoodNameC, m_FoodNameC);
@@ -230,8 +226,6 @@ void CZogiiaddDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_CBIndex(pDX, IDC_COMBO_PupaColorNum, m_PupaColorNum);
 	DDX_CBIndex(pDX, IDC_COMBO_PupaNo, m_PupaNo);
 	DDX_CBIndex(pDX, IDC_COMBO_PupaSex, m_PupaSex);
-	DDX_Text(pDX, IDC_EDIT_FoodNameG, m_FoodNameG);
-	DDV_MaxChars(pDX, m_FoodNameG, 128);
 	DDX_Text(pDX, IDC_EDIT_OtherNameG, m_OtherNameG);
 	DDV_MaxChars(pDX, m_OtherNameG, 128);
 	DDX_Text(pDX, IDC_EDIT_code, m_code);
@@ -256,6 +250,12 @@ void CZogiiaddDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_CBIndex(pDX, IDC_COMBO_SIZE, m_Size);
 	DDX_CBIndex(pDX, IDC_COMBO_LIGHT, m_Light);
 	DDX_CBIndex(pDX, IDC_COMBO_LIVING, m_Living);
+	DDX_Text(pDX, IDC_EDIT_LivingNameB, m_LivingNameB);
+	DDV_MaxChars(pDX, m_LivingNameB, 128);
+	DDX_Text(pDX, IDC_EDIT_LivingNameA, m_LivingNameA);
+	DDV_MaxChars(pDX, m_LivingNameA, 128);
+	DDX_Text(pDX, IDC_EDIT_LivingNameC, m_LivingNameC);
+	DDV_MaxChars(pDX, m_LivingNameC, 128);
 	//}}AFX_DATA_MAP
 }
 
@@ -1209,9 +1209,10 @@ void CZogiiaddDlg::InitInfoData()
 	m_FoodNameB = _T("");
 	m_FoodNameC = _T("");
 	m_FoodNameD = _T("");
-	m_FoodNameE = _T("");
-	m_FoodNameF = _T("");
-	m_FoodNameG = _T("");
+
+	m_LivingNameA = _T("");
+	m_LivingNameB = _T("");
+	m_LivingNameC = _T("");
 
 	m_DiscoveryName = _T("");
 
@@ -1273,9 +1274,10 @@ void CZogiiaddDlg::CopyInfoDBData2M(struct ZOGII_Coccinellidae_DATA* d)
 	m_FoodNameB = d->FoodName[1];
 	m_FoodNameC = d->FoodName[2];
 	m_FoodNameD = d->FoodName[3];
-	m_FoodNameE = d->FoodName[4];
-	m_FoodNameF = d->FoodName[5];
-	m_FoodNameG = d->FoodName[6];
+
+	m_LivingNameA = d->LivingName[0];
+	m_LivingNameB = d->LivingName[1];
+	m_LivingNameC = d->LivingName[2];
 
 	m_DiscoveryName = d->DiscoverName;
 	
@@ -1347,9 +1349,9 @@ void CZogiiaddDlg::CopyInfoM2NewData()
 	sprintf(Newdata.FoodName[1] , "%s" , m_FoodNameB.GetBuffer(0)); 
 	sprintf(Newdata.FoodName[2] , "%s" , m_FoodNameC.GetBuffer(0)); 
 	sprintf(Newdata.FoodName[3] , "%s" , m_FoodNameD.GetBuffer(0)); 
-	sprintf(Newdata.FoodName[4] , "%s" , m_FoodNameE.GetBuffer(0)); 
-	sprintf(Newdata.FoodName[5] , "%s" , m_FoodNameF.GetBuffer(0)); 
-	sprintf(Newdata.FoodName[6] , "%s" , m_FoodNameG.GetBuffer(0)); 
+	sprintf(Newdata.LivingName[0] , "%s" , m_LivingNameA.GetBuffer(0)); 
+	sprintf(Newdata.LivingName[1] , "%s" , m_LivingNameB.GetBuffer(0)); 
+	sprintf(Newdata.LivingName[2] , "%s" , m_LivingNameC.GetBuffer(0)); 
 
 	sprintf(Newdata.DiscoverName ,"%s" , m_DiscoveryName.GetBuffer(0)); 
 	//ЮЊПе
