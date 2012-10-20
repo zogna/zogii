@@ -31,6 +31,12 @@ typedef unsigned __int32 ZOGII_ULONG_TYPE;
 #define ZOGII_PIC_MAX 12
 //最大别名数
 #define ZOGII_INF_MAX 7
+
+//最大食物名数
+#define ZOGII_FOODINF_MAX 4
+//最大栖息地名数
+#define ZOGII_LIVIINF_MAX 3
+
 //最大图片数
 #define ZOGII_ALL_PIC (ZOGII_PIC_MAX*4+1)
 // 0-11为Imago 
@@ -264,8 +270,10 @@ struct ZOGII_Coccinellidae_DATA
 	// 1 =菌食
 	// 2 =植食
 	char FoodType;	
-	//食物名称 6条
-	char FoodName[ZOGII_INF_MAX][ZOGII_STR_MAX];
+	//食物名称 4条
+	char FoodName[ZOGII_FOODINF_MAX][ZOGII_STR_MAX];
+	//栖息地
+	char LivingName[ZOGII_LIVIINF_MAX][ZOGII_STR_MAX];
 ///////////////////////////////////////////////////
 	//发现地地图 0为无效
 	ZOGII_ULONG_TYPE DiscoverMap;

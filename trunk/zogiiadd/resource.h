@@ -184,13 +184,16 @@
 #define IDC_EDIT_FoodNameD              1085
 #define IDC_EDIT32                      1086
 #define IDC_EDIT_FoodNameE              1086
+#define IDC_EDIT_LivingNameA            1086
 #define IDC_EDIT33                      1087
 #define IDC_EDIT_FoodNameF              1087
+#define IDC_EDIT_LivingNameB            1087
 #define IDC_BUTTON28                    1088
 #define IDC_BUTTON_PupaPicView          1088
 #define IDC_BUTTON24                    1089
 #define IDC_BUTTON_SaveFood             1089
 #define IDC_EDIT_FoodNameG              1089
+#define IDC_EDIT_LivingNameC            1089
 #define IDC_COMBO27                     1090
 #define IDC_COMBO_PupaColorC            1090
 #define IDC_COMBO28                     1091

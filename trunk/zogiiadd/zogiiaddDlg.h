@@ -69,8 +69,6 @@ public:
 	CString	m_GenusTW;
 	CString	m_GenusEN;
 	CString	m_GenusCN;
-	CString	m_FoodNameF;
-	CString	m_FoodNameE;
 	CString	m_FoodNameD;
 	CString	m_FoodNameC;
 	CString	m_FoodNameB;
@@ -102,7 +100,6 @@ public:
 	int		m_PupaColorNum;
 	int		m_PupaNo;
 	int		m_PupaSex;
-	CString	m_FoodNameG;
 	CString	m_OtherNameG;
 	UINT	m_code;
 	CString	m_path;
@@ -124,6 +121,9 @@ public:
 	int		m_Size;
 	int		m_Light;
 	int		m_Living;
+	CString	m_LivingNameB;
+	CString	m_LivingNameA;
+	CString	m_LivingNameC;
 	//}}AFX_DATA
 
 	// ClassWizard generated virtual function overrides
