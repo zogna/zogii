@@ -18,7 +18,7 @@ typedef unsigned __int32 ZOGII_ULONG_TYPE;
 #endif
 
 //结构体剩余扩展容量
-#define ZOGII_EXP_SIZ 913
+#define ZOGII_EXP_SIZ 910
 //最大路径长度
 #define ZOGII_PAT_MAX 260 
 //最大字符串长度
@@ -311,6 +311,24 @@ struct ZOGII_Coccinellidae_DATA
 	// 1=趋光
 	// 2=不趋光
 	char Light;
+//////////////////////未来/////
+	// -1=无效
+	// 0=未知
+	// 1=越冬
+	// 2=不越冬
+	char OverWintering;
+	// -1=无效
+	// 0=未知
+	// 1=起始月份 1月
+	// ..
+	// 12=起始月份 12月
+	char StartMonth;
+	// -1=无效
+	// 0=未知
+	// 1=结束月份 1月
+	// ..
+	// 12=结束月份 12月
+	char EndMonth;
 
 	//扩展容量 为了以后更新
 	char Expand[ZOGII_EXP_SIZ];
