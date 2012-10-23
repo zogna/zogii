@@ -37,6 +37,7 @@ protected:
 	//{{AFX_MSG(CDLGABOUT)
 	afx_msg void OnButtonGaga();
 	afx_msg void OnButtonTaibnet();
+	afx_msg void OnButtonAfu();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

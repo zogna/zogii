@@ -216,10 +216,12 @@ BEGIN
                     137,8
     LTEXT           "《中国瓢虫原色图鉴》2009 任顺祥,王兴民,庞虹,彭正强,曾涛",
                     IDC_STATIC,13,258,221,8
-    PUSHBUTTON      "嘎嘎昆虫网 gaga.biodiv.tw",IDC_BUTTON_GAGA,19,199,105,
-                    14
+    PUSHBUTTON      "嘎嘎昆虫网  林义祥 gaga.biodiv.tw",IDC_BUTTON_GAGA,19,
+                    199,137,14
     PUSHBUTTON      "台湾物种名录 taibnet.sinica.edu.tw",IDC_BUTTON_TAIBNET,
                     19,214,141,14
+    PUSHBUTTON      "六足王國─台灣的昆蟲 Insects of Taiwan 陈敬富 http://freebsd.tspes.ntpc.edu.tw/~afu/",
+                    IDC_BUTTON_AFU,165,193,341,14
 END
 
 

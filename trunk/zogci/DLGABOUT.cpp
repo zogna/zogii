@@ -37,6 +37,7 @@ BEGIN_MESSAGE_MAP(CDLGABOUT, CDialog)
 	//{{AFX_MSG_MAP(CDLGABOUT)
 	ON_BN_CLICKED(IDC_BUTTON_GAGA, OnButtonGaga)
 	ON_BN_CLICKED(IDC_BUTTON_TAIBNET, OnButtonTaibnet)
+	ON_BN_CLICKED(IDC_BUTTON_AFU, OnButtonAfu)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -54,4 +55,11 @@ void CDLGABOUT::OnButtonTaibnet()
 {
 	// TODO: Add your control notification handler code here
 	ShellExecute(0, "open", "http://taibnet.sinica.edu.tw/", 0, 0, SW_SHOWNORMAL);
+}
+
+void CDLGABOUT::OnButtonAfu() 
+{
+	// TODO: Add your control notification handler code here
+	ShellExecute(0, "open", "http://freebsd.tspes.ntpc.edu.tw/~afu/", 0, 0, SW_SHOWNORMAL);
+
 }
