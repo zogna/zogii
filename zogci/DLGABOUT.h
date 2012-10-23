@@ -38,6 +38,7 @@ protected:
 	afx_msg void OnButtonGaga();
 	afx_msg void OnButtonTaibnet();
 	afx_msg void OnButtonAfu();
+	afx_msg void OnBUTTONbettaman();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

@@ -38,6 +38,7 @@ BEGIN_MESSAGE_MAP(CDLGABOUT, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_GAGA, OnButtonGaga)
 	ON_BN_CLICKED(IDC_BUTTON_TAIBNET, OnButtonTaibnet)
 	ON_BN_CLICKED(IDC_BUTTON_AFU, OnButtonAfu)
+	ON_BN_CLICKED(IDC_BUTTON_bettaman, OnBUTTONbettaman)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -62,4 +63,10 @@ void CDLGABOUT::OnButtonAfu()
 	// TODO: Add your control notification handler code here
 	ShellExecute(0, "open", "http://freebsd.tspes.ntpc.edu.tw/~afu/", 0, 0, SW_SHOWNORMAL);
 
+}
+
+void CDLGABOUT::OnBUTTONbettaman() 
+{
+	// TODO: Add your control notification handler code here
+	ShellExecute(0, "open", "http://www.flickr.com/photos/bettaman", 0, 0, SW_SHOWNORMAL);
 }
