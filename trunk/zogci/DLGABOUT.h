@@ -39,6 +39,7 @@ protected:
 	afx_msg void OnButtonTaibnet();
 	afx_msg void OnButtonAfu();
 	afx_msg void OnBUTTONbettaman();
+	afx_msg void OnButtonSishou();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

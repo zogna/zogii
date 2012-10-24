@@ -39,6 +39,7 @@ BEGIN_MESSAGE_MAP(CDLGABOUT, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_TAIBNET, OnButtonTaibnet)
 	ON_BN_CLICKED(IDC_BUTTON_AFU, OnButtonAfu)
 	ON_BN_CLICKED(IDC_BUTTON_bettaman, OnBUTTONbettaman)
+	ON_BN_CLICKED(IDC_BUTTON_SISHOU, OnButtonSishou)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -55,7 +56,7 @@ void CDLGABOUT::OnButtonGaga()
 void CDLGABOUT::OnButtonTaibnet() 
 {
 	// TODO: Add your control notification handler code here
-	ShellExecute(0, "open", "http://taibnet.sinica.edu.tw/", 0, 0, SW_SHOWNORMAL);
+	ShellExecute(0, "open", "http://taibnet.sinica.edu.tw", 0, 0, SW_SHOWNORMAL);
 }
 
 void CDLGABOUT::OnButtonAfu() 
@@ -69,4 +70,10 @@ void CDLGABOUT::OnBUTTONbettaman()
 {
 	// TODO: Add your control notification handler code here
 	ShellExecute(0, "open", "http://www.flickr.com/photos/bettaman", 0, 0, SW_SHOWNORMAL);
+}
+
+void CDLGABOUT::OnButtonSishou() 
+{
+	// TODO: Add your control notification handler code here
+		ShellExecute(0, "open", "http://sishou.artspacemedia.com", 0, 0, SW_SHOWNORMAL);
 }
