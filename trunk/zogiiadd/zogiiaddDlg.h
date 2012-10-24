@@ -124,6 +124,14 @@ public:
 	CString	m_LivingNameB;
 	CString	m_LivingNameA;
 	CString	m_LivingNameC;
+	int		m_PupaType;
+	int		m_OverWinter;
+	int		m_StartMonth;
+	int		m_EndMonth;
+	int		m_CloseupNo;
+	int		m_CloseupType;
+	CString	m_CloseupPicInfo;
+	CString	m_CloseupPicPath;
 	//}}AFX_DATA
 
 	// ClassWizard generated virtual function overrides
@@ -176,6 +184,11 @@ protected:
 	afx_msg void OnCloseupCOMBOOvumNo();
 	afx_msg void OnCloseupCOMBOPupaNo();
 	afx_msg void OnBUTTONOpenPath();
+	afx_msg void OnBUTTONCloseupPicPath();
+	afx_msg void OnBUTTONCloseupPicView();
+	afx_msg void OnBUTTONSaveCloseup();
+	afx_msg void OnBUTTONDeleteCloseup();
+	afx_msg void OnCloseupCOMBOCloseupNo();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 	void OnOK();
@@ -218,6 +231,11 @@ protected:
 	void SaveM2Ovum(int i);
 	void ReadOvum2M(int i);
 	void ReadDB2Ovum(struct ZOGII_Coccinellidae_DATA* d);
+	/////////////////////////////
+	void CleanCloseup2M();
+	void SaveM2Closeup(int i);
+	void ReadCloseup2M(int i);
+	void ReadDB2Closeup(struct ZOGII_Coccinellidae_DATA* d);
 	/////////////////////////////////////////////////////////////////
 
 	char CurrentDir[ZOGII_PAT_MAX];

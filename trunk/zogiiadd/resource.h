@@ -240,6 +240,18 @@
 #define IDC_COMBO_LIGHT                 1113
 #define IDC_COMBO_LIVING                1114
 #define IDC_COMBO_SIZE                  1115
+#define IDC_COMBO_PupaType              1116
+#define IDC_COMBO_OVERWINTER            1117
+#define IDC_COMBO_StartMonth            1118
+#define IDC_COMBO_EndMonth              1119
+#define IDC_EDIT_CloseupPicPath         1120
+#define IDC_EDIT_CloseupPicInfo         1121
+#define IDC_BUTTON_SaveCloseup          1122
+#define IDC_BUTTON_DeleteCloseup        1123
+#define IDC_BUTTON_CloseupPicPath       1124
+#define IDC_BUTTON_CloseupPicView       1125
+#define IDC_COMBO_CloseupType           1127
+#define IDC_COMBO_CloseupNo             1141
 
 // Next default values for new objects
 // 
@@ -247,7 +259,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        130
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1116
+#define _APS_NEXT_CONTROL_VALUE         1119
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

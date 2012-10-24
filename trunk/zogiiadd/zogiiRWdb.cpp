@@ -407,6 +407,7 @@ void zogiiTEMPSaveDB(struct ZOGII_Coccinellidae_DATA *data,	\
 					ZOGII_ULONG_TYPE *Larvapic,	\
 					ZOGII_ULONG_TYPE *Pupapic,	\
 					ZOGII_ULONG_TYPE *Ovumpic,	\
+					ZOGII_ULONG_TYPE *Closeuppic,	\
 					ZOGII_ULONG_TYPE *tempcode,	\
 					char *temppath,	\
 					char tempsfname[ZOGII_LAG_MAX][ZOGII_STR_MAX],	\
@@ -423,6 +424,7 @@ void zogiiTEMPSaveDB(struct ZOGII_Coccinellidae_DATA *data,	\
 		Larvapic[i]=data->Larva[i].Pic;
 		Pupapic[i]=data->Pupa[i].Pic;
 		Ovumpic[i]=data->Ovum[i].Pic;
+		Closeuppic[i]=data->Closeup[i].Pic;
 	}
 
 	//备份编号
@@ -446,10 +448,12 @@ void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily
 	ZOGII_ULONG_TYPE t;
 
 	ZOGII_ULONG_TYPE tempDiscoverMap=0;
+
 	ZOGII_ULONG_TYPE Imagopic[ZOGII_PIC_MAX]={0};
 	ZOGII_ULONG_TYPE Larvapic[ZOGII_PIC_MAX]={0};
 	ZOGII_ULONG_TYPE Pupapic[ZOGII_PIC_MAX]={0};
 	ZOGII_ULONG_TYPE Ovumpic[ZOGII_PIC_MAX]={0};
+	ZOGII_ULONG_TYPE Closeuppic[ZOGII_PIC_MAX]={0};
 
 	ZOGII_ULONG_TYPE tempcode=0;
 	char temppath[ZOGII_PAT_MAX];
@@ -563,7 +567,7 @@ void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily
 	{
 		//备份图片编号。
 		zogiiTEMPSaveDB(&data[sf].SF,	\
-			&tempDiscoverMap,Imagopic,Larvapic,Pupapic,Ovumpic,	\
+			&tempDiscoverMap,Imagopic,Larvapic,Pupapic,Ovumpic,	Closeuppic,\
 			&tempcode,temppath,tempsfname,tempgename,tempname);
 
 		//拷贝信息
@@ -574,7 +578,7 @@ void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily
 
 		//添加图片
 		zogiiADDpicDB(&data[sf].SF,pictotal,picdata,NewPicdata,	\
-						tempDiscoverMap,Imagopic,Larvapic,Pupapic,Ovumpic);
+						tempDiscoverMap,Imagopic,Larvapic,Pupapic,Ovumpic,Closeuppic);
 		zogiiAddtxtDB(&data[sf].SF,newdata);
 
 		//更新命名 只改SF
@@ -601,7 +605,7 @@ void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily
 	{
 		//备份图片编号。
 		zogiiTEMPSaveDB(&data[sf].GenusData[ge].GE,	\
-				&tempDiscoverMap,Imagopic,Larvapic,Pupapic,Ovumpic,	\
+				&tempDiscoverMap,Imagopic,Larvapic,Pupapic,Ovumpic,Closeuppic,	\
 				&tempcode,temppath,tempsfname,tempgename,tempname);
 		//备份编号
 		tempcode=data[sf].GenusData[ge].GE.code;
@@ -614,7 +618,7 @@ void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily
 		memcpy(data[sf].GenusData[ge].GE.Path,temppath,ZOGII_PAT_MAX);
 		//添加图片
 		zogiiADDpicDB(&data[sf].GenusData[ge].GE,pictotal,picdata,NewPicdata,	\
-						tempDiscoverMap,Imagopic,Larvapic,Pupapic,Ovumpic);
+						tempDiscoverMap,Imagopic,Larvapic,Pupapic,Ovumpic,Closeuppic);
 		zogiiAddtxtDB(&data[sf].GenusData[ge].GE,newdata);
 		
 		//更新命名 只改GE
@@ -637,7 +641,7 @@ void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily
 	{
 		//备份图片编号。
 		zogiiTEMPSaveDB(&data[sf].GenusData[ge].NameData[na].NA,	\
-					&tempDiscoverMap,Imagopic,Larvapic,Pupapic,Ovumpic,	\
+					&tempDiscoverMap,Imagopic,Larvapic,Pupapic,Ovumpic,Closeuppic,	\
 					&tempcode,temppath,tempsfname,tempgename,tempname);
 		//备份编号
 		tempcode=data[sf].GenusData[ge].NameData[na].NA.code;
@@ -650,7 +654,7 @@ void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily
 
 		//添加图片
 		zogiiADDpicDB(&data[sf].GenusData[ge].NameData[na].NA,pictotal,picdata,NewPicdata,	\
-						tempDiscoverMap,Imagopic,Larvapic,Pupapic,Ovumpic);
+						tempDiscoverMap,Imagopic,Larvapic,Pupapic,Ovumpic,Closeuppic);
 		zogiiAddtxtDB(&data[sf].GenusData[ge].NameData[na].NA,newdata);
 		
 		//更新命名 只改NA
@@ -668,7 +672,7 @@ void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily
 	{
 		//备份图片编号。
 		zogiiTEMPSaveDB(&data[sf].GenusData[ge].NameData[na].SpData[sp],	\
-					&tempDiscoverMap,Imagopic,Larvapic,Pupapic,Ovumpic,	\
+					&tempDiscoverMap,Imagopic,Larvapic,Pupapic,Ovumpic,Closeuppic,	\
 					&tempcode,temppath,tempsfname,tempgename,tempname);
 		//备份编号
 		tempcode=data[sf].GenusData[ge].NameData[na].SpData[sp].code;
@@ -680,7 +684,7 @@ void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily
 		memcpy(data[sf].GenusData[ge].NameData[na].SpData[sp].Path,temppath,ZOGII_PAT_MAX);
 		//添加图片
 		zogiiADDpicDB(&data[sf].GenusData[ge].NameData[na].SpData[sp],pictotal,picdata,NewPicdata,	\
-						tempDiscoverMap,Imagopic,Larvapic,Pupapic,Ovumpic);
+						tempDiscoverMap,Imagopic,Larvapic,Pupapic,Ovumpic,Closeuppic);
 		zogiiAddtxtDB(&data[sf].GenusData[ge].NameData[na].SpData[sp],newdata);
 	}
 }
@@ -871,7 +875,8 @@ void zogiiADDpicDB(struct ZOGII_Coccinellidae_DATA *data,	\
 				ZOGII_ULONG_TYPE *Imagopic,	\
 				ZOGII_ULONG_TYPE *Larvapic,	\
 				ZOGII_ULONG_TYPE *Pupapic,	\
-				ZOGII_ULONG_TYPE *Ovumpic)
+				ZOGII_ULONG_TYPE *Ovumpic,
+				ZOGII_ULONG_TYPE *Closeuppic)
 {
 	unsigned char i; 
 	char str[ZOGII_PAT_MAX];
@@ -964,6 +969,24 @@ void zogiiADDpicDB(struct ZOGII_Coccinellidae_DATA *data,	\
 		}
 		else	 if(Ovumpic[i]) //无新值 则旧值删去
 			data->Ovum[i].Pic=zogiiDeletepicDBLite(Ovumpic[i],picdata);
+
+		//有新值添加
+		if(NewPicdata[ZOGII_ALL_PIC_Closeup_START+i].flag)
+		{
+			sprintf(str,"%s\\Closeup%02d%s",data->Path,i,strrchr(NewPicdata[ZOGII_ALL_PIC_Closeup_START+i].Path,'.'));
+			// 修改
+			if(Closeuppic[i] && picdata[Closeuppic[i]].flag)
+			{
+				zogiiModifypicDBLite(&picdata[Closeuppic[i]],&NewPicdata[ZOGII_ALL_PIC_Closeup_START+i],str);
+				data->Closeup[i].Pic=Closeuppic[i];
+			}
+			else //原先为0 则增加
+			{
+				data->Closeup[i].Pic=zogiiADDpicDBLite(pictotal,picdata,str,&NewPicdata[ZOGII_ALL_PIC_Closeup_START+i]);
+			}
+		}
+		else	 if(Closeuppic[i])
+			data->Closeup[i].Pic=zogiiDeletepicDBLite(Closeuppic[i],picdata);
 	}
 	
 }
@@ -1031,6 +1054,7 @@ void zogiiInitpicDB(struct ZOGII_Coccinellidae_DATA *data)
 		data->Larva[i].Pic=0;
 		data->Pupa[i].Pic=0;
 		data->Ovum[i].Pic=0;
+		data->Closeup[i].Pic=0;
 	}
 }
 /////////删除图片
@@ -1052,6 +1076,8 @@ void zogiiDeletepicDB(struct ZOGII_Coccinellidae_DATA *data,struct ZOGII_Pic *&p
 			data->Pupa[i].Pic=zogiiDeletepicDBLite(data->Pupa[i].Pic,picdata);
 		if(data->Ovum[i].Pic)
 			data->Ovum[i].Pic=zogiiDeletepicDBLite(data->Ovum[i].Pic,picdata);
+		if(data->Closeup[i].Pic)
+			data->Closeup[i].Pic=zogiiDeletepicDBLite(data->Closeup[i].Pic,picdata);
 	}
 }
 
