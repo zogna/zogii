@@ -104,6 +104,14 @@ CZogiiaddDlg::CZogiiaddDlg(CWnd* pParent /*=NULL*/)
 	m_LivingNameB = _T("");
 	m_LivingNameA = _T("");
 	m_LivingNameC = _T("");
+	m_PupaType = -1;
+	m_OverWinter = -1;
+	m_StartMonth = -1;
+	m_EndMonth = -1;
+	m_CloseupNo = -1;
+	m_CloseupType = -1;
+	m_CloseupPicInfo = _T("");
+	m_CloseupPicPath = _T("");
 	//}}AFX_DATA_INIT
 	// Note that LoadIcon does not require a subsequent DestroyIcon in Win32
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -256,6 +264,16 @@ void CZogiiaddDlg::DoDataExchange(CDataExchange* pDX)
 	DDV_MaxChars(pDX, m_LivingNameA, 128);
 	DDX_Text(pDX, IDC_EDIT_LivingNameC, m_LivingNameC);
 	DDV_MaxChars(pDX, m_LivingNameC, 128);
+	DDX_CBIndex(pDX, IDC_COMBO_PupaType, m_PupaType);
+	DDX_CBIndex(pDX, IDC_COMBO_OVERWINTER, m_OverWinter);
+	DDX_CBIndex(pDX, IDC_COMBO_StartMonth, m_StartMonth);
+	DDX_CBIndex(pDX, IDC_COMBO_EndMonth, m_EndMonth);
+	DDX_CBIndex(pDX, IDC_COMBO_CloseupNo, m_CloseupNo);
+	DDX_CBIndex(pDX, IDC_COMBO_CloseupType, m_CloseupType);
+	DDX_Text(pDX, IDC_EDIT_CloseupPicInfo, m_CloseupPicInfo);
+	DDV_MaxChars(pDX, m_CloseupPicInfo, 260);
+	DDX_Text(pDX, IDC_EDIT_CloseupPicPath, m_CloseupPicPath);
+	DDV_MaxChars(pDX, m_CloseupPicPath, 260);
 	//}}AFX_DATA_MAP
 }
 
@@ -298,6 +316,11 @@ BEGIN_MESSAGE_MAP(CZogiiaddDlg, CDialog)
 	ON_CBN_CLOSEUP(IDC_COMBO_OvumNo, OnCloseupCOMBOOvumNo)
 	ON_CBN_CLOSEUP(IDC_COMBO_PupaNo, OnCloseupCOMBOPupaNo)
 	ON_BN_CLICKED(IDC_BUTTON_OpenPath, OnBUTTONOpenPath)
+	ON_BN_CLICKED(IDC_BUTTON_CloseupPicPath, OnBUTTONCloseupPicPath)
+	ON_BN_CLICKED(IDC_BUTTON_CloseupPicView, OnBUTTONCloseupPicView)
+	ON_BN_CLICKED(IDC_BUTTON_SaveCloseup, OnBUTTONSaveCloseup)
+	ON_BN_CLICKED(IDC_BUTTON_DeleteCloseup, OnBUTTONDeleteCloseup)
+	ON_CBN_CLOSEUP(IDC_COMBO_CloseupNo, OnCloseupCOMBOCloseupNo)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -384,7 +407,6 @@ void CZogiiaddDlg::OnBUTTONDiscoveryPicView()
 
 void CZogiiaddDlg::OnBUTTONDeleteData() 
 {
-	MessageBox(_T("即将删除"), _T("删除"));
 	// TODO: Add your control notification handler code here
 	UpdateData(TRUE);
 
@@ -506,6 +528,8 @@ void CZogiiaddDlg::OnBUTTONDeleteImago()
 	// TODO: Add your control notification handler code here
 	CleanImago2M();
 	UpdateData(FALSE);
+	UpdateData(TRUE);
+	SaveM2Imago(m_ImagoNo);
 }
 
 void CZogiiaddDlg::OnBUTTONLarvaPicPath() 
@@ -526,6 +550,8 @@ void CZogiiaddDlg::OnBUTTONDeleteLarva()
 	// TODO: Add your control notification handler code here
 	CleanLarva2M();
 	UpdateData(FALSE);
+	UpdateData(TRUE);
+	SaveM2Larva(m_LarvaNo);
 }
 
 void CZogiiaddDlg::OnBUTTONSaveLarva() 
@@ -560,6 +586,8 @@ void CZogiiaddDlg::OnBUTTONDeleteOvum()
 	// TODO: Add your control notification handler code here
 	CleanOvum2M();
 	UpdateData(FALSE);
+	UpdateData(TRUE);
+	SaveM2Ovum(m_OvumNo);
 }
 
 void CZogiiaddDlg::OnBUTTONPupaPicPath() 
@@ -587,6 +615,8 @@ void CZogiiaddDlg::OnBUTTONDeletePupa()
 	// TODO: Add your control notification handler code here
 	CleanPupa2M();
 	UpdateData(FALSE);
+	UpdateData(TRUE);
+	SaveM2Pupa(m_PupaNo);
 }
 
 void CZogiiaddDlg::OnSelchangedTree(NMHDR* pNMHDR, LRESULT* pResult) 
@@ -651,6 +681,43 @@ void CZogiiaddDlg::OnCloseupCOMBOPupaNo()
 	UpdateData(FALSE);
 }
 
+void CZogiiaddDlg::OnBUTTONCloseupPicPath() 
+{
+	// TODO: Add your control notification handler code here
+	OpenToPicFile(IDC_EDIT_CloseupPicPath);
+}
+
+void CZogiiaddDlg::OnBUTTONCloseupPicView() 
+{
+	// TODO: Add your control notification handler code here
+	UpdateData(TRUE);
+	ViewPic(m_CloseupPicPath);
+}
+
+void CZogiiaddDlg::OnBUTTONSaveCloseup() 
+{
+	// TODO: Add your control notification handler code here
+	UpdateData(TRUE);
+	SaveM2Closeup(m_CloseupNo);
+}
+
+void CZogiiaddDlg::OnBUTTONDeleteCloseup() 
+{
+	// TODO: Add your control notification handler code here
+	CleanCloseup2M();
+	UpdateData(FALSE);
+	UpdateData(TRUE);
+	SaveM2Closeup(m_CloseupNo);
+}
+
+void CZogiiaddDlg::OnCloseupCOMBOCloseupNo() 
+{
+	// TODO: Add your control notification handler code here
+	UpdateData(TRUE);
+	ReadCloseup2M(m_CloseupNo);
+	UpdateData(FALSE);
+}
+
 void CZogiiaddDlg::OnBUTTONOpenPath() 
 {
 	// TODO: Add your control notification handler code here
@@ -662,6 +729,7 @@ void CZogiiaddDlg::OnBUTTONOpenPath()
 	sprintf(str,"explorer.exe \"%s\\%s\"",CurrentDir,m_path.GetBuffer(0));
 	WinExec(str,SW_NORMAL);
 }
+
 /////////////////////////////////////////////////////////////////////////////////////
 
 /*
@@ -1034,6 +1102,7 @@ void CZogiiaddDlg::BuildDeleteTreeMove(DATALIST *dl)
 		}
 	}
 }
+////////////////////////////////////////////////////////////////////////////////////////////
 //初始化M 和临时数据
 void CZogiiaddDlg::InitInfoData()
 {
@@ -1048,6 +1117,7 @@ void CZogiiaddDlg::InitInfoData()
 	m_LarvaNo = 0;
 	m_PupaNo = 0;
 	m_OvumNo = 0;
+	m_CloseupNo = 0;
 
 	//拷贝旧有数据到M
 	if(TYPE_SubFamily == curlist->type)
@@ -1065,6 +1135,9 @@ void CZogiiaddDlg::InitInfoData()
 
 		ReadDB2Ovum(&DBdata[curlist->sf].SF);
 		ReadOvum2M(m_OvumNo);
+
+		ReadDB2Closeup(&DBdata[curlist->sf].SF);
+		ReadCloseup2M(m_CloseupNo);
 
 		UpdateData(FALSE);
 		return ;
@@ -1085,6 +1158,9 @@ void CZogiiaddDlg::InitInfoData()
 		ReadDB2Ovum(&DBdata[curlist->sf].GenusData[curlist->ge].GE);
 		ReadOvum2M(m_OvumNo);
 
+		ReadDB2Closeup(&DBdata[curlist->sf].GenusData[curlist->ge].GE);
+		ReadCloseup2M(m_CloseupNo);
+
 		UpdateData(FALSE);
 		return ;
 	}
@@ -1104,6 +1180,9 @@ void CZogiiaddDlg::InitInfoData()
 		ReadDB2Ovum(&DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA);
 		ReadOvum2M(m_OvumNo);
 
+		ReadDB2Closeup(&DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA);
+		ReadCloseup2M(m_CloseupNo);
+
 		UpdateData(FALSE);
 		return ;
 	}
@@ -1122,6 +1201,9 @@ void CZogiiaddDlg::InitInfoData()
 
 		ReadDB2Ovum(&DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].SpData[curlist->sp]);
 		ReadOvum2M(m_OvumNo);
+
+		ReadDB2Closeup(&DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].SpData[curlist->sp]);
+		ReadCloseup2M(m_CloseupNo);
 
 		UpdateData(FALSE);
 		return ;
@@ -1222,11 +1304,17 @@ void CZogiiaddDlg::InitInfoData()
 	m_Size = -1;
 	m_Light = -1;
 	m_Living = -1;
+	m_ImagobellyColor = -1;
+	m_ImagoVillus = -1;
+	m_OverWinter = -1;
+	m_StartMonth = -1;
+	m_EndMonth = -1;
 
 	CleanImago2M();
 	CleanLarva2M();
 	CleanPupa2M();
 	CleanOvum2M();
+	CleanCloseup2M();
 
 	UpdateData(FALSE);
 	return ;
@@ -1300,6 +1388,11 @@ void CZogiiaddDlg::CopyInfoDBData2M(struct ZOGII_Coccinellidae_DATA* d)
 	m_Size = d->Size;
 	m_Light = d->Light;
 	m_Living = d->Living;
+	m_ImagobellyColor = d->ImagobellyColor;
+	m_ImagoVillus = d->ImagoVillus;
+	m_OverWinter = d->OverWintering;
+	m_StartMonth = d->StartMonth;
+	m_EndMonth = d->EndMonth;
 
 	UpdateData(FALSE);
 }
@@ -1369,6 +1462,11 @@ void CZogiiaddDlg::CopyInfoM2NewData()
 	Newdata.Size=(char)m_Size;
 	Newdata.Light=(char)m_Light;
 	Newdata.Living=	(char)m_Living ;
+	Newdata.ImagobellyColor=(char)m_ImagobellyColor;
+	Newdata.ImagoVillus=(char)m_ImagoVillus;
+	Newdata.OverWintering=(char)m_OverWinter;
+	Newdata.StartMonth=(char)m_StartMonth;
+	Newdata.EndMonth=(char)m_EndMonth;
 }
 
 ////////////////////Imago////////////////////////////////////////////////////////
@@ -1382,7 +1480,7 @@ void CZogiiaddDlg::CleanImago2M()
 	m_ImagoElytraColorNum = -1;
 	m_ImagoSex = -1;
 	m_ImagoElytraTexture = -1;
-	m_ImagoVillus = -1;
+
 	m_ImagoPicPath = _T("");
 	m_ImagoPicInfo = _T("");
 	//ex
@@ -1394,7 +1492,6 @@ void CZogiiaddDlg::CleanImago2M()
 	m_ImagoPronotumColorNum = -1;
 	m_ImagoPronotumPointNum = -1;
 	m_ImagoPronotumTexture = -1;
-	m_ImagobellyColor = -1;
 }
 
 //M到临时数据 必须按“保存本类信息” 才会保存到数据库
@@ -1425,7 +1522,6 @@ void CZogiiaddDlg::SaveM2Imago(int i)
 	Newdata.Imago[i].ElytraColor[3] =	(char)m_ImagoElytraColorD;
 	Newdata.Imago[i].ElytraTexture = (char)m_ImagoElytraTexture;
 	Newdata.Imago[i].Sex = (char)m_ImagoSex;
-	Newdata.Imago[i].Villus = (char)m_ImagoVillus;
 
 	Newdata.Imago2ex[i].ElytraPointNum =	(char)m_ImagoElytraPointNum;
 	Newdata.Imago2ex[i].PronotumColor[0] = (char)m_ImagoPronotumColorA;
@@ -1435,7 +1531,6 @@ void CZogiiaddDlg::SaveM2Imago(int i)
 	Newdata.Imago2ex[i].PronotumColorNum = (char)m_ImagoPronotumColorNum;
 	Newdata.Imago2ex[i].PronotumPointNum =	(char)m_ImagoPronotumPointNum;
 	Newdata.Imago2ex[i].PronotumTexture =	(char)m_ImagoPronotumTexture;
-	Newdata.Imago3ex[i].ImagobellyColor=	(char)m_ImagobellyColor;
 }
 //临时数据到M
 void CZogiiaddDlg::ReadImago2M(int i)
@@ -1452,7 +1547,6 @@ void CZogiiaddDlg::ReadImago2M(int i)
 		m_ImagoElytraColorD = Newdata.Imago[i].ElytraColor[3];
 		m_ImagoElytraTexture = Newdata.Imago[i].ElytraTexture;
 		m_ImagoSex = Newdata.Imago[i].Sex;
-		m_ImagoVillus =	Newdata.Imago[i].Villus;
 		
 		m_ImagoPicPath = NewPicdata[ZOGII_ALL_PIC_Imago_START+i].Path;
 		m_ImagoPicInfo = NewPicdata[ZOGII_ALL_PIC_Imago_START+i].Info;
@@ -1465,7 +1559,7 @@ void CZogiiaddDlg::ReadImago2M(int i)
 		m_ImagoPronotumColorNum=Newdata.Imago2ex[i].PronotumColorNum;
 		m_ImagoPronotumPointNum=Newdata.Imago2ex[i].PronotumPointNum;
 		m_ImagoPronotumTexture=Newdata.Imago2ex[i].PronotumTexture;
-		m_ImagobellyColor=Newdata.Imago3ex[i].ImagobellyColor;
+
 	}
 	else	if(0==i)
 		CleanImago2M();
@@ -1487,7 +1581,6 @@ void CZogiiaddDlg::ReadDB2Imago(struct ZOGII_Coccinellidae_DATA* d)
 		Newdata.Imago[i].ElytraColor[3] =	d->Imago[i].ElytraColor[3];
 		Newdata.Imago[i].ElytraTexture = d->Imago[i].ElytraTexture;
 		Newdata.Imago[i].Sex = d->Imago[i].Sex;
-		Newdata.Imago[i].Villus = d->Imago[i].Villus;
 
 		//不为空 
 		if(d->Imago[i].Pic && DBPicdata[d->Imago[i].Pic].flag)
@@ -1510,7 +1603,6 @@ void CZogiiaddDlg::ReadDB2Imago(struct ZOGII_Coccinellidae_DATA* d)
 		Newdata.Imago2ex[i].PronotumColorNum = 	d->Imago2ex[i].PronotumColorNum; 
 		Newdata.Imago2ex[i].PronotumPointNum =	d->Imago2ex[i].PronotumPointNum;
 		Newdata.Imago2ex[i].PronotumTexture =	d->Imago2ex[i].PronotumTexture;	
-		Newdata.Imago3ex[i].ImagobellyColor=d->Imago3ex[i].ImagobellyColor;
 	}
 }
 
@@ -1629,6 +1721,7 @@ void CZogiiaddDlg::CleanPupa2M()
 	m_PupaSex = -1;
 	m_PupaPicPath = _T("");
 	m_PupaPicInfo = _T("");
+	m_PupaType = -1;
 }
 
 //M到临时数据 必须按“保存本类信息” 才会保存到数据库
@@ -1658,6 +1751,7 @@ void CZogiiaddDlg::SaveM2Pupa(int i)
 	Newdata.Pupa[i].Color[2] =	(char)m_PupaColorC;
 	Newdata.Pupa[i].Color[3] =	(char)m_PupaColorD;
 	Newdata.Pupa[i].Sex = (char)m_PupaSex;
+	Newdata.Pupa2ex[i].Type = (char)m_PupaType;
 }
 //临时数据到M
 void CZogiiaddDlg::ReadPupa2M(int i)
@@ -1673,7 +1767,8 @@ void CZogiiaddDlg::ReadPupa2M(int i)
 		m_PupaColorC = Newdata.Pupa[i].Color[2];
 		m_PupaColorD = Newdata.Pupa[i].Color[3];
 		m_PupaSex = Newdata.Pupa[i].Sex;
-		
+		m_PupaType =	Newdata.Pupa2ex[i].Type;
+
 		m_PupaPicPath = NewPicdata[ZOGII_ALL_PIC_Pupa_START+i].Path;
 		m_PupaPicInfo = NewPicdata[ZOGII_ALL_PIC_Pupa_START+i].Info;
 	}
@@ -1696,6 +1791,7 @@ void CZogiiaddDlg::ReadDB2Pupa(struct ZOGII_Coccinellidae_DATA* d)
 		Newdata.Pupa[i].Color[2] =	d->Pupa[i].Color[2];
 		Newdata.Pupa[i].Color[3] =	d->Pupa[i].Color[3];
 		Newdata.Pupa[i].Sex = d->Pupa[i].Sex;
+		Newdata.Pupa2ex[i].Type= d->Pupa2ex[i].Type;
 
 		//不为空 
 		if(d->Pupa[i].Pic && DBPicdata[d->Pupa[i].Pic].flag)
@@ -1786,4 +1882,79 @@ void CZogiiaddDlg::ReadDB2Ovum(struct ZOGII_Coccinellidae_DATA* d)
 		}
 	}
 }
+
+////////////////////Closeup////////////////////////////////////////////////////////
+//清除M
+void CZogiiaddDlg::CleanCloseup2M()
+{
+	m_CloseupType = -1;
+	m_CloseupPicPath = _T("");
+	m_CloseupPicInfo = _T("");
+}
+
+//M到临时数据 必须按“保存本类信息” 才会保存到数据库
+void CZogiiaddDlg::SaveM2Closeup(int i)
+{
+	if(i<0)
+		return ;
+	//为空
+	if(m_CloseupPicPath.IsEmpty())
+	{
+		NewPicdata[ZOGII_ALL_PIC_Closeup_START+i].flag=0;
+		CleanCloseup2M();
+		UpdateData(FALSE);
+	}
+	else	//不为空 
+	{
+		sprintf(NewPicdata[ZOGII_ALL_PIC_Closeup_START+i].Path,"%s",m_CloseupPicPath.GetBuffer(0));
+		sprintf(NewPicdata[ZOGII_ALL_PIC_Closeup_START+i].Info,"%s",m_CloseupPicInfo.GetBuffer(0));
+
+		NewPicdata[ZOGII_ALL_PIC_Closeup_START+i].flag=1;
+	}
+	
+	Newdata.Closeup[i].Type =	(char)m_CloseupType ;
+
+}
+//临时数据到M
+void CZogiiaddDlg::ReadCloseup2M(int i)
+{
+	if(i<0)
+		return ;
+
+	if(NewPicdata[ZOGII_ALL_PIC_Closeup_START+i].flag)
+	{
+ 		m_CloseupType=Newdata.Closeup[i].Type ;
+
+		m_CloseupPicPath = NewPicdata[ZOGII_ALL_PIC_Closeup_START+i].Path;
+		m_CloseupPicInfo = NewPicdata[ZOGII_ALL_PIC_Closeup_START+i].Info;
+	}
+	else	if(0==i)
+		CleanCloseup2M();
+	else
+		m_CloseupPicPath = _T("");
+
+}
+//读取数据库到临时数据
+void CZogiiaddDlg::ReadDB2Closeup(struct ZOGII_Coccinellidae_DATA* d)
+{
+	unsigned char i;
+
+	for(i=0;i<ZOGII_PIC_MAX;i++)
+	{
+		Newdata.Closeup[i].Type =	d->Closeup[i].Type;
+		
+		//不为空 
+		if(d->Closeup[i].Pic && DBPicdata[d->Closeup[i].Pic].flag)
+		{
+			memcpy(NewPicdata[ZOGII_ALL_PIC_Closeup_START+i].Path,DBPicdata[d->Closeup[i].Pic].Path,ZOGII_PAT_MAX);
+			memcpy(NewPicdata[ZOGII_ALL_PIC_Closeup_START+i].Info,DBPicdata[d->Closeup[i].Pic].Info,ZOGII_PAT_MAX);
+			NewPicdata[ZOGII_ALL_PIC_Closeup_START+i].flag=1;
+		}
+		else	
+		{
+			NewPicdata[ZOGII_ALL_PIC_Closeup_START+i].flag=0;
+		}
+	}
+}
+
 

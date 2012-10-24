@@ -18,7 +18,7 @@ typedef unsigned __int32 ZOGII_ULONG_TYPE;
 #endif
 
 //结构体剩余扩展容量
-#define ZOGII_EXP_SIZ 910
+#define ZOGII_EXP_SIZ 848
 //最大路径长度
 #define ZOGII_PAT_MAX 260 
 //最大字符串长度
@@ -38,7 +38,7 @@ typedef unsigned __int32 ZOGII_ULONG_TYPE;
 #define ZOGII_LIVIINF_MAX 3
 
 //最大图片数
-#define ZOGII_ALL_PIC (ZOGII_PIC_MAX*4+1)
+#define ZOGII_ALL_PIC (ZOGII_PIC_MAX*5+1)
 // 0-11为Imago 
 // 12-23为Larva
 // 24-35为Pupa
@@ -48,7 +48,9 @@ typedef unsigned __int32 ZOGII_ULONG_TYPE;
 #define ZOGII_ALL_PIC_Larva_START	(ZOGII_PIC_MAX)
 #define ZOGII_ALL_PIC_Pupa_START	(ZOGII_PIC_MAX*2)
 #define ZOGII_ALL_PIC_Ovum_START	(ZOGII_PIC_MAX*3)
-#define ZOGII_ALL_PIC_Map_START		(ZOGII_PIC_MAX*4)
+#define ZOGII_ALL_PIC_Closeup_START	(ZOGII_PIC_MAX*4)
+#define ZOGII_ALL_PIC_Map_START		(ZOGII_PIC_MAX*5)
+
 
 ////DB目录
 #define ZOGII_DB_DIRSTR "zogcidb"
@@ -126,14 +128,6 @@ struct ZOGII_Imago_2EX
 	char PronotumPointNum; 
 };
 
-//成虫 扩展
-struct ZOGII_Imago_3EX
-{
-	//腹部颜色
-	char ImagobellyColor;
-};
-
-
 //成虫
 struct ZOGII_Imago
 {
@@ -154,7 +148,9 @@ struct ZOGII_Imago
 	// -1=无效
 	// 0 =无绒毛
 	// 1 =有绒毛
-	char Villus; 
+//	char Villus; 
+	//扩展
+	char Expand; 
 	//斑纹
 	// -1=无效
 	// 0 =无
@@ -235,6 +231,36 @@ struct ZOGII_Pupa
 	ZOGII_ULONG_TYPE Pic;
 };
 
+//蛹扩展
+struct ZOGII_Pupa_2EX
+{
+	//当前类型
+	// -1 无效值
+	// 0 =未知
+	// 1 =前蛹
+	// 2 =蛹
+	// 3 =蛹壳
+	char Type;
+};
+
+//特写
+struct ZOGII_CloseUp
+{
+	//当前类型
+	//-1=无效
+	// 0=腹部
+	// 1=头部
+	// 2=交尾
+	// 3=越冬
+	// 4=羽化中
+	// 5=展翅
+	// 6=栖息环境
+	char Type;
+	//图片索引值 0为无效
+	ZOGII_ULONG_TYPE Pic;
+};
+
+
 //瓢虫科
 struct ZOGII_Coccinellidae_DATA
 {
@@ -287,7 +313,7 @@ struct ZOGII_Coccinellidae_DATA
 
 	//使用扩展
 	struct ZOGII_Imago_2EX Imago2ex[ZOGII_PIC_MAX];
-	struct ZOGII_Imago_3EX Imago3ex[ZOGII_PIC_MAX];
+	struct ZOGII_Pupa_2EX Pupa2ex[ZOGII_PIC_MAX];
 
 	// -1=无效
 	// 0=未知
@@ -311,7 +337,7 @@ struct ZOGII_Coccinellidae_DATA
 	// 1=趋光
 	// 2=不趋光
 	char Light;
-//////////////////////未来/////
+
 	// -1=无效
 	// 0=未知
 	// 1=越冬
@@ -329,6 +355,14 @@ struct ZOGII_Coccinellidae_DATA
 	// ..
 	// 12=结束月份 12月
 	char EndMonth;
+	//腹部颜色
+	char ImagobellyColor;
+	// -1=无效
+	// 0 =无绒毛
+	// 1 =有绒毛
+	char ImagoVillus; 
+	//特写
+	struct ZOGII_CloseUp Closeup[ZOGII_PIC_MAX];
 
 	//扩展容量 为了以后更新
 	char Expand[ZOGII_EXP_SIZ];
@@ -399,6 +433,7 @@ void zogiiTEMPSaveDB(struct ZOGII_Coccinellidae_DATA *data,	\
 					ZOGII_ULONG_TYPE *Larvapic,	\
 					ZOGII_ULONG_TYPE *Pupapic,	\
 					ZOGII_ULONG_TYPE *Ovumpic,	\
+					ZOGII_ULONG_TYPE *Closeuppic,	\
 					ZOGII_ULONG_TYPE *tempcode,	\
 					char *temppath,	\
 					char tempsfname[ZOGII_LAG_MAX][ZOGII_STR_MAX],	\
@@ -425,7 +460,8 @@ void zogiiADDpicDB(struct ZOGII_Coccinellidae_DATA *data,	\
 				ZOGII_ULONG_TYPE *Imagopic,	\
 				ZOGII_ULONG_TYPE *Larvapic,	\
 				ZOGII_ULONG_TYPE *Pupapic,	\
-				ZOGII_ULONG_TYPE *Ovumpic);
+				ZOGII_ULONG_TYPE *Ovumpic,
+				ZOGII_ULONG_TYPE *Closeuppic);
 
 void zogiiDeletepicDB(struct ZOGII_Coccinellidae_DATA *data,struct ZOGII_Pic *&picdata);
 
