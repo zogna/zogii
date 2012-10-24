@@ -224,6 +224,8 @@ BEGIN
                     IDC_BUTTON_AFU,165,193,341,14
     PUSHBUTTON      "http://www.flickr.com/photos/bettaman",
                     IDC_BUTTON_bettaman,277,221,153,14
+    PUSHBUTTON      "http://sishou.artspacemedia.com",IDC_BUTTON_SISHOU,323,
+                    249,129,14
 END
 
 
