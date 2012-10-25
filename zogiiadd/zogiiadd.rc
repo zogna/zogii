@@ -104,7 +104,7 @@ BEGIN
                     WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_COMBO_ImagoVillus,637,73,48,87,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_COMBO_ImagoNo,388,182,33,92,CBS_DROPDOWNLIST | 
+    COMBOBOX        IDC_COMBO_ImagoNo,402,184,33,92,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT_ImagoPicPath,178,297,174,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_ImagoPicInfo,178,311,259,12,ES_AUTOHSCROLL
@@ -143,7 +143,7 @@ BEGIN
                     60,15
     LTEXT           "图片",IDC_STATIC,159,299,17,8
     LTEXT           "来源",IDC_STATIC,159,313,17,8
-    LTEXT           "序号",IDC_STATIC,366,185,17,8
+    LTEXT           "序号",IDC_STATIC,380,187,17,8
     PUSHBUTTON      "查看",IDC_BUTTON_DiscoveryPicView,491,120,21,14
     PUSHBUTTON      "查看",IDC_BUTTON_TextENView,795,19,21,14
     PUSHBUTTON      "查看",IDC_BUTTON_TextCNView,795,37,21,14
@@ -174,17 +174,17 @@ BEGIN
     PUSHBUTTON      "查看",IDC_BUTTON_OvumPicView,677,308,21,14
     LTEXT           "序号",IDC_STATIC,641,294,17,8
     GROUPBOX        "幼虫",IDC_STATIC,443,172,261,102
-    COMBOBOX        IDC_COMBO_LarvaSex,471,179,48,64,CBS_DROPDOWNLIST | 
+    COMBOBOX        IDC_COMBO_LarvaSex,469,179,48,64,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_COMBO_LarvaCalthrop,469,209,48,102,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_COMBO_LarvaColorB,652,192,48,96,CBS_DROPDOWNLIST | 
+    COMBOBOX        IDC_COMBO_LarvaColorB,652,194,48,96,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_COMBO_LarvaColorC,601,206,48,98,CBS_DROPDOWNLIST | 
+    COMBOBOX        IDC_COMBO_LarvaColorC,601,209,48,98,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_COMBO_LarvaColorD,652,206,48,119,CBS_DROPDOWNLIST | 
+    COMBOBOX        IDC_COMBO_LarvaColorD,652,209,48,119,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_COMBO_LarvaNo,665,177,33,126,CBS_DROPDOWNLIST | 
+    COMBOBOX        IDC_COMBO_LarvaNo,665,179,33,126,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT_LarvaPicPath,469,225,150,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_LarvaPicInfo,469,241,232,12,ES_AUTOHSCROLL
@@ -196,14 +196,14 @@ BEGIN
     LTEXT           "图片",IDC_STATIC,449,225,17,8
     LTEXT           "来源",IDC_STATIC,449,241,17,8
     LTEXT           "序号",IDC_STATIC,642,181,17,8
-    COMBOBOX        IDC_COMBO_LarvaColorNum,563,207,33,80,CBS_DROPDOWNLIST | 
+    COMBOBOX        IDC_COMBO_LarvaColorNum,563,209,33,80,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
     LTEXT           "颜色种类",IDC_STATIC,563,194,33,8
     PUSHBUTTON      "选择文件路径",IDC_BUTTON_LarvaPicPath,623,225,53,14
     PUSHBUTTON      "查看",IDC_BUTTON_LarvaPicView,679,225,21,14
-    COMBOBOX        IDC_COMBO_LarvaColorA,601,192,48,97,CBS_DROPDOWNLIST | 
+    COMBOBOX        IDC_COMBO_LarvaColorA,601,194,48,97,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_COMBO_LarvaInstar,471,194,48,109,CBS_DROPDOWNLIST | 
+    COMBOBOX        IDC_COMBO_LarvaInstar,469,194,48,109,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
     LTEXT           "龄期",IDC_STATIC,449,196,17,8
     GROUPBOX        "食性",IDC_STATIC,715,174,128,79
@@ -220,7 +220,7 @@ BEGIN
     GROUPBOX        "蛹",IDC_STATIC,155,345,285,90
     COMBOBOX        IDC_COMBO_PupaSex,179,354,48,73,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_COMBO_PupaNo,261,354,33,113,CBS_DROPDOWNLIST | 
+    COMBOBOX        IDC_COMBO_PupaNo,253,354,33,113,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
     LTEXT           "性别",IDC_STATIC,159,356,17,8
     EDITTEXT        IDC_EDIT_PupaPicPath,179,386,174,12,ES_AUTOHSCROLL
@@ -261,19 +261,19 @@ BEGIN
     LTEXT           "code",IDC_STATIC,187,155,17,8
     LTEXT           "path",IDC_STATIC,233,155,17,8
     PUSHBUTTON      "打开",IDC_BUTTON_OpenPath,371,151,21,14
-    COMBOBOX        IDC_COMBO_ImagoElytraColorA,339,261,48,96,
+    COMBOBOX        IDC_COMBO_ImagoElytraColorA,339,259,48,96,
                     CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_COMBO_ImagoElytraTexture,187,259,66,64,
                     CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_COMBO_ImagoElytraColorB,391,261,48,97,
+    COMBOBOX        IDC_COMBO_ImagoElytraColorB,391,259,48,97,
                     CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_COMBO_ImagoElytraColorC,339,277,48,99,
+    COMBOBOX        IDC_COMBO_ImagoElytraColorC,339,275,48,99,
                     CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_COMBO_ImagoElytraColorD,391,277,48,76,
+    COMBOBOX        IDC_COMBO_ImagoElytraColorD,391,275,48,76,
                     CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "颜色数量",IDC_STATIC,264,280,33,8
     LTEXT           "斑纹",IDC_STATIC,161,261,17,8
-    COMBOBOX        IDC_COMBO_ImagoElytraColorNum,302,277,33,79,
+    COMBOBOX        IDC_COMBO_ImagoElytraColorNum,302,275,33,79,
                     CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "颜色种类",IDC_STATIC,303,263,33,8
     GROUPBOX        "鞘翅",IDC_STATIC,153,249,288,43
@@ -281,16 +281,16 @@ BEGIN
     COMBOBOX        IDC_COMBO_ImagoElytraPointNum,187,275,33,143,
                     CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     GROUPBOX        "前胸背板",IDC_STATIC,153,198,288,46
-    COMBOBOX        IDC_COMBO_ImagoPronotumColorA,337,211,48,96,
+    COMBOBOX        IDC_COMBO_ImagoPronotumColorA,337,209,48,96,
                     CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_COMBO_ImagoPronotumColorB,389,211,48,97,
+    COMBOBOX        IDC_COMBO_ImagoPronotumColorB,389,209,48,97,
                     CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_COMBO_ImagoPronotumColorC,337,227,48,99,
+    COMBOBOX        IDC_COMBO_ImagoPronotumColorC,337,225,48,99,
                     CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_COMBO_ImagoPronotumColorD,389,227,48,76,
+    COMBOBOX        IDC_COMBO_ImagoPronotumColorD,389,225,48,76,
                     CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "颜色数量",IDC_STATIC,262,230,33,8
-    COMBOBOX        IDC_COMBO_ImagoPronotumColorNum,300,227,33,79,
+    COMBOBOX        IDC_COMBO_ImagoPronotumColorNum,300,225,33,79,
                     CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     LTEXT           "颜色种类",IDC_STATIC,301,213,33,8
     LTEXT           "斑点数",IDC_STATIC,161,227,25,8
@@ -333,11 +333,11 @@ BEGIN
     LTEXT           "来源",IDC_STATIC,449,403,17,8
     PUSHBUTTON      "选择文件路径",IDC_BUTTON_CloseupPicPath,621,385,53,14
     PUSHBUTTON      "查看",IDC_BUTTON_CloseupPicView,677,385,21,14
-    LTEXT           "序号",IDC_STATIC,646,370,17,8
+    LTEXT           "序号",IDC_STATIC,644,372,17,8
     LTEXT           "类型",IDC_STATIC,449,373,17,8
     COMBOBOX        IDC_COMBO_CloseupType,469,369,48,73,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_COMBO_CloseupNo,666,367,33,73,CBS_DROPDOWNLIST | 
+    COMBOBOX        IDC_COMBO_CloseupNo,666,369,33,73,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
 END
 
@@ -422,6 +422,8 @@ BEGIN
     IDC_COMBO_ImagoVillus, 0x403, 7, 0
 0xd0d3, 0xdec8, 0xabc3, "\000" 
     IDC_COMBO_ImagoNo, 0x403, 2, 0
+0x0030, 
+    IDC_COMBO_ImagoNo, 0x403, 2, 0
 0x0031, 
     IDC_COMBO_ImagoNo, 0x403, 2, 0
 0x0032, 
@@ -443,8 +445,6 @@ BEGIN
 0x3031, "\000" 
     IDC_COMBO_ImagoNo, 0x403, 3, 0
 0x3131, "\000" 
-    IDC_COMBO_ImagoNo, 0x403, 3, 0
-0x3231, "\000" 
     IDC_COMBO_OvumSex, 0x403, 5, 0
 0xb4ce, 0xaad6, "\000" 
     IDC_COMBO_OvumSex, 0x403, 3, 0
@@ -476,6 +476,8 @@ BEGIN
     IDC_COMBO_OvumColor, 0x403, 5, 0
 0xcfd7, 0xecba, "\000" 
     IDC_COMBO_OvumNo, 0x403, 2, 0
+0x0030, 
+    IDC_COMBO_OvumNo, 0x403, 2, 0
 0x0031, 
     IDC_COMBO_OvumNo, 0x403, 2, 0
 0x0032, 
@@ -497,8 +499,6 @@ BEGIN
 0x3031, "\000" 
     IDC_COMBO_OvumNo, 0x403, 3, 0
 0x3131, "\000" 
-    IDC_COMBO_OvumNo, 0x403, 3, 0
-0x3231, "\000" 
     IDC_COMBO_LarvaSex, 0x403, 5, 0
 0xb4ce, 0xaad6, "\000" 
     IDC_COMBO_LarvaSex, 0x403, 3, 0
@@ -584,6 +584,8 @@ BEGIN
     IDC_COMBO_LarvaColorD, 0x403, 5, 0
 0xcfd7, 0xecba, "\000" 
     IDC_COMBO_LarvaNo, 0x403, 2, 0
+0x0030, 
+    IDC_COMBO_LarvaNo, 0x403, 2, 0
 0x0031, 
     IDC_COMBO_LarvaNo, 0x403, 2, 0
 0x0032, 
@@ -605,8 +607,6 @@ BEGIN
 0x3031, "\000" 
     IDC_COMBO_LarvaNo, 0x403, 3, 0
 0x3131, "\000" 
-    IDC_COMBO_LarvaNo, 0x403, 3, 0
-0x3231, "\000" 
     IDC_COMBO_LarvaColorNum, 0x403, 2, 0
 0x0030, 
     IDC_COMBO_LarvaColorNum, 0x403, 2, 0
@@ -674,6 +674,8 @@ BEGIN
     IDC_COMBO_PupaSex, 0x403, 3, 0
 0xc6b4, "\000" 
     IDC_COMBO_PupaNo, 0x403, 2, 0
+0x0030, 
+    IDC_COMBO_PupaNo, 0x403, 2, 0
 0x0031, 
     IDC_COMBO_PupaNo, 0x403, 2, 0
 0x0032, 
@@ -695,8 +697,6 @@ BEGIN
 0x3031, "\000" 
     IDC_COMBO_PupaNo, 0x403, 3, 0
 0x3131, "\000" 
-    IDC_COMBO_PupaNo, 0x403, 3, 0
-0x3231, "\000" 
     IDC_COMBO_PupaColorA, 0x403, 3, 0
 0xdece, "\000" 
     IDC_COMBO_PupaColorA, 0x403, 7, 0
@@ -1402,6 +1402,8 @@ BEGIN
     IDC_COMBO_CloseupType, 0x403, 9, 0
 0xdcc6, 0xa2cf, 0xb7bb, 0xb3be, "\000" 
     IDC_COMBO_CloseupNo, 0x403, 2, 0
+0x0030, 
+    IDC_COMBO_CloseupNo, 0x403, 2, 0
 0x0031, 
     IDC_COMBO_CloseupNo, 0x403, 2, 0
 0x0032, 
@@ -1423,8 +1425,6 @@ BEGIN
 0x3031, "\000" 
     IDC_COMBO_CloseupNo, 0x403, 3, 0
 0x3131, "\000" 
-    IDC_COMBO_CloseupNo, 0x403, 3, 0
-0x3231, "\000" 
     0
 END
 
