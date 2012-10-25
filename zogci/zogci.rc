@@ -223,9 +223,11 @@ BEGIN
     PUSHBUTTON      "六足王國─台灣的昆蟲 Insects of Taiwan 陈敬富 http://freebsd.tspes.ntpc.edu.tw/~afu/",
                     IDC_BUTTON_AFU,165,193,341,14
     PUSHBUTTON      "http://www.flickr.com/photos/bettaman",
-                    IDC_BUTTON_bettaman,277,221,153,14
-    PUSHBUTTON      "http://sishou.artspacemedia.com",IDC_BUTTON_SISHOU,323,
-                    249,129,14
+                    IDC_BUTTON_bettaman,167,209,153,14
+    PUSHBUTTON      "http://sishou.artspacemedia.com",IDC_BUTTON_SISHOU,166,
+                    223,129,14
+    PUSHBUTTON      "http://bugguide.net/node/view/179",IDC_BUTTON_BG,338,
+                    240,137,14
 END
 
 

@@ -40,6 +40,7 @@ BEGIN_MESSAGE_MAP(CDLGABOUT, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_AFU, OnButtonAfu)
 	ON_BN_CLICKED(IDC_BUTTON_bettaman, OnBUTTONbettaman)
 	ON_BN_CLICKED(IDC_BUTTON_SISHOU, OnButtonSishou)
+	ON_BN_CLICKED(IDC_BUTTON_BG, OnButtonBg)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -76,4 +77,10 @@ void CDLGABOUT::OnButtonSishou()
 {
 	// TODO: Add your control notification handler code here
 		ShellExecute(0, "open", "http://sishou.artspacemedia.com", 0, 0, SW_SHOWNORMAL);
+}
+
+void CDLGABOUT::OnButtonBg() 
+{
+	// TODO: Add your control notification handler code here
+			ShellExecute(0, "open", "http://bugguide.net/node/view/179", 0, 0, SW_SHOWNORMAL);
 }
