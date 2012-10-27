@@ -41,6 +41,8 @@ protected:
 	afx_msg void OnBUTTONbettaman();
 	afx_msg void OnButtonSishou();
 	afx_msg void OnButtonBg();
+	afx_msg void OnButtonNcbbs();
+	afx_msg void OnButtonHkwl();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
