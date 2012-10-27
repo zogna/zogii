@@ -41,6 +41,8 @@ BEGIN_MESSAGE_MAP(CDLGABOUT, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_bettaman, OnBUTTONbettaman)
 	ON_BN_CLICKED(IDC_BUTTON_SISHOU, OnButtonSishou)
 	ON_BN_CLICKED(IDC_BUTTON_BG, OnButtonBg)
+	ON_BN_CLICKED(IDC_BUTTON_NCBBS, OnButtonNcbbs)
+	ON_BN_CLICKED(IDC_BUTTON_HKWL, OnButtonHkwl)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -76,11 +78,24 @@ void CDLGABOUT::OnBUTTONbettaman()
 void CDLGABOUT::OnButtonSishou() 
 {
 	// TODO: Add your control notification handler code here
-		ShellExecute(0, "open", "http://sishou.artspacemedia.com", 0, 0, SW_SHOWNORMAL);
+	ShellExecute(0, "open", "http://sishou.artspacemedia.com", 0, 0, SW_SHOWNORMAL);
 }
 
 void CDLGABOUT::OnButtonBg() 
 {
 	// TODO: Add your control notification handler code here
-			ShellExecute(0, "open", "http://bugguide.net/node/view/179", 0, 0, SW_SHOWNORMAL);
+	ShellExecute(0, "open", "http://bugguide.net/node/view/179", 0, 0, SW_SHOWNORMAL);
+}
+
+void CDLGABOUT::OnButtonNcbbs() 
+{
+	// TODO: Add your control notification handler code here
+	ShellExecute(0, "open", "http://nc.kl.edu.tw/bbs/index.php", 0, 0, SW_SHOWNORMAL);
+}
+
+void CDLGABOUT::OnButtonHkwl() 
+{
+	// TODO: Add your control notification handler code here
+	ShellExecute(0, "open", "http://www.hkwildlife.net", 0, 0, SW_SHOWNORMAL);
+
 }
