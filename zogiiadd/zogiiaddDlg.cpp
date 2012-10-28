@@ -348,9 +348,10 @@ BOOL CZogiiaddDlg::OnInitDialog()
 	InitInfoData();
 
   	char str[250];
-    sprintf(str,"zogci_db@zogna      Build:%s,%s     DataBaseVersion:%d    亚科%d属%d种%d亚种%d",	\
+    sprintf(str,"zogci_db@zogna      Build:%s,%s     DataBaseVersion:%d    亚科%d属%d种%d亚种%d,PictureTotal:%d",	\
 			__DATE__,__TIME__,zogiiVersionDB(),	\
-			zogiiSFTotalDB(),zogiiGETotalDB(),zogiiNATotalDB(),zogiiSPTotalDB());
+			zogiiSFTotalDB(),zogiiGETotalDB(),zogiiNATotalDB(),zogiiSPTotalDB(),	\
+			DBPictotal);
     SetWindowText(str);
 
 	return TRUE;  // return TRUE  unless you set the focus to a control
