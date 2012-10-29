@@ -18,7 +18,7 @@ typedef unsigned __int32 ZOGII_ULONG_TYPE;
 #endif
 
 //结构体剩余扩展容量
-#define ZOGII_EXP_SIZ 848
+#define ZOGII_EXP_SIZ 824
 //最大路径长度
 #define ZOGII_PAT_MAX 260 
 //最大字符串长度
@@ -36,21 +36,20 @@ typedef unsigned __int32 ZOGII_ULONG_TYPE;
 #define ZOGII_FOODINF_MAX 4
 //最大栖息地名数
 #define ZOGII_LIVIINF_MAX 3
+//最大发现地地名
+#define ZOGII_DISCOVERY_MAX 24
 
 //最大图片数
-#define ZOGII_ALL_PIC (ZOGII_PIC_MAX*5+1)
+#define ZOGII_ALL_PIC (ZOGII_PIC_MAX*5)
 // 0-11为Imago 
 // 12-23为Larva
 // 24-35为Pupa
 // 36-47为Ovum
-// 48 为MAP
 #define ZOGII_ALL_PIC_Imago_START	(0)
 #define ZOGII_ALL_PIC_Larva_START	(ZOGII_PIC_MAX)
 #define ZOGII_ALL_PIC_Pupa_START	(ZOGII_PIC_MAX*2)
 #define ZOGII_ALL_PIC_Ovum_START	(ZOGII_PIC_MAX*3)
 #define ZOGII_ALL_PIC_Closeup_START	(ZOGII_PIC_MAX*4)
-#define ZOGII_ALL_PIC_Map_START		(ZOGII_PIC_MAX*5)
-
 
 ////DB目录
 #define ZOGII_DB_DIRSTR "zogcidb"
@@ -301,8 +300,7 @@ struct ZOGII_Coccinellidae_DATA
 	//栖息地
 	char LivingName[ZOGII_LIVIINF_MAX][ZOGII_STR_MAX];
 ///////////////////////////////////////////////////
-	//发现地地图 0为无效
-	ZOGII_ULONG_TYPE DiscoverMap;
+	char Expand2ex[4];
 	//命名者名称 年份
 	char DiscoverName[ZOGII_STR_MAX];
 ///////////////////////////////////////////////////
@@ -363,6 +361,8 @@ struct ZOGII_Coccinellidae_DATA
 	char ImagoVillus; 
 	//特写
 	struct ZOGII_CloseUp Closeup[ZOGII_PIC_MAX];
+	//发现地地名
+	char DiscoverMapList[ZOGII_DISCOVERY_MAX];
 
 	//扩展容量 为了以后更新
 	char Expand[ZOGII_EXP_SIZ];
@@ -428,7 +428,6 @@ ZOGII_ULONG_TYPE zogiiCodeGen(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae
 					unsigned char type,ZOGII_ULONG_TYPE sf,ZOGII_ULONG_TYPE ge,ZOGII_ULONG_TYPE na);
 
 void zogiiTEMPSaveDB(struct ZOGII_Coccinellidae_DATA *data,	\
-					ZOGII_ULONG_TYPE *tempDiscoverMap,	\
 					ZOGII_ULONG_TYPE *Imagopic,	\
 					ZOGII_ULONG_TYPE *Larvapic,	\
 					ZOGII_ULONG_TYPE *Pupapic,	\
@@ -455,12 +454,11 @@ void zogiiAddtxtDBLite(struct ZOGII_Coccinellidae_DATA *data,struct ZOGII_Coccin
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void zogiiADDpicDB(struct ZOGII_Coccinellidae_DATA *data,	\
 				ZOGII_ULONG_TYPE *pictotal,struct ZOGII_Pic *&picdata,	\
-				struct ZOGII_Pic *NewPicdata,
-				ZOGII_ULONG_TYPE tempDiscoverMap,	\
+				struct ZOGII_Pic *NewPicdata,	\
 				ZOGII_ULONG_TYPE *Imagopic,	\
 				ZOGII_ULONG_TYPE *Larvapic,	\
 				ZOGII_ULONG_TYPE *Pupapic,	\
-				ZOGII_ULONG_TYPE *Ovumpic,
+				ZOGII_ULONG_TYPE *Ovumpic,	\
 				ZOGII_ULONG_TYPE *Closeuppic);
 
 void zogiiDeletepicDB(struct ZOGII_Coccinellidae_DATA *data,struct ZOGII_Pic *&picdata);
@@ -475,3 +473,90 @@ ZOGII_ULONG_TYPE zogiiDeletepicDBLite(ZOGII_ULONG_TYPE i,struct ZOGII_Pic *&picd
 
 
 #endif
+
+
+/*
+0 = 未知
+1 = 中国
+2 = 中国-台湾
+3 = 中国-福建
+4 = 中国-云南
+5 = 中国-贵州
+6 = 中国-湖南
+7 = 中国-湖北
+8 = 中国-河南
+9 = 中国-河北
+10 = 中国-广东
+11 = 中国-广西
+12 = 中国-海南
+13 = 中国-安徽
+14 = 中国-浙江
+15 = 中国-江西
+16 = 中国-西藏
+17 = 中国-新疆
+18 = 中国-北京
+19 = 中国-香港
+20 = 中国-陕西
+21 = 中国-四川
+22 = 中国-吉林
+23 = 中国-辽宁
+24 = 中国-山东
+25 = 中国-山西
+26 = 中国-上海
+27 = 中国-江苏
+28 = 中国-甘肃
+29 = 中国-青海
+30 = 中国-黑龙江
+31 = 中国-内蒙古
+32 = 朝鲜
+33 = 蒙古
+34 = 伊朗
+35 = 沙特阿拉伯
+36 = 缅甸
+37 = 越南
+38 = 韩国
+39 = 日本
+40 = 日本-琉球群岛
+41 = 印度
+42 = 印度-锡金
+43 = 尼泊尔
+44 = 斯里兰卡
+45 = 泰国
+46 = 菲律宾
+47 = 马来西亚
+48 = 英国
+49 = 老挝
+50 = 新加坡
+51 = 克什米尔地区
+52 = 印度尼西亚
+53 = 西班牙
+54 = 埃及
+55 = 密克罗尼西亚
+56 = 法国
+57 = 高加索地区
+58 = 西伯利亚地区
+59 = 西伯利亚东南部
+60 = 澳大利亚
+61 = 新西兰
+62 = 美国-阿拉斯加
+63 = 美国-夏威夷
+64 = 美国
+65 = 西印度群岛
+66 = 也门
+67 = 不丹
+68 = 巴基斯坦
+69 = 孟加拉
+70 = 东亚
+71 = 俄罗斯
+72 = 柬埔寨
+73 = 阿富汗
+74 = 阿拉伯半岛
+75 = 哈萨克斯坦
+76 = 新几内亚
+77 = 北美
+78 = 中亚
+79 = 亚洲
+80 = 欧洲
+81 = 非洲
+82 = 地中海地区
+*/

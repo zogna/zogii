@@ -37,6 +37,7 @@
 #define IDC_EDIT_code                   1014
 #define IDC_BUTTON3                     1015
 #define IDC_BUTTON_DiscoveryPicPath     1015
+#define IDC_BUTTON_DATAOUT              1015
 #define IDC_BUTTON4                     1016
 #define IDC_BUTTON_SaveData             1016
 #define IDC_EDIT16                      1017
@@ -92,6 +93,7 @@
 #define IDC_EDIT_DataOutputPath         1040
 #define IDC_BUTTON8                     1041
 #define IDC_BUTTON_DiscoveryPicView     1041
+#define IDC_BUTTON_DATAIN               1041
 #define IDC_BUTTON9                     1042
 #define IDC_BUTTON_TextENView           1042
 #define IDC_BUTTON10                    1043
@@ -251,7 +253,19 @@
 #define IDC_BUTTON_CloseupPicPath       1124
 #define IDC_BUTTON_CloseupPicView       1125
 #define IDC_COMBO_CloseupType           1127
+#define IDC_COMBO_DiscoverMapA          1128
 #define IDC_COMBO_CloseupNo             1141
+#define IDC_COMBO_DiscoverMapG          1145
+#define IDC_COMBO_DiscoverMapB          1146
+#define IDC_COMBO_DiscoverMapH          1147
+#define IDC_COMBO_DiscoverMapC          1148
+#define IDC_COMBO_DiscoverMapI          1149
+#define IDC_COMBO_DiscoverMapD          1150
+#define IDC_COMBO_DiscoverMapJ          1151
+#define IDC_COMBO_DiscoverMapE          1152
+#define IDC_COMBO_DiscoverMapK          1153
+#define IDC_COMBO_DiscoverMapF          1154
+#define IDC_COMBO_DiscoverMapL          1155
 
 // Next default values for new objects
 // 
@@ -259,7 +273,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        130
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1119
+#define _APS_NEXT_CONTROL_VALUE         1129
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
