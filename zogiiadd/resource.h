@@ -4,6 +4,7 @@
 //
 #define IDD_ZOGIIADD_DIALOG             102
 #define IDR_MAINFRAME                   128
+#define IDD_DIALOG_MAP                  130
 #define IDC_TREE                        1000
 #define IDC_EDIT1                       1001
 #define IDC_EDIT_SubFamilyEN            1001
@@ -31,13 +32,16 @@
 #define IDC_COMBO_OvumSex               1011
 #define IDC_BUTTON1                     1012
 #define IDC_BUTTON_SaveImago            1012
+#define IDC_BUTTON_SRC2DST              1012
 #define IDC_BUTTON2                     1013
 #define IDC_BUTTON_DeleteImago          1013
+#define IDC_BUTTON_DST2SRC              1013
 #define IDC_EDIT15                      1014
 #define IDC_EDIT_code                   1014
 #define IDC_BUTTON3                     1015
 #define IDC_BUTTON_DiscoveryPicPath     1015
 #define IDC_BUTTON_DATAOUT              1015
+#define IDC_BUTTON_OK                   1015
 #define IDC_BUTTON4                     1016
 #define IDC_BUTTON_SaveData             1016
 #define IDC_EDIT16                      1017
@@ -106,6 +110,7 @@
 #define IDC_BUTTON_ImagoPicView         1046
 #define IDC_BUTTON14                    1047
 #define IDC_BUTTON_DataOutputPath       1047
+#define IDC_BUTTON_DISCOVERYMAP         1047
 #define IDC_COMBO11                     1048
 #define IDC_COMBO_OvumColor             1048
 #define IDC_COMBO9                      1049
@@ -253,27 +258,19 @@
 #define IDC_BUTTON_CloseupPicPath       1124
 #define IDC_BUTTON_CloseupPicView       1125
 #define IDC_COMBO_CloseupType           1127
-#define IDC_COMBO_DiscoverMapA          1128
+#define IDC_LISTBOX_SRC                 1134
+#define IDC_LISTBOX_DST                 1135
+#define IDC_STATIC_DISCOVERTOTAL        1135
+#define IDC_BUTTON_TREEOUT              1136
 #define IDC_COMBO_CloseupNo             1141
-#define IDC_COMBO_DiscoverMapG          1145
-#define IDC_COMBO_DiscoverMapB          1146
-#define IDC_COMBO_DiscoverMapH          1147
-#define IDC_COMBO_DiscoverMapC          1148
-#define IDC_COMBO_DiscoverMapI          1149
-#define IDC_COMBO_DiscoverMapD          1150
-#define IDC_COMBO_DiscoverMapJ          1151
-#define IDC_COMBO_DiscoverMapE          1152
-#define IDC_COMBO_DiscoverMapK          1153
-#define IDC_COMBO_DiscoverMapF          1154
-#define IDC_COMBO_DiscoverMapL          1155
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        130
+#define _APS_NEXT_RESOURCE_VALUE        131
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1129
+#define _APS_NEXT_CONTROL_VALUE         1137
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
