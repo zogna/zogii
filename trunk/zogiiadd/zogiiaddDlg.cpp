@@ -4,7 +4,7 @@
 #include "stdafx.h"
 #include "zogiiadd.h"
 #include "zogiiaddDlg.h"
-
+#include "DLGmap.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -54,7 +54,6 @@ CZogiiaddDlg::CZogiiaddDlg(CWnd* pParent /*=NULL*/)
 	m_FoodNameB = _T("");
 	m_FoodNameA = _T("");
 	m_DiscoveryName = _T("");
-
 	m_Food = -1;
 	m_ImagoNo = 0;
 	m_ImagoSex = -1;
@@ -110,18 +109,6 @@ CZogiiaddDlg::CZogiiaddDlg(CWnd* pParent /*=NULL*/)
 	m_CloseupType = -1;
 	m_CloseupPicInfo = _T("");
 	m_CloseupPicPath = _T("");
-	m_DiscoverMapA = -1;
-	m_DiscoverMapB = -1;
-	m_DiscoverMapC = -1;
-	m_DiscoverMapD = -1;
-	m_DiscoverMapE = -1;
-	m_DiscoverMapF = -1;
-	m_DiscoverMapG = -1;
-	m_DiscoverMapH = -1;
-	m_DiscoverMapI = -1;
-	m_DiscoverMapJ = -1;
-	m_DiscoverMapK = -1;
-	m_DiscoverMapL = -1;
 	//}}AFX_DATA_INIT
 	// Note that LoadIcon does not require a subsequent DestroyIcon in Win32
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -215,7 +202,6 @@ void CZogiiaddDlg::DoDataExchange(CDataExchange* pDX)
 	DDV_MaxChars(pDX, m_FoodNameA, 128);
 	DDX_Text(pDX, IDC_EDIT_DiscoveryName, m_DiscoveryName);
 	DDV_MaxChars(pDX, m_DiscoveryName, 128);
-
 	DDX_CBIndex(pDX, IDC_COMBO_Food, m_Food);
 	DDX_CBIndex(pDX, IDC_COMBO_ImagoNo, m_ImagoNo);
 	DDX_CBIndex(pDX, IDC_COMBO_ImagoSex, m_ImagoSex);
@@ -279,18 +265,6 @@ void CZogiiaddDlg::DoDataExchange(CDataExchange* pDX)
 	DDV_MaxChars(pDX, m_CloseupPicInfo, 260);
 	DDX_Text(pDX, IDC_EDIT_CloseupPicPath, m_CloseupPicPath);
 	DDV_MaxChars(pDX, m_CloseupPicPath, 260);
-	DDX_CBIndex(pDX, IDC_COMBO_DiscoverMapA, m_DiscoverMapA);
-	DDX_CBIndex(pDX, IDC_COMBO_DiscoverMapB, m_DiscoverMapB);
-	DDX_CBIndex(pDX, IDC_COMBO_DiscoverMapC, m_DiscoverMapC);
-	DDX_CBIndex(pDX, IDC_COMBO_DiscoverMapD, m_DiscoverMapD);
-	DDX_CBIndex(pDX, IDC_COMBO_DiscoverMapE, m_DiscoverMapE);
-	DDX_CBIndex(pDX, IDC_COMBO_DiscoverMapF, m_DiscoverMapF);
-	DDX_CBIndex(pDX, IDC_COMBO_DiscoverMapG, m_DiscoverMapG);
-	DDX_CBIndex(pDX, IDC_COMBO_DiscoverMapH, m_DiscoverMapH);
-	DDX_CBIndex(pDX, IDC_COMBO_DiscoverMapI, m_DiscoverMapI);
-	DDX_CBIndex(pDX, IDC_COMBO_DiscoverMapJ, m_DiscoverMapJ);
-	DDX_CBIndex(pDX, IDC_COMBO_DiscoverMapK, m_DiscoverMapK);
-	DDX_CBIndex(pDX, IDC_COMBO_DiscoverMapL, m_DiscoverMapL);
 	//}}AFX_DATA_MAP
 }
 
@@ -300,7 +274,6 @@ BEGIN_MESSAGE_MAP(CZogiiaddDlg, CDialog)
 	ON_WM_QUERYDRAGICON()
 	ON_BN_CLICKED(IDC_BUTTON_DeleteData, OnBUTTONDeleteData)
 	ON_BN_CLICKED(IDC_BUTTON_SaveData, OnBUTTONSaveData)
-
 	ON_BN_CLICKED(IDC_BUTTON_TextTWPath, OnBUTTONTextTWPath)
 	ON_BN_CLICKED(IDC_BUTTON_TextTWView, OnBUTTONTextTWView)
 	ON_BN_CLICKED(IDC_BUTTON_TextCNPath, OnBUTTONTextCNPath)
@@ -337,6 +310,8 @@ BEGIN_MESSAGE_MAP(CZogiiaddDlg, CDialog)
 	ON_CBN_CLOSEUP(IDC_COMBO_CloseupNo, OnCloseupCOMBOCloseupNo)
 	ON_BN_CLICKED(IDC_BUTTON_DATAOUT, OnButtonDataout)
 	ON_BN_CLICKED(IDC_BUTTON_DATAIN, OnButtonDatain)
+	ON_BN_CLICKED(IDC_BUTTON_DISCOVERYMAP, OnButtonDiscoverymap)
+	ON_BN_CLICKED(IDC_BUTTON_TREEOUT, OnButtonTreeout)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -370,6 +345,8 @@ BOOL CZogiiaddDlg::OnInitDialog()
 			DBPictotal);
     SetWindowText(str);
 
+	sprintf(str,"%d",Newdata.DiscoverMapTotal);
+	GetDlgItem(IDC_STATIC_DISCOVERTOTAL)->SetWindowText(str);
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
 
@@ -429,6 +406,10 @@ void CZogiiaddDlg::OnBUTTONDeleteData()
 	InitInfoData();
 	UpdateData(FALSE);
 	MessageBox(_T("删除成功"), _T("删除"));
+
+	char str[10];
+	sprintf(str,"%d",Newdata.DiscoverMapTotal);
+	GetDlgItem(IDC_STATIC_DISCOVERTOTAL)->SetWindowText(str);
 }
 
 void CZogiiaddDlg::OnBUTTONSaveData() 
@@ -628,7 +609,9 @@ void CZogiiaddDlg::OnSelchangedTree(NMHDR* pNMHDR, LRESULT* pResult)
 {
 //	NM_TREEVIEW* pNMTreeView = (NM_TREEVIEW*)pNMHDR;
 	// TODO: Add your control notification handler code here
-	
+
+	char str[10];
+
 	HTREEITEM item_sel=m_tree.GetSelectedItem();
 
 	ZOGII_LONG_TYPE i;
@@ -638,6 +621,9 @@ void CZogiiaddDlg::OnSelchangedTree(NMHDR* pNMHDR, LRESULT* pResult)
 		{
 			curlist=&DataList[i];
 			InitInfoData();
+			
+			sprintf(str,"%d",Newdata.DiscoverMapTotal);
+			GetDlgItem(IDC_STATIC_DISCOVERTOTAL)->SetWindowText(str);
 			break;
 		}
 	}
@@ -1312,24 +1298,14 @@ void CZogiiaddDlg::InitInfoData()
 	m_StartMonth = -1;
 	m_EndMonth = -1;
 
-	m_DiscoverMapA = -1;
-	m_DiscoverMapB = -1;
-	m_DiscoverMapC = -1;
-	m_DiscoverMapD = -1;
-	m_DiscoverMapE = -1;
-	m_DiscoverMapF = -1;
-	m_DiscoverMapG = -1;
-	m_DiscoverMapH = -1;
-	m_DiscoverMapI = -1;
-	m_DiscoverMapJ = -1;
-	m_DiscoverMapK = -1;
-	m_DiscoverMapL = -1;
-
 	CleanImago2M();
 	CleanLarva2M();
 	CleanPupa2M();
 	CleanOvum2M();
 	CleanCloseup2M();
+
+	Newdata.DiscoverMapTotal=0;
+	memset(Newdata.DiscoverMapList,0,ZOGII_DISCOVERY_MAX);
 
 	UpdateData(FALSE);
 	return ;
@@ -1393,18 +1369,17 @@ void CZogiiaddDlg::CopyInfoDBData2M(struct ZOGII_Coccinellidae_DATA* d)
 	m_StartMonth = d->StartMonth;
 	m_EndMonth = d->EndMonth;
 
-	m_DiscoverMapA = d->DiscoverMapList[0];
-	m_DiscoverMapB = d->DiscoverMapList[1];
-	m_DiscoverMapC = d->DiscoverMapList[2];
-	m_DiscoverMapD = d->DiscoverMapList[3];
-	m_DiscoverMapE = d->DiscoverMapList[4];
-	m_DiscoverMapF = d->DiscoverMapList[5];
-	m_DiscoverMapG = d->DiscoverMapList[6];
-	m_DiscoverMapH = d->DiscoverMapList[7];
-	m_DiscoverMapI = d->DiscoverMapList[8];
-	m_DiscoverMapJ = d->DiscoverMapList[9];
-	m_DiscoverMapK = d->DiscoverMapList[10];
-	m_DiscoverMapL = d->DiscoverMapList[11];
+	//初始化
+	if(255 == d->DiscoverMapTotal)
+	{
+		Newdata.DiscoverMapTotal=0;
+		memset(Newdata.DiscoverMapList,0,ZOGII_DISCOVERY_MAX);
+	}
+	else
+	{
+		Newdata.DiscoverMapTotal= d->DiscoverMapTotal;
+		memcpy(Newdata.DiscoverMapList,d->DiscoverMapList,ZOGII_DISCOVERY_MAX);
+	}
 
 	UpdateData(FALSE);
 }
@@ -1468,19 +1443,6 @@ void CZogiiaddDlg::CopyInfoM2NewData()
 	Newdata.OverWintering=	(char)m_OverWinter;
 	Newdata.StartMonth=	(char)m_StartMonth;
 	Newdata.EndMonth=	(char)m_EndMonth;
-
-	Newdata.DiscoverMapList[0]=	(char)	m_DiscoverMapA ;
-	Newdata.DiscoverMapList[1]=	(char)	m_DiscoverMapB ;
-	Newdata.DiscoverMapList[2]= (char)	m_DiscoverMapC ;
-	Newdata.DiscoverMapList[3]= (char)	m_DiscoverMapD ;
-	Newdata.DiscoverMapList[4]= (char)	m_DiscoverMapE ;
-	Newdata.DiscoverMapList[5]= (char)	m_DiscoverMapF ;
-	Newdata.DiscoverMapList[6]= (char)	m_DiscoverMapG ;
-	Newdata.DiscoverMapList[7]= (char)	m_DiscoverMapH ;
-	Newdata.DiscoverMapList[8]= (char)	m_DiscoverMapI ;
-	Newdata.DiscoverMapList[9]= (char)	m_DiscoverMapJ ;
-	Newdata.DiscoverMapList[10]= (char)	m_DiscoverMapK ;
-	Newdata.DiscoverMapList[11]= (char)	m_DiscoverMapL ;
 }
 
 ////////////////////Imago////////////////////////////////////////////////////////
@@ -1971,7 +1933,7 @@ void CZogiiaddDlg::ReadDB2Closeup(struct ZOGII_Coccinellidae_DATA* d)
 	}
 }
 
-/////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////
 void CZogiiaddDlg::OnButtonDataout() 
 {
 	// TODO: Add your control notification handler code here
@@ -2022,4 +1984,26 @@ void CZogiiaddDlg::OnButtonDatain()
 
 		MessageBox(_T("导入成功"), _T("导入"));
 	}
+}
+
+void CZogiiaddDlg::OnButtonDiscoverymap() 
+{
+	// TODO: Add your control notification handler code here
+	CDLGmap map;
+	map.SetListDst(Newdata.DiscoverMapList,&(Newdata.DiscoverMapTotal));
+	map.DoModal();
+	
+	char str[10];
+	sprintf(str,"%d",Newdata.DiscoverMapTotal);
+	GetDlgItem(IDC_STATIC_DISCOVERTOTAL)->SetWindowText(str);
+
+}
+
+void CZogiiaddDlg::OnButtonTreeout() 
+{
+	// TODO: Add your control notification handler code here
+	if(zogiiPrintfDB(DBtotal,DBdata))
+		MessageBox(_T("印树成功"), _T("印树"));
+	else
+		MessageBox(_T("印树失败"), _T("印树"));
 }

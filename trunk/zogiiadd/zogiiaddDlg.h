@@ -74,7 +74,6 @@ public:
 	CString	m_FoodNameB;
 	CString	m_FoodNameA;
 	CString	m_DiscoveryName;
-
 	int		m_Food;
 	int		m_ImagoNo;
 	int		m_ImagoSex;
@@ -130,18 +129,6 @@ public:
 	int		m_CloseupType;
 	CString	m_CloseupPicInfo;
 	CString	m_CloseupPicPath;
-	int		m_DiscoverMapA;
-	int		m_DiscoverMapB;
-	int		m_DiscoverMapC;
-	int		m_DiscoverMapD;
-	int		m_DiscoverMapE;
-	int		m_DiscoverMapF;
-	int		m_DiscoverMapG;
-	int		m_DiscoverMapH;
-	int		m_DiscoverMapI;
-	int		m_DiscoverMapJ;
-	int		m_DiscoverMapK;
-	int		m_DiscoverMapL;
 	//}}AFX_DATA
 
 	// ClassWizard generated virtual function overrides
@@ -161,7 +148,6 @@ protected:
 	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnBUTTONDeleteData();
 	afx_msg void OnBUTTONSaveData();
-
 	afx_msg void OnBUTTONTextTWPath();
 	afx_msg void OnBUTTONTextTWView();
 	afx_msg void OnBUTTONTextCNPath();
@@ -198,6 +184,8 @@ protected:
 	afx_msg void OnCloseupCOMBOCloseupNo();
 	afx_msg void OnButtonDataout();
 	afx_msg void OnButtonDatain();
+	afx_msg void OnButtonDiscoverymap();
+	afx_msg void OnButtonTreeout();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 	void OnOK();

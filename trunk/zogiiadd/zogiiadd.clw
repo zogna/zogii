@@ -8,13 +8,15 @@ NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "zogiiadd.h"
 LastPage=0
 
-ClassCount=2
+ClassCount=3
 Class1=CZogiiaddApp
 Class2=CZogiiaddDlg
 
-ResourceCount=2
+ResourceCount=3
 Resource1=IDD_ZOGIIADD_DIALOG (AA)
 Resource2=IDD_ZOGIIADD_DIALOG
+Class3=CDLGmap
+Resource3=IDD_DIALOG_MAP
 
 [CLS:CZogiiaddApp]
 Type=0
@@ -34,7 +36,7 @@ VirtualFilter=dWC
 [DLG:IDD_ZOGIIADD_DIALOG]
 Type=1
 Class=CZogiiaddDlg
-ControlCount=213
+ControlCount=203
 Control1=IDC_TREE,SysTreeView32,1350631591
 Control2=IDC_EDIT_SubFamilyEN,edit,1350631552
 Control3=IDC_EDIT_SubFamilyCN,edit,1350631552
@@ -232,26 +234,16 @@ Control194=IDC_STATIC,static,1342308352
 Control195=IDC_STATIC,static,1342308352
 Control196=IDC_COMBO_CloseupType,combobox,1344339971
 Control197=IDC_COMBO_CloseupNo,combobox,1344339971
-Control198=IDC_STATIC,static,1342308352
-Control199=IDC_COMBO_DiscoverMapA,combobox,1344339971
-Control200=IDC_COMBO_DiscoverMapG,combobox,1344339971
-Control201=IDC_COMBO_DiscoverMapB,combobox,1344339971
-Control202=IDC_COMBO_DiscoverMapH,combobox,1344339971
-Control203=IDC_COMBO_DiscoverMapC,combobox,1344339971
-Control204=IDC_COMBO_DiscoverMapI,combobox,1344339971
-Control205=IDC_COMBO_DiscoverMapD,combobox,1344339971
-Control206=IDC_COMBO_DiscoverMapJ,combobox,1344339971
-Control207=IDC_COMBO_DiscoverMapE,combobox,1344339971
-Control208=IDC_COMBO_DiscoverMapK,combobox,1344339971
-Control209=IDC_COMBO_DiscoverMapF,combobox,1344339971
-Control210=IDC_COMBO_DiscoverMapL,combobox,1344339971
-Control211=IDC_STATIC,button,1342177287
-Control212=IDC_BUTTON_DATAOUT,button,1342242816
-Control213=IDC_BUTTON_DATAIN,button,1342242816
+Control198=IDC_STATIC,button,1342177287
+Control199=IDC_BUTTON_DATAOUT,button,1342242816
+Control200=IDC_BUTTON_DATAIN,button,1342242816
+Control201=IDC_BUTTON_DISCOVERYMAP,button,1342242816
+Control202=IDC_STATIC_DISCOVERTOTAL,static,1342308352
+Control203=IDC_BUTTON_TREEOUT,button,1342242816
 
 [DLG:IDD_ZOGIIADD_DIALOG (AA)]
 Type=1
-Class=?
+Class=CZogiiaddDlg
 ControlCount=214
 Control1=IDC_TREE,SysTreeView32,1350631591
 Control2=IDC_EDIT_SubFamilyEN,edit,1350631552
@@ -467,4 +459,23 @@ Control211=IDC_COMBO_DiscoverMapE,combobox,1344339971
 Control212=IDC_COMBO_DiscoverMapK,combobox,1344339971
 Control213=IDC_COMBO_DiscoverMapF,combobox,1344339971
 Control214=IDC_COMBO_DiscoverMapL,combobox,1344339971
+
+[DLG:IDD_DIALOG_MAP]
+Type=1
+Class=CDLGmap
+ControlCount=5
+Control1=IDC_BUTTON_SRC2DST,button,1342242816
+Control2=IDC_BUTTON_DST2SRC,button,1342242816
+Control3=IDC_BUTTON_OK,button,1342242816
+Control4=IDC_LISTBOX_SRC,listbox,1352728832
+Control5=IDC_LISTBOX_DST,listbox,1352728832
+
+[CLS:CDLGmap]
+Type=0
+HeaderFile=DLGmap.h
+ImplementationFile=DLGmap.cpp
+BaseClass=CDialog
+Filter=D
+LastObject=IDC_LISTBOX_DST
+VirtualFilter=dWC
 

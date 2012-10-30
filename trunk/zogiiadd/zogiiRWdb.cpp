@@ -207,6 +207,59 @@ int zogiiWriteDB(ZOGII_ULONG_TYPE total,struct ZOGII_Coccinellidae_SUBFamily *&d
 	}
 	return 0;
 }
+
+////////////////////Êä³öÊ÷////////////////////////////////////////////////////////////////
+int zogiiPrintfDB(ZOGII_ULONG_TYPE total,struct ZOGII_Coccinellidae_SUBFamily *&data)
+{
+	ZOGII_ULONG_TYPE i,j,k,m;
+
+	FILE *fp;
+	char str[ZOGII_PAT_MAX];
+
+	sprintf(str,"%s\\DBtree.txt",CurrentDirectory);
+	fp=fopen(str,"w");
+	if(fp)
+	{
+		for(i=0;i<total;i++)
+		{
+			fprintf(fp,"%05d-\t%s-\t%s-\t%s\n",	\
+				data[i].SF.code,	\
+				data[i].SF.SubFamily[0],
+				data[i].SF.SubFamily[1],
+				data[i].SF.SubFamily[2]);
+			
+			for(j=0;j<data[i].GenusTotal;j++)
+			{
+				fprintf(fp,"\t%05d-\t%s-\t%s-\t%s\n",	\
+					data[i].GenusData[j].GE.code,	\
+					data[i].GenusData[j].GE.Genus[0],
+					data[i].GenusData[j].GE.Genus[1],
+					data[i].GenusData[j].GE.Genus[2]);
+				
+				for(k=0;k<data[i].GenusData[j].NameTotal;k++)
+				{
+					fprintf(fp,"\t\t%05d-\t%s-\t%s-\t%s\n",	\
+						data[i].GenusData[j].NameData[k].NA.code,	\
+						data[i].GenusData[j].NameData[k].NA.Name[0],
+						data[i].GenusData[j].NameData[k].NA.Name[1],
+						data[i].GenusData[j].NameData[k].NA.Name[2]);
+					for(m=0;m<data[i].GenusData[j].NameData[k].SpTotal;m++)
+					{
+						fprintf(fp,"\t\t\t%05d-\t%s-\t%s-\t%s\n",	\
+							data[i].GenusData[j].NameData[k].SpData[m].code,	\
+							data[i].GenusData[j].NameData[k].SpData[m].SpName[0],
+							data[i].GenusData[j].NameData[k].SpData[m].SpName[1],
+							data[i].GenusData[j].NameData[k].SpData[m].SpName[2]);
+					}
+				}
+			}
+		}
+
+		fclose(fp);
+		return 1;
+	}
+	return 0;
+}
 //////////////////////ÅÅÐò//////////////////////////////////////////////////////////////
 int zogiiSort_SF(const void *A,const void *B)
 {
