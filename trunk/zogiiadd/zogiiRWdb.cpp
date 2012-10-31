@@ -913,6 +913,11 @@ void zogiiAddtxtDBLite(struct ZOGII_Coccinellidae_DATA *data,struct ZOGII_Coccin
 			zogiiCopyFile(newdata->Text[i],data->Text[i]);
 		}
 	}
+	else
+	{
+		sprintf(str,"%s\\Text%02d.txt",data->Path,i);
+		zogiiDeleteFile(str);
+	}
 }
 
 ////////////////////////////Ôö¼ÓÍ¼Æ¬
