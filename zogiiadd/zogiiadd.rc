@@ -183,7 +183,7 @@ BEGIN
     PUSHBUTTON      "清空",IDC_BUTTON_DeleteLarva,449,255,21,14
     LTEXT           "性别",IDC_STATIC,449,181,17,8
     LTEXT           "颜色数量",IDC_STATIC,527,209,33,8
-    LTEXT           "棘刺",IDC_STATIC,447,211,17,8
+    LTEXT           "棘刺",IDC_STATIC,449,211,17,8
     LTEXT           "图片",IDC_STATIC,449,225,17,8
     LTEXT           "来源",IDC_STATIC,449,241,17,8
     LTEXT           "序号",IDC_STATIC,642,181,17,8
