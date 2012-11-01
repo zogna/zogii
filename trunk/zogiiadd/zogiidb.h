@@ -440,7 +440,8 @@ void zogiiTEMPSaveDB(struct ZOGII_Coccinellidae_DATA *data,	\
 					char *temppath,	\
 					char tempsfname[ZOGII_LAG_MAX][ZOGII_STR_MAX],	\
 					char tempgename[ZOGII_LAG_MAX][ZOGII_STR_MAX],	\
-					char tempname[ZOGII_LAG_MAX][ZOGII_STR_MAX]);
+					char tempname[ZOGII_LAG_MAX][ZOGII_STR_MAX],	\
+					char temptext[ZOGII_LAG_MAX][ZOGII_PAT_MAX]);
 
 void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily *&data,	\
 				ZOGII_ULONG_TYPE *pictotal,struct ZOGII_Pic *&picdata,	\
@@ -451,9 +452,10 @@ void zogiiDeleteDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily 
 			   unsigned char type,ZOGII_ULONG_TYPE sf,ZOGII_ULONG_TYPE ge,ZOGII_ULONG_TYPE na,ZOGII_ULONG_TYPE sp,	\
 			   struct ZOGII_Pic *&picdata);
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-void zogiiAddtxtDB(struct ZOGII_Coccinellidae_DATA *data,struct ZOGII_Coccinellidae_DATA *newdata);
+void zogiiAddtxtDB(struct ZOGII_Coccinellidae_DATA *data,struct ZOGII_Coccinellidae_DATA *newdata,	\
+				   char temptext[ZOGII_LAG_MAX][ZOGII_PAT_MAX]);
 void zogiiAddtxtDBLite(struct ZOGII_Coccinellidae_DATA *data,struct ZOGII_Coccinellidae_DATA *newdata,	\
-					   int i);
+					   int i,char *temp);
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 void zogiiADDpicDB(struct ZOGII_Coccinellidae_DATA *data,	\
 				ZOGII_ULONG_TYPE *pictotal,struct ZOGII_Pic *&picdata,	\

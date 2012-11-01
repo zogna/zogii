@@ -125,7 +125,6 @@ CZogiiaddDlg::CZogiiaddDlg(CWnd* pParent /*=NULL*/)
 	curlist=NULL;
 
 	memset(&Newdata,0,sizeof(struct ZOGII_Coccinellidae_DATA));
-
 }
 
 void CZogiiaddDlg::DoDataExchange(CDataExchange* pDX)
