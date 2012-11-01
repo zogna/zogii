@@ -464,7 +464,8 @@ void zogiiTEMPSaveDB(struct ZOGII_Coccinellidae_DATA *data,	\
 					char *temppath,	\
 					char tempsfname[ZOGII_LAG_MAX][ZOGII_STR_MAX],	\
 					char tempgename[ZOGII_LAG_MAX][ZOGII_STR_MAX],	\
-					char tempname[ZOGII_LAG_MAX][ZOGII_STR_MAX])
+					char tempname[ZOGII_LAG_MAX][ZOGII_STR_MAX],	\
+					char temptext[ZOGII_LAG_MAX][ZOGII_PAT_MAX])
 {
 	unsigned char i; 
 	
@@ -486,6 +487,7 @@ void zogiiTEMPSaveDB(struct ZOGII_Coccinellidae_DATA *data,	\
 		memcpy(tempsfname[i],data->SubFamily[i],ZOGII_STR_MAX);
 		memcpy(tempgename[i],data->Genus[i],ZOGII_STR_MAX);
 		memcpy(tempname[i],data->Name[i],ZOGII_STR_MAX);
+		memcpy(temptext[i],data->Text[i],ZOGII_PAT_MAX);
 	}
 
 }
@@ -510,6 +512,7 @@ void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily
 	char tempsfname[ZOGII_LAG_MAX][ZOGII_STR_MAX];
 	char tempgename[ZOGII_LAG_MAX][ZOGII_STR_MAX];
 	char tempname[ZOGII_LAG_MAX][ZOGII_STR_MAX];
+	char temptext[ZOGII_LAG_MAX][ZOGII_PAT_MAX];
 
 	if(TYPE_NEW_SubFamily == type)
 	{
@@ -616,7 +619,7 @@ void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily
 		//备份图片编号。
 		zogiiTEMPSaveDB(&data[sf].SF,	\
 			Imagopic,Larvapic,Pupapic,Ovumpic,	Closeuppic,\
-			&tempcode,temppath,tempsfname,tempgename,tempname);
+			&tempcode,temppath,tempsfname,tempgename,tempname,temptext);
 
 		//拷贝信息
 		memcpy(&data[sf].SF,newdata,sizeof(struct ZOGII_Coccinellidae_DATA));
@@ -627,7 +630,7 @@ void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily
 		//添加图片
 		zogiiADDpicDB(&data[sf].SF,pictotal,picdata,NewPicdata,	\
 						Imagopic,Larvapic,Pupapic,Ovumpic,Closeuppic);
-		zogiiAddtxtDB(&data[sf].SF,newdata);
+		zogiiAddtxtDB(&data[sf].SF,newdata,temptext);
 
 		//更新命名 只改SF
 		for(m=0;m<ZOGII_LAG_MAX;m++)
@@ -654,7 +657,7 @@ void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily
 		//备份图片编号。
 		zogiiTEMPSaveDB(&data[sf].GenusData[ge].GE,	\
 				Imagopic,Larvapic,Pupapic,Ovumpic,Closeuppic,	\
-				&tempcode,temppath,tempsfname,tempgename,tempname);
+				&tempcode,temppath,tempsfname,tempgename,tempname,temptext);
 		//备份编号
 		tempcode=data[sf].GenusData[ge].GE.code;
 		memcpy(temppath,data[sf].GenusData[ge].GE.Path,ZOGII_PAT_MAX);
@@ -667,7 +670,7 @@ void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily
 		//添加图片
 		zogiiADDpicDB(&data[sf].GenusData[ge].GE,pictotal,picdata,NewPicdata,	\
 						Imagopic,Larvapic,Pupapic,Ovumpic,Closeuppic);
-		zogiiAddtxtDB(&data[sf].GenusData[ge].GE,newdata);
+		zogiiAddtxtDB(&data[sf].GenusData[ge].GE,newdata,temptext);
 		
 		//更新命名 只改GE
 		for(m=0;m<ZOGII_LAG_MAX;m++)
@@ -690,7 +693,7 @@ void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily
 		//备份图片编号。
 		zogiiTEMPSaveDB(&data[sf].GenusData[ge].NameData[na].NA,	\
 					Imagopic,Larvapic,Pupapic,Ovumpic,Closeuppic,	\
-					&tempcode,temppath,tempsfname,tempgename,tempname);
+					&tempcode,temppath,tempsfname,tempgename,tempname,temptext);
 		//备份编号
 		tempcode=data[sf].GenusData[ge].NameData[na].NA.code;
 		memcpy(temppath,data[sf].GenusData[ge].NameData[na].NA.Path,ZOGII_PAT_MAX);
@@ -703,7 +706,7 @@ void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily
 		//添加图片
 		zogiiADDpicDB(&data[sf].GenusData[ge].NameData[na].NA,pictotal,picdata,NewPicdata,	\
 						Imagopic,Larvapic,Pupapic,Ovumpic,Closeuppic);
-		zogiiAddtxtDB(&data[sf].GenusData[ge].NameData[na].NA,newdata);
+		zogiiAddtxtDB(&data[sf].GenusData[ge].NameData[na].NA,newdata,temptext);
 		
 		//更新命名 只改NA
 		for(m=0;m<ZOGII_LAG_MAX;m++)
@@ -721,7 +724,7 @@ void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily
 		//备份图片编号。
 		zogiiTEMPSaveDB(&data[sf].GenusData[ge].NameData[na].SpData[sp],	\
 					Imagopic,Larvapic,Pupapic,Ovumpic,Closeuppic,	\
-					&tempcode,temppath,tempsfname,tempgename,tempname);
+					&tempcode,temppath,tempsfname,tempgename,tempname,temptext);
 		//备份编号
 		tempcode=data[sf].GenusData[ge].NameData[na].SpData[sp].code;
 		memcpy(temppath,data[sf].GenusData[ge].NameData[na].SpData[sp].Path,ZOGII_PAT_MAX);
@@ -733,7 +736,7 @@ void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily
 		//添加图片
 		zogiiADDpicDB(&data[sf].GenusData[ge].NameData[na].SpData[sp],pictotal,picdata,NewPicdata,	\
 						Imagopic,Larvapic,Pupapic,Ovumpic,Closeuppic);
-		zogiiAddtxtDB(&data[sf].GenusData[ge].NameData[na].SpData[sp],newdata);
+		zogiiAddtxtDB(&data[sf].GenusData[ge].NameData[na].SpData[sp],newdata,temptext);
 	}
 }
 
@@ -888,24 +891,25 @@ void zogiiFreeDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily *&
 	picdata=NULL;
 }
 ////////////////////////////增加文本
-void zogiiAddtxtDB(struct ZOGII_Coccinellidae_DATA *data,struct ZOGII_Coccinellidae_DATA *newdata)
+void zogiiAddtxtDB(struct ZOGII_Coccinellidae_DATA *data,struct ZOGII_Coccinellidae_DATA *newdata,	\
+				   char temptext[ZOGII_LAG_MAX][ZOGII_PAT_MAX])
 {
-	zogiiAddtxtDBLite(data,newdata,0);
-	zogiiAddtxtDBLite(data,newdata,1);
-	zogiiAddtxtDBLite(data,newdata,2);
+	zogiiAddtxtDBLite(data,newdata,0,temptext[0]);
+	zogiiAddtxtDBLite(data,newdata,1,temptext[1]);
+	zogiiAddtxtDBLite(data,newdata,2,temptext[2]);
 }
 
 void zogiiAddtxtDBLite(struct ZOGII_Coccinellidae_DATA *data,struct ZOGII_Coccinellidae_DATA *newdata,	\
-					   int i)
+					   int i,char *temp)
 {
 	char str[ZOGII_PAT_MAX];
-
+	//数据不为空
 	if( NULL!=newdata->Text[i][0] || NULL!=newdata->Text[i][1])
 	{
-		sprintf(str,"%s\\Text%02d%s",data->Path,i,strrchr(newdata->Text[i],'.'));
 		//值相同则不必拷
-		if(strcmp(newdata->Text[i],str))
+		if(strcmp(newdata->Text[i],temp))
 		{
+			sprintf(str,"%s\\Text%02d%s",data->Path,i,strrchr(newdata->Text[i],'.'));
 			//拷贝路径名
 			memcpy(data->Text[i],str,ZOGII_PAT_MAX);
 			
@@ -915,8 +919,9 @@ void zogiiAddtxtDBLite(struct ZOGII_Coccinellidae_DATA *data,struct ZOGII_Coccin
 	}
 	else
 	{
-		sprintf(str,"%s\\Text%02d.txt",data->Path,i);
-		zogiiDeleteFile(str);
+		//如果都为空则不必删
+		if(strcmp(newdata->Text[i],temp))
+			zogiiDeleteFile(temp);
 	}
 }
 
