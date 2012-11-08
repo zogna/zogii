@@ -529,6 +529,8 @@ BEGIN
 0xabc3, 0xb4d7, "\000" 
     IDC_COMBO_LarvaCalthrop, 0x403, 5, 0
 0xa4b3, 0xccb4, "\000" 
+    IDC_COMBO_LarvaCalthrop, 0x403, 5, 0
+0xe2b1, 0xbdc6, "\000" 
     IDC_COMBO_LarvaColorB, 0x403, 3, 0
 0xdece, "\000" 
     IDC_COMBO_LarvaColorB, 0x403, 7, 0
@@ -1419,6 +1421,12 @@ BEGIN
 0xb9d5, 0xe1b3, "\000" 
     IDC_COMBO_CloseupType, 0x403, 9, 0
 0xdcc6, 0xa2cf, 0xb7bb, 0xb3be, "\000" 
+    IDC_COMBO_CloseupType, 0x403, 5, 0
+0xf8bd, 0xb3ca, "\000" 
+    IDC_COMBO_CloseupType, 0x403, 5, 0
+0xb2ce, 0xbfb2, "\000" 
+    IDC_COMBO_CloseupType, 0x403, 5, 0
+0xe0b2, 0xe6c3, "\000" 
     IDC_COMBO_CloseupNo, 0x403, 2, 0
 0x0030, 
     IDC_COMBO_CloseupNo, 0x403, 2, 0
