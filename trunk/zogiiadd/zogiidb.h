@@ -18,7 +18,7 @@ typedef unsigned __int32 ZOGII_ULONG_TYPE;
 #endif
 
 //结构体剩余扩展容量
-#define ZOGII_EXP_SIZ 719
+#define ZOGII_EXP_SIZ 591
 //最大路径长度
 #define ZOGII_PAT_MAX 260 
 //最大字符串长度
@@ -37,7 +37,7 @@ typedef unsigned __int32 ZOGII_ULONG_TYPE;
 //最大栖息地名数
 #define ZOGII_LIVIINF_MAX 3
 //最大发现地地名
-#define ZOGII_DISCOVERY_MAX 128
+#define ZOGII_DISCOVERY_MAX 256
 
 //最大图片数
 #define ZOGII_ALL_PIC (ZOGII_PIC_MAX*5)
@@ -183,6 +183,7 @@ struct ZOGII_Larva
 	// 0 =常规
 	// 1 =毛状
 	// 2 =长刺
+	// 3 =扁平
 	char Calthrop;
 	//龄期
 	// -1=无效
@@ -254,6 +255,9 @@ struct ZOGII_CloseUp
 	// 4=羽化中
 	// 5=展翅
 	// 6=栖息环境
+	// 7=进食
+	// 8=尾部
+	// 9=侧面
 	char Type;
 	//图片索引值 0为无效
 	ZOGII_ULONG_TYPE Pic;
