@@ -18,7 +18,7 @@ typedef unsigned __int32 ZOGII_ULONG_TYPE;
 #endif
 
 //结构体剩余扩展容量
-#define ZOGII_EXP_SIZ 591
+#define ZOGII_EXP_SIZ 1024
 //最大路径长度
 #define ZOGII_PAT_MAX 260 
 //最大字符串长度
@@ -28,7 +28,7 @@ typedef unsigned __int32 ZOGII_ULONG_TYPE;
 //最大含有颜色数
 #define ZOGII_COR_MAX 4
 //最大图片数
-#define ZOGII_PIC_MAX 12
+#define ZOGII_PIC_MAX 24
 //最大别名数
 #define ZOGII_INF_MAX 7
 
@@ -102,10 +102,30 @@ struct ZOGII_Pic
 	char Info[ZOGII_PAT_MAX];
 };
 
-//成虫 扩展
-struct ZOGII_Imago_2EX
+//成虫
+struct ZOGII_Imago
 {
+	//当前类型
+	// -1=无效
+	// 0 =未知
+	// 1 =雄
+	// 2 =雌
+	char Sex;
 	//////////////////////////鞘翅
+	//颜色总数 0-9
+	// -1=无效
+	//0 =该结构体为无效数据
+	//1-9 有效数据 
+	char ElytraColorNum;
+	//含有颜色 见颜色表
+	char ElytraColor[ZOGII_COR_MAX];
+	//斑纹
+	// -1=无效
+	// 0 =无
+	// 1 =条纹
+	// 2 =斑点
+	// 3 =斑点+条纹
+	char ElytraTexture; 
 	//斑点数 0-50
 	char ElytraPointNum; 
 	//////////////////////////前胸背板
@@ -125,38 +145,6 @@ struct ZOGII_Imago_2EX
 	char PronotumTexture; 
 	//斑点数 0-50
 	char PronotumPointNum; 
-};
-
-//成虫
-struct ZOGII_Imago
-{
-	//当前类型
-	// -1=无效
-	// 0 =未知
-	// 1 =雄
-	// 2 =雌
-	char Sex;
-	//颜色总数 0-9
-	// -1=无效
-	//0 =该结构体为无效数据
-	//1-9 有效数据 
-	char ElytraColorNum;
-	//含有颜色 见颜色表
-	char ElytraColor[ZOGII_COR_MAX];
-
-	// -1=无效
-	// 0 =无绒毛
-	// 1 =有绒毛
-//	char Villus; 
-	//扩展
-	char Expand; 
-	//斑纹
-	// -1=无效
-	// 0 =无
-	// 1 =条纹
-	// 2 =斑点
-	// 3 =斑点+条纹
-	char ElytraTexture; 
 
 	//图片索引值 0为无效
 	ZOGII_ULONG_TYPE Pic;
@@ -220,6 +208,13 @@ struct ZOGII_Pupa
 	// 1 =雄
 	// 2 =雌
 	char Sex;
+	//当前类型
+	// -1 无效值
+	// 0 =未知
+	// 1 =前蛹
+	// 2 =蛹
+	// 3 =蛹壳
+	char Type;
 	//颜色总数 0-9
 	//-1无效
 	//0 =该结构体为无效数据
@@ -229,18 +224,6 @@ struct ZOGII_Pupa
 	char Color[ZOGII_COR_MAX];
 	//图片索引值 0为无效
 	ZOGII_ULONG_TYPE Pic;
-};
-
-//蛹扩展
-struct ZOGII_Pupa_2EX
-{
-	//当前类型
-	// -1 无效值
-	// 0 =未知
-	// 1 =前蛹
-	// 2 =蛹
-	// 3 =蛹壳
-	char Type;
 };
 
 //特写
@@ -262,7 +245,6 @@ struct ZOGII_CloseUp
 	//图片索引值 0为无效
 	ZOGII_ULONG_TYPE Pic;
 };
-
 
 //瓢虫科
 struct ZOGII_Coccinellidae_DATA
@@ -303,19 +285,13 @@ struct ZOGII_Coccinellidae_DATA
 	char FoodName[ZOGII_FOODINF_MAX][ZOGII_STR_MAX];
 	//栖息地
 	char LivingName[ZOGII_LIVIINF_MAX][ZOGII_STR_MAX];
-///////////////////////////////////////////////////
-	char Expand2ex[4];
+
 	//命名者名称 年份
 	char DiscoverName[ZOGII_STR_MAX];
-///////////////////////////////////////////////////
-	struct ZOGII_Imago Imago[ZOGII_PIC_MAX];
-	struct ZOGII_Larva Larva[ZOGII_PIC_MAX];
-	struct ZOGII_Pupa Pupa[ZOGII_PIC_MAX];
-	struct ZOGII_Ovum Ovum[ZOGII_PIC_MAX];
 
-	//使用扩展
-	struct ZOGII_Imago_2EX Imago2ex[ZOGII_PIC_MAX];
-	struct ZOGII_Pupa_2EX Pupa2ex[ZOGII_PIC_MAX];
+	//发现地地名
+	unsigned char DiscoverMapTotal;
+	unsigned char DiscoverMapList[ZOGII_DISCOVERY_MAX];
 
 	// -1=无效
 	// 0=未知
@@ -363,17 +339,18 @@ struct ZOGII_Coccinellidae_DATA
 	// 0 =无绒毛
 	// 1 =有绒毛
 	char ImagoVillus; 
-	//特写
+
+	struct ZOGII_Imago Imago[ZOGII_PIC_MAX];
+	struct ZOGII_Larva Larva[ZOGII_PIC_MAX];
+	struct ZOGII_Pupa Pupa[ZOGII_PIC_MAX];
+	struct ZOGII_Ovum Ovum[ZOGII_PIC_MAX];
 	struct ZOGII_CloseUp Closeup[ZOGII_PIC_MAX];
-	//发现地地名
-	unsigned char DiscoverMapTotal;
-	unsigned char DiscoverMapList[ZOGII_DISCOVERY_MAX];
 
 	//扩展容量 为了以后更新
 	char Expand[ZOGII_EXP_SIZ];
 };
 
-//瓢虫科
+//瓢虫科种
 struct ZOGII_Coccinellidae_NAME
 {
 	struct ZOGII_Coccinellidae_DATA NA;
@@ -382,7 +359,7 @@ struct ZOGII_Coccinellidae_NAME
 	struct ZOGII_Coccinellidae_DATA *SpData;
 };
 
-//瓢虫科
+//瓢虫科属
 struct ZOGII_Coccinellidae_GENUS
 {
 	struct ZOGII_Coccinellidae_DATA GE;
@@ -391,7 +368,7 @@ struct ZOGII_Coccinellidae_GENUS
 	struct ZOGII_Coccinellidae_NAME *NameData;
 };
 
-//瓢虫科
+//瓢虫科亚科
 struct ZOGII_Coccinellidae_SUBFamily
 {
 	struct ZOGII_Coccinellidae_DATA SF;
