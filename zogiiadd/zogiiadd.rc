@@ -102,7 +102,7 @@ BEGIN
                     WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_COMBO_ImagoVillus,637,73,48,87,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_COMBO_ImagoNo,402,184,33,92,CBS_DROPDOWNLIST | 
+    COMBOBOX        IDC_COMBO_ImagoNo,402,184,33,198,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT_ImagoPicPath,178,297,174,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_ImagoPicInfo,178,311,259,12,ES_AUTOHSCROLL
@@ -151,7 +151,7 @@ BEGIN
                     WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_COMBO_OvumColor,543,292,48,81,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_COMBO_OvumNo,663,290,33,97,CBS_DROPDOWNLIST | 
+    COMBOBOX        IDC_COMBO_OvumNo,663,290,33,146,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
     LTEXT           "ÐÔ±ð",IDC_STATIC,449,294,17,8
     LTEXT           "ÑÕÉ«",IDC_STATIC,523,294,17,8
@@ -175,7 +175,7 @@ BEGIN
                     WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_COMBO_LarvaColorD,652,209,48,119,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_COMBO_LarvaNo,665,179,33,126,CBS_DROPDOWNLIST | 
+    COMBOBOX        IDC_COMBO_LarvaNo,665,179,33,193,CBS_DROPDOWNLIST | 
                     WS_VSCROLL | WS_TABSTOP
     EDITTEXT        IDC_EDIT_LarvaPicPath,469,225,150,12,ES_AUTOHSCROLL
     EDITTEXT        IDC_EDIT_LarvaPicInfo,469,241,232,12,ES_AUTOHSCROLL
@@ -463,6 +463,30 @@ BEGIN
 0x3031, "\000" 
     IDC_COMBO_ImagoNo, 0x403, 3, 0
 0x3131, "\000" 
+    IDC_COMBO_ImagoNo, 0x403, 3, 0
+0x3231, "\000" 
+    IDC_COMBO_ImagoNo, 0x403, 3, 0
+0x3331, "\000" 
+    IDC_COMBO_ImagoNo, 0x403, 3, 0
+0x3431, "\000" 
+    IDC_COMBO_ImagoNo, 0x403, 3, 0
+0x3531, "\000" 
+    IDC_COMBO_ImagoNo, 0x403, 3, 0
+0x3631, "\000" 
+    IDC_COMBO_ImagoNo, 0x403, 3, 0
+0x3731, "\000" 
+    IDC_COMBO_ImagoNo, 0x403, 3, 0
+0x3831, "\000" 
+    IDC_COMBO_ImagoNo, 0x403, 3, 0
+0x3931, "\000" 
+    IDC_COMBO_ImagoNo, 0x403, 3, 0
+0x3032, "\000" 
+    IDC_COMBO_ImagoNo, 0x403, 3, 0
+0x3132, "\000" 
+    IDC_COMBO_ImagoNo, 0x403, 3, 0
+0x3232, "\000" 
+    IDC_COMBO_ImagoNo, 0x403, 3, 0
+0x3332, "\000" 
     IDC_COMBO_OvumSex, 0x403, 5, 0
 0xb4ce, 0xaad6, "\000" 
     IDC_COMBO_OvumSex, 0x403, 3, 0
@@ -517,6 +541,30 @@ BEGIN
 0x3031, "\000" 
     IDC_COMBO_OvumNo, 0x403, 3, 0
 0x3131, "\000" 
+    IDC_COMBO_OvumNo, 0x403, 3, 0
+0x3231, "\000" 
+    IDC_COMBO_OvumNo, 0x403, 3, 0
+0x3331, "\000" 
+    IDC_COMBO_OvumNo, 0x403, 3, 0
+0x3431, "\000" 
+    IDC_COMBO_OvumNo, 0x403, 3, 0
+0x3531, "\000" 
+    IDC_COMBO_OvumNo, 0x403, 3, 0
+0x3631, "\000" 
+    IDC_COMBO_OvumNo, 0x403, 3, 0
+0x3731, "\000" 
+    IDC_COMBO_OvumNo, 0x403, 3, 0
+0x3831, "\000" 
+    IDC_COMBO_OvumNo, 0x403, 3, 0
+0x3931, "\000" 
+    IDC_COMBO_OvumNo, 0x403, 3, 0
+0x3032, "\000" 
+    IDC_COMBO_OvumNo, 0x403, 3, 0
+0x3132, "\000" 
+    IDC_COMBO_OvumNo, 0x403, 3, 0
+0x3232, "\000" 
+    IDC_COMBO_OvumNo, 0x403, 3, 0
+0x3332, "\000" 
     IDC_COMBO_LarvaSex, 0x403, 5, 0
 0xb4ce, 0xaad6, "\000" 
     IDC_COMBO_LarvaSex, 0x403, 3, 0
@@ -627,6 +675,30 @@ BEGIN
 0x3031, "\000" 
     IDC_COMBO_LarvaNo, 0x403, 3, 0
 0x3131, "\000" 
+    IDC_COMBO_LarvaNo, 0x403, 3, 0
+0x3231, "\000" 
+    IDC_COMBO_LarvaNo, 0x403, 3, 0
+0x3331, "\000" 
+    IDC_COMBO_LarvaNo, 0x403, 3, 0
+0x3431, "\000" 
+    IDC_COMBO_LarvaNo, 0x403, 3, 0
+0x3531, "\000" 
+    IDC_COMBO_LarvaNo, 0x403, 3, 0
+0x3631, "\000" 
+    IDC_COMBO_LarvaNo, 0x403, 3, 0
+0x3731, "\000" 
+    IDC_COMBO_LarvaNo, 0x403, 3, 0
+0x3831, "\000" 
+    IDC_COMBO_LarvaNo, 0x403, 3, 0
+0x3931, "\000" 
+    IDC_COMBO_LarvaNo, 0x403, 3, 0
+0x3032, "\000" 
+    IDC_COMBO_LarvaNo, 0x403, 3, 0
+0x3132, "\000" 
+    IDC_COMBO_LarvaNo, 0x403, 3, 0
+0x3232, "\000" 
+    IDC_COMBO_LarvaNo, 0x403, 3, 0
+0x3332, "\000" 
     IDC_COMBO_LarvaColorNum, 0x403, 2, 0
 0x0030, 
     IDC_COMBO_LarvaColorNum, 0x403, 2, 0
@@ -717,6 +789,30 @@ BEGIN
 0x3031, "\000" 
     IDC_COMBO_PupaNo, 0x403, 3, 0
 0x3131, "\000" 
+    IDC_COMBO_PupaNo, 0x403, 3, 0
+0x3231, "\000" 
+    IDC_COMBO_PupaNo, 0x403, 3, 0
+0x3331, "\000" 
+    IDC_COMBO_PupaNo, 0x403, 3, 0
+0x3431, "\000" 
+    IDC_COMBO_PupaNo, 0x403, 3, 0
+0x3531, "\000" 
+    IDC_COMBO_PupaNo, 0x403, 3, 0
+0x3631, "\000" 
+    IDC_COMBO_PupaNo, 0x403, 3, 0
+0x3731, "\000" 
+    IDC_COMBO_PupaNo, 0x403, 3, 0
+0x3831, "\000" 
+    IDC_COMBO_PupaNo, 0x403, 3, 0
+0x3931, "\000" 
+    IDC_COMBO_PupaNo, 0x403, 3, 0
+0x3032, "\000" 
+    IDC_COMBO_PupaNo, 0x403, 3, 0
+0x3132, "\000" 
+    IDC_COMBO_PupaNo, 0x403, 3, 0
+0x3232, "\000" 
+    IDC_COMBO_PupaNo, 0x403, 3, 0
+0x3332, "\000" 
     IDC_COMBO_PupaColorA, 0x403, 3, 0
 0xdece, "\000" 
     IDC_COMBO_PupaColorA, 0x403, 7, 0
@@ -1451,6 +1547,30 @@ BEGIN
 0x3031, "\000" 
     IDC_COMBO_CloseupNo, 0x403, 3, 0
 0x3131, "\000" 
+    IDC_COMBO_CloseupNo, 0x403, 3, 0
+0x3231, "\000" 
+    IDC_COMBO_CloseupNo, 0x403, 3, 0
+0x3331, "\000" 
+    IDC_COMBO_CloseupNo, 0x403, 3, 0
+0x3431, "\000" 
+    IDC_COMBO_CloseupNo, 0x403, 3, 0
+0x3531, "\000" 
+    IDC_COMBO_CloseupNo, 0x403, 3, 0
+0x3631, "\000" 
+    IDC_COMBO_CloseupNo, 0x403, 3, 0
+0x3731, "\000" 
+    IDC_COMBO_CloseupNo, 0x403, 3, 0
+0x3831, "\000" 
+    IDC_COMBO_CloseupNo, 0x403, 3, 0
+0x3931, "\000" 
+    IDC_COMBO_CloseupNo, 0x403, 3, 0
+0x3032, "\000" 
+    IDC_COMBO_CloseupNo, 0x403, 3, 0
+0x3132, "\000" 
+    IDC_COMBO_CloseupNo, 0x403, 3, 0
+0x3232, "\000" 
+    IDC_COMBO_CloseupNo, 0x403, 3, 0
+0x3332, "\000" 
     0
 END
 

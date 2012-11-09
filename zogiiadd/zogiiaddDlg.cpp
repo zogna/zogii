@@ -1498,14 +1498,14 @@ void CZogiiaddDlg::SaveM2Imago(int i)
 	Newdata.Imago[i].ElytraTexture = (char)m_ImagoElytraTexture;
 	Newdata.Imago[i].Sex = (char)m_ImagoSex;
 
-	Newdata.Imago2ex[i].ElytraPointNum =	(char)m_ImagoElytraPointNum;
-	Newdata.Imago2ex[i].PronotumColor[0] = (char)m_ImagoPronotumColorA;
-	Newdata.Imago2ex[i].PronotumColor[1] =	(char)m_ImagoPronotumColorB;
-	Newdata.Imago2ex[i].PronotumColor[2] =	(char)m_ImagoPronotumColorC;
-	Newdata.Imago2ex[i].PronotumColor[3] =	(char)m_ImagoPronotumColorD;
-	Newdata.Imago2ex[i].PronotumColorNum = (char)m_ImagoPronotumColorNum;
-	Newdata.Imago2ex[i].PronotumPointNum =	(char)m_ImagoPronotumPointNum;
-	Newdata.Imago2ex[i].PronotumTexture =	(char)m_ImagoPronotumTexture;
+	Newdata.Imago[i].ElytraPointNum =	(char)m_ImagoElytraPointNum;
+	Newdata.Imago[i].PronotumColor[0] = (char)m_ImagoPronotumColorA;
+	Newdata.Imago[i].PronotumColor[1] =	(char)m_ImagoPronotumColorB;
+	Newdata.Imago[i].PronotumColor[2] =	(char)m_ImagoPronotumColorC;
+	Newdata.Imago[i].PronotumColor[3] =	(char)m_ImagoPronotumColorD;
+	Newdata.Imago[i].PronotumColorNum = (char)m_ImagoPronotumColorNum;
+	Newdata.Imago[i].PronotumPointNum =	(char)m_ImagoPronotumPointNum;
+	Newdata.Imago[i].PronotumTexture =	(char)m_ImagoPronotumTexture;
 }
 //临时数据到M
 void CZogiiaddDlg::ReadImago2M(int i)
@@ -1526,14 +1526,14 @@ void CZogiiaddDlg::ReadImago2M(int i)
 		m_ImagoPicPath = NewPicdata[ZOGII_ALL_PIC_Imago_START+i].Path;
 		m_ImagoPicInfo = NewPicdata[ZOGII_ALL_PIC_Imago_START+i].Info;
 
-		m_ImagoElytraPointNum = Newdata.Imago2ex[i].ElytraPointNum;
-		m_ImagoPronotumColorA = Newdata.Imago2ex[i].PronotumColor[0];
-		m_ImagoPronotumColorB = Newdata.Imago2ex[i].PronotumColor[1];
-		m_ImagoPronotumColorC = Newdata.Imago2ex[i].PronotumColor[2];
-		m_ImagoPronotumColorD = Newdata.Imago2ex[i].PronotumColor[3];
-		m_ImagoPronotumColorNum=Newdata.Imago2ex[i].PronotumColorNum;
-		m_ImagoPronotumPointNum=Newdata.Imago2ex[i].PronotumPointNum;
-		m_ImagoPronotumTexture=Newdata.Imago2ex[i].PronotumTexture;
+		m_ImagoElytraPointNum = Newdata.Imago[i].ElytraPointNum;
+		m_ImagoPronotumColorA = Newdata.Imago[i].PronotumColor[0];
+		m_ImagoPronotumColorB = Newdata.Imago[i].PronotumColor[1];
+		m_ImagoPronotumColorC = Newdata.Imago[i].PronotumColor[2];
+		m_ImagoPronotumColorD = Newdata.Imago[i].PronotumColor[3];
+		m_ImagoPronotumColorNum=Newdata.Imago[i].PronotumColorNum;
+		m_ImagoPronotumPointNum=Newdata.Imago[i].PronotumPointNum;
+		m_ImagoPronotumTexture=Newdata.Imago[i].PronotumTexture;
 
 	}
 	else	if(0==i)
@@ -1570,14 +1570,14 @@ void CZogiiaddDlg::ReadDB2Imago(struct ZOGII_Coccinellidae_DATA* d)
 			NewPicdata[ZOGII_ALL_PIC_Imago_START+i].flag=0;
 		}
 
-		Newdata.Imago2ex[i].ElytraPointNum =	d->Imago2ex[i].ElytraPointNum;
-		Newdata.Imago2ex[i].PronotumColor[0] = 	d->Imago2ex[i].PronotumColor[0]; 
-		Newdata.Imago2ex[i].PronotumColor[1] =	d->Imago2ex[i].PronotumColor[1];
-		Newdata.Imago2ex[i].PronotumColor[2] =	d->Imago2ex[i].PronotumColor[2];
-		Newdata.Imago2ex[i].PronotumColor[3] =	d->Imago2ex[i].PronotumColor[3];
-		Newdata.Imago2ex[i].PronotumColorNum = 	d->Imago2ex[i].PronotumColorNum; 
-		Newdata.Imago2ex[i].PronotumPointNum =	d->Imago2ex[i].PronotumPointNum;
-		Newdata.Imago2ex[i].PronotumTexture =	d->Imago2ex[i].PronotumTexture;	
+		Newdata.Imago[i].ElytraPointNum =	d->Imago[i].ElytraPointNum;
+		Newdata.Imago[i].PronotumColor[0] = 	d->Imago[i].PronotumColor[0]; 
+		Newdata.Imago[i].PronotumColor[1] =	d->Imago[i].PronotumColor[1];
+		Newdata.Imago[i].PronotumColor[2] =	d->Imago[i].PronotumColor[2];
+		Newdata.Imago[i].PronotumColor[3] =	d->Imago[i].PronotumColor[3];
+		Newdata.Imago[i].PronotumColorNum = 	d->Imago[i].PronotumColorNum; 
+		Newdata.Imago[i].PronotumPointNum =	d->Imago[i].PronotumPointNum;
+		Newdata.Imago[i].PronotumTexture =	d->Imago[i].PronotumTexture;	
 	}
 }
 
@@ -1726,7 +1726,7 @@ void CZogiiaddDlg::SaveM2Pupa(int i)
 	Newdata.Pupa[i].Color[2] =	(char)m_PupaColorC;
 	Newdata.Pupa[i].Color[3] =	(char)m_PupaColorD;
 	Newdata.Pupa[i].Sex = (char)m_PupaSex;
-	Newdata.Pupa2ex[i].Type = (char)m_PupaType;
+	Newdata.Pupa[i].Type = (char)m_PupaType;
 }
 //临时数据到M
 void CZogiiaddDlg::ReadPupa2M(int i)
@@ -1742,7 +1742,7 @@ void CZogiiaddDlg::ReadPupa2M(int i)
 		m_PupaColorC = Newdata.Pupa[i].Color[2];
 		m_PupaColorD = Newdata.Pupa[i].Color[3];
 		m_PupaSex = Newdata.Pupa[i].Sex;
-		m_PupaType =	Newdata.Pupa2ex[i].Type;
+		m_PupaType =	Newdata.Pupa[i].Type;
 
 		m_PupaPicPath = NewPicdata[ZOGII_ALL_PIC_Pupa_START+i].Path;
 		m_PupaPicInfo = NewPicdata[ZOGII_ALL_PIC_Pupa_START+i].Info;
@@ -1766,7 +1766,7 @@ void CZogiiaddDlg::ReadDB2Pupa(struct ZOGII_Coccinellidae_DATA* d)
 		Newdata.Pupa[i].Color[2] =	d->Pupa[i].Color[2];
 		Newdata.Pupa[i].Color[3] =	d->Pupa[i].Color[3];
 		Newdata.Pupa[i].Sex = d->Pupa[i].Sex;
-		Newdata.Pupa2ex[i].Type= d->Pupa2ex[i].Type;
+		Newdata.Pupa[i].Type= d->Pupa[i].Type;
 
 		//不为空 
 		if(d->Pupa[i].Pic && DBPicdata[d->Pupa[i].Pic].flag)
