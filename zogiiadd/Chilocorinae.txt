@@ -1,0 +1,92 @@
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+
+                        Subfamily	Chilocorinae Mulsant, 1846 	 
+  	  	Direct Children: 	 
+ 	                                    Genus	Arawana Leng, 1908 	 
+ 	                                    Genus	Axion Mulsant, 1850 	 
+ 	                                    Genus	Brumoides Chapin, 1965 	 
+ 	                                    Genus	Brumus Mulsant, 1850 	 
+ 	                                    Genus	Chilocorus Leach, 1815 	 
+ 	                                    Genus	Curinus Mulsant, 1850 	 
+ 	                                    Genus	Egius Mulsant, 1850 	 
+ 	                                    Genus	Exochomus Redtenbacher, 1843 	 
+ 	                                    Genus	Halmus Mulsant, 1850 	 
+ 	                                    Genus	Orcus Mulsant, 1850 	 
+ 	                                    Genus	Platynaspis Redtenbacher, 1844 	 
+ 	                                    Genus	Telsimia Casey, 1899 
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+  Genus	Arawana Leng, 1908 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Arawana arizonica (Casey, 1899) 
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+   Genus	Axion Mulsant, 1850 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Axion plagiatum (Olivier, 1808) 	 
+ 	                                       Species	Axion tripustulatum (De Geer, 1775) 
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+            Genus	Brumoides Chapin, 1965 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Brumoides blumi (Nunenmacher, 1934) 	 
+ 	                                       Species	Brumoides histrio (Fall, 1901) 	 
+ 	                                       Species	Brumoides septentrionis (Weise, 1885) 	 
+ 	                                       Species	Brumoides suturalis (Fabricius, 1798) ¨C threestriped lady beetle
+
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+           Genus	Brumus Mulsant, 1850 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Brumus quadripustulatus (Linnaeus, 1758) 
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+            Genus	Chilocorus Leach, 1815 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Chilocorus bipustulatus (Linnaeus, 1758) 	 
+ 	                                       Species	Chilocorus cacti (Linnaeus, 1767) 	 
+ 	                                       Species	Chilocorus circumdatus (Gyllenhall in Schonherr, 1808) 	 
+ 	                                       Species	Chilocorus fraternus LeConte, 1860 	 
+ 	                                       Species	Chilocorus hexacyclus Smith, 1959 	 
+ 	                                       Species	Chilocorus kuwanae Silvestri, 1909 	 
+ 	                                       Species	Chilocorus nigritus (Fabricius, 1798) 	 
+ 	                                       Species	Chilocorus orbus Casey, 1899 	 
+ 	                                       Species	Chilocorus stigma (Say, 1835) ¨C twicestabbed lady beetle, coccinelle stigma	 
+ 	                                       Species	Chilocorus tricyclus Smith, 1959 	 
+ 	                                       Species	Chilocorus tumidus Leng, 1908 
+
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+     Genus	Curinus Mulsant, 1850 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Curinus coeruleus (Mulsant, 1850) 
+
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+    Genus	Egius Mulsant, 1850 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Egius platycephalus Mulsant, 1850 
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+
+                Genus	Exochomus Redtenbacher, 1843 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Exochomus aethiops (Bland, 1864) 	 
+ 	                                       Species	Exochomus californicus Casey, 1899 	 
+ 	                                       Species	Exochomus childreni Mulsant, 1850 	 
+ 	                                       Species	Exochomus fasciatus Casey, 1899 	 
+ 	                                       Species	Exochomus flavipes (Thunberg, 1781) 	 
+ 	                                       Species	Exochomus marginipennis (LeConte, 1824) 	 
+ 	                                       Species	Exochomus metallicus Korschefsky, 1935 	 
+ 	                                       Species	Exochomus subrotundus Casey, 1899 	 
+ 	                                       Species	Exochomus townsendi Casey, 1908 
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+  Genus	Halmus Mulsant, 1850 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Halmus chalybeus (Boisduval, 1835) ¨C steel blue lady beetle, steelblue lady beetle
+ ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+         Genus	Orcus Mulsant, 1850 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Orcus australasiae (Boisduval, 1835) 	 
+ 	                                       Species	Orcus ovalis Blackburn, 1892 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+       Genus	Platynaspis Redtenbacher, 1844 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Platynaspis nigra (Weise, 1879) 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+      Genus	Telsimia Casey, 1899 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Telsimia nitida Chapin, 1926 	 
+  	  	 
