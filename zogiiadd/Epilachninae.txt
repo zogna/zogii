@@ -1,0 +1,15 @@
+   Subfamily	Epilachninae Mulsant, 1846 	 
+  	  	Direct Children: 	 
+ 	                                    Genus	Epilachna Chevrolat in Dejean, 1837 	 
+ 	                                    Genus	Subcoccinella Huber, 1842 
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   Genus	Epilachna Chevrolat in Dejean, 1837 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Epilachna borealis (Fabricius, 1775) ¨C squash beetle	 
+ 	                                       Species	Epilachna tredecimnotata (Latreille, 1833) 	 
+ 	                                       Species	Epilachna varivestis Mulsant, 1850 
+
+///////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+   Genus	Subcoccinella Huber, 1842 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Subcoccinella vigintiquatuorpunctata (Linnaeus, 1758) 

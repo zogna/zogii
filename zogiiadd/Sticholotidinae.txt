@@ -1,0 +1,78 @@
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+                Subfamily	Sticholotidinae Weise, 1901 	 
+  	  	Direct Children: 	 
+ 	                                    Genus	Cephaloscymnus Crotch, 1873 	 
+ 	                                    Genus	Coccidophilus Brethes, 1905 	 
+ 	                                    Genus	Delphastus Casey, 1899 	 
+ 	                                    Genus	Gnathoweisea Gordon, 1970 	 
+ 	                                    Genus	Microweisea Cockerell, 1903 	 
+ 	                                    Genus	Nipus Casey, 1899 	 
+ 	                                    Genus	Pharoscymnus Bedel, 1906 	 
+ 	                                    Genus	Serangium Blackburn, 1889 	 
+ 	                                    Genus	Sticholotis Crotch, 1874 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+       Genus	Cephaloscymnus Crotch, 1873 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Cephaloscymnus insulatus Gordon, 1970 	 
+ 	                                       Species	Cephaloscymnus laevis Gordon, 1970 	 
+ 	                                       Species	Cephaloscymnus occidentalis Horn, 1895 	 
+ 	                                       Species	Cephaloscymnus zimmermanni Crotch, 1873 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Species	Cephaloscymnus zimmermanni Crotch, 1873 	 
+  	  	Direct Children: 	 
+ 	                                          Subspecies	Cephaloscymnus zimmermanni australis Gordon, 1970 	 
+ 	                                          Subspecies	Cephaloscymnus zimmermanni zimmermanni Crotch, 1873 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    Genus	Coccidophilus Brethes, 1905 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Coccidophilus atronitens (Casey, 1899) 	 
+ 	                                       Species	Coccidophilus marginata (LeConte, 1878) 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+ Genus	Delphastus Casey, 1899 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Delphastus catalinae (Horn, 1895) 	 
+ 	                                       Species	Delphastus diversipes (Champion, 1913) 	 
+ 	                                       Species	Delphastus pallidus (LeConte, 1878) 	 
+ 	                                       Species	Delphastus pusillus (LeConte, 1852) 	 
+  	  	 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+        Genus	Gnathoweisea Gordon, 1970 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Gnathoweisea ferox Gordon, 1985 	 
+ 	                                       Species	Gnathoweisea hageni Gordon, 1985 	 
+ 	                                       Species	Gnathoweisea micula Gordon, 1985 	 
+ 	                                       Species	Gnathoweisea planiceps (Casey, 1899) 	 
+ 	                                       Species	Gnathoweisea schwarzi Gordon, 1970 	 
+ 	                                       Species	Gnathoweisea texana Gordon, 1985 
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+           Genus	Microweisea Cockerell, 1903 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Microweisea coccidivora (Ashmead, 1880) 	 
+ 	                                       Species	Microweisea minuta (Casey, 1899) 	 
+ 	                                       Species	Microweisea misella (LeConte, 1878) 	 
+ 	                                       Species	Microweisea ovalis (LeConte, 1878) 	 
+ 	                                       Species	Microweisea suturalis (Schwarz, 1904) 	 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+   Genus	Nipus Casey, 1899 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Nipus biplagiatus Casey, 1899 	 
+ 	                                       Species	Nipus niger Casey, 1899 	 
+ 	                                       Species	Nipus occiduus Gordon, 1970 	 
+ 	                                       Species	Nipus planatus Gordon, 1970 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+     Genus	Pharoscymnus Bedel, 1906 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Pharoscymnus flexibilis (Mulsant, 1853) 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+          Genus	Serangium Blackburn, 1889 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Serangium maculigerum Blackburn, 1892 
+//////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+      Genus	Sticholotis Crotch, 1874 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Sticholotis ruficeps Weise, 1902 
+
