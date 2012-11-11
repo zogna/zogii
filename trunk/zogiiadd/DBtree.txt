@@ -4,10 +4,10 @@
 		00000-	matsumurai-	双斑隱脛瓢蟲-	双斑隱脛瓢蟲	[]
 	00001-	Cryptogonus-	隐势瓢虫属-	隐势瓢虫属
 		00001-	angusticarinatus-	窄背隐势瓢虫-	窄背隐势瓢虫	[]
-		00002-	horishanus-	台灣隱勢瓢蟲-	台灣隱勢瓢蟲	[]
+		00002-	horishanus-	台灣隱勢瓢蟲(姬双纹小黑瓢虫)-	台灣隱勢瓢蟲(姬双纹小黑瓢虫)	[Scymnus horishanus Ohta, 1929-	]
 		00003-	kurosawai-	黑澤隱勢瓢蟲-	黑澤隱勢瓢蟲	[]
-		00004-	ohtai-	太田隱勢瓢蟲(太田小黑瓢蟲)-	太田隱勢瓢蟲(太田小黑瓢蟲)	[]
-		00005-	orbiculus-	變斑隱勢瓢蟲(雙紋小黑瓢蟲)-	變斑隱勢瓢蟲(雙紋小黑瓢蟲)	[]
+		00004-	ohtai-	太田隱勢瓢蟲(太田小黑瓢蟲)-	太田隱勢瓢蟲(太田小黑瓢蟲)	[Cryptogonus 4-guttatus. Weise, 1923 (nec Weise, 1895)-	]
+		00005-	orbiculus-	變斑隱勢瓢蟲(雙紋小黑瓢蟲)-	變斑隱勢瓢蟲(雙紋小黑瓢蟲)	[Diomus futahoshii Ohta, 1929-	]
 		00000-	postmedialis-	臀斑隐势瓢虫-	臀斑隐势瓢虫	[]
 		00006-	robustus-	粗囊隱勢瓢蟲-	粗囊隱勢瓢蟲	[]
 00004-	Chilocorinae-	盔唇瓢虫亚科-	盔唇瓢蟲亞科
@@ -34,8 +34,8 @@
 	00001-	Rodolia -	Rodolia -	Rodolia 
 		00001-	cardinalis-	澳洲瓢虫-	澳洲瓢虫	[]
 		00002-	formosana-	台湾红瓢虫-	台湾红瓢虫	[]
-		00000-	pumila-	小红瓢虫-	小紅瓢蟲	[]
-		00003-	sexnotata-	六斑红瓢虫-	六斑红瓢虫	[]
+		00000-	pumila-	小红瓢虫-	小紅瓢蟲	[Rodolia okinawensis Miyatake,1959-	]
+		00003-	sexnotata-	六斑红瓢虫-	六斑红瓢虫	[Epilachna sexnolata Mulsant, 1850-	Rodolia quadrimaculata Mader, 1939, syn. nov-	]
 	00000-	Sumnius-	粒眼瓢虫属-	粒眼瓢虫属
 		00000-	babai-	斜角粒眼瓢虫-	斜角粒眼瓢蟲	[]
 		00001-	yunnanus-	云南粒眼瓢虫-	雲南粒眼瓢蟲	[]
@@ -248,42 +248,42 @@
 		00001-	xiangchengensis-	乡城黄壮瓢虫-	乡城黄壮瓢虫	[]
 00010-	Epilachninae-	食植瓢蟲亞科-	食植瓢蟲亞科
 	00003-	Afidenta-	Afidenta-	Afidenta
-		00000-	misera-	大豆瓢虫-	大豆瓢虫	[]
+		00000-	misera-	大豆瓢虫-	大豆瓢虫	[Afidenta mimetica Dieke, 1947-	]
 	00000-	Afissula-	Afissula-	Afissula
-		00000-	arisana-	阿里山崎齒瓢蟲-	阿里山崎齒瓢蟲	[]
-		00001-	expansa-	咬人貓黑斑瓢蟲(球端崎齒瓢蟲)-	咬人貓黑斑瓢蟲(球端崎齒瓢蟲)	[]
+		00000-	arisana-	阿里山崎齒瓢蟲-	阿里山崎齒瓢蟲	[Afidenta arisana Li, 1961-	]
+		00001-	expansa-	咬人貓黑斑瓢蟲(球端崎齒瓢蟲)-	咬人貓黑斑瓢蟲(球端崎齒瓢蟲)	[Epilachna fenchinica Pang, 1993, syn. nov-	Afissa expansa Dieke, 1947-	]
 	00001-	Epilachna-	Epilachna-	Epilachna
-		00010-	admirabilis-	瓜黑斑瓢蟲(瓜茄瓢蟲)-	瓜黑斑瓢蟲(瓜茄瓢蟲)	[]
+		00010-	admirabilis-	瓜黑斑瓢蟲(瓜茄瓢蟲)-	瓜黑斑瓢蟲(瓜茄瓢蟲)	[Solanophila alternans Weise, 1923 (nec. Mulsant, 1850)-	Epilachna admirabilis taiwanensis Miyatake, 1965-	]
 		00012-	angusta-	直管食植瓢虫-	直管食植瓢虫	[]
 		00013-	bifibra-	双叶食植瓢虫-	双叶食植瓢虫	[]
 		00001-	chinensis-	中華食植瓢蟲-	中華食植瓢蟲	[]
 		00002-	chingjing-	清境食植瓢蟲-	清境食植瓢蟲	[]
-		00015-	chingsingli-	景星食植瓢虫-	景星食植瓢虫	[]
+		00015-	chingsingli-	景星食植瓢虫-	景星食植瓢虫	[ Epilachna formosana  Li et Cook, 1961 (nec. Weise, 1923)-	]
 		00000-	crassimala-	杜虹十星瓢蟲(厚顎食植瓢蟲)-	杜虹十星瓢蟲(厚顎食植瓢蟲)	[]
-		00003-	decemguttata-	十點食植瓢蟲-	十點食植瓢蟲	[]
-		00014-	formosana-	台湾食植瓢虫-	台湾食植瓢虫	[]
-		00004-	hendecaspilota-	十一斑食植瓢蟲-	十一斑食植瓢蟲	[]
+		00003-	decemguttata-	十點食植瓢蟲-	十點食植瓢蟲	[Solanophila decemguttata Weise-	]
+		00014-	formosana-	台湾食植瓢虫-	台湾食植瓢虫	[Afissa decemguttata  Dieke, 1947 (nec. Weise, 1923)-	Epilachna confusa Li, 1961,syn. nov.-	]
+		00004-	hendecaspilota-	十一斑食植瓢蟲-	十一斑食植瓢蟲	[Epilachna flavicollis  Li et Cook, 1961 (nec. Thunberg, 1781)-	]
 		00017-	lata-	素黑帶瓢蟲-	素黑帶瓢蟲	[]
-		00005-	longissima-	長管食植瓢蟲-	長管食植瓢蟲	[]
-		00006-	maculicollis-	苧麻十星瓢蟲(圓斑食植瓢蟲)-	苧麻十星瓢蟲(圓斑食植瓢蟲)	[]
-		00011-	maxima-	大食植瓢蟲-	大食植瓢蟲	[]
+		00005-	longissima-	長管食植瓢蟲-	長管食植瓢蟲	[Afissa longissima Dieke, 1947-	]
+		00006-	maculicollis-	苧麻十星瓢蟲(圓斑食植瓢蟲)-	苧麻十星瓢蟲(圓斑食植瓢蟲)	[ Solcmophila nilgirica var. maculicollis Sicard, 1912-	Solanophila fallax  Weise, 1923 (nec. Weise, 1908)-	Afissa maculicollis Dieke, 1947-	]
+		00011-	maxima-	大食植瓢蟲-	大食植瓢蟲	[Afissa maxima (Weise, 1898)-	Solanophila saginata  Korschefsky, 1933 (nec. Weise, 1902)-	]
 		00007-	microgenitalia-	小陽食植瓢蟲-	小陽食植瓢蟲	[]
-		00008-	mobilitertiae-	十二星食植瓢蟲-	十二星食植瓢蟲	[]
+		00008-	mobilitertiae-	十二星食植瓢蟲-	十二星食植瓢蟲	[Epilachna gressitti Li, 1961,syn. nov.-	]
 		00016-	paling-	巴陵食植瓢虫-	巴陵食植瓢虫	[]
-		00009-	sauteri-	八仙黑斑瓢蟲(曲管食植瓢蟲)-	八仙黑斑瓢蟲(曲管食植瓢蟲)	[]
+		00009-	sauteri-	八仙黑斑瓢蟲(曲管食植瓢蟲)-	八仙黑斑瓢蟲(曲管食植瓢蟲)	[Solanophila sauteri Weise, 1923 -	]
 	00002-	Henosepilachna-	Henosepilachna-	Henosepilachna
-		00000-	boisduvali-	蘭嶼茄十二星瓢蟲(波氏裂臀瓢虫)-	蘭嶼茄十二星瓢蟲(波氏裂臀瓢虫)	[]
-		00004-	processa-	齿叶裂臀瓢虫-	齿叶裂臀瓢虫	[]
+		00000-	boisduvali-	蘭嶼茄十二星瓢蟲(波氏裂臀瓢虫)-	蘭嶼茄十二星瓢蟲(波氏裂臀瓢虫)	[Epilachna boisduvali Mulsant, 1850-	EpHachna indica Miwa et al, 1932 (nec. Mulsant, 1850)-	]
+		00004-	processa-	齿叶裂臀瓢虫-	齿叶裂臀瓢虫	[Epilachna Wissmanni ab. processa Weise, 1908-	]
 		00002-	pusillanima-	茄十二星瓢蟲(鋸葉裂臀瓢蟲)-	茄十二星瓢蟲(鋸葉裂臀瓢蟲)	[]
-		00001-	subfasciata-	半帶裂臀瓢蟲-	半帶裂臀瓢蟲	[]
+		00001-	subfasciata-	半帶裂臀瓢蟲-	半帶裂臀瓢蟲	[Epilachna semifasciata Dieke, 1947-	 Epilachna indica ab. ceylonia Korschefsky, 1933 (nec. Weise, 1901)-	]
 		00005-	vigintioctomaculata-	马铃薯瓢虫-	马铃薯瓢虫	[]
-		00003-	vigintioctopunctata-	茄二十八星瓢蟲-	茄二十八星瓢蟲	[]
+		00003-	vigintioctopunctata-	茄二十八星瓢蟲-	茄二十八星瓢蟲	[Epilachna vigintioctopunctata (Fabricius, 1775)-	Henosepilachna sparsa (Herbst, 1786-	]
 00009-	Hyperaspinae-	显盾瓢虫亚科-	显盾瓢虫亚科
 00008-	Lithophilinae-	四节瓢虫亚科-	四節瓢蟲亞科
 00003-	Ortaliinae-	刻眼瓢虫亚科-	刻眼瓢蟲亞科
 	00000-	Amida-	Amida-	Amida
 		00000-	tricolor-	三色瓢蟲-	三色瓢蟲	[]
-			00000-	formosana-	台灣三色瓢蟲(台灣三色花瓢蟲)-	台灣三色瓢蟲(台灣三色花瓢蟲)	[]
+			00000-	formosana-	台灣三色瓢蟲(台灣三色花瓢蟲)-	台灣三色瓢蟲(台灣三色花瓢蟲)	[Amida formosana Kurisaki,1920-	Amida tricolor var. formosana Weise, 1923-	]
 00001-	Scymninae-	小毛瓢虫亚科-	小毛瓢蟲亞科
 	00006-	Axinoscymnus-	斧瓢虫属-	斧瓢虫属
 		00001-	beneficus-	beneficus-	beneficus	[]
@@ -291,10 +291,10 @@
 	00001-	Cryptolaemus-	隱唇瓢蟲属-	隱唇瓢蟲属
 		00000-	montrouzieri-	孟氏隱唇瓢蟲-	孟氏隱唇瓢蟲	[]
 	00008-	Diomus-	基瓢虫属-	基瓢虫属
-		00000-	akonis-	褐缝基瓢虫-	褐缝基瓢虫	[]
+		00000-	akonis-	褐缝基瓢虫-	褐缝基瓢虫	[Pullus akonis Ohta, 1929-	Diomus brunsuturalis Pang et Gordon, 1986’ syn. nov.-	]
 	00007-	Nephus-	弯叶毛瓢虫属-	弯叶毛瓢虫属
-		00000-	ancyroides-	双鳞弯叶毛瓢虫-	双鳞弯叶毛瓢虫	[]
-		00001-	tagiapatus-	中斑弯叶毛瓢虫-	中斑弯叶毛瓢虫	[]
+		00000-	ancyroides-	双鳞弯叶毛瓢虫-	双鳞弯叶毛瓢虫	[Nephus dilepismoides Pang and Pu,1988-	]
+		00001-	tagiapatus-	中斑弯叶毛瓢虫-	中斑弯叶毛瓢虫	[Scymnus (Nephus) tagiapatus Kamiya,1965-	]
 	00002-	Sasajiscymnus-	方瓢虫属-	方瓢虫属
 		00009-	amplus-	大方瓢虫-	大方瓢虫	[Pseudoscymnus amplus Yang et Wu, 1972-	]
 		00010-	anmashanus-	鞍马山方瓢虫-	鞍马山方瓢虫	[Pseudoscymnus anmashanus Yang, 1971 -	]
@@ -318,7 +318,7 @@
 		00002-	centralis-	中黑小瓢蟲-	中黑小瓢蟲	[]
 		00017-	dorcatomoides-	锈色小瓢虫-	锈色小瓢虫	[]
 		00010-	fanjingicus-	梵净小瓢虫-	梵净小瓢虫	[]
-		00001-	fuscatus-	棕色毛瓢蟲-	棕色毛瓢蟲	[]
+		00001-	fuscatus-	棕色毛瓢蟲-	棕色毛瓢蟲	[Scymnus (Neopullus) brunnescens Motschulsky, 1866-	Pullus niponicus Lewis, 1896-	Pullus paganus: Ohta, 1929 (nec. Lewis, 1896)-	]
 		00013-	hatomensis-	鸠间小瓢虫-	鸠间小瓢虫	[]
 		00000-	hoffmanni-	黑襟毛瓢蟲-	黑襟毛瓢蟲	[]
 		00021-	leo-	狮色小瓢虫-	狮色小瓢虫	[]
@@ -330,10 +330,10 @@
 		00011-	perdere-	盖端小瓢虫-	盖端小瓢虫	[]
 		00005-	petalinus-	扁葉小瓢蟲-	扁葉小瓢蟲	[]
 		00004-	posticalis-	後斑小瓢蟲-	後斑小瓢蟲	[]
-		00003-	quadrillum-	四斑小瓢蟲-	四斑小瓢蟲	[]
+		00003-	quadrillum-	四斑小瓢蟲-	四斑小瓢蟲	[Pullus taiwanus Ohta, 1929-	Scymnus (Pullus) taiwanus (Ohta, 1929)-	Scymnus hilaris ab. awanus Ohta, 1929 -	]
 		00023-	secula-	立拟小瓢虫-	立拟小瓢虫	[]
 		00016-	shirozui-	弯叶小瓢虫-	弯叶小瓢虫	[]
-		00006-	sodalis-	束小瓢蟲-	束小瓢蟲	[]
+		00006-	sodalis-	束小瓢蟲-	束小瓢蟲	[Pullus sodalis Weise, 1923-	]
 		00012-	takasago-	高砂小瓢虫-	高砂小瓢虫	[]
 		00014-	yangi-	内囊小瓢虫-	内囊小瓢虫	[Scymnus (Pullus) vihpuensis Hoang, 1982-	Scymnus (Pullus) bicolor Yang, 1978, nec. Philippi, 1854-	]
 	00005-	Stethorus-	Stethorus-	Stethorus
@@ -347,14 +347,14 @@
 	00004-	Hikonasukuna-	唇展瓢虫属-	唇展瓢虫属
 		00000-	monticola-	褐色唇展瓢虫-	褐色唇展瓢虫	[]
 	00001-	Jauravia-	Jauravia-	Jauravia
-		00000-	limbata-	黃環豔瓢蟲-	黃環豔瓢蟲	[]
+		00000-	limbata-	黃環豔瓢蟲-	黃環豔瓢蟲	[Paraclitostethus ovatus Ohta, 1929-	]
 	00006-	Nesolotis-	Nesolotis-	Nesolotis
 		00000-	shirozui-	九斑尼艳瓢虫-	九斑尼艳瓢虫	[]
 	00000-	Pharoscymnus-	Pharoscymnus-	Pharoscymnus
 		00000-	taoi-	台毛豔瓢蟲-	台毛豔瓢蟲	[]
 	00002-	Serangium-	Serangium-	Serangium
 		00000-	japonicum-	刀角瓢蟲-	刀角瓢蟲	[]
-		00001-	yasumatsui-	铲角瓢虫-	铲角瓢虫	[]
+		00001-	yasumatsui-	铲角瓢虫-	铲角瓢虫	[Catana yasumatsui Sasaji, 1967-	]
 	00005-	Shirozuella-	长唇瓢虫属-	长唇瓢虫属
 		00002-	alishanensis-	阿里山长唇瓢虫-	阿里山长唇瓢虫	[]
 		00001-	appendiculata-	附肢长唇瓢虫-	附肢长唇瓢虫	[]
