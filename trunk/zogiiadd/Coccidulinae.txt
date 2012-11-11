@@ -1,0 +1,44 @@
+       Subfamily	Coccidulinae Mulsant, 1846 	 
+  	  	Direct Children: 	 
+ 	                                    Genus	Anovia Casey, 1908 	 
+ 	                                    Genus	Azya Mulsant, 1850 	 
+ 	                                    Genus	Coccidula Kugelann, 1798 	 
+ 	                                    Genus	Exoplectra Chevrolat in Dejean, 1837 	 
+ 	                                    Genus	Pseudoazya Gordon, 1980 	 
+ 	                                    Genus	Rhyzobius Stephens, 1829 	 
+ 	                                    Genus	Rodolia Mulsant, 1850 	 
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+     Genus	Anovia Casey, 1908 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Anovia virginalis (Wickham, 1905) 
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+     Genus	Azya Mulsant, 1850 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Azya orbigera Mulsant, 1850 
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+
+            Genus	Coccidula Kugelann, 1798 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Coccidula lepida LeConte, 1852 
+  ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////// 
+
+        Genus	Exoplectra Chevrolat in Dejean, 1837 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Exoplectra schaefferi Gordon, 1985
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
+  Genus	Pseudoazya Gordon, 1980 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Pseudoazya trinitatis (Marshall, 1912) 
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
+  Genus	Rhyzobius Stephens, 1829 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Rhyzobius forestieri (Mulsant, 1853) 	 
+ 	                                       Species	Rhyzobius lophanthae (Blaisdell, 1892) 	 
+ 	                                       Species	Rhyzobius ventralis (Erichson, 1842) ¨C black lady beetle
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
+
+              Genus	Rodolia Mulsant, 1850 	 
+  	  	Direct Children: 	 
+ 	                                       Species	Rodolia cardinalis (Mulsant, 1850) ¨C vedalia
