@@ -232,6 +232,8 @@ BEGIN
                     284,137,14
     PUSHBUTTON      "http://www.hkwildlife.net",IDC_BUTTON_HKWL,18,269,105,
                     14
+    LTEXT           "http://www.itis.gov/",IDC_STATIC,361,309,81,8
+    LTEXT           "http://www.discoverlife.org",IDC_STATIC,269,269,109,8
 END
 
 
