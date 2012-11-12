@@ -920,10 +920,10 @@ void CZogiiaddDlg::BuildTree()
 			hItemB=AddTree(hItemA,DBdata[i].GenusData[j].GE.Genus[language],TYPE_Genus,i,j,0,0);
 			for(k=0;k<DBdata[i].GenusData[j].NameTotal;k++)
 			{
-				hItemC=AddTree(hItemB,DBdata[i].GenusData[j].NameData[k].NA.Name[language],TYPE_Name,i,j,k,0);
+				hItemC=AddTree(hItemB,DBdata[i].GenusData[j].NameData[k].NA.Species[language],TYPE_Name,i,j,k,0);
 				for(m=0;m<DBdata[i].GenusData[j].NameData[k].SpTotal;m++)
 				{
-					AddTree(hItemC,DBdata[i].GenusData[j].NameData[k].SpData[m].SpName[language],TYPE_SpName,i,j,k,m);
+					AddTree(hItemC,DBdata[i].GenusData[j].NameData[k].SpData[m].Subspecies[language],TYPE_SpName,i,j,k,m);
 				}
 				AddTree(hItemC,NEWSpName_STR,TYPE_NEW_SpName,i,j,k,0);
 			}
@@ -952,13 +952,13 @@ void CZogiiaddDlg::BuildNewTree(DATALIST *dl)
 	{
 		//修改字符串
 		m_tree.SetItemText(dl->item,	\
-			DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA.Name[language]);
+			DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA.Species[language]);
 	}	
 	else 	if(TYPE_SpName == dl->type)
 	{
 		//修改字符串
 		m_tree.SetItemText(dl->item,	\
-			DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].SpData[curlist->sp].SpName[language]);
+			DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].SpData[curlist->sp].Subspecies[language]);
 	}
 	else if(TYPE_NEW_SubFamily == dl->type)
 	{
@@ -992,7 +992,7 @@ void CZogiiaddDlg::BuildNewTree(DATALIST *dl)
 		dl->na=DBdata[dl->sf].GenusData[dl->ge].NameTotal-1;
 		//修改字符串
 		m_tree.SetItemText(dl->item,	\
-			DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA.Name[language]);
+			DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA.Species[language]);
 		//加一个兄弟
 		AddTree(dl->Parent_item,NEWName_STR,TYPE_NEW_Name,dl->sf,dl->ge,0,0);
 		//加一个子
@@ -1005,7 +1005,7 @@ void CZogiiaddDlg::BuildNewTree(DATALIST *dl)
 		dl->sp=DBdata[dl->sf].GenusData[dl->ge].NameData[dl->na].SpTotal-1;
 		//修改字符串
 		m_tree.SetItemText(dl->item,	\
-			DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].SpData[curlist->sp].SpName[language]);
+			DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].SpData[curlist->sp].Subspecies[language]);
 	
 		//加一个兄弟
 		AddTree(dl->Parent_item,NEWSpName_STR,TYPE_NEW_SpName,dl->sf,dl->ge,dl->na,0);
@@ -1250,9 +1250,9 @@ void CZogiiaddDlg::InitInfoData()
 		m_GenusCN = DBdata[curlist->sf].GenusData[curlist->ge].GE.Genus[1];
 		m_GenusTW = DBdata[curlist->sf].GenusData[curlist->ge].GE.Genus[2];
 
-		m_NameEN = DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA.Name[0];
-		m_NameCN = DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA.Name[1];
-		m_NameTW = DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA.Name[2];
+		m_NameEN = DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA.Species[0];
+		m_NameCN = DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA.Species[1];
+		m_NameTW = DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA.Species[2];
 	}
 
 	m_code = 0;
@@ -1325,13 +1325,13 @@ void CZogiiaddDlg::CopyInfoDBData2M(struct ZOGII_Coccinellidae_DATA* d)
 	m_GenusCN = d->Genus[1];
 	m_GenusTW = d->Genus[2];
 	
-	m_NameEN = d->Name[0];
-	m_NameCN = d->Name[1];
-	m_NameTW = d->Name[2];
+	m_NameEN = d->Species[0];
+	m_NameCN = d->Species[1];
+	m_NameTW = d->Species[2];
 
-	m_SpNameEN = d->SpName[0];
-	m_SpNameCN = d->SpName[1];
-	m_SpNameTW = d->SpName[2];
+	m_SpNameEN = d->Subspecies[0];
+	m_SpNameCN = d->Subspecies[1];
+	m_SpNameTW = d->Subspecies[2];
 
 	m_TextENPath = d->Text[0];
 	m_TextCNPath = d->Text[1];
@@ -1399,13 +1399,13 @@ void CZogiiaddDlg::CopyInfoM2NewData()
 	sprintf(Newdata.Genus[1] , "%s", m_GenusCN.GetBuffer(0)); 
 	sprintf(Newdata.Genus[2] , "%s", m_GenusTW.GetBuffer(0)); 
 
-	sprintf(Newdata.Name[0] , "%s", m_NameEN.GetBuffer(0)); 
-	sprintf(Newdata.Name[1] , "%s", m_NameCN.GetBuffer(0)); 
-	sprintf(Newdata.Name[2] , "%s", m_NameTW.GetBuffer(0)); 
+	sprintf(Newdata.Species[0] , "%s", m_NameEN.GetBuffer(0)); 
+	sprintf(Newdata.Species[1] , "%s", m_NameCN.GetBuffer(0)); 
+	sprintf(Newdata.Species[2] , "%s", m_NameTW.GetBuffer(0)); 
 
-	sprintf(Newdata.SpName[0] , "%s", m_SpNameEN.GetBuffer(0)); 
-	sprintf(Newdata.SpName[1] , "%s", m_SpNameCN.GetBuffer(0)); 
-	sprintf(Newdata.SpName[2] , "%s", m_SpNameTW.GetBuffer(0)); 
+	sprintf(Newdata.Subspecies[0] , "%s", m_SpNameEN.GetBuffer(0)); 
+	sprintf(Newdata.Subspecies[1] , "%s", m_SpNameCN.GetBuffer(0)); 
+	sprintf(Newdata.Subspecies[2] , "%s", m_SpNameTW.GetBuffer(0)); 
 
 	sprintf(Newdata.Text[0] , "%s", m_TextENPath.GetBuffer(0)); 
 	sprintf(Newdata.Text[1] , "%s", m_TextCNPath.GetBuffer(0)); 
