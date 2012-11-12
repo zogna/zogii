@@ -240,9 +240,9 @@ int zogiiPrintfDB(ZOGII_ULONG_TYPE total,struct ZOGII_Coccinellidae_SUBFamily *&
 				{
 					fprintf(fp,"\t\t%05d-\t%s-\t%s-\t%s\t",	\
 						data[i].GenusData[j].NameData[k].NA.code,	\
-						data[i].GenusData[j].NameData[k].NA.Name[0],
-						data[i].GenusData[j].NameData[k].NA.Name[1],
-						data[i].GenusData[j].NameData[k].NA.Name[2]);
+						data[i].GenusData[j].NameData[k].NA.Species[0],
+						data[i].GenusData[j].NameData[k].NA.Species[1],
+						data[i].GenusData[j].NameData[k].NA.Species[2]);
 					
 					fprintf(fp,"[");
 					for(n=0;n<ZOGII_INF_MAX;n++)
@@ -257,9 +257,9 @@ int zogiiPrintfDB(ZOGII_ULONG_TYPE total,struct ZOGII_Coccinellidae_SUBFamily *&
 					{
 						fprintf(fp,"\t\t\t%05d-\t%s-\t%s-\t%s\t",	\
 							data[i].GenusData[j].NameData[k].SpData[m].code,	\
-							data[i].GenusData[j].NameData[k].SpData[m].SpName[0],
-							data[i].GenusData[j].NameData[k].SpData[m].SpName[1],
-							data[i].GenusData[j].NameData[k].SpData[m].SpName[2]);
+							data[i].GenusData[j].NameData[k].SpData[m].Subspecies[0],
+							data[i].GenusData[j].NameData[k].SpData[m].Subspecies[1],
+							data[i].GenusData[j].NameData[k].SpData[m].Subspecies[2]);
 					
 						fprintf(fp,"[");
 						for(n=0;n<ZOGII_INF_MAX;n++)
@@ -296,13 +296,13 @@ int zogiiSort_NA(const void *A,const void *B)
 {
 	struct ZOGII_Coccinellidae_NAME *a=(struct ZOGII_Coccinellidae_NAME *)A;
 	struct ZOGII_Coccinellidae_NAME *b=(struct ZOGII_Coccinellidae_NAME *)B;
-	return strcmp(a->NA.Name[0],b->NA.Name[0]);
+	return strcmp(a->NA.Species[0],b->NA.Species[0]);
 }
 int zogiiSort_SP(const void *A,const void *B)
 {
 	struct ZOGII_Coccinellidae_DATA *a=(struct ZOGII_Coccinellidae_DATA *)A;
 	struct ZOGII_Coccinellidae_DATA *b=(struct ZOGII_Coccinellidae_DATA *)B;
-	return strcmp(a->SpName[0],b->SpName[0]);
+	return strcmp(a->Subspecies[0],b->Subspecies[0]);
 }
 void zogiiSortDB(ZOGII_ULONG_TYPE total,struct ZOGII_Coccinellidae_SUBFamily *&data)
 {
@@ -505,7 +505,7 @@ void zogiiTEMPSaveDB(struct ZOGII_Coccinellidae_DATA *data,	\
 	{
 		memcpy(tempsfname[i],data->SubFamily[i],ZOGII_STR_MAX);
 		memcpy(tempgename[i],data->Genus[i],ZOGII_STR_MAX);
-		memcpy(tempname[i],data->Name[i],ZOGII_STR_MAX);
+		memcpy(tempname[i],data->Species[i],ZOGII_STR_MAX);
 		memcpy(temptext[i],data->Text[i],ZOGII_PAT_MAX);
 	}
 
@@ -731,10 +731,10 @@ void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily
 		for(m=0;m<ZOGII_LAG_MAX;m++)
 		{
 			//ÃüÃû²»Í¬
-			if(strcmp(tempname[m],newdata->Name[m]))
+			if(strcmp(tempname[m],newdata->Species[m]))
 			{
 				for(k=0;k<data[sf].GenusData[ge].NameData[na].SpTotal;k++)
-					memcpy(data[sf].GenusData[ge].NameData[na].SpData[k].Name[m],newdata->Name[m],ZOGII_STR_MAX);
+					memcpy(data[sf].GenusData[ge].NameData[na].SpData[k].Species[m],newdata->Species[m],ZOGII_STR_MAX);
 			}
 		}
 	}	

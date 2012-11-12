@@ -86,8 +86,8 @@ enum
 
 #define NEWSubFamily_STR "New SubFamily"
 #define NEWGenus_STR	"New Genus"
-#define NEWName_STR		"New Name"
-#define NEWSpName_STR	"New SpName"
+#define NEWName_STR		"New Species"
+#define NEWSpName_STR	"New Subspecies"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma pack(1)
 
@@ -267,9 +267,9 @@ struct ZOGII_Coccinellidae_DATA
 	//属名	
 	char Genus[ZOGII_LAG_MAX][ZOGII_STR_MAX];
 	//种名	
-	char Name[ZOGII_LAG_MAX][ZOGII_STR_MAX];	
+	char Species[ZOGII_LAG_MAX][ZOGII_STR_MAX];	
 	//变种名	
-	char SpName[ZOGII_LAG_MAX][ZOGII_STR_MAX];
+	char Subspecies[ZOGII_LAG_MAX][ZOGII_STR_MAX];
 	//详细信息 目录
 	char Text[ZOGII_LAG_MAX][ZOGII_PAT_MAX];
 ///////////////////////////////////////////////////
