@@ -34,6 +34,10 @@ private:
 	//初始化载入
 	bool Load(MULTI_DOWNLOAD_INFO *info,long timeout);
 	CURLM *curlmulti;
+	CURLMsg *curlmultiSG;
+	//均为临时使用的，用户使用无效
+	CURLcode res;
+	CURLMcode mes;
 };
 
 #endif
