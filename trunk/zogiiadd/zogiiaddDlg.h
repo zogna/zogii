@@ -186,6 +186,11 @@ protected:
 	afx_msg void OnButtonDatain();
 	afx_msg void OnButtonDiscoverymap();
 	afx_msg void OnButtonTreeout();
+	afx_msg void OnBUTTONNEWImago();
+	afx_msg void OnBUTTONNEWLarva();
+	afx_msg void OnBUTTONNEWCloseup();
+	afx_msg void OnBUTTONNEWOvum();
+	afx_msg void OnBUTTONNEWPupa();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 	void OnOK();

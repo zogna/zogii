@@ -311,6 +311,11 @@ BEGIN_MESSAGE_MAP(CZogiiaddDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_DATAIN, OnButtonDatain)
 	ON_BN_CLICKED(IDC_BUTTON_DISCOVERYMAP, OnButtonDiscoverymap)
 	ON_BN_CLICKED(IDC_BUTTON_TREEOUT, OnButtonTreeout)
+	ON_BN_CLICKED(IDC_BUTTON_NEWImago, OnBUTTONNEWImago)
+	ON_BN_CLICKED(IDC_BUTTON_NEWLarva, OnBUTTONNEWLarva)
+	ON_BN_CLICKED(IDC_BUTTON_NEWCloseup, OnBUTTONNEWCloseup)
+	ON_BN_CLICKED(IDC_BUTTON_NEWOvum, OnBUTTONNEWOvum)
+	ON_BN_CLICKED(IDC_BUTTON_NEWPupa, OnBUTTONNEWPupa)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -1932,7 +1937,7 @@ void CZogiiaddDlg::ReadDB2Closeup(struct ZOGII_Coccinellidae_DATA* d)
 	}
 }
 
-/////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////
 void CZogiiaddDlg::OnButtonDataout() 
 {
 	// TODO: Add your control notification handler code here
@@ -2005,4 +2010,94 @@ void CZogiiaddDlg::OnButtonTreeout()
 		MessageBox(_T("Ó¡Ê÷³É¹¦"), _T("Ó¡Ê÷"));
 	else
 		MessageBox(_T("Ó¡Ê÷Ê§°Ü"), _T("Ó¡Ê÷"));
+}
+///////////////////////////////////////////////////////////////////////////////////////////
+void CZogiiaddDlg::OnBUTTONNEWImago() 
+{
+	// TODO: Add your control notification handler code here
+	int i;
+	for(i=0;i<ZOGII_PIC_MAX;i++)
+	{
+		if(0==NewPicdata[ZOGII_ALL_PIC_Imago_START+i].flag)
+		{
+			m_ImagoNo=i;
+			ReadImago2M(m_ImagoNo);
+			UpdateData(FALSE);
+			return ;
+		}
+	}
+
+	MessageBox(_T("ÒÑÂú"), _T("Í¼Æ¬"));
+}
+
+void CZogiiaddDlg::OnBUTTONNEWLarva() 
+{
+	// TODO: Add your control notification handler code here
+	int i;
+	for(i=0;i<ZOGII_PIC_MAX;i++)
+	{
+		if(0==NewPicdata[ZOGII_ALL_PIC_Larva_START+i].flag)
+		{
+			m_LarvaNo=i;
+			ReadLarva2M(m_LarvaNo);
+			UpdateData(FALSE);
+			return ;
+		}
+	}
+
+	MessageBox(_T("ÒÑÂú"), _T("Í¼Æ¬"));
+}
+
+void CZogiiaddDlg::OnBUTTONNEWCloseup() 
+{
+	// TODO: Add your control notification handler code here
+	int i;
+	for(i=0;i<ZOGII_PIC_MAX;i++)
+	{
+		if(0==NewPicdata[ZOGII_ALL_PIC_Closeup_START+i].flag)
+		{
+			m_CloseupNo=i;
+			ReadCloseup2M(m_CloseupNo);
+			UpdateData(FALSE);
+			return ;
+		}
+	}
+
+	MessageBox(_T("ÒÑÂú"), _T("Í¼Æ¬"));
+}
+
+void CZogiiaddDlg::OnBUTTONNEWOvum() 
+{
+	// TODO: Add your control notification handler code here
+	int i;
+	for(i=0;i<ZOGII_PIC_MAX;i++)
+	{
+		if(0==NewPicdata[ZOGII_ALL_PIC_Ovum_START+i].flag)
+		{
+			m_OvumNo=i;
+			ReadOvum2M(m_OvumNo);
+			UpdateData(FALSE);
+			return ;
+		}
+	}
+
+	MessageBox(_T("ÒÑÂú"), _T("Í¼Æ¬"));
+}
+
+void CZogiiaddDlg::OnBUTTONNEWPupa() 
+{
+	// TODO: Add your control notification handler code here
+	int i;
+	for(i=0;i<ZOGII_PIC_MAX;i++)
+	{
+		if(0==NewPicdata[ZOGII_ALL_PIC_Pupa_START+i].flag)
+		{
+			m_PupaNo=i;
+			ReadPupa2M(m_PupaNo);
+			UpdateData(FALSE);
+			return ;
+		}
+	}
+
+	MessageBox(_T("ÒÑÂú"), _T("Í¼Æ¬"));
 }

@@ -58,13 +58,49 @@ void zogiiCreateDirectory(char *str)
 	sprintf(temp,"%s\\%s",CurrentDirectory,str);
 	CreateDirectory(temp, NULL);
 }
-//WIN32 删除目录
+#if 0
+BOOL DeleteDirectory(CString str)
+{
+	CFileFind finder; //文件查找类
+	CString strdel,strdir;//strdir:要删除的目录，strdel：要删除的文件
+	strdir=str+"\\*.*";//删除文件夹，先要清空文件夹,加上路径,注意加"\\"
+	BOOL b_finded=(BOOL)finder.FindFile(strdir); 
+	while(b_finded) 
+	{ 
+		b_finded=(BOOL)finder.FindNextFile(); 
+		if (finder.IsDots())  continue;//找到的是当前目录或上级目录则跳过
+		strdel=finder.GetFileName(); //获取找到的文件名
+		if(finder.IsDirectory())   //如果是文件夹
+		{ 
+			strdel=str + "\\" + strdel;//加上路径,注意加"\\"
+			DeleteDirectory(strdel); //递归删除文件夹
+		} 
+		else //不是文件夹
+		{ 
+			strdel=str + "\\" + strdel;
+			if(finder.IsReadOnly())//清除只读属性
+			{    
+				SetFileAttributes(strdel,GetFileAttributes(strdel)&(~FILE_ATTRIBUTE_READONLY));
+			}
+			DeleteFile(strdel); //删除文件(API)
+		} 
+	} 
+	finder.Close(); 
+	return RemoveDirectory(str); //删除文件夹(API)
+	//return TRUE;
+}  
+#endif
+
+//WIN32 删除目录含子目录
 void zogiiRemoveDirectory(char *str)
 {
-	char temp[ZOGII_PAT_MAX];
-	sprintf(temp,"%s\\%s",CurrentDirectory,str);
-	RemoveDirectory(temp);
+	char temp[ZOGII_PAT_MAX+16];
+//	sprintf(temp,"%s\\%s",CurrentDirectory,str);
+//	RemoveDirectory(temp);
+	sprintf(temp,"rmdir /s /q %s\\%s",CurrentDirectory,str);
+	system(temp);
 }
+
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 int zogiiReadDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily *&data,	\
