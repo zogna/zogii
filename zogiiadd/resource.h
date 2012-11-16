@@ -262,7 +262,12 @@
 #define IDC_LISTBOX_DST                 1135
 #define IDC_STATIC_DISCOVERTOTAL        1135
 #define IDC_BUTTON_TREEOUT              1136
+#define IDC_BUTTON_NEWImago             1137
+#define IDC_BUTTON_NEWLarva             1138
+#define IDC_BUTTON_NEWCloseup           1139
+#define IDC_BUTTON_NEWPupa              1140
 #define IDC_COMBO_CloseupNo             1141
+#define IDC_BUTTON_NEWOvum              1142
 
 // Next default values for new objects
 // 
@@ -270,7 +275,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        131
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1137
+#define _APS_NEXT_CONTROL_VALUE         1138
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

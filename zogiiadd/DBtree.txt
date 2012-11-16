@@ -89,9 +89,7 @@
 		00000-	forestieri-	forestieri-	forestieri	[]
 		00001-	lophanthae-	lophanthae-	lophanthae	[]
 		00002-	ventralis-	ventralis-	ventralis	[]
-	00008-	Rodolia-	Rodolia-	Rodolia
-		00000-	cardinalis-	cardinalis-	cardinalis	[]
-	00001-	Rodolia -	Rodolia -	Rodolia 
+	00001-	Rodolia-	Rodolia-	Rodolia
 		00001-	cardinalis-	°ÄÖŞÆ°³æ-	°ÄÖŞÆ°³æ	[]
 		00002-	formosana-	Ì¨ÍåºìÆ°³æ-	Ì¨ÍåºìÆ°³æ	[]
 		00000-	pumila-	Ğ¡ºìÆ°³æ-	Ğ¡¼tÆ°Ïx	[Rodolia okinawensis Miyatake,1959-	]
@@ -175,11 +173,10 @@
 		00026-	prolongata-	prolongata-	prolongata	[]
 		00010-	quinquepunctata-	ÎåĞÇÆ°³æ-	ÎåĞÇÆ°³æ	[]
 		00003-	reitteri-	ÀïÊÏÆ°³æ-	ÀïÊÏÆ°³æ	[]
-		00027-	repanda-	repanda-	repanda	[]
 		00007-	sedakovi-	ÌìÉ½Æ°³æ-	ÌìÉ½Æ°³æ	[]
 		00000-	septempunctata-	ÆßĞÇÆ°³æ-	ÆßĞÇÆ°Ïx	[]
 		00004-	tibetina-	Î÷²ØÆ°³æ-	Î÷²ØÆ°³æ	[]
-		00001-	transversalis-	²¨¼yÆ°Ïx(ªMÍÎÆ°Ïx)-	²¨¼yÆ°Ïx(ªMÍÎÆ°Ïx)	[]
+		00001-	transversalis-	²¨¼yÆ°Ïx(ªMÍÎÆ°Ïx)-	²¨¼yÆ°Ïx(ªMÍÎÆ°Ïx)	[Coccinella repanda Thunberg, 1781-	]
 		00002-	transversoguttata-	™M¼yÆ°Ïx(™M°ßÆ°Ïx)-	™M¼yÆ°Ïx(™M°ßÆ°Ïx)	[]
 		00012-	trifasciata-	ºá´øÆ°³æ-	ºá´øÆ°³æ	[]
 		00008-	undecimpunctata-	Ê®Ò»ĞÇÆ°³æ-	Ê®Ò»ĞÇÆ°³æ	[]
@@ -213,8 +210,7 @@
 	00013-	Harmonia-	ºÍĞ³Æ°³æÊô-	ºÍĞ³Æ°³æÊô
 		00000-	axyridis-	®É«Æ°Ïx-	®É«Æ°Ïx	[]
 		00008-	conformis-	conformis-	conformis	[]
-		00009-	dimidiata-	dimidiata-	dimidiata	[]
-		00002-	dimidiata -	Ğ¡Ê®ÈıĞÇÆ°Ïx(¼t¼çÆ°Ïx)-	Ğ¡Ê®ÈıĞÇÆ°Ïx(¼t¼çÆ°Ïx)	[]
+		00002-	dimidiata-	Ğ¡Ê®ÈıĞÇÆ°Ïx(¼t¼çÆ°Ïx)-	Ğ¡Ê®ÈıĞÇÆ°Ïx(¼t¼çÆ°Ïx)	[]
 		00007-	eucharis-	Ææ°ßÆ°³æ-	Ææ°ßÆ°³æ	[]
 		00001-	octomaculata-	°Ë—lÆ°Ïx(°Ë°ßºÍÆ°Ïx)-	°Ë—lÆ°Ïx(°Ë°ßºÍÆ°Ïx)	[]
 		00006-	quadripunctata-	ËÄ°ßºÍÆ°³æ-	ËÄ°ßºÍÆ°³æ	[]
@@ -258,19 +254,19 @@
 		00005-	bissellata-	Ê®°ßÅÌÆ°³æ-	Ê®°ßÅÌÆ°³æ	[  Coelophora bissellata Mulsant, 1850-	]
 		00006-	bmnniplagiata-	½Ò´øÅÌÆ°³æ-	½Ò´øÅÌÆ°³æ	[]
 		00000-	circumsta-	¼t¼yÆ°Ïx(¼t»ù±PÆ°Ïx)-	¼t¼yÆ°Ïx(¼t»ù±PÆ°Ïx)	[Coelophora mandarina Mulsant, 1850-	Artemis circumusta Mulsant, 1850-	]
-		00003-	circumvelata-	ÖÜÔµÅÌÆ°³æ-	ÖÜÔµÅÌÆ°³æ	[Coelophora circumvelata (Mulsant, 1850) -	]
+		00003-	circumvelata-	ÖÜÔµÅÌÆ°³æ(ºÚÔµÆ°³æ)-	ÖÜÔµÅÌÆ°³æ(ºÚÔµÆ°³æ)	[Coelophora circumvelata (Mulsant, 1850) -	]
 		00004-	duvauceli-	¾Å°ßÅÌÆ°³æ-	¾Å°ßÅÌÆ°³æ	[]
 		00008-	jianfengensis-	¼â·åÅÌÆ°³æ-	¼â·åÅÌÆ°³æ	[]
 		00007-	lushuiensis-	ãòË®ÅÌÆ°³æ-	ãòË®ÅÌÆ°³æ	[]
 		00001-	saucia-	³àĞÇÆ°Ïx(»Æ°ßÅÌÆ°³æ)-	³àĞÇÆ°Ïx(»Æ°ßÅÌÆ°³æ)	[Coelophora saucia (Mulsant, 1850) -	Coelophora swinhoei Crotch, 1874-	Coelophora mouhoti Crotch, 1874;-	Chilomenes lakanonis Ohta, 1929-	Coelophora ishidai Ohta, 1931-	]
 	00010-	Macroilleis-	´ó¾úÆ°³æÊô-	´ó¾úÆ°³æÊô
-		00000-	hauseri-	¿v—lüSÆ°Ïx(°×—l¾úÆ°Ïx)-	¿v—lüSÆ°Ïx(°×—l¾úÆ°Ïx)	[]
+		00000-	hauseri-	¿v—lüSÆ°Ïx(°×—l¾úÆ°Ïx)-	¿v—lüSÆ°Ïx(°×—l¾úÆ°Ïx)	[Halyzia hauseri Mader, 1930-	]
 	00027-	Macronaemia-	Ğ¡³¤Æ°³æÊô-	Ğ¡³¤Æ°³æÊô
 		00002-	episcopalis-	episcopalis-	episcopalis	[]
 		00000-	hauseri-	ºÚÌõ³¤Æ°³æ-	ºÚÌõ³¤Æ°³æ	[Anisocalvia hauseri Weise,1905-	]
 		00001-	paradoxa-	ÆæÒì³¤Æ°³æ-	ÆæÒì³¤Æ°³æ	[Coleomegilla paradoxa Mader, 1947-	Macronaemia yunnanensis Cao et Xiao,1985-	Macronaemia (Allonaemia) paradoxa ; Iablokoff-Khnzorian, 1982-	]
 	00021-	Megalocaria-	´óÆ°³æÊô-	´óÆ°³æÊô
-		00000-	dilatata-	Ê®°ß´óÆ°Ïx(¾Ş´óÆ°Ïx)-	Ê®°ß´óÆ°Ïx(¾Ş´óÆ°Ïx)	[]
+		00000-	dilatata-	Ê®°ß´óÆ°Ïx(¾Ş´óÆ°Ïx)-	Ê®°ß´óÆ°Ïx(¾Ş´óÆ°Ïx)	[Anisolemnia dilalala (Fabricius, 1775)-	]
 		00002-	fijiensis-	fijiensis-	fijiensis	[]
 		00001-	pearsoni-	Æ¼°ß´óÆ°³æ-	Æ¼°ß´óÆ°³æ	[]
 		00003-	tricolor-	tricolor-	tricolor	[]
@@ -295,8 +291,8 @@
 		00000-	gebleri-	ºÚÖĞ³İÆ°³æ-	ºÚÖĞ³İÆ°³æ	[]
 		00004-	interrupta-	interrupta-	interrupta	[]
 		00005-	pullata-	pullata-	pullata	[]
-		00003-	sexvittata-	ÁùÌõÖĞ³İÆ°³æ-	ÁùÌõÖĞ³İÆ°³æ	[]
 		00001-	sexvittata-	ÁùÌõÖĞ³İÆ°³æ-	ÁùÌõÖĞ³İÆ°³æ	[]
+		00003-	sexvittata-	ÁùÌõÖĞ³İÆ°³æ-	ÁùÌõÖĞ³İÆ°³æ	[]
 		00006-	subvittata-	subvittata-	subvittata	[]
 	00042-	Naemia-	Naemia-	Naemia
 		00000-	seriata-	seriata-	seriata	[]
@@ -362,7 +358,7 @@
 		00001-	duodecimguttata-	Ê®¶ş°ßĞÂºìÆ°³æ-	Ê®¶ş°ßĞÂºìÆ°³æ	[]
 		00000-	subfasciata-	ºá´øĞÂºìÆ°³æ-	ºá´øĞÂºìÆ°³æ	[]
 	00018-	Synona-	ĞÂÀöÆ°³æÊô-	ĞÂÀöÆ°³æÊô
-		00000-	consanguinea-	¼tĞØºÚÆ°Ïx(¼tîiÆ°Ïx)-	¼tĞØºÚÆ°Ïx(¼tîiÆ°Ïx)	[]
+		00000-	consanguinea-	¼tĞØºÚÆ°Ïx(¼tîiÆ°Ïx)-	¼tĞØºÚÆ°Ïx(¼tîiÆ°Ïx)	[Lemnia melanaria (Mulsant, 1850)-	Synia melanaria (Mulsant, 1850)-	Synia rougeti (Mulsant, 1866)-	]
 	00023-	Synonycha-	Í»¼çÆ°³æÊô-	Í»¼çÆ°³æÊô
 		00000-	grandis-	´óÊ®ÈıĞÇÆ°Ïx(´óÍ»¼çÆ°³æ)-	´óÊ®ÈıĞÇÆ°Ïx(´óÍ»¼çÆ°³æ)	[]
 	00037-	Tytthaspis-	Ğ¡¶ÜÆ°³æÊô-	Ğ¡¶ÜÆ°³æÊô
@@ -589,8 +585,6 @@
 		00000-	nigripennis-	ºÚ³á¸«Æ°³æ-	ºÚ³á¸«Æ°³æ	[]
 	00000-	Cryptognatha-	Cryptognatha-	Cryptognatha
 		00000-	nodiceps-	nodiceps-	nodiceps	[]
-	00004-	Cryptogonus-	Cryptogonus-	Cryptogonus
-		00000-	orbiculus-	orbiculus-	orbiculus	[]
 	00001-	Cryptolaemus-	ë[´½Æ°ÏxÊô-	ë[´½Æ°ÏxÊô
 		00000-	montrouzieri-	ÃÏÊÏë[´½Æ°Ïx-	ÃÏÊÏë[´½Æ°Ïx	[]
 	00009-	Decadiomus-	Decadiomus-	Decadiomus
@@ -689,10 +683,10 @@
 		00005-	petalinus-	±âÈ~Ğ¡Æ°Ïx-	±âÈ~Ğ¡Æ°Ïx	[]
 		00004-	posticalis-	áá°ßĞ¡Æ°Ïx-	áá°ßĞ¡Æ°Ïx	[]
 		00003-	quadrillum-	ËÄ°ßĞ¡Æ°Ïx-	ËÄ°ßĞ¡Æ°Ïx	[Pullus taiwanus Ohta, 1929-	Scymnus (Pullus) taiwanus (Ohta, 1929)-	Scymnus hilaris ab. awanus Ohta, 1929 -	]
-		00030-	quadrivittatus-	quadrivittatus-	quadrivittatus	[]
+		00030-	quadrivittatus-	Á¬°ßÃ«Æ°³æ-	Á¬°ßÃ«Æ°³æ	[]
 		00023-	secula-	Á¢ÄâĞ¡Æ°³æ-	Á¢ÄâĞ¡Æ°³æ	[]
 		00016-	shirozui-	ÍäÒ¶Ğ¡Æ°³æ-	ÍäÒ¶Ğ¡Æ°³æ	[]
-		00006-	sodalis-	ÊøĞ¡Æ°Ïx-	ÊøĞ¡Æ°Ïx	[Pullus sodalis Weise, 1923-	]
+		00006-	sodalis-	ÊøĞ¡Æ°Ïx(Ì¨ÍåĞ¡Æ°³æ)-	ÊøĞ¡Æ°Ïx(Ì¨ÍåĞ¡Æ°³æ)	[Pullus sodalis Weise, 1923-	]
 		00031-	subvillosus-	subvillosus-	subvillosus	[]
 		00012-	takasago-	¸ßÉ°Ğ¡Æ°³æ-	¸ßÉ°Ğ¡Æ°³æ	[]
 		00032-	uncinatus-	uncinatus-	uncinatus	[]
