@@ -11,8 +11,14 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-extern char DiscoverMapEnum[][64];
-extern unsigned int DiscoverMapEnumTotal;
+struct DiscoverMap_Enum
+{
+	char str[64];
+	unsigned char id;
+};
+
+extern struct DiscoverMap_Enum DiscoverMap[];
+extern unsigned int DiscoverMapTotal;
 /////////////////////////////////////////////////////////////////////////////
 // CDLGmap dialog
 
@@ -57,19 +63,19 @@ BOOL CDLGmap::OnInitDialog()
 
 	unsigned int i,j;
 	//画SRC列表
-	for(i=0;i<DiscoverMapEnumTotal;i++)
+	for(i=0;i<DiscoverMapTotal;i++)
 	{
 		for(j=0;j<(*dsttotal);j++)
 		{
-			if(i==listdst[j])
+			if(DiscoverMap[i].id==listdst[j])
 				break;
 		}
+		//DST里找不到
 		if(j==(*dsttotal))
-			m_listboxSRC.AddString(DiscoverMapEnum[i]);
+			m_listboxSRC.AddString(DiscoverMap[i].str);
+		else	//DST里找到了
+			m_listboxDST.AddString(DiscoverMap[i].str);
 	}
-	//画DST列表
-	for(j=0;j<(*dsttotal);j++)
-		m_listboxDST.AddString(DiscoverMapEnum[listdst[j]]);
 
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
@@ -81,9 +87,18 @@ void CDLGmap::OnButtonSrc2dst()
 	UpdateData(TRUE);
 	//删除
 	i=m_listboxSRC.GetCurSel();
+	m_listboxSRC.GetText(i,str);
 	m_listboxSRC.DeleteString(i);
+
 	//插入
-	m_listboxDST.AddString(DiscoverMapEnum[i]);
+	for(i=0;i<DiscoverMapTotal;i++)
+	{
+		if(!strcmp(str,DiscoverMap[i].str))
+		{
+			m_listboxDST.AddString(DiscoverMap[i].str);
+			break;
+		}
+	}
 }
 
 void CDLGmap::OnButtonDst2src() 
@@ -97,11 +112,11 @@ void CDLGmap::OnButtonDst2src()
 	m_listboxDST.GetText(i,str);
 	m_listboxDST.DeleteString(i);
 	//插入
-	for(i=0;i<DiscoverMapEnumTotal;i++)
+	for(i=0;i<DiscoverMapTotal;i++)
 	{
-		if(!strcmp(str,DiscoverMapEnum[i]))
+		if(!strcmp(str,DiscoverMap[i].str))
 		{
-			m_listboxSRC.InsertString(i,DiscoverMapEnum[i]);
+			m_listboxSRC.InsertString(DiscoverMap[i].id,DiscoverMap[i].str);
 			break;
 		}
 	}
@@ -114,21 +129,22 @@ void CDLGmap::OnButtonOk()
 	unsigned int j;
 	char str[256];
 
-	*dsttotal=0;
+	(*dsttotal)=0;
 	//遍历
 	for(i=0;i<m_listboxDST.GetCount();i++)
 	{
 		m_listboxDST.GetText(i,str);
 
-		for(j=0;j<DiscoverMapEnumTotal;j++)
+		for(j=0;j<DiscoverMapTotal;j++)
 		{
-			if(!strcmp(str,DiscoverMapEnum[j]))
+			if(!strcmp(str,DiscoverMap[j].str))
 			{
-				listdst[(*dsttotal)]=(unsigned char)j;
+				listdst[(*dsttotal)]=DiscoverMap[j].id;
 				(*dsttotal)++;
 				break;
 			}
 		}
 	}
+
 	CDialog::OnCancel();
 }

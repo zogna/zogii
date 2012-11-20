@@ -35,6 +35,7 @@ public:
 
 	unsigned char *dsttotal;
 	unsigned char *listdst;
+	char str[256];
 
 // Implementation
 protected:
