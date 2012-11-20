@@ -14,9 +14,9 @@ Class2=CZogiiaddDlg
 
 ResourceCount=3
 Resource1=IDD_ZOGIIADD_DIALOG (AA)
-Resource2=IDD_DIALOG_MAP
+Resource2=IDD_ZOGIIADD_DIALOG
 Class3=CDLGmap
-Resource3=IDD_ZOGIIADD_DIALOG
+Resource3=IDD_DIALOG_MAP
 
 [CLS:CZogiiaddApp]
 Type=0
@@ -472,7 +472,7 @@ ControlCount=5
 Control1=IDC_BUTTON_SRC2DST,button,1342242816
 Control2=IDC_BUTTON_DST2SRC,button,1342242816
 Control3=IDC_BUTTON_OK,button,1342242816
-Control4=IDC_LISTBOX_SRC,listbox,1352728832
+Control4=IDC_LISTBOX_SRC,listbox,1352728834
 Control5=IDC_LISTBOX_DST,listbox,1352728832
 
 [CLS:CDLGmap]
