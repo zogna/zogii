@@ -18,7 +18,7 @@ static char THIS_FILE[] = __FILE__;
 CZogiiaddDlg::CZogiiaddDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CZogiiaddDlg::IDD, pParent)
 {
-	//{{AFX_DATA_INIT(CZogiiaddDlg)
+	//{{AFX_DATA_INIT(CZogiiaddDlg);
 	m_SubFamilyEN = _T("");
 	m_SpNameTW = _T("");
 	m_SpNameEN = _T("");
@@ -754,7 +754,7 @@ int CZogiiaddDlg::SaveToFile(int idc)
 int CZogiiaddDlg::OpenToPicFile(int idc)
 {
 	// TODO: Add your control notification handler code here
-	char szFilter[]="Picture file(*.jpg;*.jpeg;*.bmp;*.png;*.dib;*.tga)|*.jpg;*.jpeg;*.bmp;*.png;*.dib;*.tga|All files (*.*)|*.*||";
+	char szFilter[]="Picture file(*.jpg;*.jpeg;*.bmp;*.png;*.dib;*.tga;*.gif)|*.jpg;*.jpeg;*.bmp;*.png;*.dib;*.tga;*.gif|All files (*.*)|*.*||";
 	//保存文件
 	//CFileDialog dlg(FALSE,"*.*","",OFN_HIDEREADONLY|OFN_OVERWRITEPROMPT, szFilter);
 	//打开文件

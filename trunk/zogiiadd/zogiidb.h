@@ -241,6 +241,8 @@ struct ZOGII_CloseUp
 	// 7=进食
 	// 8=尾部
 	// 9=侧面
+	// 10=地图
+	// 11=器官
 	char Type;
 	//图片索引值 0为无效
 	ZOGII_ULONG_TYPE Pic;
