@@ -6,7 +6,7 @@ struct DiscoverMap_Enum
 	unsigned char id;
 };
 
-unsigned int DiscoverMapTotal=97;
+unsigned int DiscoverMapTotal=98;
 struct DiscoverMap_Enum DiscoverMap[]=
 {
 	{"未知",0},
@@ -106,5 +106,7 @@ struct DiscoverMap_Enum DiscoverMap[]=
 	{"阿根廷",94},
 	{"巴拉圭",95},
 	{"加拿大",96},
+	{"墨西哥",97},
+	
 
 };
