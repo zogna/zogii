@@ -1528,6 +1528,10 @@ BEGIN
 0xb2ce, 0xbfb2, "\000" 
     IDC_COMBO_CloseupType, 0x403, 5, 0
 0xe0b2, 0xe6c3, "\000" 
+    IDC_COMBO_CloseupType, 0x403, 5, 0
+0xd8b5, 0xbccd, "\000" 
+    IDC_COMBO_CloseupType, 0x403, 5, 0
+0xf7c6, 0xd9b9, "\000" 
     IDC_COMBO_CloseupNo, 0x403, 2, 0
 0x0030, 
     IDC_COMBO_CloseupNo, 0x403, 2, 0
