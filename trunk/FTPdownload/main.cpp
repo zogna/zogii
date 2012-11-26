@@ -27,14 +27,25 @@ int main(void)
 
 	SignalDownload a;
 	bool r;
+
+
+
+	r=a.FTPUpload("ftp://10.142.50.69/video server/a6.html","da:da",21,_T("1.html"),10);
+	printf("result=%d\n",r);
 	
-	r=a.Download("http://dow111111111.com",_T("a.html"),10,0);
+	r=a.FTPtest("ftp://10.142.50.69","da:da",21);
+	printf("result=%d\n",r);
+#if 0
+
+	r=a.HTTPDownload("http://dow111111111.com",_T("a.html"),10,0);
 	printf("result=%d\n",r);
 
-	r=a.Download("http://www.baidu.com",_T("a.html"),10,0);
-	printf("result=%d\n",r);
+		r=a.HTTPDownload("http://oa.yirong-info.com:8000/sgccoa/NewNoticeMss1.nsf/0/17F500AE8A9569A348257ABD000B5EFF/$File/附件二%20先进个人评分表.docx",_T("a.html"),10,0);
+		printf("result=%d\n",r);
+		r=a.HTTPDownload("http://oa.yirong-info.com:8000/pt_index.htm",_T("a.html"),10,0);
 
-#if	1
+		printf("result=%d\n",r);
+
 	////////////////////////////////////
 	MultiDownload	b;
 
@@ -48,6 +59,7 @@ int main(void)
 	r=b.Download(p,2,10,10);
 	printf("result=%d,%d,%d\n",r,data[0].result,data[1].result);
 #endif	
+
 
 	////////////////////////////////////
 	curl_global_cleanup();
