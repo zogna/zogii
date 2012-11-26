@@ -143,6 +143,76 @@ bool SignalDownload::HTTPDownload(char *url,TCHAR *filename,long timeout=10,long
 
 	return true;
 }
+
+
+//url		URL地址 
+//filename	文件路径
+//timeout	设定下载超时时限
+//输出		下载成功或失败
+//执行下载
+bool SignalDownload::FTPDownload(char *url,char *userpsw,long port,TCHAR *filename,long timeout=10)
+{
+	completesize=0;
+	totalsize=0;
+	//初始化
+	curl = curl_easy_init();
+	if(NULL == curl)
+		return false;
+	//打开待写文件
+	outfile = _tfopen(filename, _T("wb"));
+	if(NULL== outfile)
+	{
+		curl_easy_cleanup(curl);
+		curl=NULL;
+		return false;
+	}
+	//设置URL地址
+	SD_curl_easy_setopt_EXT(curl, CURLOPT_URL, url);
+	SD_curl_easy_setopt_EXT(curl,CURLOPT_USERPWD, userpsw);
+	SD_curl_easy_setopt_EXT(curl,CURLOPT_PORT, port);
+	//设置写入的文件指针
+	SD_curl_easy_setopt_EXT(curl, CURLOPT_WRITEDATA, outfile);
+	//设置写入回调函数
+	SD_curl_easy_setopt_EXT(curl, CURLOPT_WRITEFUNCTION, SD_WriteFunc);
+	//设置无进程函数
+	SD_curl_easy_setopt_EXT(curl, CURLOPT_NOPROGRESS, FALSE);
+	//设置进程回调函数
+	SD_curl_easy_setopt_EXT(curl, CURLOPT_PROGRESSFUNCTION, SD_ProgressFunc);
+	//设置进程回调函数传的自定义参
+	SD_curl_easy_setopt_EXT(curl, CURLOPT_PROGRESSDATA, this);
+
+	//设置下载速度=0时 N次退出
+	SD_curl_easy_setopt_EXT(curl, CURLOPT_TIMEOUT, timeout);
+	//设置URL地址错误 重连N次后推出
+	SD_curl_easy_setopt_EXT(curl, CURLOPT_CONNECTTIMEOUT, timeout);
+	SD_curl_easy_setopt_EXT(curl, CURLOPT_FTP_RESPONSE_TIMEOUT, timeout);
+	//设置最低速度。为了中途拔网线
+	SD_curl_easy_setopt_EXT(curl, CURLOPT_LOW_SPEED_LIMIT, LOWSPEEDLIMIT);
+	SD_curl_easy_setopt_EXT(curl, CURLOPT_LOW_SPEED_TIME, timeout);
+	
+	//开始执行
+	res = curl_easy_perform(curl);
+	if(CURLE_OK != res)  /* we failed */				
+	{												
+		fprintf(stderr, "curl result %s\n",curl_easy_strerror(res));	
+		fclose(outfile);
+		outfile=NULL;
+		curl_easy_cleanup(curl);
+		curl=NULL;
+		return false;							
+	}	
+
+	//关闭文件
+	fclose(outfile);
+	outfile=NULL;
+
+	curl_easy_cleanup(curl);
+	curl=NULL;
+
+	return true;
+}
+
+
 //实时上传回调
 size_t SD_ReadFunc(void *ptr, size_t size, size_t nmemb, FILE *stream)
 {
@@ -274,6 +344,15 @@ bool SignalDownload::FTPFileinfo(char *url,char *userpsw,long port, time_t *file
 	/* Switch on full protocol/debug output */
 	/* curl_easy_setopt(curl, CURLOPT_VERBOSE, 1L); */
 
+	//设置下载速度=0时 N次退出
+	SD_curl_easy_setopt_EXT(curl, CURLOPT_TIMEOUT, timeout);
+	//设置URL地址错误 重连N次后推出
+	SD_curl_easy_setopt_EXT(curl, CURLOPT_CONNECTTIMEOUT, timeout);
+	SD_curl_easy_setopt_EXT(curl, CURLOPT_FTP_RESPONSE_TIMEOUT, timeout);
+	//设置最低速度。为了中途拔网线
+	SD_curl_easy_setopt_EXT(curl, CURLOPT_LOW_SPEED_LIMIT, LOWSPEEDLIMIT);
+	SD_curl_easy_setopt_EXT(curl, CURLOPT_LOW_SPEED_TIME, timeout);
+
 	res = curl_easy_perform(curl);
 
 	if(CURLE_OK != res) 
@@ -295,4 +374,49 @@ bool SignalDownload::FTPFileinfo(char *url,char *userpsw,long port, time_t *file
 	curl_easy_cleanup(curl);
 	curl=NULL;
 	return	true;
+}
+
+//ConfigFile	配置文件路径
+//filename 本地文件路径
+//FtpPath FTP相对文件路径
+//执行上传
+bool SignalDownload::FTPtest(char *url,char *userpsw,long port)
+{
+	curl=NULL;
+	/* get a curl handle */
+	curl = curl_easy_init();
+	if(NULL == curl)
+		return false;
+
+	SD_curl_easy_setopt_EXT(curl,CURLOPT_URL, url);
+	SD_curl_easy_setopt_EXT(curl,CURLOPT_USERPWD, userpsw);
+	SD_curl_easy_setopt_EXT(curl,CURLOPT_PORT, port);
+
+	//设置下载速度=0时 N次退出
+	SD_curl_easy_setopt_EXT(curl, CURLOPT_TIMEOUT, 1);
+	//设置URL地址错误 重连N次后推出
+	SD_curl_easy_setopt_EXT(curl, CURLOPT_CONNECTTIMEOUT, 1);
+	SD_curl_easy_setopt_EXT(curl, CURLOPT_FTP_RESPONSE_TIMEOUT, 1);
+	//设置最低速度。为了中途拔网线
+	SD_curl_easy_setopt_EXT(curl, CURLOPT_LOW_SPEED_LIMIT, LOWSPEEDLIMIT);
+	SD_curl_easy_setopt_EXT(curl, CURLOPT_LOW_SPEED_TIME, 1);
+
+	/* Now run off and do what you've been told! */
+	res = curl_easy_perform(curl);
+	/* Check for errors */
+	if(CURLE_OK != res)  /* we failed */				
+	{												
+		fprintf(stderr, "curl result %s\n",curl_easy_strerror(res));	
+	//	sprintf(temp,"%s",curl_easy_strerror(res));
+
+		curl_easy_cleanup(curl);
+		curl=NULL;
+		return false;							
+	}	
+
+	//关闭文件
+	curl_easy_cleanup(curl);
+	curl=NULL;
+
+	return true;
 }
