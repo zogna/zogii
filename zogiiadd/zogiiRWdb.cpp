@@ -1129,6 +1129,9 @@ void zogiiModifypicDBLite(struct ZOGII_Pic *pdata,struct ZOGII_Pic *newpic,char 
 	//Â·¾¶²»Í¬ ¿½±´
 	if(strcmp(pdata->Path,newpic->Path))
 	{
+		//É¾³ý¾ÉµÄ
+		zogiiDeleteFile(pdata->Path);
+
 		memcpy(pdata->Path,path,ZOGII_PAT_MAX);
 		//¸²¸Ç
 		zogiiCopyFile(newpic->Path,pdata->Path);
