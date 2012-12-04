@@ -120,7 +120,7 @@ CZogiiaddDlg::CZogiiaddDlg(CWnd* pParent /*=NULL*/)
 	DBPicdata=NULL;
 
 	ListTotal=0;
-	ListbufTotal=256;
+	ListbufTotal=5120;
 	DataList=(DATALIST *)calloc(ListbufTotal,sizeof(DATALIST));
 	curlist=NULL;
 
@@ -848,7 +848,7 @@ void CZogiiaddDlg::AddListBuf()
 {
 	if(ListTotal >= ListbufTotal)
 	{
-		ListbufTotal+=256;
+		ListbufTotal+=1024;
 		DataList=(DATALIST *)realloc(DataList,ListbufTotal*sizeof(DATALIST));
 	}
 }
@@ -943,6 +943,8 @@ void CZogiiaddDlg::BuildTree()
 //在新增完数据之后调用 之前要遍历树一次
 void CZogiiaddDlg::BuildNewTree(DATALIST *dl)
 {
+	DATALIST tempdl;
+
 	if(TYPE_SubFamily == dl->type)
 	{
 		//修改字符串
@@ -972,11 +974,19 @@ void CZogiiaddDlg::BuildNewTree(DATALIST *dl)
 		dl->sf=DBtotal-1;
 		//修改字符串
 		m_tree.SetItemText(dl->item,DBdata[curlist->sf].SF.SubFamily[language]);
-
+#if 1
+		memcpy(&tempdl,dl,sizeof(DATALIST));
+				//加一个兄弟
+		AddTree(tempdl.Parent_item,NEWSubFamily_STR,TYPE_NEW_SubFamily,0,0,0,0);
+		//加一个子
+		AddTree(tempdl.item,NEWGenus_STR,TYPE_NEW_Genus,tempdl.sf,0,0,0);
+#else
 		//加一个兄弟
 		AddTree(dl->Parent_item,NEWSubFamily_STR,TYPE_NEW_SubFamily,0,0,0,0);
 		//加一个子
 		AddTree(dl->item,NEWGenus_STR,TYPE_NEW_Genus,dl->sf,0,0,0);
+#endif
+
 	}
 	else if(TYPE_NEW_Genus == dl->type)
 	{
@@ -985,10 +995,18 @@ void CZogiiaddDlg::BuildNewTree(DATALIST *dl)
 		dl->ge=DBdata[dl->sf].GenusTotal-1;
 		//修改字符串
 		m_tree.SetItemText(dl->item,DBdata[curlist->sf].GenusData[curlist->ge].GE.Genus[language]);
+#if 1
+		memcpy(&tempdl,dl,sizeof(DATALIST));
+		//加一个兄弟
+		AddTree(tempdl.Parent_item,NEWGenus_STR,TYPE_NEW_Genus,tempdl.sf,0,0,0);
+		//加一个子
+		AddTree(tempdl.item,NEWName_STR,TYPE_NEW_Name,tempdl.sf,tempdl.ge,0,0);
+#else
 		//加一个兄弟
 		AddTree(dl->Parent_item,NEWGenus_STR,TYPE_NEW_Genus,dl->sf,0,0,0);
 		//加一个子
 		AddTree(dl->item,NEWName_STR,TYPE_NEW_Name,dl->sf,dl->ge,0,0);
+#endif
 	}
 	else if(TYPE_NEW_Name == dl->type)
 	{
@@ -998,10 +1016,18 @@ void CZogiiaddDlg::BuildNewTree(DATALIST *dl)
 		//修改字符串
 		m_tree.SetItemText(dl->item,	\
 			DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA.Species[language]);
+#if 1	
+		memcpy(&tempdl,dl,sizeof(DATALIST));
+		//加一个兄弟
+		AddTree(tempdl.Parent_item,NEWName_STR,TYPE_NEW_Name,tempdl.sf,tempdl.ge,0,0);
+		//加一个子
+		AddTree(tempdl.item,NEWSpName_STR,TYPE_NEW_SpName,tempdl.sf,tempdl.ge,tempdl.na,0);
+#else
 		//加一个兄弟
 		AddTree(dl->Parent_item,NEWName_STR,TYPE_NEW_Name,dl->sf,dl->ge,0,0);
 		//加一个子
 		AddTree(dl->item,NEWSpName_STR,TYPE_NEW_SpName,dl->sf,dl->ge,dl->na,0);
+#endif
 	}	
 	else if(TYPE_NEW_SpName == dl->type)
 	{
@@ -1011,9 +1037,14 @@ void CZogiiaddDlg::BuildNewTree(DATALIST *dl)
 		//修改字符串
 		m_tree.SetItemText(dl->item,	\
 			DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].SpData[curlist->sp].Subspecies[language]);
-	
+#if 1	
+		memcpy(&tempdl,dl,sizeof(DATALIST));
+		//加一个兄弟
+		AddTree(tempdl.Parent_item,NEWSpName_STR,TYPE_NEW_SpName,tempdl.sf,tempdl.ge,tempdl.na,0);
+#else
 		//加一个兄弟
 		AddTree(dl->Parent_item,NEWSpName_STR,TYPE_NEW_SpName,dl->sf,dl->ge,dl->na,0);
+#endif
 	}
 }
 
