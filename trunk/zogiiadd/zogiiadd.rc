@@ -340,6 +340,8 @@ BEGIN
     PUSHBUTTON      "新增",IDC_BUTTON_NEWCloseup,618,368,21,14
     PUSHBUTTON      "新增",IDC_BUTTON_NEWPupa,231,355,21,14
     PUSHBUTTON      "新增",IDC_BUTTON_NEWOvum,605,290,21,14
+    PUSHBUTTON      "快速地理",IDC_BUTTON_FASTMAP,239,125,50,14
+    PUSHBUTTON      "快速剪贴板",IDC_BUTTON_FASTSTR,297,125,50,14
 END
 
 IDD_DIALOG_MAP DIALOG DISCARDABLE  0, 0, 362, 441
@@ -522,6 +524,10 @@ BEGIN
 0xf8d2, 0xd2bb, "\000" 
     IDC_COMBO_OvumColor, 0x403, 5, 0
 0xcfd7, 0xecba, "\000" 
+    IDC_COMBO_OvumColor, 0x403, 5, 0
+0xf0bd, 0xc6bb, "\000" 
+    IDC_COMBO_OvumColor, 0x403, 7, 0
+0xeec9, 0xecba, 0xd6ba, "\000" 
     IDC_COMBO_OvumNo, 0x403, 2, 0
 0x0030, 
     IDC_COMBO_OvumNo, 0x403, 2, 0
@@ -608,6 +614,10 @@ BEGIN
 0xf8d2, 0xd2bb, "\000" 
     IDC_COMBO_LarvaColorB, 0x403, 5, 0
 0xcfd7, 0xecba, "\000" 
+    IDC_COMBO_LarvaColorB, 0x403, 5, 0
+0xf0bd, 0xc6bb, "\000" 
+    IDC_COMBO_LarvaColorB, 0x403, 7, 0
+0xeec9, 0xecba, 0xd6ba, "\000" 
     IDC_COMBO_LarvaColorC, 0x403, 3, 0
 0xdece, "\000" 
     IDC_COMBO_LarvaColorC, 0x403, 7, 0
@@ -632,6 +642,10 @@ BEGIN
 0xf8d2, 0xd2bb, "\000" 
     IDC_COMBO_LarvaColorC, 0x403, 5, 0
 0xcfd7, 0xecba, "\000" 
+    IDC_COMBO_LarvaColorC, 0x403, 5, 0
+0xf0bd, 0xc6bb, "\000" 
+    IDC_COMBO_LarvaColorC, 0x403, 7, 0
+0xeec9, 0xecba, 0xd6ba, "\000" 
     IDC_COMBO_LarvaColorD, 0x403, 3, 0
 0xdece, "\000" 
     IDC_COMBO_LarvaColorD, 0x403, 7, 0
@@ -656,6 +670,10 @@ BEGIN
 0xf8d2, 0xd2bb, "\000" 
     IDC_COMBO_LarvaColorD, 0x403, 5, 0
 0xcfd7, 0xecba, "\000" 
+    IDC_COMBO_LarvaColorD, 0x403, 5, 0
+0xf0bd, 0xc6bb, "\000" 
+    IDC_COMBO_LarvaColorD, 0x403, 7, 0
+0xeec9, 0xecba, 0xd6ba, "\000" 
     IDC_COMBO_LarvaNo, 0x403, 2, 0
 0x0030, 
     IDC_COMBO_LarvaNo, 0x403, 2, 0
@@ -748,6 +766,10 @@ BEGIN
 0xf8d2, 0xd2bb, "\000" 
     IDC_COMBO_LarvaColorA, 0x403, 5, 0
 0xcfd7, 0xecba, "\000" 
+    IDC_COMBO_LarvaColorA, 0x403, 5, 0
+0xf0bd, 0xc6bb, "\000" 
+    IDC_COMBO_LarvaColorA, 0x403, 7, 0
+0xeec9, 0xecba, 0xd6ba, "\000" 
     IDC_COMBO_LarvaInstar, 0x403, 5, 0
 0xb4ce, 0xaad6, "\000" 
     IDC_COMBO_LarvaInstar, 0x403, 5, 0
@@ -842,6 +864,10 @@ BEGIN
 0xf8d2, 0xd2bb, "\000" 
     IDC_COMBO_PupaColorA, 0x403, 5, 0
 0xcfd7, 0xecba, "\000" 
+    IDC_COMBO_PupaColorA, 0x403, 5, 0
+0xf0bd, 0xc6bb, "\000" 
+    IDC_COMBO_PupaColorA, 0x403, 7, 0
+0xeec9, 0xecba, 0xd6ba, "\000" 
     IDC_COMBO_PupaColorB, 0x403, 3, 0
 0xdece, "\000" 
     IDC_COMBO_PupaColorB, 0x403, 7, 0
@@ -866,6 +892,10 @@ BEGIN
 0xf8d2, 0xd2bb, "\000" 
     IDC_COMBO_PupaColorB, 0x403, 5, 0
 0xcfd7, 0xecba, "\000" 
+    IDC_COMBO_PupaColorB, 0x403, 5, 0
+0xf0bd, 0xc6bb, "\000" 
+    IDC_COMBO_PupaColorB, 0x403, 7, 0
+0xeec9, 0xecba, 0xd6ba, "\000" 
     IDC_COMBO_PupaColorC, 0x403, 3, 0
 0xdece, "\000" 
     IDC_COMBO_PupaColorC, 0x403, 7, 0
@@ -890,6 +920,10 @@ BEGIN
 0xf8d2, 0xd2bb, "\000" 
     IDC_COMBO_PupaColorC, 0x403, 5, 0
 0xcfd7, 0xecba, "\000" 
+    IDC_COMBO_PupaColorC, 0x403, 5, 0
+0xf0bd, 0xc6bb, "\000" 
+    IDC_COMBO_PupaColorC, 0x403, 7, 0
+0xeec9, 0xecba, 0xd6ba, "\000" 
     IDC_COMBO_PupaColorD, 0x403, 3, 0
 0xdece, "\000" 
     IDC_COMBO_PupaColorD, 0x403, 7, 0
@@ -914,6 +948,10 @@ BEGIN
 0xf8d2, 0xd2bb, "\000" 
     IDC_COMBO_PupaColorD, 0x403, 5, 0
 0xcfd7, 0xecba, "\000" 
+    IDC_COMBO_PupaColorD, 0x403, 5, 0
+0xf0bd, 0xc6bb, "\000" 
+    IDC_COMBO_PupaColorD, 0x403, 7, 0
+0xeec9, 0xecba, 0xd6ba, "\000" 
     IDC_COMBO_PupaColorNum, 0x403, 2, 0
 0x0030, 
     IDC_COMBO_PupaColorNum, 0x403, 2, 0
@@ -958,6 +996,10 @@ BEGIN
 0xf8d2, 0xd2bb, "\000" 
     IDC_COMBO_ImagoElytraColorA, 0x403, 5, 0
 0xcfd7, 0xecba, "\000" 
+    IDC_COMBO_ImagoElytraColorA, 0x403, 5, 0
+0xf0bd, 0xc6bb, "\000" 
+    IDC_COMBO_ImagoElytraColorA, 0x403, 7, 0
+0xeec9, 0xecba, 0xd6ba, "\000" 
     IDC_COMBO_ImagoElytraTexture, 0x403, 3, 0
 0xdece, "\000" 
     IDC_COMBO_ImagoElytraTexture, 0x403, 5, 0
@@ -990,6 +1032,10 @@ BEGIN
 0xf8d2, 0xd2bb, "\000" 
     IDC_COMBO_ImagoElytraColorB, 0x403, 5, 0
 0xcfd7, 0xecba, "\000" 
+    IDC_COMBO_ImagoElytraColorB, 0x403, 5, 0
+0xf0bd, 0xc6bb, "\000" 
+    IDC_COMBO_ImagoElytraColorB, 0x403, 7, 0
+0xeec9, 0xecba, 0xd6ba, "\000" 
     IDC_COMBO_ImagoElytraColorC, 0x403, 3, 0
 0xdece, "\000" 
     IDC_COMBO_ImagoElytraColorC, 0x403, 7, 0
@@ -1014,6 +1060,10 @@ BEGIN
 0xf8d2, 0xd2bb, "\000" 
     IDC_COMBO_ImagoElytraColorC, 0x403, 5, 0
 0xcfd7, 0xecba, "\000" 
+    IDC_COMBO_ImagoElytraColorC, 0x403, 5, 0
+0xf0bd, 0xc6bb, "\000" 
+    IDC_COMBO_ImagoElytraColorC, 0x403, 7, 0
+0xeec9, 0xecba, 0xd6ba, "\000" 
     IDC_COMBO_ImagoElytraColorD, 0x403, 3, 0
 0xdece, "\000" 
     IDC_COMBO_ImagoElytraColorD, 0x403, 7, 0
@@ -1038,6 +1088,10 @@ BEGIN
 0xf8d2, 0xd2bb, "\000" 
     IDC_COMBO_ImagoElytraColorD, 0x403, 5, 0
 0xcfd7, 0xecba, "\000" 
+    IDC_COMBO_ImagoElytraColorD, 0x403, 5, 0
+0xf0bd, 0xc6bb, "\000" 
+    IDC_COMBO_ImagoElytraColorD, 0x403, 7, 0
+0xeec9, 0xecba, 0xd6ba, "\000" 
     IDC_COMBO_ImagoElytraColorNum, 0x403, 2, 0
 0x0030, 
     IDC_COMBO_ImagoElytraColorNum, 0x403, 2, 0
@@ -1184,6 +1238,10 @@ BEGIN
 0xf8d2, 0xd2bb, "\000" 
     IDC_COMBO_ImagoPronotumColorA, 0x403, 5, 0
 0xcfd7, 0xecba, "\000" 
+    IDC_COMBO_ImagoPronotumColorA, 0x403, 5, 0
+0xf0bd, 0xc6bb, "\000" 
+    IDC_COMBO_ImagoPronotumColorA, 0x403, 7, 0
+0xeec9, 0xecba, 0xd6ba, "\000" 
     IDC_COMBO_ImagoPronotumColorB, 0x403, 3, 0
 0xdece, "\000" 
     IDC_COMBO_ImagoPronotumColorB, 0x403, 7, 0
@@ -1208,6 +1266,10 @@ BEGIN
 0xf8d2, 0xd2bb, "\000" 
     IDC_COMBO_ImagoPronotumColorB, 0x403, 5, 0
 0xcfd7, 0xecba, "\000" 
+    IDC_COMBO_ImagoPronotumColorB, 0x403, 5, 0
+0xf0bd, 0xc6bb, "\000" 
+    IDC_COMBO_ImagoPronotumColorB, 0x403, 7, 0
+0xeec9, 0xecba, 0xd6ba, "\000" 
     IDC_COMBO_ImagoPronotumColorC, 0x403, 3, 0
 0xdece, "\000" 
     IDC_COMBO_ImagoPronotumColorC, 0x403, 7, 0
@@ -1232,6 +1294,10 @@ BEGIN
 0xf8d2, 0xd2bb, "\000" 
     IDC_COMBO_ImagoPronotumColorC, 0x403, 5, 0
 0xcfd7, 0xecba, "\000" 
+    IDC_COMBO_ImagoPronotumColorC, 0x403, 5, 0
+0xf0bd, 0xc6bb, "\000" 
+    IDC_COMBO_ImagoPronotumColorC, 0x403, 7, 0
+0xeec9, 0xecba, 0xd6ba, "\000" 
     IDC_COMBO_ImagoPronotumColorD, 0x403, 3, 0
 0xdece, "\000" 
     IDC_COMBO_ImagoPronotumColorD, 0x403, 7, 0
@@ -1256,6 +1322,10 @@ BEGIN
 0xf8d2, 0xd2bb, "\000" 
     IDC_COMBO_ImagoPronotumColorD, 0x403, 5, 0
 0xcfd7, 0xecba, "\000" 
+    IDC_COMBO_ImagoPronotumColorD, 0x403, 5, 0
+0xf0bd, 0xc6bb, "\000" 
+    IDC_COMBO_ImagoPronotumColorD, 0x403, 7, 0
+0xeec9, 0xecba, 0xd6ba, "\000" 
     IDC_COMBO_ImagoPronotumColorNum, 0x403, 2, 0
 0x0030, 
     IDC_COMBO_ImagoPronotumColorNum, 0x403, 2, 0

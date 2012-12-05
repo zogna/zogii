@@ -316,6 +316,8 @@ BEGIN_MESSAGE_MAP(CZogiiaddDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_NEWCloseup, OnBUTTONNEWCloseup)
 	ON_BN_CLICKED(IDC_BUTTON_NEWOvum, OnBUTTONNEWOvum)
 	ON_BN_CLICKED(IDC_BUTTON_NEWPupa, OnBUTTONNEWPupa)
+	ON_BN_CLICKED(IDC_BUTTON_FASTMAP, OnButtonFastmap)
+	ON_BN_CLICKED(IDC_BUTTON_FASTSTR, OnButtonFaststr)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -2131,4 +2133,27 @@ void CZogiiaddDlg::OnBUTTONNEWPupa()
 	}
 
 	MessageBox(_T("ÒÑÂú"), _T("Í¼Æ¬"));
+}
+
+void CZogiiaddDlg::OnButtonFastmap() 
+{
+	// TODO: Add your control notification handler code here
+	Newdata.DiscoverMapList[Newdata.DiscoverMapTotal]=225;
+	Newdata.DiscoverMapTotal++;
+
+	char str[32];
+	sprintf(str,"%d",Newdata.DiscoverMapTotal);
+	GetDlgItem(IDC_STATIC_DISCOVERTOTAL)->SetWindowText(str);
+}
+
+void CZogiiaddDlg::OnButtonFaststr() 
+{
+	// TODO: Add your control notification handler code here
+	char *str="www.coccinellidae.cl";
+
+	GetDlgItem(IDC_EDIT_ImagoPicInfo)->SetWindowText(str);
+	GetDlgItem(IDC_EDIT_PupaPicInfo)->SetWindowText(str);
+	GetDlgItem(IDC_EDIT_CloseupPicInfo)->SetWindowText(str);
+	GetDlgItem(IDC_EDIT_OvumPicInfo)->SetWindowText(str);
+	GetDlgItem(IDC_EDIT_LarvaPicInfo)->SetWindowText(str);
 }

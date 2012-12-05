@@ -69,6 +69,8 @@ typedef unsigned __int32 ZOGII_ULONG_TYPE;
 // 9 =褐
 // 10 =银灰
 // 11 =紫红
+// 12 =金黄
+// 13= 深红褐
 */
 
 //数据类型 TYPE
