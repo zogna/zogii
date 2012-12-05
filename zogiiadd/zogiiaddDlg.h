@@ -191,6 +191,8 @@ protected:
 	afx_msg void OnBUTTONNEWCloseup();
 	afx_msg void OnBUTTONNEWOvum();
 	afx_msg void OnBUTTONNEWPupa();
+	afx_msg void OnButtonFastmap();
+	afx_msg void OnButtonFaststr();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 	void OnOK();
