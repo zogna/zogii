@@ -6,6 +6,8 @@
 #include "zogiiaddDlg.h"
 #include "DLGmap.h"
 
+#include "MyFileDialog.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -755,12 +757,17 @@ int CZogiiaddDlg::SaveToFile(int idc)
 
 int CZogiiaddDlg::OpenToPicFile(int idc)
 {
+
 	// TODO: Add your control notification handler code here
 	char szFilter[]="Picture file(*.jpg;*.jpeg;*.bmp;*.png;*.dib;*.tga;*.gif)|*.jpg;*.jpeg;*.bmp;*.png;*.dib;*.tga;*.gif|All files (*.*)|*.*||";
+#if 0
 	//保存文件
 	//CFileDialog dlg(FALSE,"*.*","",OFN_HIDEREADONLY|OFN_OVERWRITEPROMPT, szFilter);
 	//打开文件
 	CFileDialog dlg(TRUE,"*.*","",OFN_HIDEREADONLY|OFN_OVERWRITEPROMPT, szFilter);
+#else
+	CMyFileDialog dlg(TRUE,"*.*","",OFN_HIDEREADONLY|OFN_OVERWRITEPROMPT, szFilter,NULL,960,480);
+#endif
 
 	if(dlg.DoModal()==IDOK)
 	{
@@ -2138,8 +2145,20 @@ void CZogiiaddDlg::OnBUTTONNEWPupa()
 void CZogiiaddDlg::OnButtonFastmap() 
 {
 	// TODO: Add your control notification handler code here
-	Newdata.DiscoverMapList[Newdata.DiscoverMapTotal]=225;
-	Newdata.DiscoverMapTotal++;
+	int i;
+	unsigned char v=225;
+	//找重复
+	for(i=0;i<Newdata.DiscoverMapTotal;i++)
+	{
+		if(v==Newdata.DiscoverMapList[i])
+			break;
+	}
+	//找不到
+	if(i==Newdata.DiscoverMapTotal)
+	{
+		Newdata.DiscoverMapList[Newdata.DiscoverMapTotal]=v;
+		Newdata.DiscoverMapTotal++;
+	}
 
 	char str[32];
 	sprintf(str,"%d",Newdata.DiscoverMapTotal);

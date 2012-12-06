@@ -99,6 +99,10 @@ SOURCE=.\map.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\MyFileDialog.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\StdAfx.cpp
 # ADD CPP /Yc"stdafx.h"
 # End Source File
@@ -125,6 +129,10 @@ SOURCE=.\zogiiRWdb.cpp
 # Begin Source File
 
 SOURCE=.\DLGmap.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\MyFileDialog.h
 # End Source File
 # Begin Source File
 
