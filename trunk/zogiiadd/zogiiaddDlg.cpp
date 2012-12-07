@@ -766,7 +766,7 @@ int CZogiiaddDlg::OpenToPicFile(int idc)
 	//打开文件
 	CFileDialog dlg(TRUE,"*.*","",OFN_HIDEREADONLY|OFN_OVERWRITEPROMPT, szFilter);
 #else
-	CMyFileDialog dlg(TRUE,"*.*","",OFN_HIDEREADONLY|OFN_OVERWRITEPROMPT, szFilter,NULL,960,480);
+	CMyFileDialog dlg(TRUE,"*.*","",OFN_HIDEREADONLY|OFN_OVERWRITEPROMPT, szFilter,NULL,720,480);
 #endif
 
 	if(dlg.DoModal()==IDOK)
