@@ -29,3 +29,49 @@ Rodolia fue establecido por Mulsant para albergar a la especie indo-australiana 
 Algunas de sus caracter¨ªsticas m¨¢s notables son las antenas de 8 segmentos, el primero muy expandido, las tibias aplanadas y fuertemente anguladas exteriormente, con un canal que recibe los tarsos en reposo, y los tarsos de tres segmentos.
 
 Recientemente la tribu Noviini ha sido transferida a la subfamilia Ortaliinae. En este documento, y ya que se trata de una sola especie ex¨®tica para nuestro pais, se mantiene la posici¨®n propuesta por Gordon de incluirla en Scymninae.
+
+
+
+=======================================================
+Diagnosis: Forma semicircular y de color rojo ladrillo. Cabeza negra. Pronoto con una gran mancha basal negra dejando un delgado borde y los ¨¢ngulos delanteros claros. ¨¦litros con la sutura negra ensanchado en forma de rombo a nivel de los dos quintos, adelgazado cerca del escutelo, doblando por el borde lateral en el ¨¢pice. Tres manchas adicionales negras, una humeral, curvada, y dos a los dos tercios, una discal grande y una lateral menor, unidas.
+
+Variaci¨®n: El color var¨ªa del rojo al ocre. Las manchas oscuras posteriores pueden unirse a nivel de la sutura y por el borde lateral dejando una mancha clara aislada. 
+
+Distribuci¨®n: Argentina (Mendoza), Colombia, Chile (Arica, Elqui, Los Andes, Quillota, San Antonio, Isla de Pascua), Paraguay (San Pedro), Per¨² (Lima), Uruguay, Venezuela. Centroam¨¦rica, Norteam¨¦rica, Asia, Africa. Europa y Ocean¨ªa. Originaria de Australia. Nuevo Registro para Paraguay (Paraguay, San Pedro, Estancia Lomas, S24o29 W57o05, 04-13/04/2009, leg. Ulf Drechsel). 
+
+Tama?o: 2,7 a 4,2 mm.
+
+Observaciones: Protagonista del m¨¢s famoso y exitoso caso de control biol¨®gico de pestes, esta especie fue introducida desde Australia a los Estados Unidos en 1888 para el control de Icerya purchasi, plaga que estaba asolando los cultivos de c¨ªtricos en California. Luego de su ¨¦xito, fue introducida en gran cantidad de pa¨ªses, siendo hoy pr¨¢cticamente cosmopolita. Es probable que se encuentre en m¨¢s pa¨ªses americanos que los indicados aqu¨ª. La tribu Noviini ha sido tratada ultimamente, junto con la tribu Ortaliini, en la subfamilia Ortaliinae. 
+ 
+
+
+Margaroridae: Las especies de esta familia de Hemiptera, entre las cuales se encuentra Icerya purchasi, son las presas favoritas de Rodolia cardinalis. El autor la ha visto con frecuencia predando sobre esta especie en la zona litoral de Chile, sobre docas, Carpobrotus equilaterus (foto del autor). 
+
+ 
+Sinonimia:
+Vedalia cardinalis Mulsant, 1850.
+Novius cardinalis Crotch, 1874.
+Eurodolia cardinalis Weise, 1895.
+Rodolia cardinalis Weise, 1905. 
+Macronovius cardinalis Weise, 1922.
+Para una sinonimia completa ver Gordon, 1972. 
+
+Bibliograf¨ªa:
+Crotch G.R. 1874. A revision of the Coleopterous Family Coccinellidae, University Press, London, 311 p.
+Gordon, R.D. 1972. The tribe Noviini in the new world (Coleoptera: Coccinellidae). J. Wash. Acad. Sci. 62(1): 23-31
+Mulsant. E. 1850. Species des Coleopteres Trimeres Securipalpes, Ann. Sci. Phys. Nat. Lyon, ser.2, vol. 2, pp. 1-1104.
+Weise, J. 1895. Neue Coccinelliden, sowie Bekermungen zu Bemerkungen zu bekannten Arten. Annales de Societe Entomologique du Belgique 39: 120-146.
+Weise, J. 1905. Ueber Coccinelliden. Deutsche Entomol. Zeit. 1905:217-220. 
+Weise, J. 1922. Coleoptera e collectione Bruchiana. An. Soc. Cient. Arg. 94: 30-40.
+
+
+ 
+Vistas dorsal, lateral, frontal y posterior. Variaci¨®n: vista dorsal.
+Espec¨ªmen de Argentina, Mendoza, La Consulta, 24-VII-2006 , [leg.] S.J. Lanati. 
+Variaci¨®n: Chile, Isla de Pascua, Hanga-Roa [....] 30-III-2006. [leg.] J. Mondaca. 
+
+
+ 
+
+En la Naturaleza: otra vista del mismo insecto en Tongoy, IV Regi¨®n, Chile. Observece la uni¨®n parcial de las manchas posteriores casi formando un anillo. (foto del autor) 
+ 

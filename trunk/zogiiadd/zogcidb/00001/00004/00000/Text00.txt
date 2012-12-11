@@ -1,2 +1,83 @@
- (瓢蟲科 / 小毛瓢蟲亞科)體長4-4.5mm，體背黑色，前翅左右各有2枚黃色的大斑，後列的黃斑近翅端。本屬有2種，本種為大型的毛瓢蟲亞科，分布於低中海拔山區，為較少見的斑型，曾發現在香蕉葉背躲雨，筆者只見過二次，其中一次在中海拔山區，棲息草叢環境。
+Esta especie es relativamente abundante en Chile, especialmente en la zona central, encontrándose prácticamente durante todo el a?o. Aunque se la conocía en Chile desde antes, solo fue descrita en 1974 procedente de las islas de la Reunión, en el Océano índico, cerca de Madagascar. También se la encuentra en Australia y México, entre otros países.
 
+Durante el a?o 2006 se ha establecido la presencia de esta especie en la Isla de Pascua y en el Archipiélago de Juan Fernández.
+
+Recientemente (Slipinski 2207) el subgénero Parastethorus fue subido a rango de género.
+
+BiologíaBiología:
+Las presas de los géneros Stethorus y Parastethorus los separan de todos los demás Coccinellidae: ara?itas rojas (ácaros de la familia Tetranychidae, ver abajo). Estas son plagas agrícolas, por lo cual estas especies son un importante agente de control biológico de plagas.
+
+En la naturaleza: Buscando presas sobre una hoja de "Velo de Novia" en Machalí, Rancagua (foto Jose Manuel Bustamante.
+
+Puzzle
+Después que Chazeau describió esta especie en 1974, encontró que unos a?os antes (1967) V.B. Whitehead había descrito esta misma especie en una tésis no publicada y que un resumen de esta tesis había sido adecuadamente publicada en los Dissertations Abstracts. En tal sentido, el mismo Chazeau en 1979 aceptó a S. incompletus Chazeau como el nombre válido de esta especie, dejando S. histrio como un sinónimo. Gordon, en 1983, en su revision de los Stethorus de Sudamérica, rechazó esta sinonimia asumiendo que la descripción no publicada no era válida y que la publicación de un resumen sin una descripción asociada tampoco era válida desde el punto de vista taxonómico. Este criterio es seguido en el presente trabajo. Sin embargo, el criterio de Chazeau de mantener el nombre S. incompletus como valido ha sido seguido por algunos autores, en especial los europeos.
+
+Cabeza de Stethorus histrioCabeza: Se puede ver que en Parastethorus histrio Chazeau, como en todas las demás especies de este género, el clípeo no presenta ninguna expansión lateral sobre los ojos, a nivel de la base de las antenas, sino que se curva suavemente hacia el interior.
+
+Larva de Stethorus histrio
+
+ 
+
+ 
+
+ 
+
+Larva: Son una de las pocas conocidas de los  Coccinellidae chilenos que no pertenezcan a la subfamila Coccinellinae. Como los adultos,  las larvas de Stethorus y Parastethorus predan sobre ara?itas rojas.
+
+Ara?ita Roja: Estos aracnidos (Tetranichydae) son muy da?inos para la agricultura y uno de los pocos predadores naturales que tienen son los Coccinellidae de los géneroe Stethorus y Parastethorus
+
+Puntos ClavePuntos Clave
+
+    Cuerpo totalmente negro.
+    Abundante pilosidad blanca.
+    Tama?o peque?ísimo, entre 1,0 a 1,2 mm.
+
+Su aspecto recuerda a Sticholotidinae, de los que se separa fácilmente por el último segmento de los palpos maxilares no oblongo sino levemente securiforme.
+ 
+
+Género
+
+Género Parastethorus Pang & Mao1975
+El clípeo suavemente redondeado, sin expansiones hacia los ojos ni emarginación para las antenas, es una característica única de la tribu Stethorini entre todos los Scymninae. El género Parastethorus se distingue por las líneas postcoxales incompletas y el tegmen corto y robusto. Otras características son su tama?o diminuto (1.0 a 1.5 mm de largo), y como en el género  Cryptolaemus, el  prosterno expandido por delante, cubriendo parcialmente las piezas bucales en reposo. El género comprende un peque?o número de especias de Australia y Asia. 
+
+===============================================
+Diagnosis: Color negro, muy piloso, patas, piezas bucales y antenas café amarillento. Pilosidad gris abundante. 
+
+Distribución: Argentina (Buenos Aires, Formosa, Mendoza, Misiones, Salta), Brasil (Paraná), Chile (Arica, Iquique, El Loa, Elqui, Limarí, Quillota, Valparaíso, Santiago, Isla de Pascua, Isla Robinson Crusoe), Paraguay (Central), Perú (Lima, Piura), Asia, Norteamérica, Oceanía. Nuevo registro para Paraguay (Paraguay, Central, Asunción, XII-1987, [leg.] Carlos A. Julio).
+
+Tama?o: 1,0 a 1,3 mm.
+
+Observaciones: La especie se distingue de todas las demas especies de Stethorini presentes en América por las líneas postcoxales incompletas. Especie de origen en el Océano índico, introducida en Sudamérica como importante predador de ara?itas rojas. 
+En Chile se ha detectado predando sobre Panonychus citri (Mc. Gregor), Tetranichus urticae Kock, Brevipalpus chilensis Baker y Panonychus ulmi (Koch) (Aguilera, 1987).
+La especie fué descrita previamente por Chazeau por Britton & Lee (1971) bajo el nombre de S. incompletus, pero el nombre en una tesis de grado ha sido considerado inválido (Gordon & Chapin 1983).
+
+ 
+
+En la naturaleza:
+izquierda: ejemplares en cópula fotografiados sobre una hoja en INTA Cerro Azul, provincia de Misiones, Argentina, presumiblemente en cultivos de té (Camelia sinensis) (foto Diana V. Ohashi).
+
+Derecha: otros dos ejemplares en estado larvario en la misma localidad, los que han sido sorprendisos predando sobre Oligonychus sp. (fotos Diana V. Ohashi).
+
+ 
+
+ 
+
+Sinonimia: Stethorus histrio Chazeau 1974, Stethorus (Parastethorus) histrio Pang y Mao, Parastethorus histrio Slipinski 2007, Stethorus incompletus Britton & Lee 1971.
+
+Bibliografía: 
+Aguilera A. 1987, Nuevas localidades para Stethorus histrio Chazeau (Coleoptera: Coccinellidae) en Chile, Rev. Chilena Ent.,15:33-36.
+Chazeau J., Etienne J. & Fursch H., 1974, Les Coccinellides de l’ile de la Réunion (Insecta: Coleoptera). Bull. Mus. Nat. Hist. Nat, 140:1-297.
+Chazeau J.,1979, Mise a point sur le genre Stethorus en Oceanie et description de deux especes nouvelles de Melanesie (Col., Coccinellidae). Entomophaga 24: 295-303. 
+Gordon R.D. & Anderson, 1979, The genus Stethorus Weise (Coleoptera: Coccinellidae), in Chile. Coleopt Bull, 33(1): 61-67 
+Gordon R.D. & Chapin E.A. 1983, A revision of the new world species of Stethorus Weise (Coleoptera: Coccinellidae). Trans. Amer. Ent. Soc. v.109:229-276.
+Slipinski, A. 2007. Australian Ladybird Beetles (Coleoptera: Coccinellidae). Their biology and classification. ABRS. Canberra, Australia. 286 pp.
+
+
+ 
+Vista dorsal, lateral, frontal y posterior.
+Espécimen de Perú, Lima, Sta. Eulalia, 08-IX-2005, leg. C. Levano.
+
+
+Tegmen ventral y detalle de falobase, tegmen lateral, sifón lateral,
+
+ 
