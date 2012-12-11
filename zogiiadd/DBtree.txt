@@ -754,10 +754,10 @@
 		00000-	trilineata-	trilineata-	trilineata	[Hyperaspis trilineata Mulsant 1850, Clypeaspis trilineata Gordon & Canepari 2008. -	]
 	00000-	Cryptognatha-	Cryptognatha-	Cryptognatha
 		00001-	auriculata-	auriculata-	auriculata	[]
-		00002-	gemellata-	gemellata-	gemellata	[]
+		00002-	gemellata-	gemellata-	gemellata	[Cryptognatha gemellata Mulsant 1850:498-	Cryptognatha simillina Sicard 1929:519-	]
 		00000-	nodiceps-	nodiceps-	nodiceps	[]
 	00001-	Cryptolaemus-	ë[´½Æ°ÏxÊô-	ë[´½Æ°ÏxÊô
-		00000-	montrouzieri-	ÃÏÊÏë[´½Æ°Ïx-	ÃÏÊÏë[´½Æ°Ïx	[]
+		00000-	montrouzieri-	ÃÏÊÏë[´½Æ°Ïx-	ÃÏÊÏë[´½Æ°Ïx	[Cryptolaemus montrouzieri Crotch, 1874: 204-	Cryptolaemus montrouzieri Gordon, 1985: 105-	Para una sinonimia completa ver Gordon, 1985-	]
 	00019-	Cyra-	Cyra-	Cyra
 		00001-	loricata-	loricata-	loricata	[]
 		00002-	mulsanti-	mulsanti-	mulsanti	[]
@@ -766,13 +766,13 @@
 	00009-	Decadiomus-	Decadiomus-	Decadiomus
 		00000-	bahamicus-	bahamicus-	bahamicus	[]
 	00024-	Diazonema-	Diazonema-	Diazonema
-		00000-	fallax-	fallax-	fallax	[]
+		00000-	fallax-	fallax-	fallax	[Diazonema fallax, Weise, 1926: 13.-	Corystes hyp¨®crita Mulsant, 1950 (pars, Milleo & Almeida, 2000). -	]
 	00010-	Didion-	Didion-	Didion
 		00000-	longulum-	longulum-	longulum	[]
 		00001-	nanum-	nanum-	nanum	[]
 		00002-	punctatum-	punctatum-	punctatum	[]
 	00025-	Dilatitibialis-	Dilatitibialis-	Dilatitibialis
-		00000-	melanura-	melanura-	melanura	[]
+		00000-	melanura-	melanura-	melanura	[Cleothera melanura Mulsant 1850: 562-	Hyperaspis melanura Crotch 1874: 216.-	]
 	00008-	Diomus-	»ùÆ°³æÊô-	»ùÆ°³æÊô
 		00000-	akonis-	ºÖ·ì»ùÆ°³æ-	ºÖ·ì»ùÆ°³æ	[Pullus akonis Ohta, 1929-	Diomus brunsuturalis Pang et Gordon, 1986¡¯ syn. nov.-	]
 		00001-	amabilis-	amabilis-	amabilis	[]
@@ -796,21 +796,38 @@
 		00011-	pseudotaedatus-	pseudotaedatus-	pseudotaedatus	[]
 		00012-	pumilio-	pumilio-	pumilio	[]
 		00013-	roseicollis-	roseicollis-	roseicollis	[]
+		00027-	secunda-	secunda-	secunda	[]
+		00028-	seminulus-	seminulus-	seminulus	[]
+		00029-	slipinskii-	slipinskii-	slipinskii	[]
 		00014-	taedatus-	taedatus-	taedatus	[]
 		00015-	terminatus-	terminatus-	terminatus	[]
 		00016-	texanus-	texanus-	texanus	[]
+		00030-	thomas-	thomas-	thomas	[]
+		00031-	thoracicus-	thoracicus-	thoracicus	[Coccinella thoracicus Fabricius 1801, Scymnus (Diomus) thoracicus Mulsant 1850-	Scymnus thoracicus Blackwelder 1945, Diomus thoracicus Gordon 1999.-	]
+		00032-	tucumanus-	tucumanus-	tucumanus	[Diomus tucumanus Weise 1906-	Diomus assentator Br¨¨thes 1925.-	]
 		00018-	westerduijni-	westerduijni-	westerduijni	[]
 		00017-	xanthaspis-	xanthaspis-	xanthaspis	[]
+		00033-	xenon-	xenon-	xenon	[]
 	00020-	Heterodiomus-	Heterodiomus-	Heterodiomus
 		00000-	brethesi-	brethesi-	brethesi	[]
 		00001-	marchali-	marchali-	marchali	[]
+	00026-	Hinda-	Hinda-	Hinda
+		00000-	modesta-	modesta-	modesta	[]
+		00001-	uncinata-	uncinata-	uncinata	[]
 	00021-	Hyperaspis-	Hyperaspis-	Hyperaspis
 		00003-	andina-	andina-	andina	[]
+		00005-	arida-	arida-	arida	[]
+		00006-	esmeraldas-	esmeraldas-	esmeraldas	[]
+		00007-	festiva-	festiva-	festiva	[]
 		00000-	funesta-	funesta-	funesta	[]
 		00001-	germaini-	germaini-	germaini	[]
+		00008-	matronata-	matronata-	matronata	[]
 		00002-	nana-	nana-	nana	[]
+		00009-	onerata-	onerata-	onerata	[]
+		00010-	prolata-	prolata-	prolata	[]
 		00004-	sphaeridioides-	sphaeridioides-	sphaeridioides	[]
 	00011-	Nephaspis-	Nephaspis-	Nephaspis
+		00002-	aquarius-	aquarius-	aquarius	[]
 		00000-	bicolor-	bicolor-	bicolor	[]
 		00001-	oculatus-	oculatus-	oculatus	[]
 	00007-	Nephus-	ÍäÒ¶Ã«Æ°³æÊô-	ÍäÒ¶Ã«Æ°³æÊô
@@ -835,7 +852,10 @@
 	00004-	Parastethorus-	Parastethorus-	Parastethorus
 		00000-	histrio-	histrio-	histrio	[]
 	00012-	Pentilia-	Pentilia-	Pentilia
+		00001-	cincta-	cincta-	cincta	[]
 		00000-	insidiosa-	insidiosa-	insidiosa	[]
+	00027-	Pseudoladoria-	Pseudoladoria-	Pseudoladoria
+		00000-	simulans-	simulans-	simulans	[]
 	00002-	Sasajiscymnus-	·½Æ°³æÊô-	·½Æ°³æÊô
 		00009-	amplus-	´ó·½Æ°³æ-	´ó·½Æ°³æ	[Pseudoscymnus amplus Yang et Wu, 1972-	]
 		00010-	anmashanus-	°°ÂíÉ½·½Æ°³æ-	°°ÂíÉ½·½Æ°³æ	[Pseudoscymnus anmashanus Yang, 1971 -	]
@@ -856,6 +876,7 @@
 	00013-	Scymnobius-	Scymnobius-	Scymnobius
 		00001-	aricaensis-	aricaensis-	aricaensis	[]
 		00000-	bilucernarius-	bilucernarius-	bilucernarius	[]
+		00004-	ecuadoricus-	ecuadoricus-	ecuadoricus	[]
 		00002-	galapagoensis-	galapagoensis-	galapagoensis	[]
 		00003-	triangularis-	triangularis-	triangularis	[]
 	00014-	Scymnodes-	Scymnodes-	Scymnodes
@@ -869,9 +890,11 @@
 		00020-	bistortus-	Ë«ĞıĞ¡Æ°³æ-	Ë«ĞıĞ¡Æ°³æ	[]
 		00002-	centralis-	ÖĞºÚĞ¡Æ°Ïx-	ÖĞºÚĞ¡Æ°Ïx	[]
 		00038-	coniferarum-	coniferarum-	coniferarum	[]
+		00039-	demerarensis-	demerarensis-	demerarensis	[]
 		00017-	dorcatomoides-	ĞâÉ«Ğ¡Æ°³æ-	ĞâÉ«Ğ¡Æ°³æ	[]
 		00010-	fanjingicus-	èó¾»Ğ¡Æ°³æ-	èó¾»Ğ¡Æ°³æ	[]
 		00001-	fuscatus-	×ØÉ«Ã«Æ°Ïx-	×ØÉ«Ã«Æ°Ïx	[Scymnus (Neopullus) brunnescens Motschulsky, 1866-	Pullus niponicus Lewis, 1896-	Pullus paganus: Ohta, 1929 (nec. Lewis, 1896)-	]
+		00040-	hamatus-	hamatus-	hamatus	[]
 		00013-	hatomensis-	ğ¯¼äĞ¡Æ°³æ-	ğ¯¼äĞ¡Æ°³æ	[]
 		00000-	hoffmanni-	ºÚ½óÃ«Æ°Ïx-	ºÚ½óÃ«Æ°Ïx	[]
 		00021-	leo-	Ê¨É«Ğ¡Æ°³æ-	Ê¨É«Ğ¡Æ°³æ	[]
@@ -893,6 +916,7 @@
 		00037-	rubicundus-	rubicundus-	rubicundus	[]
 		00023-	secula-	Á¢ÄâĞ¡Æ°³æ-	Á¢ÄâĞ¡Æ°³æ	[]
 		00016-	shirozui-	ÍäÒ¶Ğ¡Æ°³æ-	ÍäÒ¶Ğ¡Æ°³æ	[]
+		00041-	simillimus-	simillimus-	simillimus	[]
 		00006-	sodalis-	ÊøĞ¡Æ°Ïx(Ì¨ÍåĞ¡Æ°³æ)-	ÊøĞ¡Æ°Ïx(Ì¨ÍåĞ¡Æ°³æ)	[Pullus sodalis Weise, 1923-	]
 		00031-	subvillosus-	subvillosus-	subvillosus	[]
 		00012-	takasago-	¸ßÉ°Ğ¡Æ°³æ-	¸ßÉ°Ğ¡Æ°³æ	[]
@@ -909,21 +933,34 @@
 		00000-	aptus-	ºÚÄÒÊ³òıÆ°³æ-	ºÚÄÒÊ³òıÆ°³æ	[]
 		00006-	caseyi-	caseyi-	caseyi	[]
 		00002-	chengi-	Êø¹ÜÊ³òıÆ°³æ-	Êø¹ÜÊ³òıÆ°³æ	[]
+		00013-	grossepunctatus-	grossepunctatus-	grossepunctatus	[]
 		00004-	hirashimai-	hirashimai-	hirashimai	[]
 		00005-	klapperichi-	klapperichi-	klapperichi	[]
 		00001-	loi-	ÂŞÊÏÊ³òıÆ°³æ-	ÂŞÊÏÊ³òıÆ°³æ	[]
 		00003-	muriculatus-	Ï¸³¤Ê³òıÆ°³æ-	Ï¸³¤Ê³òıÆ°³æ	[]
 		00007-	nigripes-	nigripes-	nigripes	[]
+		00014-	peruvianus-	peruvianus-	peruvianus	[]
 		00008-	pinachi-	pinachi-	pinachi	[]
 		00009-	punctillum-	punctillum-	punctillum	[]
 		00010-	punctum-	punctum-	punctum	[]
 		00011-	siphonulus-	siphonulus-	siphonulus	[]
+		00015-	tridens-	tridens-	tridens	[]
 		00012-	utilis-	utilis-	utilis	[]
+	00028-	Tenuisvalvae-	Tenuisvalvae-	Tenuisvalvae
+		00000-	bisquinquepustulata-	bisquinquepustulata-	bisquinquepustulata	[]
+		00001-	bromelicola-	bromelicola-	bromelicola	[]
 	00016-	Zagloba-	Zagloba-	Zagloba
 		00000-	bicolor-	bicolor-	bicolor	[]
 		00001-	hystrix-	hystrix-	hystrix	[]
 		00002-	ornata-	ornata-	ornata	[]
 		00003-	satana-	satana-	satana	[]
+	00029-	Zenoria-	Zenoria-	Zenoria
+		00000-	discrepa-	discrepa-	discrepa	[]
+		00001-	flavicollis-	flavicollis-	flavicollis	[]
+		00002-	lativerpa-	lativerpa-	lativerpa	[]
+		00003-	paprzyckii-	paprzyckii-	paprzyckii	[]
+		00004-	sylvatica-	sylvatica-	sylvatica	[]
+		00005-	variabilis-	variabilis-	variabilis	[]
 	00017-	Zilus-	Zilus-	Zilus
 		00000-	aterrimus-	aterrimus-	aterrimus	[]
 		00001-	eleutherae-	eleutherae-	eleutherae	[]
