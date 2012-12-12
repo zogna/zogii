@@ -2146,7 +2146,7 @@ void CZogiiaddDlg::OnButtonFastmap()
 {
 	// TODO: Add your control notification handler code here
 	int i;
-	unsigned char v=225;
+	unsigned char v=94;
 	//’“÷ÿ∏¥
 	for(i=0;i<Newdata.DiscoverMapTotal;i++)
 	{

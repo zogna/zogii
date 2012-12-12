@@ -27,7 +27,7 @@
 		00000-	quadripustulatus-	quadripustulatus-	quadripustulatus	[]
 	00002-	Chilocorus-	Chilocorus-	Chilocorus
 		00000-	alishanus-	∞¢¿Ô…Ω¥Ω∆∞≥Ê-	∞¢¿Ô…Ω¥Ω∆∞œx	[]
-		00004-	bipustulatus-	bipustulatus-	bipustulatus	[]
+		00004-	bipustulatus-	bipustulatus-	bipustulatus	[Coccinela bipustulata Linnaeus, 1758: 367-	Chilocorus bipustulatus Mulsant, 1846: 170. -	]
 		00005-	cacti-	cacti-	cacti	[]
 		00002-	circumdatus-	ºöæâ¥Ω∆∞œx-	ºöæâ¥Ω∆∞œx	[]
 		00006-	fraternus-	fraternus-	fraternus	[]
@@ -41,7 +41,7 @@
 		00012-	tricyclus-	tricyclus-	tricyclus	[]
 		00013-	tumidus-	tumidus-	tumidus	[]
 	00008-	Curinus-	Curinus-	Curinus
-		00000-	coeruleus-	coeruleus-	coeruleus	[]
+		00000-	coeruleus-	coeruleus-	coeruleus	[Orcus (Curinus) coeruleus Mulsant 1850-	Curinus coeruleus Crotch 1874 -	]
 	00009-	Egius-	Egius-	Egius
 		00000-	platycephalus-	platycephalus-	platycephalus	[]
 	00010-	Exochomus-	Exochomus-	Exochomus
@@ -71,17 +71,21 @@
 		00003-	nitida-	nitida-	nitida	[]
 		00002-	scymnoides-	–°√´π—Ω⁄∆∞≥Ê-	–°√´π—Ω⁄∆∞≥Ê	[]
 	00013-	Zagreus-	Zagreus-	Zagreus
+		00002-	bimaculosus-	bimaculosus-	bimaculosus	[Exochomus (Zagreus) bimaculosus Mulsant 1850:488-	Exochomus bimaculosus Crotch 1874:193-	Zagreus bimaculosus Chapin 1965:242 -	Exochomus (Zagreus) gaubili Mulsant 1850: 490-	Exochomus (Zagreus) cinctipennis Mulsant 1850:491-	]
 		00000-	decempunctatus-	decempunctatus-	decempunctatus	[]
 		00001-	hexasticta-	hexasticta-	hexasticta	[]
 00002-	Coccidulinae-	∫Ï∆∞≥Ê—«ø∆-	ºt∆∞œxÅÜø∆
 	00002-	Anovia-	Anovia-	Anovia
 		00000-	virginalis-	virginalis-	virginalis	[]
 	00003-	Azya-	Azya-	Azya
+		00003-	bioculata-	bioculata-	bioculata	[]
+		00004-	luteipes-	luteipes-	luteipes	[]
 		00001-	murilloi-	murilloi-	murilloi	[]
 		00000-	orbigera-	orbigera-	orbigera	[]
 			00000-	ecuadorica-	ecuadorica-	ecuadorica	[]
 		00002-	scutata-	scutata-	scutata	[]
 	00017-	Chnoodes-	Chnoodes-	Chnoodes
+		00001-	brasiliensis-	brasiliensis-	brasiliensis	[]
 		00000-	terminalis-	terminalis-	terminalis	[]
 	00004-	Coccidula-	Coccidula-	Coccidula
 		00000-	lepida-	lepida-	lepida	[]
@@ -89,9 +93,12 @@
 		00000-	fairmairei-	fairmairei-	fairmairei	[]
 		00001-	flavomarginatus-	flavomarginatus-	flavomarginatus	[]
 		00002-	variegatus-	variegatus-	variegatus	[]
+	00018-	Eupalea-	Eupalea-	Eupalea
+		00000-	reinhardti-	reinhardti-	reinhardti	[]
 	00009-	Eupaleoides-	Eupaleoides-	Eupaleoides
 		00000-	chiloensis-	chiloensis-	chiloensis	[]
 	00005-	Exoplectra-	Exoplectra-	Exoplectra
+		00002-	fulgurata-	fulgurata-	fulgurata	[]
 		00001-	ruberrima-	ruberrima-	ruberrima	[]
 		00000-	schaefferi-	schaefferi-	schaefferi	[]
 	00010-	Mimoscymnus-	Mimoscymnus-	Mimoscymnus
@@ -104,13 +111,13 @@
 	00011-	Nothocolus-	Nothocolus-	Nothocolus
 		00000-	biimpressus-	biimpressus-	biimpressus	[]
 		00008-	chusqueae-	chusqueae-	chusqueae	[]
-		00001-	germaini-	germaini-	germaini	[]
+		00001-	germaini-	germaini-	germaini	[Rhyzobius germaini Mader, 1957. -	Nothocolus germaini Gordon, 1994. -	]
 		00007-	gordoni-	gordoni-	gordoni	[]
 		00002-	indefinitus-	indefinitus-	indefinitus	[]
 		00003-	omissus-	omissus-	omissus	[]
 		00004-	pilulus-	pilulus-	pilulus	[]
 		00005-	porteri-	porteri-	porteri	[]
-		00006-	sicardi-	sicardi-	sicardi	[]
+		00006-	sicardi-	sicardi-	sicardi	[Nothocolus biimpressus Gordon, 1994-	Nephopullus sicardiBr®®thes, 1925.-	Scymnus (Nephopullus) sicardi Korschefsky, 1931-	Scymnus (Pullus) sicardi Gordon y Anderson, 1979-	Nothocolus sicardi Gordon, 1994-	]
 	00012-	Orbipressus-	Orbipressus-	Orbipressus
 		00000-	penai-	penai-	penai	[]
 	00013-	Orynipus-	Orynipus-	Orynipus
@@ -120,7 +127,7 @@
 		00003-	kuscheli-	kuscheli-	kuscheli	[]
 		00004-	ultimensis-	ultimensis-	ultimensis	[]
 	00014-	Paracranoryssus-	Paracranoryssus-	Paracranoryssus
-		00000-	chilianus-	chilianus-	chilianus	[]
+		00000-	chilianus-	chilianus-	chilianus	[Rhizobius chilianus Mader, 1957.-	Paracranoryssus flavomarginatus Hofmann, 1972 -	Paracranoryssus chilianus Gordon, 1994-	]
 	00015-	Planorbata-	Planorbata-	Planorbata
 		00000-	depressa-	depressa-	depressa	[]
 	00006-	Pseudoazya-	Pseudoazya-	Pseudoazya
@@ -129,18 +136,19 @@
 		00000-	trinitatis-	trinitatis-	trinitatis	[]
 	00007-	Rhyzobius-	Rhyzobius-	Rhyzobius
 		00000-	forestieri-	forestieri-	forestieri	[]
-		00001-	lophanthae-	lophanthae-	lophanthae	[]
+		00001-	lophanthae-	lophanthae-	lophanthae	[Scymnus lophanthae Blaisdell, 1892.-	Rhyzobius lophanthae Horn, 1895.-	Lindorus unguicularis Weise, 1922.-	Nothorhyzobius ruficollis Br®®thes, 1925-	Para una sinonimia completa ver Gordon 1994. -	]
 		00002-	ventralis-	ventralis-	ventralis	[]
 	00001-	Rodolia-	Rodolia-	Rodolia
-		00001-	cardinalis-	∞ƒ÷ﬁ∆∞≥Ê-	∞ƒ÷ﬁ∆∞≥Ê	[Scymninae Rodolia cardinalis (Mulsant, 1850)-	]
+		00001-	cardinalis-	∞ƒ÷ﬁ∆∞≥Ê-	∞ƒ÷ﬁ∆∞≥Ê	[Scymninae Rodolia cardinalis (Mulsant, 1850)-	Vedalia cardinalis Mulsant, 1850.-	Novius cardinalis Crotch, 1874.-	Eurodolia cardinalis Weise, 1895-	Macronovius cardinalis Weise, 1922.-	Para una sinonimia completa ver Gordon, 1972-	]
 		00002-	formosana-	Ã®ÕÂ∫Ï∆∞≥Ê-	Ã®ÕÂ∫Ï∆∞≥Ê	[]
 		00000-	pumila-	–°∫Ï∆∞≥Ê-	–°ºt∆∞œx	[Rodolia okinawensis Miyatake,1959-	]
 		00003-	sexnotata-	¡˘∞ﬂ∫Ï∆∞≥Ê-	¡˘∞ﬂ∫Ï∆∞≥Ê	[Epilachna sexnolata Mulsant, 1850-	Rodolia quadrimaculata Mader, 1939, syn. nov-	]
 	00016-	Stenadalia-	Stenadalia-	Stenadalia
 		00000-	laskarensis-	laskarensis-	laskarensis	[]
 		00001-	marieae-	marieae-	marieae	[]
-		00002-	nigrodorsata-	nigrodorsata-	nigrodorsata	[]
-		00003-	peregrina-	peregrina-	peregrina	[]
+		00002-	nigrodorsata-	nigrodorsata-	nigrodorsata	[Adonia nigrodorsata Fairmaire, 1884-	Hippodamia nigrodorsata Blackwelder, 1945.-	Stenadalia nigrodorsata Gordon, 1994-	]
+		00004-	nordenskjoldi-	nordenskjoldi-	nordenskjoldi	[Stenadalia nordenskjoldi Weise, 1926: 9. -	Stenadalia nordenskjoldi Gordon, 1994: 737.-	]
+		00003-	peregrina-	peregrina-	peregrina	[Eupalea peregrina Weise, 1922:38.-	Rhizobius kuscheliMader, 1957:73.-	Neorhizobius peregrina Almeida y Gordon, 1990-	Stenadalia peregrina Gordon, 1994:734. -	]
 	00000-	Sumnius-	¡£—€∆∞≥Ê Ù-	¡£—€∆∞≥Ê Ù
 		00000-	babai-	–±Ω«¡£—€∆∞≥Ê-	–±Ω«¡£—€∆∞œx	[]
 		00001-	yunnanus-	‘∆ƒœ¡£—€∆∞≥Ê-	ÎÖƒœ¡£—€∆∞œx	[]
@@ -486,6 +494,8 @@
 		00000-	hiekei-	µ·ª∆◊≥∆∞≥Ê-	µ·ª∆◊≥∆∞≥Ê	[]
 		00001-	xiangchengensis-	œÁ≥«ª∆◊≥∆∞≥Ê-	œÁ≥«ª∆◊≥∆∞≥Ê	[]
 00010-	Epilachninae-	 ≥÷≤∆∞œxÅÜø∆-	 ≥÷≤∆∞œxÅÜø∆
+	00006-	Adira-	Adira-	Adira
+		00000-	obscurocincta-	obscurocincta-	obscurocincta	[]
 	00003-	Afidenta-	Afidenta-	Afidenta
 		00000-	misera-	¥Û∂π∆∞≥Ê-	¥Û∂π∆∞≥Ê	[Afidenta mimetica Dieke, 1947-	]
 	00000-	Afissula-	Afissula-	Afissula
@@ -493,6 +503,7 @@
 		00001-	expansa-	“ß»Àÿà∫⁄∞ﬂ∆∞œx(«Ú∂À∆È˝X∆∞œx)-	“ß»Àÿà∫⁄∞ﬂ∆∞œx(«Ú∂À∆È˝X∆∞œx)	[Epilachna fenchinica Pang, 1993, syn. nov-	Afissa expansa Dieke, 1947-	]
 	00001-	Epilachna-	Epilachna-	Epilachna
 		00010-	admirabilis-	πœ∫⁄∞ﬂ∆∞œx(πœ«—∆∞œx)-	πœ∫⁄∞ﬂ∆∞œx(πœ«—∆∞œx)	[Solanophila alternans Weise, 1923 (nec. Mulsant, 1850)-	Epilachna admirabilis taiwanensis Miyatake, 1965-	]
+		00057-	albovittata-	albovittata-	albovittata	[]
 		00012-	angusta-	÷±π‹ ≥÷≤∆∞≥Ê-	÷±π‹ ≥÷≤∆∞≥Ê	[]
 		00013-	bifibra-	À´“∂ ≥÷≤∆∞≥Ê-	À´“∂ ≥÷≤∆∞≥Ê	[]
 		00018-	borealis-	borealis-	borealis	[]
@@ -535,8 +546,10 @@
 		00044-	patricia-	patricia-	patricia	[Epilachna patricia Mulsant 1850, .Epilachna archidonae Crotch 1874-	Epilachna bang-haasi Weise 1895-	]
 		00045-	persimilis-	persimilis-	persimilis	[]
 		00046-	pseudostriata-	pseudostriata-	pseudostriata	[]
+		00058-	punctatissima-	punctatissima-	punctatissima	[]
 		00047-	satipensis-	satipensis-	satipensis	[]
 		00009-	sauteri-	∞Àœ…∫⁄∞ﬂ∆∞œx(«˙π‹ ≥÷≤∆∞œx)-	∞Àœ…∫⁄∞ﬂ∆∞œx(«˙π‹ ≥÷≤∆∞œx)	[Solanophila sauteri Weise, 1923 -	]
+		00056-	sellata-	sellata-	sellata	[]
 		00048-	simplex-	simplex-	simplex	[]
 		00049-	simulans-	simulans-	simulans	[]
 		00050-	strictanotata-	strictanotata-	strictanotata	[]
@@ -545,6 +558,7 @@
 		00054-	v-pallidum-	v-pallidum-	v-pallidum	[Epilachna v-pallidum Blanchard 1846, Epilachan v-pallidum v-pallidum Gordon 1975-	Solanophila v-pallidum ab. flavoquadrivittata Mader 1858. -	]
 		00020-	varivestis-	varivestis-	varivestis	[]
 		00052-	velata-	velata-	velata	[]
+		00059-	vigintioctopunctata-	vigintioctopunctata-	vigintioctopunctata	[]
 		00053-	viridilineata -	viridilineata -	viridilineata 	[Epilachna viridilineata Crotch 1874, Epilachna viridilineata viridilineata Gordon 1975-	]
 		00021-	vittigera-	vittigera-	vittigera	[Epilachna v-pallidum var. vittigera Crotch 1874 -	Epilachna crotchi ab. vittigera Korchefsky 1931 -	Epilachna vittigera Gordon 1975-	Solanophila graphis Weise 1906-	Solanophila graphis ab. incompleta Mader 1958, Epilachna crotchi Sicard 1912-	Epilacha crotchi var. pallida Crotch (sic) Korchefsky 1931, Epilachna graphis Korchefsky 1931-	Solanophila bisbilineata Weise 1926, Epilachna bisbislineata Korchefsky 1931-	]
 		00055-	woytkowskii-	woytkowskii-	woytkowskii	[]
@@ -813,7 +827,7 @@
 		00001-	marchali-	marchali-	marchali	[]
 	00026-	Hinda-	Hinda-	Hinda
 		00000-	modesta-	modesta-	modesta	[]
-		00001-	uncinata-	uncinata-	uncinata	[]
+		00001-	uncinata-	uncinata-	uncinata	[Cleothera uncinata Mulsant 1853.-	Hyperaspis uncinata Crotch 1874-	Hinda uncinata Milleo & al. 1997.-	]
 	00021-	Hyperaspis-	Hyperaspis-	Hyperaspis
 		00003-	andina-	andina-	andina	[]
 		00005-	arida-	arida-	arida	[]
@@ -821,9 +835,9 @@
 		00007-	festiva-	festiva-	festiva	[]
 		00000-	funesta-	funesta-	funesta	[]
 		00001-	germaini-	germaini-	germaini	[]
-		00008-	matronata-	matronata-	matronata	[]
+		00008-	matronata-	matronata-	matronata	[Cleothera matronata Mulsant 1853-	Hyperaspis matronata Crotch 1874-	Cleothera cordifera Weise 1895-	Hyperaspis cordifera Korschefsky 1931-	]
 		00002-	nana-	nana-	nana	[]
-		00009-	onerata-	onerata-	onerata	[]
+		00009-	onerata-	onerata-	onerata	[Cleothera onerata Mulsant 1850: 552. -	Hyperaspis onerata Crotch 1874: 230-	]
 		00010-	prolata-	prolata-	prolata	[]
 		00004-	sphaeridioides-	sphaeridioides-	sphaeridioides	[]
 	00011-	Nephaspis-	Nephaspis-	Nephaspis
@@ -850,12 +864,12 @@
 		00014-	timberlakei-	timberlakei-	timberlakei	[]
 		00015-	wickhami-	wickhami-	wickhami	[]
 	00004-	Parastethorus-	Parastethorus-	Parastethorus
-		00000-	histrio-	histrio-	histrio	[]
+		00000-	histrio-	histrio-	histrio	[Stethorus histrio Chazeau 1974, Stethorus (Parastethorus) histrio Pang y Mao, Parastethorus histrio Slipinski 2007-	 Stethorus incompletus Britton & Lee 1971.-	]
 	00012-	Pentilia-	Pentilia-	Pentilia
 		00001-	cincta-	cincta-	cincta	[]
 		00000-	insidiosa-	insidiosa-	insidiosa	[]
 	00027-	Pseudoladoria-	Pseudoladoria-	Pseudoladoria
-		00000-	simulans-	simulans-	simulans	[]
+		00000-	simulans-	simulans-	simulans	[Pseudoladoria simulans Crotch 1874: 273.-	Zenoria peruviana Kirsch 1876:125.-	]
 	00002-	Sasajiscymnus-	∑Ω∆∞≥Ê Ù-	∑Ω∆∞≥Ê Ù
 		00009-	amplus-	¥Û∑Ω∆∞≥Ê-	¥Û∑Ω∆∞≥Ê	[Pseudoscymnus amplus Yang et Wu, 1972-	]
 		00010-	anmashanus-	∞∞¬Ì…Ω∑Ω∆∞≥Ê-	∞∞¬Ì…Ω∑Ω∆∞≥Ê	[Pseudoscymnus anmashanus Yang, 1971 -	]
@@ -877,7 +891,7 @@
 		00001-	aricaensis-	aricaensis-	aricaensis	[]
 		00000-	bilucernarius-	bilucernarius-	bilucernarius	[]
 		00004-	ecuadoricus-	ecuadoricus-	ecuadoricus	[]
-		00002-	galapagoensis-	galapagoensis-	galapagoensis	[]
+		00002-	galapagoensis-	galapagoensis-	galapagoensis	[Scymnus galapagopensis Waterhouse 1845-	Scymnus ocellatus Sharp 1885.-	]
 		00003-	triangularis-	triangularis-	triangularis	[]
 	00014-	Scymnodes-	Scymnodes-	Scymnodes
 		00000-	lividigaster-	lividigaster-	lividigaster	[]
@@ -913,7 +927,7 @@
 		00004-	posticalis-	··∞ﬂ–°∆∞œx-	··∞ﬂ–°∆∞œx	[]
 		00003-	quadrillum-	Àƒ∞ﬂ–°∆∞œx-	Àƒ∞ﬂ–°∆∞œx	[Pullus taiwanus Ohta, 1929-	Scymnus (Pullus) taiwanus (Ohta, 1929)-	Scymnus hilaris ab. awanus Ohta, 1929 -	]
 		00030-	quadrivittatus-	¡¨∞ﬂ√´∆∞≥Ê-	¡¨∞ﬂ√´∆∞≥Ê	[]
-		00037-	rubicundus-	rubicundus-	rubicundus	[]
+		00037-	rubicundus-	rubicundus-	rubicundus	[Scymnus (Pullus) limbaticollis Mulsant 1850. Pullus argentinicus Weise 1906. -	Scymnus (Pullus) argentinicus Korchefsky 1931°£Pullus piceipennis Br®®thes 1925a.-	Scymnus (Pullus) piceipennis Korchefsky 1931. Pullus hians Br®®thes 1925a.-	Scymnus (Pullus) hians Korchefsky 1931°£Pullus errator Br®®thes 1925b-	Scymnus (Pullus) errator Korchefsky 1931.Pullus perconis Br®®thes 1925b. -	Scymnus (Pullus) perconis Korchefsky 1931.-	]
 		00023-	secula-	¡¢ƒ‚–°∆∞≥Ê-	¡¢ƒ‚–°∆∞≥Ê	[]
 		00016-	shirozui-	Õ‰“∂–°∆∞≥Ê-	Õ‰“∂–°∆∞≥Ê	[]
 		00041-	simillimus-	simillimus-	simillimus	[]
@@ -947,8 +961,8 @@
 		00015-	tridens-	tridens-	tridens	[]
 		00012-	utilis-	utilis-	utilis	[]
 	00028-	Tenuisvalvae-	Tenuisvalvae-	Tenuisvalvae
-		00000-	bisquinquepustulata-	bisquinquepustulata-	bisquinquepustulata	[]
-		00001-	bromelicola-	bromelicola-	bromelicola	[]
+		00000-	bisquinquepustulata-	bisquinquepustulata-	bisquinquepustulata	[Coccinella bisquinquepustulata Fabricius 1801, Cleothera bisquinquepustulata Mulsant 1850-	Hyperaspis bisquinquepustulata Crotch 1874, Clkeothera raynevali Mulsant 1850-	Hyperaspis raynevali Crotch 1874, Hyperaspis (Tenuisvalvae) raynevali Duverger 1989-	Hyperaspis lingicoxitis Nutting 1980, Tenuisvalvae bisquinquepustulata Gordon 2008-	]
+		00001-	bromelicola-	bromelicola-	bromelicola	[Cleothera bromelicola Sicard 1925, Hyperaspis bromelicola Korschefsky 1931-	Hyperaspis (Tenuisvalvae) bromelicola Peck 2005, Tenuisvalvae bromelicola Gordon 2008-	]
 	00016-	Zagloba-	Zagloba-	Zagloba
 		00000-	bicolor-	bicolor-	bicolor	[]
 		00001-	hystrix-	hystrix-	hystrix	[]
@@ -976,10 +990,12 @@
 			00000-	australis-	australis-	australis	[]
 			00001-	zimmermanni-	zimmermanni-	zimmermanni	[]
 	00008-	Coccidophilus-	Coccidophilus-	Coccidophilus
+		00003-	aimogastaensis-	aimogastaensis-	aimogastaensis	[]
 		00000-	atronitens-	atronitens-	atronitens	[]
 		00002-	citricola-	citricola-	citricola	[]
 		00001-	marginata-	marginata-	marginata	[]
 	00009-	Delphastus-	Delphastus-	Delphastus
+		00007-	argentinicus-	argentinicus-	argentinicus	[]
 		00004-	berryi-	berryi-	berryi	[]
 		00000-	catalinae-	catalinae-	catalinae	[]
 		00001-	diversipes-	diversipes-	diversipes	[]
@@ -1020,6 +1036,8 @@
 		00000-	taoi-	Ã®√´ÿW∆∞œx-	Ã®√´ÿW∆∞œx	[]
 	00015-	Prodilis-	Prodilis-	Prodilis
 		00000-	inclytus-	inclytus-	inclytus	[Scymnus inclytus Mulsant 1853: 277Prodilis inclytus Gordon, 2000: 59. -	]
+	00016-	Prodiloides-	Prodiloides-	Prodiloides
+		00000-	bipunctata-	bipunctata-	bipunctata	[]
 	00002-	Serangium-	Serangium-	Serangium
 		00000-	japonicum-	µ∂Ω«∆∞œx-	µ∂Ω«∆∞œx	[]
 		00002-	maculigerum-	maculigerum-	maculigerum	[]
