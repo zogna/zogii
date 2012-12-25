@@ -36,6 +36,7 @@
 		00014-	nigrita-	nigrita-	nigrita	[Coccinela nigrita Fabricius 1798: 79.-	Chilocorus nigritus Mulsant 1850: 463 -	Chilocorus cerberus Mulsant, 1846: 148. -	]
 		00010-	orbus-	orbus-	orbus	[]
 		00003-	politus-	politus-	politus	[]
+		00009-	rubidus-	rubidus-	rubidus	[]
 		00001-	shirozui-	Ì¨Íå´½Æ°³æ-	Å_³´½Æ°Ïx	[]
 		00011-	stigma-	stigma-	stigma	[]
 		00012-	tricyclus-	tricyclus-	tricyclus	[]
@@ -66,6 +67,7 @@
 		00001-	ovalis-	ovalis-	ovalis	[]
 	00001-	Phymatosternus-	¹ã¶ÜÆ°³æÊô-	¹ã¶ÜÆ°³æÊô
 		00000-	babai-	ÁùĞÇ¹ã¶ÜÆ°³æ-	ÁùĞÇV¶ÜÆ°Ïx	[]
+		00003-	lewisii-	lewisii-	lewisii	[]
 		00001-	maculosus-	ËÄ°ß¹ã¶ÜÆ°³æ-	ËÄ°ßV¶ÜÆ°Ïx	[Plalynaspis maculosa Weise, 1910 -	]
 		00002-	quinquepunctatus-	Îå°ß¹ã¶ÜÆ°³æ-	Îå°ß¹ã¶ÜÆ°³æ	[Platynaspidius quinquepunctatus Miyatake,1961 -	]
 	00003-	Telsimia-	¹Ñ½ÚÆ°³æÊô-	¹Ñ¹Æ°ÏxŒÙ
@@ -154,6 +156,7 @@
 		00002-	ventralis-	ventralis-	ventralis	[]
 	00001-	Rodolia-	Rodolia-	Rodolia
 		00001-	cardinalis-	°ÄÖŞÆ°³æ-	°ÄÖŞÆ°³æ	[Scymninae Rodolia cardinalis (Mulsant, 1850)-	Vedalia cardinalis Mulsant, 1850.-	Novius cardinalis Crotch, 1874.-	Eurodolia cardinalis Weise, 1895-	Macronovius cardinalis Weise, 1922.-	Para una sinonimia completa ver Gordon, 1972-	]
+		00004-	concolor-	concolor-	concolor	[]
 		00002-	formosana-	Ì¨ÍåºìÆ°³æ-	Ì¨ÍåºìÆ°³æ	[]
 		00000-	pumila-	Ğ¡ºìÆ°³æ-	Ğ¡¼tÆ°Ïx	[Rodolia okinawensis Miyatake,1959-	]
 		00003-	sexnotata-	Áù°ßºìÆ°³æ-	Áù°ßºìÆ°³æ	[Epilachna sexnolata Mulsant, 1850-	Rodolia quadrimaculata Mader, 1939, syn. nov-	]
@@ -175,6 +178,7 @@
 		00000-	conglomerata-	ÍÅ¾ÛÀöÆ°³æ-	ÍÅ¾ÛÀöÆ°³æ	[]
 		00003-	deficiens-	deficiens-	deficiens	[Adalia deficiens Mulsant, 1850:62 -	Coccinella albofasciata Chevrolat in Mulsant, 1850:64-	Coccinella gemmingeri Mulsant, 1866:48.-	Coccinella varians Germain, 1854:333 (pars).-	Adalia deficiens a. gemmingeri Blackwelder 1945.-	Adalia deficiens var. vittata Weise, 1895:125.-	Adalia deficiens var. clara Weise, 1898:234. -	]
 		00004-	kuscheli-	kuscheli-	kuscheli	[]
+		00005-	tetraspilota-	tetraspilota-	tetraspilota	[]
 	00000-	Aiolocaria-	ÒìÆ°³æÊô-	®Æ°ÏxÊô
 		00000-	hexaspilota-	´ó¹êÎÆÆ°³æ(Áù°ßÒìÆ°³æ)-	´óı”¼yÆ°Ïx(Áù°ß®Æ°Ïx)	[Hhone hexaspilota (Hope, 1831)-	]
 	00001-	Alloneda-	ÆæÆ°³æÊô-	ÆæÆ°³æÊô
@@ -183,12 +187,15 @@
 		00003-	dodecaspilota-	Ê®¶ş°ßÆæÆ°³æ-	Ê®¶ş°ßÆæÆ°³æ	[]
 		00000-	osawai-	Ê®°ßÆæÆ°³æ-	Ê®°ßÆæÆ°Ïx	[]
 	00031-	Anatis-	ÑÛ°ßÆ°³æÊô-	ÑÛ°ßÆ°³æÊô
+		00006-	halonis-	halonis-	halonis	[]
 		00001-	labiculata-	labiculata-	labiculata	[]
 		00005-	lebasi-	lebasi-	lebasi	[]
 		00002-	lecontei-	lecontei-	lecontei	[]
 		00003-	mali-	mali-	mali	[]
 		00000-	ocellata-	»ÒÑÛ°ßÆ°³æ-	»ÒÑÛ°ßÆ°³æ	[]
 		00004-	rathvoni-	rathvoni-	rathvoni	[]
+	00054-	Anegleis-	Anegleis-	Anegleis
+		00000-	cardoni-	cardoni-	cardoni	[]
 	00026-	Anisosticta-	ÒìµãÆ°³æÊô-	ÒìµãÆ°³æÊô
 		00003-	bitriangularis-	ĞÇ¶ÑÒìµãÆ®³æ-	ĞÇ¶ÑÒìµãÆ®³æ	[Coccinella bitriangularis Say, 1824-	]
 		00004-	borealis-	borealis-	borealis	[]
@@ -210,15 +217,19 @@
 		00010-	breiti-	Áù°ßÂãÆ°³æ-	Áù°ßÂãÆ°³æ	[]
 		00000-	championorum-	»Ò´ø»ÆÂãÆ°³æ(ÈıÎÆÂãÆ°³æ)-	»Ò§üSÂãÆ°Ïx(Èı¼yÂãÆ°Ïx)	[]
 		00004-	chinensis-	»ªÂãÆ°³æ(»ªÀöÂãÆ°³æ)-	ÈAÂãÆ°Ïx(ÈAûÂãÆ°Ïx)	[Sospila chinensis Mulsant, 1850-	]
+		00014-	decemguttata-	decemguttata-	decemguttata	[]
 		00005-	hauseri-	Ö¦°ßÂãÆ°³æ-	Ö¦°ßÂãÆ°³æ	[]
 		00008-	monosha-	ÉßºóÂãÆ°³æ-	ÉßºóÂãÆ°³æ	[]
 		00002-	muiri-	ËÄ°ßÂãÆ°³æ(Ê®ËÄĞÇÂãÆ°³æ)-	ËÄ°ßÂãÆ°Ïx(Ê®ËÄĞÇÂãÆ°Ïx)	[Eocaria muiri Timberlake, 1943-	]
+		00015-	punctata-	punctata-	punctata	[]
 		00001-	quadrivittata-	ËÄÌõÂãÆ°³æ(ËÄÌõºÖÆ°³æ)-	ËÄ—lÂãÆ°Ïx(ËÄ—lºÖÆ°Ïx)	[Sospita quadrivittata Miyatake, 1965 -	]
 		00006-	quatuordecimguttata-	Ê®ËÄĞÇÂãÆ°³æ-	Ê®ËÄĞÇÂãÆ°³æ	[Anisocatvia duodecimmaculata (Gebler, 1832)-	]
 		00012-	quindecimguttata-	Ê®ÎåĞÇÂãÆ°³æ-	Ê®ÎåĞÇÂãÆ°³æ	[]
 		00003-	shirozui-	Ì¨ÍåÂãÆ°³æ(´óÊ®ËÄĞÇÂãÆ°³æ)-	Ì¨³ÂãÆ°Ïx(´óÊ®ËÄĞÇÂãÆ°Ïx)	[Eocaria shirozui Miyatake, 1965-	Halyzia quindecimguttata var. septenaria: Miwa, 1931-	]
 		00009-	shiva-	±äÒìÂãÆ°³æ-	±äÒìÂãÆ°³æ	[]
 		00011-	sicardi-	Á´ÎÆÂãÆ°³æ-	Á´ÎÆÂãÆ°³æ	[]
+		00016-	sykesii-	sykesii-	sykesii	[]
+		00017-	tricolor-	tricolor-	tricolor	[]
 		00013-	vulnerata-	Îı½ğÂãÆ°³æ-	Îı½ğÂãÆ°³æ	[]
 	00005-	Ceratomegilla-	Ceratomegilla-	Ceratomegilla
 		00001-	maculata-	maculata-	maculata	[]
@@ -264,6 +275,7 @@
 		00012-	trifasciata-	ºá´øÆ°³æ-	ºá´øÆ°³æ	[]
 		00008-	undecimpunctata-	Ê®Ò»ĞÇÆ°³æ-	Ê®Ò»ĞÇÆ°³æ	[]
 	00029-	Coccinula-	³¤Â¡Æ°³æÊô-	³¤Â¡Æ°³æÊô
+		00004-	crotchi-	crotchi-	crotchi	[]
 		00000-	elegantula-	»ªÃÀÆ°³æ-	»ªÃÀÆ°³æ	[]
 		00001-	quatuordecimpustulata-	Ë«ÆßĞÇÆ°³æ-	Ë«ÆßĞÇÆ°³æ	[]
 		00002-	sinensis-	ÖĞ¹úË«ÆßÆ°³æ-	ÖĞ¹úË«ÆßÆ°³æ	[]
@@ -455,6 +467,7 @@
 		00022-	flavidbrunna-	»ÆºÖÇÉÆ°³æ-	»ÆºÖÇÉÆ°³æ	[]
 		00000-	formosana-	ÁùĞÇÆ°Ïx(Ì¨³ÇÉÆ°Ïx)-	ÁùĞÇÆ°Ïx(Ì¨³ÇÉÆ°Ïx)	[Coelophora chinensis (nec. Weise, 1912)-	Gyrocaria formosana Miyatake, 1965-	]
 		00011-	gonggarensis-	¹±¸ÂÇÉÆ°³æ-	¹±¸ÂÇÉÆ°³æ	[]
+		00025-	hirayamai-	hirayamai-	hirayamai	[]
 		00004-	kirbyi-	ºÚ¾‰ÇÉÆ°Ïx-	ºÚ¾‰ÇÉÆ°Ïx	[]
 		00009-	lanpingensis-	À¸ÆºÇÉÆ°³æ-	À¸ÆºÇÉÆ°³æ	[]
 		00021-	modogensis-	Ä«ÍÑÇÉÆ°³æ-	Ä«ÍÑÇÉÆ°³æ	[]
@@ -484,7 +497,7 @@
 		00004-	circinatella-	Ğ¡Ô²ÎÆÂãÆ°³æ-	Ğ¡Ô²ÎÆÂãÆ°³æ	[]
 		00001-	congener-	¼tĞÇ±PÆ°Ïx-	¼tĞÇ±PÆ°Ïx	[]
 		00003-	piciella-	Ğ¡ºÚĞÇÅÌÆ°³æ-	Ğ¡ºÚĞÇÅÌÆ°³æ	[]
-		00000-	shirozui-	üSĞÇ±PÆ°Ïx-	üSĞÇ±PÆ°Ïx	[]
+		00000-	shirozui-	üSĞÇ±PÆ°Ïx-	üSĞÇ±PÆ°Ïx	[Propylea shirozui Sasaji, 1982-	]
 		00002-	unicolor-	ºìĞÇÅÌÆ°³æ-	ºìĞÇÅÌÆ°³æ	[]
 	00022-	Propylaea-	ı”¼yÆ°ÏxÊô-	ı”¼yÆ°ÏxÊô
 		00003-	dissecta-	Î÷ÄÏ¹êÆ°³æ-	Î÷ÄÏ¹êÆ°³æ	[]
@@ -578,7 +591,9 @@
 		00007-	microgenitalia-	Ğ¡ê–Ê³Ö²Æ°Ïx-	Ğ¡ê–Ê³Ö²Æ°Ïx	[]
 		00008-	mobilitertiae-	Ê®¶şĞÇÊ³Ö²Æ°Ïx-	Ê®¶şĞÇÊ³Ö²Æ°Ïx	[Epilachna gressitti Li, 1961,syn. nov.-	]
 		00038-	monovittata-	monovittata-	monovittata	[]
+		00063-	mushana-	mushana-	mushana	[]
 		00039-	nigrovittata-	nigrovittata-	nigrovittata	[]
+		00062-	niponica-	niponica-	niponica	[]
 		00040-	obliqua-	obliqua-	obliqua	[]
 		00041-	ostensoides-	ostensoides-	ostensoides	[]
 		00022-	paenulata-	paenulata-	paenulata	[Coccinella paenulata Germar 1824. Epilachna paenulata Mulsant 1850.-	Solanophila paenulata Weise 1910-	Solanophila paenulata v. ustulata Weise 1898-	Epilachna paenulata var. ustulata Korchefsky 1831-	]
@@ -805,6 +820,7 @@
 	00006-	Axinoscymnus-	¸«Æ°³æÊô-	¸«Æ°³æÊô
 		00001-	beneficus-	beneficus-	beneficus	[]
 		00000-	nigripennis-	ºÚ³á¸«Æ°³æ-	ºÚ³á¸«Æ°³æ	[]
+		00002-	puttarudriahi-	puttarudriahi-	puttarudriahi	[]
 	00022-	Brachiacantha-	Brachiacantha-	Brachiacantha
 		00002-	australis-	australis-	australis	[Brachiacantha australe Leng, 1911, Brachiacantha australis Korschefsky 1931. -	]
 		00000-	bistripustulata-	bistripustulata-	bistripustulata	[Coccinella bistripustulata Fabricius 1801, Brachiacantha bistripustulata Mulsant 1850-	Brachiacantha erythrocephala Gorham 1899 -	Brachiacantha guttata Weise 1885, Brachiacantha obscura Leng 1911, Brachiacantha quichiana Leng 1911-	]
@@ -1130,7 +1146,7 @@
 	00017-	Neojauravia-	Neojauravia-	Neojauravia
 		00000-	naeida-	naeida-	naeida	[]
 	00006-	Nesolotis-	Nesolotis-	Nesolotis
-		00000-	shirozui-	¾Å°ßÄáÑŞÆ°³æ-	¾Å°ßÄáÑŞÆ°³æ	[]
+		00000-	shirozui-	¾Å°ßÄáÑŞÆ°³æ-	¾Å°ßÄáÑŞÆ°³æ	[Sticholotis shirozui (Sasaji, 1967)-	]
 	00012-	Nipus-	Nipus-	Nipus
 		00000-	biplagiatus-	biplagiatus-	biplagiatus	[]
 		00001-	niger-	niger-	niger	[]
@@ -1161,5 +1177,6 @@
 		00002-	morimotoi-	ËÄĞÇØWÆ°Ïx-	ËÄĞÇØWÆ°Ïx	[]
 		00004-	ruficeps-	ruficeps-	ruficeps	[]
 		00001-	taiwanensis-	Ì¨³ØWÆ°Ïx-	Ì¨³ØWÆ°Ïx	[]
+		00005-	tsunekii-	tsunekii-	tsunekii	[Nesolotis tsunekii Sasaji, 1967-	]
 	00013-	Stictospilus-	Stictospilus-	Stictospilus
 		00000-	darwini-	darwini-	darwini	[]
