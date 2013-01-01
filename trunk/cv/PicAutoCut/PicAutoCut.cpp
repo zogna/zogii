@@ -189,15 +189,12 @@ int XCut(double stopv,double cutv,int curx,CvHistogram* gray_hist,IplImage* gray
 #endif 
 
 #if 1
-//命令模式： 程序名 文件名1 文件名2.。。。。。
-int main( int argc, char** argv ) 
+
+void cut(char *path)
 {
 	IplImage* frame;
 
-	if(argc<2)
-		return 0;
-
-	frame= cvLoadImage(argv[1],1);
+	frame= cvLoadImage(path,1);
 
 	IplImage* gray_plane = cvCreateImage(cvGetSize(frame),8,1);
 	cvCvtColor(frame,gray_plane,CV_BGR2GRAY);
@@ -274,7 +271,7 @@ int main( int argc, char** argv )
 			break;
 	}
 	cvResetImageROI(canny_plane);
-
+/*
 	//默认不显示
 	if(3==argc)
 	{
@@ -286,7 +283,7 @@ int main( int argc, char** argv )
 		cvWaitKey(0);
 		cvDestroyWindow("src");
 	}
-
+*/
 	//保存成新文件
 	IplImage* newframe = cvCreateImage(cvSize(frame->width-xleft-xright,frame->height-ytop-ybottom),
 		frame->depth,frame->nChannels);
@@ -295,12 +292,34 @@ int main( int argc, char** argv )
 
 	cvSetImageROI(frame,newrect);
 	cvCopyImage(frame,newframe);
-	
-	cvSaveImage( argv[1], frame );
+
+	//转JPG
+	char str[260];
+	sprintf(str,"%s.jpg",path);
+	///
+	cvSaveImage(str, frame );
 
 	cvReleaseImage(&frame);
-	return 0;
+
+	cvReleaseImage(&newframe);
+	cvReleaseImage(&gray_plane); 
+	cvReleaseImage(&canny_plane);
 
 }
+
+//命令模式： 程序名 文件名1 文件名2.。。。。。
+int main( int argc, char** argv ) 
+{
+	if(argc<2)
+		return 0;
+	
+	int i;
+	for(i=1;i<argc;i++)
+		cut(argv[i]);
+
+	return 0;
+}
+
+
 
 #endif
