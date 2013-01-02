@@ -5,10 +5,13 @@
 	00001-	Cryptogonus-	ÒşÊÆÆ°³æÊô-	ÒşÊÆÆ°³æÊô
 		00001-	angusticarinatus-	Õ­±³ÒşÊÆÆ°³æ-	Õ­±³ÒşÊÆÆ°³æ	[]
 		00002-	horishanus-	Ì¨³ë[„İÆ°Ïx(¼§Ë«ÎÆĞ¡ºÚÆ°³æ)-	Ì¨³ë[„İÆ°Ïx(¼§Ë«ÎÆĞ¡ºÚÆ°³æ)	[Scymnus horishanus Ohta, 1929-	]
+		00007-	kapuri-	kapuri-	kapuri	[]
 		00003-	kurosawai-	ºÚÉë[„İÆ°Ïx-	ºÚÉë[„İÆ°Ïx	[]
 		00004-	ohtai-	Ì«Ìïë[„İÆ°Ïx(Ì«ÌïĞ¡ºÚÆ°Ïx)-	Ì«Ìïë[„İÆ°Ïx(Ì«ÌïĞ¡ºÚÆ°Ïx)	[Cryptogonus 4-guttatus. Weise, 1923 (nec Weise, 1895)-	]
 		00005-	orbiculus-	×ƒ°ßë[„İÆ°Ïx(ëp¼yĞ¡ºÚÆ°Ïx)-	×ƒ°ßë[„İÆ°Ïx(ëp¼yĞ¡ºÚÆ°Ïx)	[Diomus futahoshii Ohta, 1929-	]
+			00000-	antica-	antica-	antica	[]
 		00000-	postmedialis-	ÍÎ°ßÒşÊÆÆ°³æ-	ÍÎ°ßÒşÊÆÆ°³æ	[]
+		00008-	quadriguttatus-	quadriguttatus-	quadriguttatus	[]
 		00006-	robustus-	´ÖÄÒë[„İÆ°Ïx-	´ÖÄÒë[„İÆ°Ïx	[]
 00004-	Chilocorinae-	¿ø´½Æ°³æÑÇ¿Æ-	¿ø´½Æ°Ïx†¿Æ
 	00005-	Arawana-	Arawana-	Arawana
@@ -30,15 +33,20 @@
 		00004-	bipustulatus-	bipustulatus-	bipustulatus	[Coccinela bipustulata Linnaeus, 1758: 367-	Chilocorus bipustulatus Mulsant, 1846: 170. -	]
 		00005-	cacti-	cacti-	cacti	[]
 		00002-	circumdatus-	¼š¾‰´½Æ°Ïx-	¼š¾‰´½Æ°Ïx	[]
+		00015-	coelosimilis-	coelosimilis-	coelosimilis	[]
 		00006-	fraternus-	fraternus-	fraternus	[]
+		00016-	hauseri-	hauseri-	hauseri	[]
 		00007-	hexacyclus-	hexacyclus-	hexacyclus	[]
+		00017-	infernalis-	infernalis-	infernalis	[]
 		00008-	kuwanae-	kuwanae-	kuwanae	[]
+		00018-	melas-	melas-	melas	[]
 		00014-	nigrita-	nigrita-	nigrita	[Coccinela nigrita Fabricius 1798: 79.-	Chilocorus nigritus Mulsant 1850: 463 -	Chilocorus cerberus Mulsant, 1846: 148. -	]
 		00010-	orbus-	orbus-	orbus	[]
 		00003-	politus-	politus-	politus	[]
 		00009-	rubidus-	rubidus-	rubidus	[]
 		00001-	shirozui-	Ì¨Íå´½Æ°³æ-	Å_³´½Æ°Ïx	[]
 		00011-	stigma-	stigma-	stigma	[]
+		00019-	subindicus-	subindicus-	subindicus	[]
 		00012-	tricyclus-	tricyclus-	tricyclus	[]
 		00013-	tumidus-	tumidus-	tumidus	[]
 	00008-	Curinus-	Curinus-	Curinus
@@ -53,6 +61,7 @@
 		00004-	flavipes-	flavipes-	flavipes	[]
 		00005-	marginipennis-	marginipennis-	marginipennis	[]
 		00006-	metallicus-	metallicus-	metallicus	[]
+		00009-	nigripennis-	nigripennis-	nigripennis	[]
 		00007-	subrotundus-	subrotundus-	subrotundus	[]
 		00008-	townsendi-	townsendi-	townsendi	[]
 	00011-	Halmus-	Halmus-	Halmus
@@ -70,7 +79,9 @@
 		00003-	lewisii-	lewisii-	lewisii	[]
 		00001-	maculosus-	ËÄ°ß¹ã¶ÜÆ°³æ-	ËÄ°ßV¶ÜÆ°Ïx	[Plalynaspis maculosa Weise, 1910 -	]
 		00002-	quinquepunctatus-	Îå°ß¹ã¶ÜÆ°³æ-	Îå°ß¹ã¶ÜÆ°³æ	[Platynaspidius quinquepunctatus Miyatake,1961 -	]
+	00014-	Priscibrumus-	Priscibrumus-	Priscibrumus
 	00003-	Telsimia-	¹Ñ½ÚÆ°³æÊô-	¹Ñ¹Æ°ÏxŒÙ
+		00004-	bangalorensis-	bangalorensis-	bangalorensis	[]
 		00000-	nagasakiensis-	³¤Æé¹Ñ½ÚÆ°³æ-	³¤Æé¹Ñ¹Æ°Ïx	[]
 		00001-	nigra-	ºÚ±³¹Ñ½ÚÆ°³æ-	ºÚ±³¹Ñ½ÚÆ°³æ	[Platynaspis nigra Weise,1879-	]
 		00003-	nitida-	nitida-	nitida	[]
@@ -155,9 +166,12 @@
 		00001-	lophanthae-	lophanthae-	lophanthae	[Scymnus lophanthae Blaisdell, 1892.-	Rhyzobius lophanthae Horn, 1895.-	Lindorus unguicularis Weise, 1922.-	Nothorhyzobius ruficollis Br¨¨thes, 1925-	Para una sinonimia completa ver Gordon 1994. -	]
 		00002-	ventralis-	ventralis-	ventralis	[]
 	00001-	Rodolia-	Rodolia-	Rodolia
+		00005-	amabilis-	amabilis-	amabilis	[]
+		00006-	breviuscula-	breviuscula-	breviuscula	[]
 		00001-	cardinalis-	°ÄÖŞÆ°³æ-	°ÄÖŞÆ°³æ	[Scymninae Rodolia cardinalis (Mulsant, 1850)-	Vedalia cardinalis Mulsant, 1850.-	Novius cardinalis Crotch, 1874.-	Eurodolia cardinalis Weise, 1895-	Macronovius cardinalis Weise, 1922.-	Para una sinonimia completa ver Gordon, 1972-	]
 		00004-	concolor-	concolor-	concolor	[]
 		00002-	formosana-	Ì¨ÍåºìÆ°³æ-	Ì¨ÍåºìÆ°³æ	[]
+		00007-	fumida-	fumida-	fumida	[]
 		00000-	pumila-	Ğ¡ºìÆ°³æ-	Ğ¡¼tÆ°Ïx	[Rodolia okinawensis Miyatake,1959-	]
 		00003-	sexnotata-	Áù°ßºìÆ°³æ-	Áù°ßºìÆ°³æ	[Epilachna sexnolata Mulsant, 1850-	Rodolia quadrimaculata Mader, 1939, syn. nov-	]
 	00016-	Stenadalia-	Stenadalia-	Stenadalia
@@ -168,6 +182,7 @@
 		00003-	peregrina-	peregrina-	peregrina	[Eupalea peregrina Weise, 1922:38.-	Rhizobius kuscheliMader, 1957:73.-	Neorhizobius peregrina Almeida y Gordon, 1990-	Stenadalia peregrina Gordon, 1994:734. -	]
 	00000-	Sumnius-	Á£ÑÛÆ°³æÊô-	Á£ÑÛÆ°³æÊô
 		00000-	babai-	Ğ±½ÇÁ£ÑÛÆ°³æ-	Ğ±½ÇÁ£ÑÛÆ°Ïx	[]
+		00002-	vestita-	vestita-	vestita	[]
 		00001-	yunnanus-	ÔÆÄÏÁ£ÑÛÆ°³æ-	ë…ÄÏÁ£ÑÛÆ°Ïx	[]
 00000-	Coccinellinae-	Æ°³æÑÇ¿Æ-	Æ°Ïx†¿Æ
 	00030-	Aaages-	Ã«¸¹Æ°³æÊô-	Ã«¸¹Æ°³æÊô
@@ -350,11 +365,13 @@
 		00002-	sedecimguttata-	Ê®Áù°ß»Æ¾úÆ°³æ-	Ê®Áù°ß»Æ¾úÆ°³æ	[]
 		00001-	shirozui-	Ì¨Íå¾úÆ°³æ(üS°ßÆ°Ïx)-	Ì¨Íå¾úÆ°³æ(üS°ßÆ°Ïx)	[]
 		00003-	straminea-	²İ»Æ¾úÆ°³æ-	²İ»Æ¾úÆ°³æ	[]
+		00005-	tschitscherini-	tschitscherini-	tschitscherini	[]
 	00013-	Harmonia-	ºÍĞ³Æ°³æÊô-	ºÍĞ³Æ°³æÊô
 		00000-	axyridis-	®É«Æ°Ïx-	®É«Æ°Ïx	[Coccinella axyridis Pallas 1773: 71.-	Leis axyridis Mulsant 1850: 266.-	Ptychanatis axyridis Crotch 1974: 123-	Coccinella (Harmonia) axyridis Weise 1885: 35-	Harmonia axyridis Jacobson 1916: 984.-	Harmonia (Ptychanatis) axyridis Sasaji 1971: 278-	]
 		00008-	conformis-	conformis-	conformis	[]
 		00002-	dimidiata-	Ğ¡Ê®ÈıĞÇÆ°Ïx(¼t¼çÆ°Ïx)-	Ğ¡Ê®ÈıĞÇÆ°Ïx(¼t¼çÆ°Ïx)	[]
 		00007-	eucharis-	Ææ°ßÆ°³æ-	Ææ°ßÆ°³æ	[]
+		00009-	expallida-	expallida-	expallida	[]
 		00001-	octomaculata-	°Ë—lÆ°Ïx(°Ë°ßºÍÆ°Ïx)-	°Ë—lÆ°Ïx(°Ë°ßºÍÆ°Ïx)	[]
 		00006-	quadripunctata-	ËÄ°ßºÍÆ°³æ-	ËÄ°ßºÍÆ°³æ	[Coccinella quadripunctata Pontoppidan, 1763.-	Harmonia quadripunctata Jacobson, 1916.-	]
 		00003-	sedecimnotata-	ĞÇücºÖÆ°Ïx(ÏËÀöÆ°³æ)-	ĞÇücºÖÆ°Ïx(ÀwûÆ°Ïx)	[]
@@ -387,7 +404,9 @@
 		00024-	washingtoni-	washingtoni-	washingtoni	[]
 		00009-	weisei-	Î¬ÊÏÒìÆ°Éú-	Î¬ÊÏÒìÆ°Éú	[]
 	00011-	Illeis-	ËØ¾úÆ°³æÊô-	ËØ¾úÆ°³æÊô
+		00005-	bielawskii-	bielawskii-	bielawskii	[]
 		00002-	bistigmosa-	¶ş°ßËØÆ°³æ-	¶ş°ßËØÆ°³æ	[]
+		00006-	cincta-	cincta-	cincta	[]
 		00003-	confusa-	ÏÁÒ¶¾úÆ°³æ-	ÏÁÒ¶¾úÆ°³æ	[]
 		00004-	indica-	Ó¡¶ÈËØ¾úÆ°³æ-	Ó¡¶ÈËØ¾úÆ°³æ	[]
 		00000-	koebelei-	üSÆ°Ïx(¿ÂÊÏËØ¾úÆ°Ïx)-	üSÆ°Ïx(¿ÂÊÏËØ¾úÆ°Ïx)	[]
@@ -464,12 +483,14 @@
 		00012-	deqenensis-	µÂÇÕÇÉÆ°³æ-	µÂÇÕÇÉÆ°³æ	[]
 		00014-	dracoguttata-	Áú°ßÇÉÆ°³æ-	Áú°ßÇÉÆ°³æ	[]
 		00020-	emmerichi-	µ­ºìÇÉÆ°³æ-	µ­ºìÇÉÆ°³æ	[]
+		00026-	excellens-	excellens-	excellens	[]
 		00022-	flavidbrunna-	»ÆºÖÇÉÆ°³æ-	»ÆºÖÇÉÆ°³æ	[]
 		00000-	formosana-	ÁùĞÇÆ°Ïx(Ì¨³ÇÉÆ°Ïx)-	ÁùĞÇÆ°Ïx(Ì¨³ÇÉÆ°Ïx)	[Coelophora chinensis (nec. Weise, 1912)-	Gyrocaria formosana Miyatake, 1965-	]
 		00011-	gonggarensis-	¹±¸ÂÇÉÆ°³æ-	¹±¸ÂÇÉÆ°³æ	[]
 		00025-	hirayamai-	hirayamai-	hirayamai	[]
 		00004-	kirbyi-	ºÚ¾‰ÇÉÆ°Ïx-	ºÚ¾‰ÇÉÆ°Ïx	[]
 		00009-	lanpingensis-	À¸ÆºÇÉÆ°³æ-	À¸ÆºÇÉÆ°³æ	[]
+		00027-	mimica-	mimica-	mimica	[]
 		00021-	modogensis-	Ä«ÍÑÇÉÆ°³æ-	Ä«ÍÑÇÉÆ°³æ	[]
 		00008-	oncina-	Àë°ßÇÉÆ°³æ-	Àë°ßÇÉÆ°³æ	[]
 		00010-	picithoroxa-	ºÚĞØÇÉÆ°³æ-	ºÚĞØÇÉÆ°³æ	[]
@@ -481,12 +502,14 @@
 		00017-	sexmaculata-	Áù°ßÇÉÆ°³æ-	Áù°ßÇÉÆ°³æ	[]
 		00023-	signatella-	µã°ßÇÉÆ°³æ-	µã°ßÇÉÆ°³æ	[]
 		00003-	takasago-	¸ßÉ°ÇÉÆ°³æ-	¸ßÉ°ÇÉÆ°³æ	[]
+		00028-	walteri-	walteri-	walteri	[]
 		00024-	zonatus-	×İÎÆÇÉÆ°³æ-	×İÎÆÇÉÆ°³æ	[]
 	00016-	Olla-	ÁïÆ°³æÊô-	ÁïÆ°³æÊô
 		00000-	v-nigrum-	Ğ¨°ßÁïÆ°³æ-	Ğ¨°ßÁïÆ°Ïx	[Coccinella abdominalis Say, 1824 no Coccinella abdominalis Thunberg, 1794.-	Harmonia v-nigrum Mulsant, 1866. -	Coccinella v-nigrum Crotch, 1874.-	Daulis abdominalis Mulsant, 1850.-	Cycloneda abdominalis Crotch, 1874. -	]
 	00049-	Oxytella-	Oxytella-	Oxytella
 		00000-	longula-	longula-	longula	[]
 	00035-	Palaeoneda-	´Ö¹ÜÆ°³æÊô-	´Ö¹ÜÆ°³æÊô
+		00001-	auriculata-	auriculata-	auriculata	[]
 		00000-	miniata-	´Ö¹ÜÆ°³æ-	´Ö¹ÜÆ°³æ	[]
 	00044-	Paranaemia-	Paranaemia-	Paranaemia
 		00000-	vittigera-	vittigera-	vittigera	[]
@@ -496,6 +519,8 @@
 	00017-	Phrynocaria-	ĞÇÅÌÆ°³æÊô-	ĞÇÅÌÆ°³æÊô
 		00004-	circinatella-	Ğ¡Ô²ÎÆÂãÆ°³æ-	Ğ¡Ô²ÎÆÂãÆ°³æ	[]
 		00001-	congener-	¼tĞÇ±PÆ°Ïx-	¼tĞÇ±PÆ°Ïx	[]
+		00005-	eberti-	eberti-	eberti	[]
+		00006-	perrotteti-	perrotteti-	perrotteti	[]
 		00003-	piciella-	Ğ¡ºÚĞÇÅÌÆ°³æ-	Ğ¡ºÚĞÇÅÌÆ°³æ	[]
 		00000-	shirozui-	üSĞÇ±PÆ°Ïx-	üSĞÇ±PÆ°Ïx	[Propylea shirozui Sasaji, 1982-	]
 		00002-	unicolor-	ºìĞÇÅÌÆ°³æ-	ºìĞÇÅÌÆ°³æ	[]
@@ -504,11 +529,13 @@
 		00000-	japonoca-	ı”¼yÆ°Ïx-	ı”¼yÆ°Ïx	[]
 		00001-	luteopustulata-	»Æ±¦ÅÌÆ°³æ-	üSŒšı”Æ°Ïx	[]
 		00002-	quaturodecimpunctata-	·½°ßÆ°³æ-	·½°ßÆ°³æ	[]
-	00033-	Protothra-	Í¹ĞØÆ°³æÊô-	Í¹ĞØÆ°³æÊô
+	00033-	Protothea-	Í¹ĞØÆ°³æÊô-	Í¹ĞØÆ°³æÊô
 		00000-	mrrabtlts-	ÒìÍøÆ°³æ-	ÒìÍøÆ°³æ	[]
+		00001-	quadripunctata-	quadripunctata-	quadripunctata	[]
 	00012-	Psyllobora-	Ê³¾úÆ°³æÊô-	Ê³¾úÆ°³æÊô
 		00010-	abancayana-	abancayana-	abancayana	[]
 		00008-	bicongregata-	bicongregata-	bicongregata	[Psyllobora bicongregata Boheman 1958, Psyllobora pavida Weise 1904.-	]
+		00019-	bisoctonotata-	bisoctonotata-	bisoctonotata	[]
 		00002-	borealis-	borealis-	borealis	[]
 		00011-	confluens-	confluens-	confluens	[Coccinella confluens Fabricius 1801-	Psyllobora confluens Mulsant 1850.-	Psyllobora varians Crotch 1871-	]
 		00003-	conspurcata-	conspurcata-	conspurcata	[]
@@ -531,6 +558,9 @@
 		00000-	subfasciata-	ºá´øĞÂºìÆ°³æ-	ºá´øĞÂºìÆ°³æ	[]
 	00018-	Synona-	ĞÂÀöÆ°³æÊô-	ĞÂÀöÆ°³æÊô
 		00000-	consanguinea-	¼tĞØºÚÆ°Ïx(¼tîiÆ°Ïx)-	¼tĞØºÚÆ°Ïx(¼tîiÆ°Ïx)	[Lemnia melanaria (Mulsant, 1850)-	Synia melanaria (Mulsant, 1850)-	Synia rougeti (Mulsant, 1866)-	]
+		00003-	martini-	martini-	martini	[]
+		00001-	melanopepla-	melanopepla-	melanopepla	[]
+		00002-	rougeti-	rougeti-	rougeti	[]
 	00023-	Synonycha-	Í»¼çÆ°³æÊô-	Í»¼çÆ°³æÊô
 		00000-	grandis-	´óÊ®ÈıĞÇÆ°Ïx(´óÍ»¼çÆ°³æ)-	´óÊ®ÈıĞÇÆ°Ïx(´óÍ»¼çÆ°³æ)	[]
 	00037-	Tytthaspis-	Ğ¡¶ÜÆ°³æÊô-	Ğ¡¶ÜÆ°³æÊô
@@ -622,6 +652,7 @@
 		00055-	woytkowskii-	woytkowskii-	woytkowskii	[]
 	00002-	Henosepilachna-	Henosepilachna-	Henosepilachna
 		00000-	boisduvali-	ÌmZÇÑÊ®¶şĞÇÆ°Ïx(²¨ÊÏÁÑÍÎÆ°³æ)-	ÌmZÇÑÊ®¶şĞÇÆ°Ïx(²¨ÊÏÁÑÍÎÆ°³æ)	[Epilachna boisduvali Mulsant, 1850-	EpHachna indica Miwa et al, 1932 (nec. Mulsant, 1850)-	]
+		00006-	gangetica-	gangetica-	gangetica	[Epilachna gangetica Weise-	]
 		00004-	processa-	³İÒ¶ÁÑÍÎÆ°³æ-	³İÒ¶ÁÑÍÎÆ°³æ	[Epilachna Wissmanni ab. processa Weise, 1908-	]
 		00002-	pusillanima-	ÇÑÊ®¶şĞÇÆ°Ïx(äÈ~ÁÑÍÎÆ°Ïx)-	ÇÑÊ®¶şĞÇÆ°Ïx(äÈ~ÁÑÍÎÆ°Ïx)	[]
 		00001-	subfasciata-	°ë§ÁÑÍÎÆ°Ïx-	°ë§ÁÑÍÎÆ°Ïx	[Epilachna semifasciata Dieke, 1947-	 Epilachna indica ab. ceylonia Korschefsky, 1933 (nec. Weise, 1901)-	]
@@ -758,6 +789,7 @@
 		00047-	limbalis-	limbalis-	limbalis	[]
 		00048-	longicoxitis-	longicoxitis-	longicoxitis	[]
 		00049-	lugubris-	lugubris-	lugubris	[]
+		00101-	maindroni-	maindroni-	maindroni	[]
 		00050-	major-	major-	major	[]
 		00051-	mckenziei-	mckenziei-	mckenziei	[]
 		00052-	medialis-	medialis-	medialis	[]
@@ -816,6 +848,7 @@
 	00000-	Amida-	Amida-	Amida
 		00000-	tricolor-	ÈıÉ«Æ°Ïx-	ÈıÉ«Æ°Ïx	[]
 			00000-	formosana-	Ì¨³ÈıÉ«Æ°Ïx(Ì¨³ÈıÉ«»¨Æ°Ïx)-	Ì¨³ÈıÉ«Æ°Ïx(Ì¨³ÈıÉ«»¨Æ°Ïx)	[Amida formosana Kurisaki,1920-	Amida tricolor var. formosana Weise, 1923-	]
+	00001-	Ortalia-	Ortalia-	Ortalia
 00001-	Scymninae-	Ğ¡Ã«Æ°³æÑÇ¿Æ-	Ğ¡Ã«Æ°Ïx†¿Æ
 	00006-	Axinoscymnus-	¸«Æ°³æÊô-	¸«Æ°³æÊô
 		00001-	beneficus-	beneficus-	beneficus	[]
@@ -968,8 +1001,10 @@
 		00009-	gordoni-	gordoni-	gordoni	[]
 		00010-	guttulatus-	guttulatus-	guttulatus	[]
 		00011-	intrusus-	intrusus-	intrusus	[]
+		00018-	lentiformis-	lentiformis-	lentiformis	[]
 		00005-	ornatus-	ornatus-	ornatus	[]
 		00012-	quadrarius-	quadrarius-	quadrarius	[]
+		00019-	regularis-	regularis-	regularis	[]
 		00003-	roepkei-	roepkei-	roepkei	[]
 		00004-	schwarzi-	schwarzi-	schwarzi	[]
 		00013-	sordidus-	sordidus-	sordidus	[]
@@ -982,6 +1017,7 @@
 		00001-	cincta-	cincta-	cincta	[]
 		00002-	egena-	egena-	egena	[Pentilia egena Mulsant 1850.-	Exochomus minutus Kraatz 1873.-	]
 		00000-	insidiosa-	insidiosa-	insidiosa	[]
+	00032-	Pseudaspidimerus-	Pseudaspidimerus-	Pseudaspidimerus
 	00027-	Pseudoladoria-	Pseudoladoria-	Pseudoladoria
 		00000-	simulans-	simulans-	simulans	[Pseudoladoria simulans Crotch 1874: 273.-	Zenoria peruviana Kirsch 1876:125.-	]
 	00002-	Sasajiscymnus-	·½Æ°³æÊô-	·½Æ°³æÊô
@@ -989,6 +1025,7 @@
 		00010-	anmashanus-	°°ÂíÉ½·½Æ°³æ-	°°ÂíÉ½·½Æ°³æ	[Pseudoscymnus anmashanus Yang, 1971 -	]
 		00015-	anomalus-	anomalus-	anomalus	[]
 		00005-	changi-	ÕÅÊÏ·½Æ°³æ-	ÕÅÊÏ·½Æ°³æ	[Pseudoscymnus changi Yang, 1971 -	]
+		00016-	dwipakalpa-	dwipakalpa-	dwipakalpa	[]
 		00003-	fuscus-	×ØÉ«·½Æ°³æ-	×ØÉ«·½Æ°³æ	[Pseudoscymnus fuscus Yang, 1971-	]
 		00001-	hareja-	ëp°ß·½Æ°Ïx-	ëp°ß·½Æ°Ïx	[Scymnus hareja Weise, 1879-	Pseudoscymnus hareja (Weise, 1879)-	]
 		00002-	kurohime-	ºÚ·½Í»Ã«Æ°Ïx-	ºÚ·½Í»Ã«Æ°Ïx	[Pseudoscymnus kurohime (Miyatake, 1959)-	]
@@ -1016,8 +1053,11 @@
 		00007-	bifurcatus-	¶şáªĞ¡Ã«Æ°³æ-	¶şáªĞ¡Ã«Æ°³æ	[]
 		00025-	binotulatus-	binotulatus-	binotulatus	[]
 		00020-	bistortus-	Ë«ĞıĞ¡Æ°³æ-	Ë«ĞıĞ¡Æ°³æ	[]
+		00044-	bourdilloni-	bourdilloni-	bourdilloni	[]
+		00045-	castaneus-	castaneus-	castaneus	[]
 		00002-	centralis-	ÖĞºÚĞ¡Æ°Ïx-	ÖĞºÚĞ¡Æ°Ïx	[]
 		00042-	citreus-	citreus-	citreus	[]
+		00046-	coccivora-	coccivora-	coccivora	[]
 		00038-	coniferarum-	coniferarum-	coniferarum	[]
 		00039-	demerarensis-	demerarensis-	demerarensis	[]
 		00017-	dorcatomoides-	ĞâÉ«Ğ¡Æ°³æ-	ĞâÉ«Ğ¡Æ°³æ	[]
@@ -1026,6 +1066,7 @@
 		00040-	hamatus-	hamatus-	hamatus	[]
 		00013-	hatomensis-	ğ¯¼äĞ¡Æ°³æ-	ğ¯¼äĞ¡Æ°³æ	[]
 		00000-	hoffmanni-	ºÚ½óÃ«Æ°Ïx-	ºÚ½óÃ«Æ°Ïx	[]
+		00047-	latemaculatus-	latemaculatus-	latemaculatus	[]
 		00021-	leo-	Ê¨É«Ğ¡Æ°³æ-	Ê¨É«Ğ¡Æ°³æ	[]
 		00026-	levaillanti-	levaillanti-	levaillanti	[]
 		00014-	loewii-	loewii-	loewii	[]
@@ -1044,6 +1085,7 @@
 		00003-	quadrillum-	ËÄ°ßĞ¡Æ°Ïx-	ËÄ°ßĞ¡Æ°Ïx	[Pullus taiwanus Ohta, 1929-	Scymnus (Pullus) taiwanus (Ohta, 1929)-	Scymnus hilaris ab. awanus Ohta, 1929 -	]
 		00030-	quadrivittatus-	Á¬°ßÃ«Æ°³æ-	Á¬°ßÃ«Æ°³æ	[]
 		00037-	rubicundus-	rubicundus-	rubicundus	[Scymnus (Pullus) limbaticollis Mulsant 1850. Pullus argentinicus Weise 1906. -	Scymnus (Pullus) argentinicus Korchefsky 1931¡£Pullus piceipennis Br¨¨thes 1925a.-	Scymnus (Pullus) piceipennis Korchefsky 1931. Pullus hians Br¨¨thes 1925a.-	Scymnus (Pullus) hians Korchefsky 1931¡£Pullus errator Br¨¨thes 1925b-	Scymnus (Pullus) errator Korchefsky 1931.Pullus perconis Br¨¨thes 1925b. -	Scymnus (Pullus) perconis Korchefsky 1931.-	]
+		00048-	saciformis-	saciformis-	saciformis	[]
 		00023-	secula-	Á¢ÄâĞ¡Æ°³æ-	Á¢ÄâĞ¡Æ°³æ	[]
 		00016-	shirozui-	ÍäÒ¶Ğ¡Æ°³æ-	ÍäÒ¶Ğ¡Æ°³æ	[]
 		00041-	simillimus-	simillimus-	simillimus	[]
@@ -1069,11 +1111,13 @@
 		00001-	loi-	ÂŞÊÏÊ³òıÆ°³æ-	ÂŞÊÏÊ³òıÆ°³æ	[]
 		00003-	muriculatus-	Ï¸³¤Ê³òıÆ°³æ-	Ï¸³¤Ê³òıÆ°³æ	[]
 		00007-	nigripes-	nigripes-	nigripes	[]
+		00017-	pauperculus-	pauperculus-	pauperculus	[]
 		00014-	peruvianus-	peruvianus-	peruvianus	[]
 		00008-	pinachi-	pinachi-	pinachi	[]
 		00009-	punctillum-	punctillum-	punctillum	[]
 		00010-	punctum-	punctum-	punctum	[]
 		00011-	siphonulus-	siphonulus-	siphonulus	[]
+		00016-	tetranychi-	tetranychi-	tetranychi	[]
 		00015-	tridens-	tridens-	tridens	[]
 		00012-	utilis-	utilis-	utilis	[]
 	00028-	Tenuisvalvae-	Tenuisvalvae-	Tenuisvalvae
@@ -1104,6 +1148,7 @@
 		00003-	inexpectatus-	inexpectatus-	inexpectatus	[]
 		00004-	inexpectatus-	inexpectatus-	inexpectatus	[]
 00005-	Sticholotidinae-	Ğ¡ÑŞÆ°³æÑÇ¿Æ-	Ğ¡ØWÆ°Ïx†¿Æ
+	00019-	Buprestodera-	Buprestodera-	Buprestodera
 	00007-	Cephaloscymnus-	Cephaloscymnus-	Cephaloscymnus
 		00000-	insulatus-	insulatus-	insulatus	[]
 		00001-	laevis-	laevis-	laevis	[]
@@ -1126,6 +1171,7 @@
 		00002-	pallidus-	pallidus-	pallidus	[]
 		00003-	pusillus-	pusillus-	pusillus	[]
 		00006-	quinculus-	quinculus-	quinculus	[]
+	00018-	Ghanius-	Ghanius-	Ghanius
 	00010-	Gnathoweisea-	Gnathoweisea-	Gnathoweisea
 		00000-	ferox-	ferox-	ferox	[]
 		00001-	hageni-	hageni-	hageni	[]
@@ -1136,7 +1182,10 @@
 	00004-	Hikonasukuna-	´½Õ¹Æ°³æÊô-	´½Õ¹Æ°³æÊô
 		00000-	monticola-	ºÖÉ«´½Õ¹Æ°³æ-	ºÖÉ«´½Õ¹Æ°³æ	[]
 	00001-	Jauravia-	Jauravia-	Jauravia
+		00001-	dorsalis-	dorsalis-	dorsalis	[]
 		00000-	limbata-	üS­hØWÆ°Ïx-	üS­hØWÆ°Ïx	[Paraclitostethus ovatus Ohta, 1929-	]
+		00002-	pallidula-	pallidula-	pallidula	[]
+		00003-	quadrinotata-	quadrinotata-	quadrinotata	[]
 	00011-	Microweisea-	Microweisea-	Microweisea
 		00000-	coccidivora-	coccidivora-	coccidivora	[]
 		00001-	minuta-	minuta-	minuta	[]
@@ -1158,6 +1207,7 @@
 		00000-	porteri-	porteri-	porteri	[]
 	00000-	Pharoscymnus-	Pharoscymnus-	Pharoscymnus
 		00001-	flexibilis-	flexibilis-	flexibilis	[]
+		00002-	horni-	horni-	horni	[]
 		00000-	taoi-	Ì¨Ã«ØWÆ°Ïx-	Ì¨Ã«ØWÆ°Ïx	[]
 	00015-	Prodilis-	Prodilis-	Prodilis
 		00000-	inclytus-	inclytus-	inclytus	[Scymnus inclytus Mulsant 1853: 277Prodilis inclytus Gordon, 2000: 59. -	]
@@ -1166,17 +1216,24 @@
 	00002-	Serangium-	Serangium-	Serangium
 		00000-	japonicum-	µ¶½ÇÆ°Ïx-	µ¶½ÇÆ°Ïx	[]
 		00002-	maculigerum-	maculigerum-	maculigerum	[]
+		00003-	parcesetosum-	parcesetosum-	parcesetosum	[]
+		00004-	serratum-	serratum-	serratum	[]
 		00001-	yasumatsui-	²ù½ÇÆ°³æ-	²ù½ÇÆ°³æ	[Catana yasumatsui Sasaji, 1967-	]
 	00005-	Shirozuella-	³¤´½Æ°³æÊô-	³¤´½Æ°³æÊô
 		00002-	alishanensis-	°¢ÀïÉ½³¤´½Æ°³æ-	°¢ÀïÉ½³¤´½Æ°³æ	[]
 		00001-	appendiculata-	¸½Ö«³¤´½Æ°³æ-	¸½Ö«³¤´½Æ°³æ	[]
 		00000-	mirabilis-	ÆæÌØ³¤´½Æ°³æ-	ÆæÌØ³¤´½Æ°³æ	[]
 	00003-	Sticholotis-	Sticholotis-	Sticholotis
+		00006-	cribellatus-	cribellatus-	cribellatus	[]
+		00007-	ferrugineus-	ferrugineus-	ferrugineus	[]
 		00000-	formosana-	ûØWÆ°Ïx-	ûØWÆ°Ïx	[]
 		00003-	hirashimai-	ºÖ±³ÑŞÆ°³æ-	ºÖ±³ÑŞÆ°³æ	[]
 		00002-	morimotoi-	ËÄĞÇØWÆ°Ïx-	ËÄĞÇØWÆ°Ïx	[]
+		00008-	obscurella-	obscurella-	obscurella	[]
 		00004-	ruficeps-	ruficeps-	ruficeps	[]
+		00009-	rugicollis-	rugicollis-	rugicollis	[]
 		00001-	taiwanensis-	Ì¨³ØWÆ°Ïx-	Ì¨³ØWÆ°Ïx	[]
 		00005-	tsunekii-	tsunekii-	tsunekii	[Nesolotis tsunekii Sasaji, 1967-	]
+	00020-	Stictobura-	Stictobura-	Stictobura
 	00013-	Stictospilus-	Stictospilus-	Stictospilus
 		00000-	darwini-	darwini-	darwini	[]
