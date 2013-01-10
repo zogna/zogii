@@ -29,6 +29,7 @@ typedef struct
 
 }DATALIST;
 
+
 class CZogiiaddDlg : public CDialog
 {
 // Construction
@@ -115,7 +116,6 @@ public:
 	int		m_ImagoPronotumTexture;
 	int		m_ImagoElytraPointNum;
 	int		m_ImagobellyColor;
-	int		m_Size;
 	int		m_Light;
 	int		m_Living;
 	CString	m_LivingNameB;
@@ -123,12 +123,12 @@ public:
 	CString	m_LivingNameC;
 	int		m_PupaType;
 	int		m_OverWinter;
-	int		m_StartMonth;
-	int		m_EndMonth;
 	int		m_CloseupNo;
 	int		m_CloseupType;
 	CString	m_CloseupPicInfo;
 	CString	m_CloseupPicPath;
+	int		m_minsize;
+	int		m_maxsize;
 	//}}AFX_DATA
 
 	// ClassWizard generated virtual function overrides
@@ -193,6 +193,8 @@ protected:
 	afx_msg void OnBUTTONNEWPupa();
 	afx_msg void OnButtonFastmap();
 	afx_msg void OnButtonFaststr();
+	afx_msg void OnCustomdrawSliderMaxsize(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnCustomdrawSliderMinsize(NMHDR* pNMHDR, LRESULT* pResult);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 	void OnOK();
@@ -260,15 +262,29 @@ protected:
 	//数据
 	ZOGII_ULONG_TYPE DBtotal;
 	struct ZOGII_Coccinellidae_SUBFamily *DBdata;
-	ZOGII_ULONG_TYPE DBPictotal;
-	struct ZOGII_Pic *DBPicdata;
+
+	ZOGII_ULONG_TYPE DBImagototal;
+	struct ZOGII_Imago *DBImagodata;
+
+	ZOGII_ULONG_TYPE DBLarvatotal;
+	struct ZOGII_Larva *DBLarvadata;
+
+	ZOGII_ULONG_TYPE DBPupatotal;
+	struct ZOGII_Pupa *DBPupadata;
+
+	ZOGII_ULONG_TYPE DBOvumtotal;
+	struct ZOGII_Ovum *DBOvumdata;
+
+	ZOGII_ULONG_TYPE DBCloseuptotal;
+	struct ZOGII_Closeup *DBCloseupdata;
+
 	//临时数据
-	// 0-11为Imago 
-	// 12-23为Larva
-	// 24-35为Pupa
-	// 36-47为Ovum
-	// 48 为MAP
-	struct ZOGII_Pic NewPicdata[ZOGII_ALL_PIC]; 
+	struct ZOGII_Imago NewImagodata[ZOGII_PIC_Imago_MAX]; 
+	struct ZOGII_Larva NewLarvadata[ZOGII_PIC_Larva_MAX]; 
+	struct ZOGII_Pupa NewPupadata[ZOGII_PIC_Pupa_MAX]; 
+	struct ZOGII_Ovum NewOvumdata[ZOGII_PIC_Ovum_MAX]; 
+	struct ZOGII_Closeup NewCloseupdata[ZOGII_PIC_Closeup_MAX]; 
+
 	struct ZOGII_Coccinellidae_DATA Newdata;
 
 };

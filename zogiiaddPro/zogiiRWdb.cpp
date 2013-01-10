@@ -107,8 +107,12 @@ void zogiiRemoveDirectory(char *str)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-int zogiiReadDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily *&data,	\
-				ZOGII_ULONG_TYPE *pictotal,struct ZOGII_Pic *&picdata)
+int zogiiReadDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily *&data,
+				ZOGII_ULONG_TYPE *Imagototal,struct ZOGII_Imago *&Imagodata,
+				ZOGII_ULONG_TYPE *Larvatotal,struct ZOGII_Larva *&Larvadata,
+				ZOGII_ULONG_TYPE *Pupatotal,struct ZOGII_Pupa *&Pupadata,
+				ZOGII_ULONG_TYPE *Ovumtotal,struct ZOGII_Ovum *&Ovumdata,
+				ZOGII_ULONG_TYPE *Closeuptotal,struct ZOGII_Closeup *&Closeupdata)
 {
 
 	ZOGII_ULONG_TYPE i,j,k;
@@ -165,12 +169,39 @@ int zogiiReadDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily *&d
 				}
 			}
 		}
-		//读图片索引 
-		fread(pictotal,sizeof(ZOGII_ULONG_TYPE),1,fp);
-		if(*pictotal)
+		fread(Imagototal,sizeof(ZOGII_ULONG_TYPE),1,fp);
+		if(*Imagototal)
 		{
-			picdata=(struct ZOGII_Pic *)calloc(*pictotal,sizeof(struct ZOGII_Pic));
-			fread(picdata,sizeof(struct ZOGII_Pic),*pictotal,fp);
+			Imagodata=(struct ZOGII_Imago *)calloc(*Imagototal,sizeof(struct ZOGII_Imago));
+			fread(Imagodata,sizeof(struct ZOGII_Imago),*Imagototal,fp);
+		}
+
+		fread(Larvatotal,sizeof(ZOGII_ULONG_TYPE),1,fp);
+		if(*Larvatotal)
+		{
+			Larvadata=(struct ZOGII_Larva *)calloc(*Larvatotal,sizeof(struct ZOGII_Larva));
+			fread(Larvadata,sizeof(struct ZOGII_Larva),*Larvatotal,fp);
+		}
+
+		fread(Pupatotal,sizeof(ZOGII_ULONG_TYPE),1,fp);
+		if(*Pupatotal)
+		{
+			Pupadata=(struct ZOGII_Pupa *)calloc(*Pupatotal,sizeof(struct ZOGII_Pupa));
+			fread(Pupadata,sizeof(struct ZOGII_Pupa),*Pupatotal,fp);
+		}
+
+		fread(Ovumtotal,sizeof(ZOGII_ULONG_TYPE),1,fp);
+		if(*Ovumtotal)
+		{
+			Ovumdata=(struct ZOGII_Ovum *)calloc(*Ovumtotal,sizeof(struct ZOGII_Ovum));
+			fread(Ovumdata,sizeof(struct ZOGII_Ovum),*Ovumtotal,fp);
+		}
+
+		fread(Closeuptotal,sizeof(ZOGII_ULONG_TYPE),1,fp);
+		if(*Closeuptotal)
+		{
+			Closeupdata=(struct ZOGII_Closeup *)calloc(*Closeuptotal,sizeof(struct ZOGII_Closeup));
+			fread(Closeupdata,sizeof(struct ZOGII_Closeup),*Closeuptotal,fp);
 		}
 
 		fclose(fp);
@@ -179,11 +210,33 @@ int zogiiReadDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily *&d
 	else
 	{
 		(*total)=0;
-		data=NULL;
+		data=NULL;	
+
 		//初始化第一个为无效
-		(*pictotal)=1;
-		picdata=(struct ZOGII_Pic *)calloc(*pictotal,sizeof(struct ZOGII_Pic));
-		picdata[0].flag=0;		
+		(*Imagototal)=1;
+		Imagodata=(struct ZOGII_Imago *)calloc(*Imagototal,sizeof(struct ZOGII_Imago));
+		Imagodata[0].flag=0;	
+
+		//初始化第一个为无效
+		(*Larvatotal)=1;
+		Larvadata=(struct ZOGII_Larva *)calloc(*Larvatotal,sizeof(struct ZOGII_Larva));
+		Larvadata[0].flag=0;	
+
+		//初始化第一个为无效
+		(*Pupatotal)=1;
+		Pupadata=(struct ZOGII_Pupa *)calloc(*Pupatotal,sizeof(struct ZOGII_Pupa));
+		Pupadata[0].flag=0;	
+
+		//初始化第一个为无效
+		(*Ovumtotal)=1;
+		Ovumdata=(struct ZOGII_Ovum *)calloc(*Ovumtotal,sizeof(struct ZOGII_Ovum));
+		Ovumdata[0].flag=0;	
+
+		//初始化第一个为无效
+		(*Closeuptotal)=1;
+		Closeupdata=(struct ZOGII_Closeup *)calloc(*Closeuptotal,sizeof(struct ZOGII_Closeup));
+		Closeupdata[0].flag=0;	
+
 		//创建根目录
 		zogiiCreateDirectory(ZOGII_DB_DIRSTR);
 
@@ -192,7 +245,11 @@ int zogiiReadDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily *&d
 }
 
 int zogiiWriteDB(ZOGII_ULONG_TYPE total,struct ZOGII_Coccinellidae_SUBFamily *&data,	\
-				 ZOGII_ULONG_TYPE pictotal,struct ZOGII_Pic *&picdata)
+				 ZOGII_ULONG_TYPE Imagototal,struct ZOGII_Imago *&Imagodata,
+				 ZOGII_ULONG_TYPE Larvatotal,struct ZOGII_Larva *&Larvadata,
+				 ZOGII_ULONG_TYPE Pupatotal,struct ZOGII_Pupa *&Pupadata,
+				 ZOGII_ULONG_TYPE Ovumtotal,struct ZOGII_Ovum *&Ovumdata,
+				 ZOGII_ULONG_TYPE Closeuptotal,struct ZOGII_Closeup *&Closeupdata)
 
 {
 	ZOGII_ULONG_TYPE i,j,k;
@@ -237,10 +294,26 @@ int zogiiWriteDB(ZOGII_ULONG_TYPE total,struct ZOGII_Coccinellidae_SUBFamily *&d
 				}
 			}
 		}
-	
-		fwrite(&pictotal,sizeof(ZOGII_ULONG_TYPE),1,fp);
-		if(pictotal)
-			fwrite(picdata,sizeof(struct ZOGII_Pic),pictotal,fp);
+
+		fwrite(&Imagototal,sizeof(ZOGII_ULONG_TYPE),1,fp);
+		if(Imagototal)
+			fwrite(Imagodata,sizeof(struct ZOGII_Imago),Imagototal,fp);
+
+		fwrite(&Larvatotal,sizeof(ZOGII_ULONG_TYPE),1,fp);
+		if(Larvatotal)
+			fwrite(Larvadata,sizeof(struct ZOGII_Larva),Larvatotal,fp);
+
+		fwrite(&Pupatotal,sizeof(ZOGII_ULONG_TYPE),1,fp);
+		if(Pupatotal)
+			fwrite(Pupadata,sizeof(struct ZOGII_Pupa),Pupatotal,fp);
+
+		fwrite(&Ovumtotal,sizeof(ZOGII_ULONG_TYPE),1,fp);
+		if(Ovumtotal)
+			fwrite(Ovumdata,sizeof(struct ZOGII_Ovum),Ovumtotal,fp);
+
+		fwrite(&Closeuptotal,sizeof(ZOGII_ULONG_TYPE),1,fp);
+		if(Closeuptotal)
+			fwrite(Closeupdata,sizeof(struct ZOGII_Closeup),Closeuptotal,fp);
 
 		fclose(fp);
 		return 1;
@@ -512,13 +585,13 @@ ZOGII_ULONG_TYPE zogiiCodeGen(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae
 	}
 	return 0;
 }
-
+//保存临时编号
 void zogiiTEMPSaveDB(struct ZOGII_Coccinellidae_DATA *data,	\
-					ZOGII_ULONG_TYPE *Imagopic,	\
-					ZOGII_ULONG_TYPE *Larvapic,	\
-					ZOGII_ULONG_TYPE *Pupapic,	\
-					ZOGII_ULONG_TYPE *Ovumpic,	\
-					ZOGII_ULONG_TYPE *Closeuppic,	\
+					ZOGII_ULONG_TYPE *tempImago,	\
+					ZOGII_ULONG_TYPE *tempLarva,
+					ZOGII_ULONG_TYPE *tempPupa,
+					ZOGII_ULONG_TYPE *tempOvum,
+					ZOGII_ULONG_TYPE *tempCloseup,
 					ZOGII_ULONG_TYPE *tempcode,	\
 					char *temppath,	\
 					char tempsfname[ZOGII_LAG_MAX][ZOGII_STR_MAX],	\
@@ -526,16 +599,22 @@ void zogiiTEMPSaveDB(struct ZOGII_Coccinellidae_DATA *data,	\
 					char tempname[ZOGII_LAG_MAX][ZOGII_STR_MAX],	\
 					char temptext[ZOGII_LAG_MAX][ZOGII_PAT_MAX])
 {
-	unsigned char i; 
+	ZOGII_ULONG_TYPE i; 
 	
-	for(i=0;i<ZOGII_PIC_MAX;i++)
-	{
-		Imagopic[i]=data->Imago[i].Pic;
-		Larvapic[i]=data->Larva[i].Pic;
-		Pupapic[i]=data->Pupa[i].Pic;
-		Ovumpic[i]=data->Ovum[i].Pic;
-		Closeuppic[i]=data->Closeup[i].Pic;
-	}
+	for(i=0;i<ZOGII_PIC_Imago_MAX;i++)
+		tempImago[i]=data->Imago[i];
+	
+	for(i=0;i<ZOGII_PIC_Larva_MAX;i++)
+		tempLarva[i]=data->Larva[i];
+	
+	for(i=0;i<ZOGII_PIC_Pupa_MAX;i++)
+		tempPupa[i]=data->Pupa[i];
+
+	for(i=0;i<ZOGII_PIC_Ovum_MAX;i++)
+		tempOvum[i]=data->Ovum[i];
+	
+	for(i=0;i<ZOGII_PIC_Closeup_MAX;i++)
+		tempCloseup[i]=data->Closeup[i];
 
 	//备份编号
 	*tempcode=data->code;
@@ -552,17 +631,26 @@ void zogiiTEMPSaveDB(struct ZOGII_Coccinellidae_DATA *data,	\
 }
 
 void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily *&data,	\
-				ZOGII_ULONG_TYPE *pictotal,struct ZOGII_Pic *&picdata,	\
-				unsigned char type,ZOGII_ULONG_TYPE sf,ZOGII_ULONG_TYPE ge,ZOGII_ULONG_TYPE na,	ZOGII_ULONG_TYPE sp,	\
-				struct ZOGII_Coccinellidae_DATA *newdata,struct ZOGII_Pic *NewPicdata)
+					ZOGII_ULONG_TYPE *Imagototal,	struct ZOGII_Imago *&Imagodata,
+					ZOGII_ULONG_TYPE *Larvatotal,struct ZOGII_Larva *&Larvadata,
+					ZOGII_ULONG_TYPE *Pupatotal,	struct ZOGII_Pupa *&Pupadata,
+					ZOGII_ULONG_TYPE *Ovumtotal,struct ZOGII_Ovum *&Ovumdata,
+					ZOGII_ULONG_TYPE *Closeuptotal,struct ZOGII_Closeup *&Closeupdata,
+					unsigned char type,ZOGII_ULONG_TYPE sf,ZOGII_ULONG_TYPE ge,ZOGII_ULONG_TYPE na,	ZOGII_ULONG_TYPE sp,	\
+					struct ZOGII_Coccinellidae_DATA *newdata,
+					struct ZOGII_Imago *NewImagodata,
+					struct ZOGII_Larva *NewLarvadata,
+					struct ZOGII_Pupa *NewPupadata,
+					struct ZOGII_Ovum *NewOvumdata,
+					struct ZOGII_Closeup *NewCloseupdata)
 {
 	ZOGII_ULONG_TYPE t;
 
-	ZOGII_ULONG_TYPE Imagopic[ZOGII_PIC_MAX]={0};
-	ZOGII_ULONG_TYPE Larvapic[ZOGII_PIC_MAX]={0};
-	ZOGII_ULONG_TYPE Pupapic[ZOGII_PIC_MAX]={0};
-	ZOGII_ULONG_TYPE Ovumpic[ZOGII_PIC_MAX]={0};
-	ZOGII_ULONG_TYPE Closeuppic[ZOGII_PIC_MAX]={0};
+	ZOGII_ULONG_TYPE tempImago[ZOGII_PIC_Imago_MAX]={0}; 
+	ZOGII_ULONG_TYPE tempLarva[ZOGII_PIC_Larva_MAX]={0}; 
+	ZOGII_ULONG_TYPE tempPupa[ZOGII_PIC_Pupa_MAX]={0}; 
+	ZOGII_ULONG_TYPE tempOvum[ZOGII_PIC_Ovum_MAX]={0}; 
+	ZOGII_ULONG_TYPE tempCloseup[ZOGII_PIC_Closeup_MAX]={0}; 
 
 	ZOGII_ULONG_TYPE tempcode=0;
 	char temppath[ZOGII_PAT_MAX];
@@ -593,6 +681,7 @@ void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily
 		//初始化图片
 		zogiiInitpicDB(&data[t].SF);
 
+	
 		data[t].GenusTotal=0;
 		(*total)++;
 	}
@@ -677,7 +766,7 @@ void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily
 	{
 		//备份图片编号。
 		zogiiTEMPSaveDB(&data[sf].SF,	\
-			Imagopic,Larvapic,Pupapic,Ovumpic,	Closeuppic,\
+			tempImago,tempLarva,tempPupa,tempOvum,tempCloseup,
 			&tempcode,temppath,tempsfname,tempgename,tempname,temptext);
 
 		//拷贝信息
@@ -687,8 +776,15 @@ void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily
 		memcpy(data[sf].SF.Path,temppath,ZOGII_PAT_MAX);
 
 		//添加图片
-		zogiiADDpicDB(&data[sf].SF,pictotal,picdata,NewPicdata,	\
-						Imagopic,Larvapic,Pupapic,Ovumpic,Closeuppic);
+		zogiiADDpicDB(&data[sf].SF,
+			Imagototal,Imagodata,
+			Larvatotal,Larvadata,
+			Pupatotal,Pupadata,
+			Ovumtotal,Ovumdata,
+			Closeuptotal,Closeupdata,	
+			NewImagodata,NewLarvadata,NewPupadata,NewOvumdata,NewCloseupdata,
+			tempImago,tempLarva,tempPupa,tempOvum,tempCloseup);
+
 		zogiiAddtxtDB(&data[sf].SF,newdata,temptext);
 
 		//更新命名 只改SF
@@ -715,8 +811,8 @@ void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily
 	{
 		//备份图片编号。
 		zogiiTEMPSaveDB(&data[sf].GenusData[ge].GE,	\
-				Imagopic,Larvapic,Pupapic,Ovumpic,Closeuppic,	\
-				&tempcode,temppath,tempsfname,tempgename,tempname,temptext);
+			tempImago,tempLarva,tempPupa,tempOvum,tempCloseup,
+			&tempcode,temppath,tempsfname,tempgename,tempname,temptext);
 		//备份编号
 		tempcode=data[sf].GenusData[ge].GE.code;
 		memcpy(temppath,data[sf].GenusData[ge].GE.Path,ZOGII_PAT_MAX);
@@ -727,8 +823,15 @@ void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily
 		data[sf].GenusData[ge].GE.code=tempcode;
 		memcpy(data[sf].GenusData[ge].GE.Path,temppath,ZOGII_PAT_MAX);
 		//添加图片
-		zogiiADDpicDB(&data[sf].GenusData[ge].GE,pictotal,picdata,NewPicdata,	\
-						Imagopic,Larvapic,Pupapic,Ovumpic,Closeuppic);
+		zogiiADDpicDB(&data[sf].GenusData[ge].GE,
+			Imagototal,Imagodata,
+			Larvatotal,Larvadata,
+			Pupatotal,Pupadata,
+			Ovumtotal,Ovumdata,
+			Closeuptotal,Closeupdata,	
+			NewImagodata,NewLarvadata,NewPupadata,NewOvumdata,NewCloseupdata,
+			tempImago,tempLarva,tempPupa,tempOvum,tempCloseup);
+
 		zogiiAddtxtDB(&data[sf].GenusData[ge].GE,newdata,temptext);
 		
 		//更新命名 只改GE
@@ -751,7 +854,7 @@ void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily
 	{
 		//备份图片编号。
 		zogiiTEMPSaveDB(&data[sf].GenusData[ge].NameData[na].NA,	\
-					Imagopic,Larvapic,Pupapic,Ovumpic,Closeuppic,	\
+					tempImago,tempLarva,tempPupa,tempOvum,tempCloseup,
 					&tempcode,temppath,tempsfname,tempgename,tempname,temptext);
 		//备份编号
 		tempcode=data[sf].GenusData[ge].NameData[na].NA.code;
@@ -763,8 +866,15 @@ void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily
 		memcpy(data[sf].GenusData[ge].NameData[na].NA.Path,temppath,ZOGII_PAT_MAX);
 
 		//添加图片
-		zogiiADDpicDB(&data[sf].GenusData[ge].NameData[na].NA,pictotal,picdata,NewPicdata,	\
-						Imagopic,Larvapic,Pupapic,Ovumpic,Closeuppic);
+		zogiiADDpicDB(&data[sf].GenusData[ge].NameData[na].NA,			
+			Imagototal,Imagodata,
+			Larvatotal,Larvadata,
+			Pupatotal,Pupadata,
+			Ovumtotal,Ovumdata,
+			Closeuptotal,Closeupdata,		
+			NewImagodata,NewLarvadata,NewPupadata,NewOvumdata,NewCloseupdata,
+			tempImago,tempLarva,tempPupa,tempOvum,tempCloseup);
+
 		zogiiAddtxtDB(&data[sf].GenusData[ge].NameData[na].NA,newdata,temptext);
 		
 		//更新命名 只改NA
@@ -782,7 +892,7 @@ void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily
 	{
 		//备份图片编号。
 		zogiiTEMPSaveDB(&data[sf].GenusData[ge].NameData[na].SpData[sp],	\
-					Imagopic,Larvapic,Pupapic,Ovumpic,Closeuppic,	\
+					tempImago,tempLarva,tempPupa,tempOvum,tempCloseup,
 					&tempcode,temppath,tempsfname,tempgename,tempname,temptext);
 		//备份编号
 		tempcode=data[sf].GenusData[ge].NameData[na].SpData[sp].code;
@@ -793,15 +903,26 @@ void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily
 		data[sf].GenusData[ge].NameData[na].SpData[sp].code=tempcode;
 		memcpy(data[sf].GenusData[ge].NameData[na].SpData[sp].Path,temppath,ZOGII_PAT_MAX);
 		//添加图片
-		zogiiADDpicDB(&data[sf].GenusData[ge].NameData[na].SpData[sp],pictotal,picdata,NewPicdata,	\
-						Imagopic,Larvapic,Pupapic,Ovumpic,Closeuppic);
+		zogiiADDpicDB(&data[sf].GenusData[ge].NameData[na].SpData[sp],			
+			Imagototal,Imagodata,
+			Larvatotal,Larvadata,
+			Pupatotal,Pupadata,
+			Ovumtotal,Ovumdata,
+			Closeuptotal,Closeupdata,	
+			NewImagodata,NewLarvadata,NewPupadata,NewOvumdata,NewCloseupdata,
+			tempImago,tempLarva,tempPupa,tempOvum,tempCloseup);
+
 		zogiiAddtxtDB(&data[sf].GenusData[ge].NameData[na].SpData[sp],newdata,temptext);
 	}
 }
 
 void zogiiDeleteDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily *&data,	\
-			   unsigned char type,ZOGII_ULONG_TYPE sf,ZOGII_ULONG_TYPE ge,ZOGII_ULONG_TYPE na,ZOGII_ULONG_TYPE sp,	\
-			   struct ZOGII_Pic *&picdata)
+					unsigned char type,ZOGII_ULONG_TYPE sf,ZOGII_ULONG_TYPE ge,ZOGII_ULONG_TYPE na,ZOGII_ULONG_TYPE sp,	\
+					struct ZOGII_Imago *&Imagodata,
+					struct ZOGII_Larva *&Larvadata,
+					struct ZOGII_Pupa *&Pupadata,
+					struct ZOGII_Ovum *&Ovumdata,
+					struct ZOGII_Closeup *&Closeupdata)
 {
 	ZOGII_ULONG_TYPE i,j,k;
 
@@ -821,23 +942,27 @@ void zogiiDeleteDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily 
 						if(data[sf].GenusData[i].NameData[j].SpTotal)
 						{
 							for(k=0;k<data[sf].GenusData[i].NameData[j].SpTotal;k++)
-								zogiiDeletepicDB(&data[sf].GenusData[i].NameData[j].SpData[k],picdata);
+								zogiiDeletepicDB(&data[sf].GenusData[i].NameData[j].SpData[k],	\
+											Imagodata,Larvadata,Pupadata,Ovumdata,Closeupdata);
 
 							free(data[sf].GenusData[i].NameData[j].SpData);
 							data[sf].GenusData[i].NameData[j].SpData=NULL;
 						}
-						zogiiDeletepicDB(&data[sf].GenusData[i].NameData[j].NA,picdata);
+						zogiiDeletepicDB(&data[sf].GenusData[i].NameData[j].NA,	\
+							Imagodata,Larvadata,Pupadata,Ovumdata,Closeupdata);
 					}
 					
 					free(data[sf].GenusData[i].NameData);
 					data[sf].GenusData[i].NameData=NULL;
 				}
-				zogiiDeletepicDB(&data[sf].GenusData[i].GE,picdata);
+				zogiiDeletepicDB(&data[sf].GenusData[i].GE,	\
+							Imagodata,Larvadata,Pupadata,Ovumdata,Closeupdata);
 			}
 			free(data[sf].GenusData);
 			data[sf].GenusData=NULL;
 		}
-		zogiiDeletepicDB(&data[sf].SF,picdata);
+		zogiiDeletepicDB(&data[sf].SF,	\
+							Imagodata,Larvadata,Pupadata,Ovumdata,Closeupdata);
 
 		//如果不是最后一个数据 则移动
 		if( sf != ((*total) -1))
@@ -857,17 +982,20 @@ void zogiiDeleteDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily 
 				if(data[sf].GenusData[ge].NameData[j].SpTotal)
 				{
 					for(k=0;k<data[sf].GenusData[ge].NameData[j].SpTotal;k++)
-						zogiiDeletepicDB(&data[sf].GenusData[ge].NameData[j].SpData[k],picdata);
+						zogiiDeletepicDB(&data[sf].GenusData[ge].NameData[j].SpData[k],	\
+							Imagodata,Larvadata,Pupadata,Ovumdata,Closeupdata);
 					
 					free(data[sf].GenusData[ge].NameData[j].SpData);
 					data[sf].GenusData[ge].NameData[j].SpData=NULL;
 				}
-				zogiiDeletepicDB(&data[sf].GenusData[ge].NameData[j].NA,picdata);
+				zogiiDeletepicDB(&data[sf].GenusData[ge].NameData[j].NA,	\
+							Imagodata,Larvadata,Pupadata,Ovumdata,Closeupdata);
 			}
 			free(data[sf].GenusData[ge].NameData);
 			data[sf].GenusData[ge].NameData=NULL;
 		}
-		zogiiDeletepicDB(&data[sf].GenusData[ge].GE,picdata);
+		zogiiDeletepicDB(&data[sf].GenusData[ge].GE,	\
+							Imagodata,Larvadata,Pupadata,Ovumdata,Closeupdata);
 
 		if(ge != (data[sf].GenusTotal -1))
 			memmove(&data[sf].GenusData[ge],&data[sf].GenusData[ge+1],	\
@@ -883,12 +1011,14 @@ void zogiiDeleteDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily 
 		if(data[sf].GenusData[ge].NameData[na].SpTotal)
 		{
 			for(k=0;k<data[sf].GenusData[ge].NameData[na].SpTotal;k++)
-				zogiiDeletepicDB(&data[sf].GenusData[ge].NameData[na].SpData[k],picdata);
+				zogiiDeletepicDB(&data[sf].GenusData[ge].NameData[na].SpData[k],	\
+							Imagodata,Larvadata,Pupadata,Ovumdata,Closeupdata);
 
 			free(data[sf].GenusData[ge].NameData[na].SpData);
 			data[sf].GenusData[ge].NameData[na].SpData=NULL;
 		}
-		zogiiDeletepicDB(&data[sf].GenusData[ge].NameData[na].NA,picdata);
+		zogiiDeletepicDB(&data[sf].GenusData[ge].NameData[na].NA,	\
+							Imagodata,Larvadata,Pupadata,Ovumdata,Closeupdata);
 
 		if(na != (data[sf].GenusData[ge].NameTotal -1))
 			memmove(&data[sf].GenusData[ge].NameData[na],&data[sf].GenusData[ge].NameData[na+1],	\
@@ -901,7 +1031,8 @@ void zogiiDeleteDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily 
 		//删整个文件夹
 		zogiiRemoveDirectory(data[sf].GenusData[ge].NameData[na].SpData[sp].Path);
 		//删图片
-		zogiiDeletepicDB(&data[sf].GenusData[ge].NameData[na].SpData[sp],picdata);
+		zogiiDeletepicDB(&data[sf].GenusData[ge].NameData[na].SpData[sp],	\
+							Imagodata,Larvadata,Pupadata,Ovumdata,Closeupdata);
 
 		if(sp != (data[sf].GenusData[ge].NameData[na].SpTotal -1))
 			memmove(&data[sf].GenusData[ge].NameData[na].SpData[sp],&data[sf].GenusData[ge].NameData[na].SpData[sp+1],	\
@@ -911,44 +1042,6 @@ void zogiiDeleteDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily 
 	}
 }
 
-void zogiiFreeDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily *&data,	\
-				  ZOGII_ULONG_TYPE *pictotal,struct ZOGII_Pic *&picdata)
-{
-	ZOGII_ULONG_TYPE i,j,k;
-
-	for(i=0;i<(*total);i++)
-	{
-		if(data[i].GenusTotal)
-		{
-			for(j=0;j<data[i].GenusTotal;j++)
-			{
-				if(data[i].GenusData[j].NameTotal)
-				{
-					for(k=0;k<data[i].GenusData[j].NameTotal;k++)
-					{
-						if(data[i].GenusData[j].NameData[k].SpTotal)
-						{
-							free(data[i].GenusData[j].NameData[k].SpData);
-							data[i].GenusData[j].NameData[k].SpData=NULL;
-						}
-					}
-					free(data[i].GenusData[j].NameData);
-					data[i].GenusData[j].NameData=NULL;
-				}
-			}
-			free(data[i].GenusData);
-			data[i].GenusData=NULL;
-		}
-	}
-
-	(*total)=0;
-	free(data);
-	data=NULL;
-
-	(*pictotal)=0;
-	free(picdata);
-	picdata=NULL;
-}
 ////////////////////////////增加文本
 void zogiiAddtxtDB(struct ZOGII_Coccinellidae_DATA *data,struct ZOGII_Coccinellidae_DATA *newdata,	\
 				   char temptext[ZOGII_LAG_MAX][ZOGII_PAT_MAX])
@@ -986,148 +1079,172 @@ void zogiiAddtxtDBLite(struct ZOGII_Coccinellidae_DATA *data,struct ZOGII_Coccin
 
 ////////////////////////////增加图片
 void zogiiADDpicDB(struct ZOGII_Coccinellidae_DATA *data,	\
-				ZOGII_ULONG_TYPE *pictotal,struct ZOGII_Pic *&picdata,	\
-				struct ZOGII_Pic *NewPicdata,	\
-				ZOGII_ULONG_TYPE *Imagopic,	\
-				ZOGII_ULONG_TYPE *Larvapic,	\
-				ZOGII_ULONG_TYPE *Pupapic,	\
-				ZOGII_ULONG_TYPE *Ovumpic,	\
-				ZOGII_ULONG_TYPE *Closeuppic)
+					ZOGII_ULONG_TYPE *Imagototal,	struct ZOGII_Imago *&Imagodata,
+					ZOGII_ULONG_TYPE *Larvatotal,struct ZOGII_Larva *&Larvadata,
+					ZOGII_ULONG_TYPE *Pupatotal,	struct ZOGII_Pupa *&Pupadata,
+					ZOGII_ULONG_TYPE *Ovumtotal,struct ZOGII_Ovum *&Ovumdata,
+					ZOGII_ULONG_TYPE *Closeuptotal,struct ZOGII_Closeup *&Closeupdata,
+					struct ZOGII_Imago *NewImagodata,
+					struct ZOGII_Larva *NewLarvadata,
+					struct ZOGII_Pupa *NewPupadata,
+					struct ZOGII_Ovum *NewOvumdata,
+					struct ZOGII_Closeup *NewCloseupdata,
+					ZOGII_ULONG_TYPE *tempImago,	\
+					ZOGII_ULONG_TYPE *tempLarva,	\
+					ZOGII_ULONG_TYPE *tempPupa,	\
+					ZOGII_ULONG_TYPE *tempOvum,	\
+					ZOGII_ULONG_TYPE *tempCloseup)
 {
-	unsigned char i; 
+	ZOGII_ULONG_TYPE i; 
 	char str[ZOGII_PAT_MAX];
 
-	for(i=0;i<ZOGII_PIC_MAX;i++)
-	{	
+/////////////////////Imago////////////////
+	for(i=0;i<ZOGII_PIC_Imago_MAX;i++)
+	{
 		//有新值添加
-		if(NewPicdata[ZOGII_ALL_PIC_Imago_START+i].flag)
+		if(NewImagodata[i].flag)
 		{
-			sprintf(str,"%s\\Imago%02d%s",data->Path,i,strrchr(NewPicdata[ZOGII_ALL_PIC_Imago_START+i].Path,'.'));
+			sprintf(str,"%s\\Imago%02d%s",data->Path,i,strrchr(NewImagodata[i].Path,'.'));
 			// 修改
-			if(Imagopic[i] && picdata[Imagopic[i]].flag)
+			if(tempImago[i] && Imagodata[tempImago[i]].flag)
 			{
-				zogiiModifypicDBLite(&picdata[Imagopic[i]],&NewPicdata[ZOGII_ALL_PIC_Imago_START+i],str);
-				data->Imago[i].Pic=Imagopic[i];
+				zogiiModifyImagoDBLite(&Imagodata[tempImago[i]],&NewImagodata[i],str);
+				data->Imago[i]=tempImago[i];
 			}
 			else //原先为0 则增加
 			{
-				data->Imago[i].Pic=zogiiADDpicDBLite(pictotal,picdata,str,&NewPicdata[ZOGII_ALL_PIC_Imago_START+i]);
+				data->Imago[i]=zogiiADDImagoDBLite(Imagototal,Imagodata,str,&NewImagodata[i]);
 			}
 		}
-		else	 if(Imagopic[i])
-			data->Imago[i].Pic=zogiiDeletepicDBLite(Imagopic[i],picdata);
-		//有新值添加
-		if(NewPicdata[ZOGII_ALL_PIC_Larva_START+i].flag)
-		{
-			sprintf(str,"%s\\Larva%02d%s",data->Path,i,strrchr(NewPicdata[ZOGII_ALL_PIC_Larva_START+i].Path,'.'));
-			// 修改
-			if(Larvapic[i] && picdata[Larvapic[i]].flag)
-			{
-				zogiiModifypicDBLite(&picdata[Larvapic[i]],&NewPicdata[ZOGII_ALL_PIC_Larva_START+i],str);
-				data->Larva[i].Pic=Larvapic[i];
-			}
-			else //原先为0 则增加
-			{
-				data->Larva[i].Pic=zogiiADDpicDBLite(pictotal,picdata,str,&NewPicdata[ZOGII_ALL_PIC_Larva_START+i]);
-			}
-		}
-		else	 if(Larvapic[i])
-			data->Larva[i].Pic=zogiiDeletepicDBLite(Larvapic[i],picdata);
-		//有新值添加
-		if(NewPicdata[ZOGII_ALL_PIC_Pupa_START+i].flag)
-		{
-			sprintf(str,"%s\\Pupa%02d%s",data->Path,i,strrchr(NewPicdata[ZOGII_ALL_PIC_Pupa_START+i].Path,'.'));
-			// 修改
-			if(Pupapic[i] && picdata[Pupapic[i]].flag)
-			{
-				zogiiModifypicDBLite(&picdata[Pupapic[i]],&NewPicdata[ZOGII_ALL_PIC_Pupa_START+i],str);
-				data->Pupa[i].Pic=Pupapic[i];
-			}
-			else //原先为0 则增加
-			{
-				data->Pupa[i].Pic=zogiiADDpicDBLite(pictotal,picdata,str,&NewPicdata[ZOGII_ALL_PIC_Pupa_START+i]);
-			}
-		}
-		else	 if(Pupapic[i])
-			data->Pupa[i].Pic=zogiiDeletepicDBLite(Pupapic[i],picdata);
-		//有新值添加
-		if(NewPicdata[ZOGII_ALL_PIC_Ovum_START+i].flag)
-		{
-			sprintf(str,"%s\\Ovum%02d%s",data->Path,i,strrchr(NewPicdata[ZOGII_ALL_PIC_Ovum_START+i].Path,'.'));
-			// 修改
-			if(Ovumpic[i] && picdata[Ovumpic[i]].flag)
-			{
-				zogiiModifypicDBLite(&picdata[Ovumpic[i]],&NewPicdata[ZOGII_ALL_PIC_Ovum_START+i],str);
-				data->Ovum[i].Pic=Ovumpic[i];
-			}
-			else //原先为0 则增加
-			{
-				data->Ovum[i].Pic=zogiiADDpicDBLite(pictotal,picdata,str,&NewPicdata[ZOGII_ALL_PIC_Ovum_START+i]);
-			}
-		}
-		else	 if(Ovumpic[i]) //无新值 则旧值删去
-			data->Ovum[i].Pic=zogiiDeletepicDBLite(Ovumpic[i],picdata);
-
-		//有新值添加
-		if(NewPicdata[ZOGII_ALL_PIC_Closeup_START+i].flag)
-		{
-			sprintf(str,"%s\\Closeup%02d%s",data->Path,i,strrchr(NewPicdata[ZOGII_ALL_PIC_Closeup_START+i].Path,'.'));
-			// 修改
-			if(Closeuppic[i] && picdata[Closeuppic[i]].flag)
-			{
-				zogiiModifypicDBLite(&picdata[Closeuppic[i]],&NewPicdata[ZOGII_ALL_PIC_Closeup_START+i],str);
-				data->Closeup[i].Pic=Closeuppic[i];
-			}
-			else //原先为0 则增加
-			{
-				data->Closeup[i].Pic=zogiiADDpicDBLite(pictotal,picdata,str,&NewPicdata[ZOGII_ALL_PIC_Closeup_START+i]);
-			}
-		}
-		else	 if(Closeuppic[i])
-			data->Closeup[i].Pic=zogiiDeletepicDBLite(Closeuppic[i],picdata);
+		else	 if(tempImago[i])
+			data->Imago[i]=zogiiDeleteImagoDBLite(tempImago[i],Imagodata);
 	}
-	
+
+/////////////////////Larva////////////////
+	for(i=0;i<ZOGII_PIC_Larva_MAX;i++)
+	{
+		//有新值添加
+		if(NewLarvadata[i].flag)
+		{
+			sprintf(str,"%s\\Larva%02d%s",data->Path,i,strrchr(NewLarvadata[i].Path,'.'));
+			// 修改
+			if(tempLarva[i] && Larvadata[tempLarva[i]].flag)
+			{
+				zogiiModifyLarvaDBLite(&Larvadata[tempLarva[i]],&NewLarvadata[i],str);
+				data->Larva[i]=tempLarva[i];
+			}
+			else //原先为0 则增加
+			{
+				data->Larva[i]=zogiiADDLarvaDBLite(Larvatotal,Larvadata,str,&NewLarvadata[i]);
+			}
+		}
+		else	 if(tempLarva[i])
+			data->Larva[i]=zogiiDeleteLarvaDBLite(tempLarva[i],Larvadata);
+	}
+
+/////////////////////Pupa////////////////
+	for(i=0;i<ZOGII_PIC_Pupa_MAX;i++)
+	{
+		//有新值添加
+		if(NewPupadata[i].flag)
+		{
+			sprintf(str,"%s\\Pupa%02d%s",data->Path,i,strrchr(NewPupadata[i].Path,'.'));
+			// 修改
+			if(tempPupa[i] && Pupadata[tempPupa[i]].flag)
+			{
+				zogiiModifyPupaDBLite(&Pupadata[tempPupa[i]],&NewPupadata[i],str);
+				data->Pupa[i]=tempPupa[i];
+			}
+			else //原先为0 则增加
+			{
+				data->Pupa[i]=zogiiADDPupaDBLite(Pupatotal,Pupadata,str,&NewPupadata[i]);
+			}
+		}
+		else	 if(tempPupa[i])
+			data->Pupa[i]=zogiiDeletePupaDBLite(tempPupa[i],Pupadata);
+	}
+/////////////////////Ovum////////////////
+	for(i=0;i<ZOGII_PIC_Ovum_MAX;i++)
+	{
+		//有新值添加
+		if(NewOvumdata[i].flag)
+		{
+			sprintf(str,"%s\\Ovum%02d%s",data->Path,i,strrchr(NewOvumdata[i].Path,'.'));
+			// 修改
+			if(tempOvum[i] && Ovumdata[tempOvum[i]].flag)
+			{
+				zogiiModifyOvumDBLite(&Ovumdata[tempOvum[i]],&NewOvumdata[i],str);
+				data->Ovum[i]=tempOvum[i];
+			}
+			else //原先为0 则增加
+			{
+				data->Ovum[i]=zogiiADDOvumDBLite(Ovumtotal,Ovumdata,str,&NewOvumdata[i]);
+			}
+		}
+		else	 if(tempOvum[i])
+			data->Ovum[i]=zogiiDeleteOvumDBLite(tempOvum[i],Ovumdata);
+	}
+/////////////////////Closeup////////////////
+	for(i=0;i<ZOGII_PIC_Closeup_MAX;i++)
+	{
+		//有新值添加
+		if(NewCloseupdata[i].flag)
+		{
+			sprintf(str,"%s\\Closeup%02d%s",data->Path,i,strrchr(NewCloseupdata[i].Path,'.'));
+			// 修改
+			if(tempCloseup[i] && Closeupdata[tempCloseup[i]].flag)
+			{
+				zogiiModifyCloseupDBLite(&Closeupdata[tempCloseup[i]],&NewCloseupdata[i],str);
+				data->Closeup[i]=tempCloseup[i];
+			}
+			else //原先为0 则增加
+			{
+				data->Closeup[i]=zogiiADDCloseupDBLite(Closeuptotal,Closeupdata,str,&NewCloseupdata[i]);
+			}
+		}
+		else	 if(tempCloseup[i])
+			data->Closeup[i]=zogiiDeleteCloseupDBLite(tempCloseup[i],Closeupdata);
+	}
 }
 
-ZOGII_ULONG_TYPE zogiiADDpicDBLite(ZOGII_ULONG_TYPE *pictotal,struct ZOGII_Pic *&picdata,	\
-									char *Path,struct ZOGII_Pic *newpic)
+//////////////////////////////////Imago////////////////
+ZOGII_ULONG_TYPE zogiiADDImagoDBLite(ZOGII_ULONG_TYPE *Imagototal,	struct ZOGII_Imago *&Imagodata,
+									char *Path,struct ZOGII_Imago *NewImagodata)
 {
 	ZOGII_ULONG_TYPE i,t;
-	t=(*pictotal);
+	t=(*Imagototal);
 
 	if(t)
 	{	
 		//先找无效的
 		for(i=1;i<t;i++)
 		{
-			if(0==picdata[i].flag)
+			if(0==Imagodata[i].flag)
 			{
-				picdata[i].flag=1;
-				memcpy(picdata[i].Info,newpic->Info,ZOGII_PAT_MAX);
-				memcpy(picdata[i].Path,Path,ZOGII_PAT_MAX);
-			
+				zogiiCopyImagoDBLite(&Imagodata[i],NewImagodata);
+				memcpy(Imagodata[i].Path,Path,ZOGII_PAT_MAX);
+
 				//覆盖
-				zogiiCopyFile(newpic->Path,picdata[i].Path);
+				zogiiCopyFile(NewImagodata->Path,Imagodata[i].Path);
 				return i;
 			}
 		}
 		//都是有效则新建
-		picdata=(struct ZOGII_Pic *)realloc(picdata,(t+1)*sizeof(struct ZOGII_Pic));
+		Imagodata=(struct ZOGII_Imago *)realloc(Imagodata,(t+1)*sizeof(struct ZOGII_Imago));
 	}
 	else
-		picdata=(struct ZOGII_Pic *)calloc((t+1),sizeof(struct ZOGII_Pic));
+		Imagodata=(struct ZOGII_Imago *)calloc((t+1),sizeof(struct ZOGII_Imago));
 
-	picdata[t].flag=1;
-	memcpy(picdata[t].Info,newpic->Info,ZOGII_PAT_MAX);
-	memcpy(picdata[t].Path,Path,ZOGII_PAT_MAX);
+	zogiiCopyImagoDBLite(&Imagodata[t],NewImagodata);
+	memcpy(Imagodata[t].Path,Path,ZOGII_PAT_MAX);
 		
 	//覆盖
-	zogiiCopyFile(newpic->Path,picdata[t].Path);
-	(*pictotal)++;
+	zogiiCopyFile(NewImagodata->Path,Imagodata[t].Path);
+	(*Imagototal)++;
 	return t;
 }
 
-void zogiiModifypicDBLite(struct ZOGII_Pic *pdata,struct ZOGII_Pic *newpic,char *path)
+void zogiiModifyImagoDBLite(struct ZOGII_Imago *pdata,struct ZOGII_Imago *newpic,char *path)
 {
 	//路径不同 拷贝
 	if(strcmp(pdata->Path,newpic->Path))
@@ -1139,51 +1256,399 @@ void zogiiModifypicDBLite(struct ZOGII_Pic *pdata,struct ZOGII_Pic *newpic,char 
 		//覆盖
 		zogiiCopyFile(newpic->Path,pdata->Path);
 	}
-	memcpy(pdata->Info,newpic->Info,ZOGII_PAT_MAX);
+	zogiiCopyImagoDBLite(pdata,newpic);
 }
 
+void  zogiiCopyImagoDBLite(struct ZOGII_Imago *pdata,struct ZOGII_Imago *newpic)
+{
+	pdata->flag=1;
+	memcpy(pdata->Info,newpic->Info,sizeof(char)*ZOGII_PAT_MAX);
+
+	memcpy(pdata->ElytraColor,newpic->ElytraColor,sizeof(char)*ZOGII_COR_MAX);
+	pdata->ElytraColorNum=newpic->ElytraColorNum;
+	pdata->ElytraPointNum=newpic->ElytraPointNum;
+	pdata->ElytraTexture=newpic->ElytraTexture;
+	memcpy(pdata->PronotumColor,newpic->PronotumColor,sizeof(char)*ZOGII_COR_MAX);
+	pdata->PronotumColorNum=newpic->PronotumColorNum;
+	pdata->PronotumPointNum=newpic->PronotumPointNum;
+	pdata->PronotumTexture=newpic->PronotumTexture;
+	pdata->Sex=newpic->Sex;
+}
+//////////////////////////Larva////////////////////////////////////////
+ZOGII_ULONG_TYPE zogiiADDLarvaDBLite(ZOGII_ULONG_TYPE *Larvatotal,	struct ZOGII_Larva *&Larvadata,
+									char *Path,struct ZOGII_Larva *NewLarvadata)
+{
+	ZOGII_ULONG_TYPE i,t;
+	t=(*Larvatotal);
+
+	if(t)
+	{	
+		//先找无效的
+		for(i=1;i<t;i++)
+		{
+			if(0==Larvadata[i].flag)
+			{
+				zogiiCopyLarvaDBLite(&Larvadata[i],NewLarvadata);
+				memcpy(Larvadata[i].Path,Path,ZOGII_PAT_MAX);
+
+				//覆盖
+				zogiiCopyFile(NewLarvadata->Path,Larvadata[i].Path);
+				return i;
+			}
+		}
+		//都是有效则新建
+		Larvadata=(struct ZOGII_Larva *)realloc(Larvadata,(t+1)*sizeof(struct ZOGII_Larva));
+	}
+	else
+		Larvadata=(struct ZOGII_Larva *)calloc((t+1),sizeof(struct ZOGII_Larva));
+
+	zogiiCopyLarvaDBLite(&Larvadata[t],NewLarvadata);
+	memcpy(Larvadata[t].Path,Path,ZOGII_PAT_MAX);
+		
+	//覆盖
+	zogiiCopyFile(NewLarvadata->Path,Larvadata[t].Path);
+	(*Larvatotal)++;
+	return t;
+}
+
+void zogiiModifyLarvaDBLite(struct ZOGII_Larva *pdata,struct ZOGII_Larva *newpic,char *path)
+{
+	//路径不同 拷贝
+	if(strcmp(pdata->Path,newpic->Path))
+	{
+		//删除旧的 故意不删
+	//	zogiiDeleteFile(pdata->Path);
+
+		memcpy(pdata->Path,path,ZOGII_PAT_MAX);
+		//覆盖
+		zogiiCopyFile(newpic->Path,pdata->Path);
+	}
+	zogiiCopyLarvaDBLite(pdata,newpic);
+}
+
+void  zogiiCopyLarvaDBLite(struct ZOGII_Larva *pdata,struct ZOGII_Larva *newpic)
+{
+	pdata->flag=1;
+	memcpy(pdata->Info,newpic->Info,sizeof(char)*ZOGII_PAT_MAX);
+
+	pdata->Calthrop=newpic->Calthrop;
+	memcpy(pdata->Color,newpic->Color,sizeof(char)*ZOGII_COR_MAX);
+	pdata->ColorNum=newpic->ColorNum;
+	pdata->Instar=newpic->Instar;
+	pdata->Sex=newpic->Sex;
+}
+
+//////////////////////////Pupa////////////////////////////////////////
+
+ZOGII_ULONG_TYPE zogiiADDPupaDBLite(ZOGII_ULONG_TYPE *Pupatotal,	struct ZOGII_Pupa *&Pupadata,
+									char *Path,struct ZOGII_Pupa *NewPupadata)
+{
+	ZOGII_ULONG_TYPE i,t;
+	t=(*Pupatotal);
+
+	if(t)
+	{	
+		//先找无效的
+		for(i=1;i<t;i++)
+		{
+			if(0==Pupadata[i].flag)
+			{
+				zogiiCopyPupaDBLite(&Pupadata[i],NewPupadata);
+				memcpy(Pupadata[i].Path,Path,ZOGII_PAT_MAX);
+
+				//覆盖
+				zogiiCopyFile(NewPupadata->Path,Pupadata[i].Path);
+				return i;
+			}
+		}
+		//都是有效则新建
+		Pupadata=(struct ZOGII_Pupa *)realloc(Pupadata,(t+1)*sizeof(struct ZOGII_Pupa));
+	}
+	else
+		Pupadata=(struct ZOGII_Pupa *)calloc((t+1),sizeof(struct ZOGII_Pupa));
+
+	zogiiCopyPupaDBLite(&Pupadata[t],NewPupadata);
+	memcpy(Pupadata[t].Path,Path,ZOGII_PAT_MAX);
+		
+	//覆盖
+	zogiiCopyFile(NewPupadata->Path,Pupadata[t].Path);
+	(*Pupatotal)++;
+	return t;
+}
+
+void zogiiModifyPupaDBLite(struct ZOGII_Pupa *pdata,struct ZOGII_Pupa *newpic,char *path)
+{
+	//路径不同 拷贝
+	if(strcmp(pdata->Path,newpic->Path))
+	{
+		//删除旧的 故意不删
+	//	zogiiDeleteFile(pdata->Path);
+
+		memcpy(pdata->Path,path,ZOGII_PAT_MAX);
+		//覆盖
+		zogiiCopyFile(newpic->Path,pdata->Path);
+	}
+	zogiiCopyPupaDBLite(pdata,newpic);
+}
+
+void  zogiiCopyPupaDBLite(struct ZOGII_Pupa *pdata,struct ZOGII_Pupa *newpic)
+{
+	pdata->flag=1;
+	memcpy(pdata->Info,newpic->Info,sizeof(char)*ZOGII_PAT_MAX);
+
+	memcpy(pdata->Color,newpic->Color,sizeof(char)*ZOGII_COR_MAX);
+	pdata->ColorNum=newpic->ColorNum;
+	pdata->Sex=newpic->Sex;
+	pdata->Type=newpic->Type;
+}
+//////////////////////////Ovum////////////////////////////////////////
+ZOGII_ULONG_TYPE zogiiADDOvumDBLite(ZOGII_ULONG_TYPE *Ovumtotal,	struct ZOGII_Ovum *&Ovumdata,
+									char *Path,struct ZOGII_Ovum *NewOvumdata)
+{
+	ZOGII_ULONG_TYPE i,t;
+	t=(*Ovumtotal);
+
+	if(t)
+	{	
+		//先找无效的
+		for(i=1;i<t;i++)
+		{
+			if(0==Ovumdata[i].flag)
+			{
+				zogiiCopyOvumDBLite(&Ovumdata[i],NewOvumdata);
+				memcpy(Ovumdata[i].Path,Path,ZOGII_PAT_MAX);
+
+				//覆盖
+				zogiiCopyFile(NewOvumdata->Path,Ovumdata[i].Path);
+				return i;
+			}
+		}
+		//都是有效则新建
+		Ovumdata=(struct ZOGII_Ovum *)realloc(Ovumdata,(t+1)*sizeof(struct ZOGII_Ovum));
+	}
+	else
+		Ovumdata=(struct ZOGII_Ovum *)calloc((t+1),sizeof(struct ZOGII_Ovum));
+
+	zogiiCopyOvumDBLite(&Ovumdata[t],NewOvumdata);
+	memcpy(Ovumdata[t].Path,Path,ZOGII_PAT_MAX);
+		
+	//覆盖
+	zogiiCopyFile(NewOvumdata->Path,Ovumdata[t].Path);
+	(*Ovumtotal)++;
+	return t;
+}
+
+void zogiiModifyOvumDBLite(struct ZOGII_Ovum *pdata,struct ZOGII_Ovum *newpic,char *path)
+{
+	//路径不同 拷贝
+	if(strcmp(pdata->Path,newpic->Path))
+	{
+		//删除旧的 故意不删
+	//	zogiiDeleteFile(pdata->Path);
+
+		memcpy(pdata->Path,path,ZOGII_PAT_MAX);
+		//覆盖
+		zogiiCopyFile(newpic->Path,pdata->Path);
+	}
+	zogiiCopyOvumDBLite(pdata,newpic);
+}
+
+void  zogiiCopyOvumDBLite(struct ZOGII_Ovum *pdata,struct ZOGII_Ovum *newpic)
+{
+	pdata->flag=1;
+	memcpy(pdata->Info,newpic->Info,sizeof(char)*ZOGII_PAT_MAX);
+
+	pdata->Color=newpic->Color;
+	pdata->Sex=newpic->Sex;
+}
+
+//////////////////////////Closeup////////////////////////////////////////
+ZOGII_ULONG_TYPE zogiiADDCloseupDBLite(ZOGII_ULONG_TYPE *Closeuptotal,	struct ZOGII_Closeup *&Closeupdata,
+									char *Path,struct ZOGII_Closeup *NewCloseupdata)
+{
+	ZOGII_ULONG_TYPE i,t;
+	t=(*Closeuptotal);
+
+	if(t)
+	{	
+		//先找无效的
+		for(i=1;i<t;i++)
+		{
+			if(0==Closeupdata[i].flag)
+			{
+				zogiiCopyCloseupDBLite(&Closeupdata[i],NewCloseupdata);
+				memcpy(Closeupdata[i].Path,Path,ZOGII_PAT_MAX);
+
+				//覆盖
+				zogiiCopyFile(NewCloseupdata->Path,Closeupdata[i].Path);
+				return i;
+			}
+		}
+		//都是有效则新建
+		Closeupdata=(struct ZOGII_Closeup *)realloc(Closeupdata,(t+1)*sizeof(struct ZOGII_Closeup));
+	}
+	else
+		Closeupdata=(struct ZOGII_Closeup *)calloc((t+1),sizeof(struct ZOGII_Closeup));
+
+	zogiiCopyCloseupDBLite(&Closeupdata[t],NewCloseupdata);
+	memcpy(Closeupdata[t].Path,Path,ZOGII_PAT_MAX);
+		
+	//覆盖
+	zogiiCopyFile(NewCloseupdata->Path,Closeupdata[t].Path);
+	(*Closeuptotal)++;
+	return t;
+}
+
+void zogiiModifyCloseupDBLite(struct ZOGII_Closeup *pdata,struct ZOGII_Closeup *newpic,char *path)
+{
+	//路径不同 拷贝
+	if(strcmp(pdata->Path,newpic->Path))
+	{
+		//删除旧的 故意不删
+	//	zogiiDeleteFile(pdata->Path);
+
+		memcpy(pdata->Path,path,ZOGII_PAT_MAX);
+		//覆盖
+		zogiiCopyFile(newpic->Path,pdata->Path);
+	}
+	zogiiCopyCloseupDBLite(pdata,newpic);
+}
+
+void  zogiiCopyCloseupDBLite(struct ZOGII_Closeup *pdata,struct ZOGII_Closeup *newpic)
+{
+	pdata->flag=1;
+	memcpy(pdata->Info,newpic->Info,sizeof(char)*ZOGII_PAT_MAX);
+	
+	pdata->Type=newpic->Type;
+}
+///////////////////////////////////////////////////
 void zogiiInitpicDB(struct ZOGII_Coccinellidae_DATA *data)
 {
-	unsigned char i; 
+	unsigned int i; 
+	for(i=0;i<ZOGII_PIC_Imago_MAX;i++)
+		data->Imago[i]=0;
+	
+	for(i=0;i<ZOGII_PIC_Larva_MAX;i++)
+		data->Larva[i]=0;
+	
+	for(i=0;i<ZOGII_PIC_Pupa_MAX;i++)
+		data->Pupa[i]=0;
 
-	for(i=0;i<ZOGII_PIC_MAX;i++)
-	{
-		data->Imago[i].Pic=0;
-		data->Larva[i].Pic=0;
-		data->Pupa[i].Pic=0;
-		data->Ovum[i].Pic=0;
-		data->Closeup[i].Pic=0;
-	}
-}
-/////////删除图片
+	for(i=0;i<ZOGII_PIC_Ovum_MAX;i++)
+		data->Ovum[i]=0;
+	
+	for(i=0;i<ZOGII_PIC_Closeup_MAX;i++)
+		data->Closeup[i]=0;
 
-void zogiiDeletepicDB(struct ZOGII_Coccinellidae_DATA *data,struct ZOGII_Pic *&picdata)
-{
-	unsigned char i; 
-
-	for(i=0;i<ZOGII_PIC_MAX;i++)
-	{
-		if(data->Imago[i].Pic)
-			data->Imago[i].Pic=zogiiDeletepicDBLite(data->Imago[i].Pic,picdata);
-		if(data->Larva[i].Pic)
-			data->Larva[i].Pic=zogiiDeletepicDBLite(data->Larva[i].Pic,picdata);
-		if(data->Pupa[i].Pic)
-			data->Pupa[i].Pic=zogiiDeletepicDBLite(data->Pupa[i].Pic,picdata);
-		if(data->Ovum[i].Pic)
-			data->Ovum[i].Pic=zogiiDeletepicDBLite(data->Ovum[i].Pic,picdata);
-		if(data->Closeup[i].Pic)
-			data->Closeup[i].Pic=zogiiDeletepicDBLite(data->Closeup[i].Pic,picdata);
-	}
+	//清理文本信息
+	for(i=0;i<ZOGII_LAG_MAX;i++)
+		memset(data->Text[i],0,sizeof(char)*ZOGII_PAT_MAX);
+	
 }
 
-ZOGII_ULONG_TYPE zogiiDeletepicDBLite(ZOGII_ULONG_TYPE i,struct ZOGII_Pic *&picdata)
+/////////删除图片////////////////////////////////////////////////////
+
+void zogiiDeletepicDB(struct ZOGII_Coccinellidae_DATA *data,
+					struct ZOGII_Imago *&Imagodata,
+					struct ZOGII_Larva *&Larvadata,
+					struct ZOGII_Pupa *&Pupadata,
+					struct ZOGII_Ovum *&Ovumdata,
+					struct ZOGII_Closeup *&Closeupdata)
 {
-	picdata[i].flag=0;
+	unsigned int i; 
+	
+	for(i=0;i<ZOGII_PIC_Imago_MAX;i++)
+	{
+		if(data->Imago[i])
+			data->Imago[i]=zogiiDeleteImagoDBLite(data->Imago[i],Imagodata);
+	}
+	
+	for(i=0;i<ZOGII_PIC_Larva_MAX;i++)
+	{
+		if(data->Larva[i])
+			data->Larva[i]=zogiiDeleteLarvaDBLite(data->Larva[i],Larvadata);
+	}
+	
+	for(i=0;i<ZOGII_PIC_Pupa_MAX;i++)
+	{
+		if(data->Pupa[i])
+			data->Pupa[i]=zogiiDeletePupaDBLite(data->Pupa[i],Pupadata);
+	}
+	
+	for(i=0;i<ZOGII_PIC_Ovum_MAX;i++)
+	{
+		if(data->Ovum[i])
+			data->Ovum[i]=zogiiDeleteOvumDBLite(data->Ovum[i],Ovumdata);
+	}
+	
+	for(i=0;i<ZOGII_PIC_Closeup_MAX;i++)
+	{
+		if(data->Closeup[i])
+			data->Closeup[i]=zogiiDeleteCloseupDBLite(data->Closeup[i],Closeupdata);
+	}
+}
+
+ZOGII_ULONG_TYPE zogiiDeleteImagoDBLite(ZOGII_ULONG_TYPE i,
+							struct ZOGII_Imago *&Imagodata)
+{
+	Imagodata[i].flag=0;
 
 	//删除图片
-	zogiiDeleteFile(picdata[i].Path);
-	memset(picdata[i].Path,0,sizeof(ZOGII_PAT_MAX));
-	memset(picdata[i].Info,0,sizeof(ZOGII_PAT_MAX));
+	zogiiDeleteFile(Imagodata[i].Path);
+	memset(Imagodata[i].Path,0,sizeof(ZOGII_PAT_MAX));
+	memset(Imagodata[i].Info,0,sizeof(ZOGII_PAT_MAX));
+
 	return 0;
 }
 
+ZOGII_ULONG_TYPE zogiiDeleteLarvaDBLite(ZOGII_ULONG_TYPE i,
+							struct ZOGII_Larva *&Larvadata)
+{
+	Larvadata[i].flag=0;
+
+	//删除图片
+	zogiiDeleteFile(Larvadata[i].Path);
+	memset(Larvadata[i].Path,0,sizeof(ZOGII_PAT_MAX));
+	memset(Larvadata[i].Info,0,sizeof(ZOGII_PAT_MAX));
+
+	return 0;
+}
+
+ZOGII_ULONG_TYPE zogiiDeletePupaDBLite(ZOGII_ULONG_TYPE i,
+							struct ZOGII_Pupa *&Pupadata)
+{
+	Pupadata[i].flag=0;
+
+	//删除图片
+	zogiiDeleteFile(Pupadata[i].Path);
+	memset(Pupadata[i].Path,0,sizeof(ZOGII_PAT_MAX));
+	memset(Pupadata[i].Info,0,sizeof(ZOGII_PAT_MAX));
+
+	return 0;
+}
+
+ZOGII_ULONG_TYPE zogiiDeleteOvumDBLite(ZOGII_ULONG_TYPE i,
+							struct ZOGII_Ovum *&Ovumdata)
+{
+	Ovumdata[i].flag=0;
+
+	//删除图片
+	zogiiDeleteFile(Ovumdata[i].Path);
+	memset(Ovumdata[i].Path,0,sizeof(ZOGII_PAT_MAX));
+	memset(Ovumdata[i].Info,0,sizeof(ZOGII_PAT_MAX));
+
+	return 0;
+}
+
+ZOGII_ULONG_TYPE zogiiDeleteCloseupDBLite(ZOGII_ULONG_TYPE i,
+							struct ZOGII_Closeup *&Closeupdata)
+{
+	Closeupdata[i].flag=0;
+
+	//删除图片
+	zogiiDeleteFile(Closeupdata[i].Path);
+	memset(Closeupdata[i].Path,0,sizeof(ZOGII_PAT_MAX));
+	memset(Closeupdata[i].Info,0,sizeof(ZOGII_PAT_MAX));
+
+	return 0;
+}
