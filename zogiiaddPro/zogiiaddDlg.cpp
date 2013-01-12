@@ -2164,7 +2164,7 @@ void CZogiiaddDlg::OnButtonFastmap()
 {
 	// TODO: Add your control notification handler code here
 	int i;
-	unsigned char v=41;
+	unsigned char v=64;
 	//’“÷ÿ∏¥
 	for(i=0;i<Newdata.DiscoverMapTotal;i++)
 	{
@@ -2186,7 +2186,7 @@ void CZogiiaddDlg::OnButtonFastmap()
 void CZogiiaddDlg::OnButtonFaststr() 
 {
 	// TODO: Add your control notification handler code here
-	char *str="www.angelfire.com/bug2/j_poorani/index.html";
+	char *str="www.insectsofwestvirginia.net/b/coccinellidae.html";
 
 	GetDlgItem(IDC_EDIT_ImagoPicInfo)->SetWindowText(str);
 	GetDlgItem(IDC_EDIT_PupaPicInfo)->SetWindowText(str);
