@@ -2186,7 +2186,7 @@ void CZogiiaddDlg::OnButtonFastmap()
 void CZogiiaddDlg::OnButtonFaststr() 
 {
 	// TODO: Add your control notification handler code here
-	char *str="www.saveourwaterwaysnow.com.au";
+	char *str="www.kendalluk.com/lbird.htm";
 
 	GetDlgItem(IDC_EDIT_ImagoPicInfo)->SetWindowText(str);
 	GetDlgItem(IDC_EDIT_PupaPicInfo)->SetWindowText(str);
