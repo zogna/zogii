@@ -418,10 +418,10 @@ BOOL CZogiiaddDlg::OnInitDialog()
 	CSliderCtrl* sliderctrl;
 
 	sliderctrl=(CSliderCtrl*)GetDlgItem(IDC_SLIDER_MAXSIZE);
-	sliderctrl->SetRange(0,200,TRUE); 
+	sliderctrl->SetRange(0,20,TRUE); 
 
 	sliderctrl=(CSliderCtrl*)GetDlgItem(IDC_SLIDER_MINSIZE);
-	sliderctrl->SetRange(0,200,TRUE); 
+	sliderctrl->SetRange(0,20,TRUE); 
 
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
@@ -2164,7 +2164,22 @@ void CZogiiaddDlg::OnButtonFastmap()
 {
 	// TODO: Add your control notification handler code here
 	int i;
-	unsigned char v=60;
+	
+	TCHAR temp[ZOGII_PAT_MAX];
+	unsigned char v;
+
+	_stprintf(temp,_T("%s\\zogiiaddSet.txt"),CurrentDir);
+	FILE *fp=_tfopen(temp,_T("r"));
+	if(fp)
+	{
+		_fgetts(temp,ZOGII_PAT_MAX,fp);
+		_stscanf(temp,_T("country:%d"),&v);
+
+		fclose(fp);
+	}
+	else
+		return ;
+
 	//’“÷ÿ∏¥
 	for(i=0;i<Newdata.DiscoverMapTotal;i++)
 	{
@@ -2185,8 +2200,21 @@ void CZogiiaddDlg::OnButtonFastmap()
 
 void CZogiiaddDlg::OnButtonFaststr() 
 {
-	// TODO: Add your control notification handler code here
-	char *str="www.kendalluk.com/lbird.htm";
+	TCHAR temp[ZOGII_PAT_MAX];
+	TCHAR str[ZOGII_PAT_MAX];
+
+	_stprintf(temp,_T("%s\\zogiiaddSet.txt"),CurrentDir);
+	FILE *fp=_tfopen(temp,_T("r"));
+	if(fp)
+	{
+		_fgetts(temp,ZOGII_PAT_MAX,fp);
+		_fgetts(temp,ZOGII_PAT_MAX,fp);
+		_stscanf(temp,_T("webaddr:%s"),str);
+
+		fclose(fp);
+	}
+	else
+		return ;
 
 	GetDlgItem(IDC_EDIT_ImagoPicInfo)->SetWindowText(str);
 	GetDlgItem(IDC_EDIT_PupaPicInfo)->SetWindowText(str);
