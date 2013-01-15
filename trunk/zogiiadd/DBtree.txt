@@ -1,4 +1,4 @@
-00011-	Aspidimerinae(Src-Scymninae)-	隱脛瓢蟲亚科(原属-小毛瓢虫亚科)-	隱脛瓢蟲亚科(原属-小毛瓢虫亚科)
+00011-	Aspidimerinae(Scymninae)-	隱脛瓢蟲亚科(原属-小毛瓢虫亚科)-	隱脛瓢蟲亚科(原属-小毛瓢虫亚科)
 	00000-	Aspidimerus-	隱脛瓢蟲属-	隱脛瓢蟲属
 		00001-	esakii-	四斑隱脛瓢蟲-	四斑隱脛瓢蟲	[]
 		00000-	matsumurai-	双斑隱脛瓢蟲-	双斑隱脛瓢蟲	[]
@@ -813,32 +813,37 @@
 	00018-	Sicardinus-	Sicardinus-	Sicardinus
 	00019-	Siola-	Siola-	Siola
 	00020-	Sumnius-	Sumnius-	Sumnius
-00009-	Hyperaspidinae(Src-Scymninae)-	显盾瓢虫亚科-	显盾瓢虫亚科
+00009-	Hyperaspidinae(Scymninae)-	显盾瓢虫亚科-	显盾瓢虫亚科
 	00000-	Blaisdelliana-	Blaisdelliana-	Blaisdelliana
 		00000-	sexualis-	sexualis-	sexualis	[]
 	00001-	Brachiacantha-	Brachiacantha-	Brachiacantha
 		00000-	albifrons-	albifrons-	albifrons	[]
 		00001-	arizonica-	arizonica-	arizonica	[]
+		00006-	australis-	australis-	australis	[Brachiacantha australe Leng, 1911, Brachiacantha australis Korschefsky 1931. -	]
 		00002-	barberi-	barberi-	barberi	[]
+		00024-	bistripustulata-	bistripustulata-	bistripustulata	[Coccinella bistripustulata Fabricius 1801, Brachiacantha bistripustulata Mulsant 1850-	Brachiacantha erythrocephala Gorham 1899 -	Brachiacantha guttata Weise 1885, Brachiacantha obscura Leng 1911, Brachiacantha quichiana Leng 1911-	]
 		00003-	blaisdelli-	blaisdelli-	blaisdelli	[]
 		00004-	bollii-	bollii-	bollii	[]
+		00025-	bruchi-	bruchi-	bruchi	[]
 		00005-	decempustulata-	decempustulata-	decempustulata	[]
-		00006-	decora-	decora-	decora	[]
+		00026-	decora-	-		[]
 		00007-	dentipes-	dentipes-	dentipes	[]
 		00008-	felina-	felina-	felina	[]
 		00009-	floridensis-	floridensis-	floridensis	[]
 		00010-	illustris-	illustris-	illustris	[]
 		00011-	indubitabilis-	indubitabilis-	indubitabilis	[]
 		00012-	lepida-	lepida-	lepida	[]
-		00013-	quadrillum-	quadrillum-	quadrillum	[]
+		00013-	quadrillum-	-		[]
 		00014-	quadripunctata-	quadripunctata-	quadripunctata	[]
 		00015-	querceti-	querceti-	querceti	[]
 		00016-	schwarzi-	schwarzi-	schwarzi	[]
+		00027-	sellata-	sellata-	sellata	[]
 		00017-	soltaui-	soltaui-	soltaui	[]
 		00018-	stephani-	stephani-	stephani	[]
-		00019-	subfasciata-	subfasciata-	subfasciata	[]
+		00019-	subfasciata-	-		[]
 		00020-	tau-	tau-	tau	[]
 		00021-	testudo-	testudo-	testudo	[]
+		00028-	trimaculata-	trimaculata-	trimaculata	[]
 		00022-	ursina-	ursina-	ursina	[]
 		00023-	uteella-	uteella-	uteella	[]
 	00002-	Helesius-	Helesius-	Helesius
@@ -872,14 +877,18 @@
 		00024-	vittigerus-	vittigerus-	vittigerus	[]
 		00025-	wolcotti-	wolcotti-	wolcotti	[]
 	00004-	Hyperaspis-	Hyperaspis-	Hyperaspis
+		00102-	abscondita-	abscondita-	abscondita	[]
 		00000-	aemulator-	aemulator-	aemulator	[]
 		00001-	albicollis-	albicollis-	albicollis	[]
+		00103-	andina-	andina-	andina	[]
 		00002-	annexa-	annexa-	annexa	[]
+		00104-	arida-	arida-	arida	[]
 		00003-	arizonica-	arizonica-	arizonica	[]
 		00004-	bensonica-	bensonica-	bensonica	[]
 		00005-	bigeminata-	bigeminata-	bigeminata	[]
 		00006-	binaria-	binaria-	binaria	[]
 		00007-	binotata-	binotata-	binotata	[]
+		00105-	bisignata-	bisignata-	bisignata	[]
 		00008-	bolteri-	bolteri-	bolteri	[]
 		00009-	borealis-	borealis-	borealis	[]
 		00010-	brunnescens-	brunnescens-	brunnescens	[]
@@ -888,26 +897,37 @@
 		00013-	chapini-	chapini-	chapini	[]
 		00014-	cincta-	cincta-	cincta	[]
 		00015-	concavus-	concavus-	concavus	[]
+		00106-	conclusa-	conclusa-	conclusa	[Hyperaspis conclusa Weise 1906, Hyperaspis flavolineata Mader 1957.-	]
 		00016-	connectens-	connectens-	connectens	[]
 		00017-	consimilis-	consimilis-	consimilis	[]
 		00018-	conspirans-	conspirans-	conspirans	[]
 		00019-	conviva-	conviva-	conviva	[]
+		00107-	corcovado-	corcovado-	corcovado	[]
 		00020-	cruenta-	cruenta-	cruenta	[]
 		00021-	deludens-	deludens-	deludens	[]
 		00022-	disconotata-	disconotata-	disconotata	[]
 		00023-	disrupta-	disrupta-	disrupta	[]
 		00024-	dissoluta-	dissoluta-	dissoluta	[]
+		00108-	divaricata-	divaricata-	divaricata	[]
 		00025-	dobzhanskyi-	dobzhanskyi-	dobzhanskyi	[]
 		00026-	donzeli-	donzeli-	donzeli	[]
+		00109-	drechseli-	drechseli-	drechseli	[]
+		00110-	elegantissima-	elegantissima-	elegantissima	[]
 		00027-	esclavium-	esclavium-	esclavium	[]
+		00111-	esmeraldas-	esmeraldas-	esmeraldas	[]
 		00028-	excelsa-	excelsa-	excelsa	[]
 		00029-	fastidiosa-	fastidiosa-	fastidiosa	[]
+		00112-	festiva-	festiva-	festiva	[Hyperaspis festiva Mulsant 1850: 659. -	Cleothera cincticollis Mulsant 1850: 553. -	Hyperaspis cincticollis Crotch 1874 -	Hyperaspis lemniscata Boheman 1859-	Hyperaspis apicalis Weise 1885.-	]
 		00030-	filiola-	filiola-	filiola	[]
 		00031-	fimbriolata-	fimbriolata-	fimbriolata	[]
+		00113-	funesta-	funesta-	funesta	[Coccinella funesta Germain 1854: 335.-	Hyperaspis funesta Brèthes 1923: 454.-	Hyperaspis chilensis Crotch 1874: 231. -	]
 		00032-	gemina-	gemina-	gemina	[]
 		00033-	gemma-	gemma-	gemma	[]
+		00114-	germaini-	germaini-	germaini	[]
 		00034-	globula-	globula-	globula	[]
+		00115-	gordoni-	gordoni-	gordoni	[Hyperaspis brethesi Gordon & Canepari 2008: 325 no Ricci 1985: 56. -	Hyperaspis gordoni González 2010: 250. -	]
 		00035-	haematosticta-	haematosticta-	haematosticta	[]
+		00116-	helveola-	helveola-	helveola	[]
 		00036-	imitator-	imitator-	imitator	[]
 		00037-	immaculata-	immaculata-	immaculata	[]
 		00038-	inedita-	inedita-	inedita	[]
@@ -915,28 +935,35 @@
 		00040-	jasperensis-	jasperensis-	jasperensis	[]
 		00041-	jocosa-	jocosa-	jocosa	[]
 		00042-	jovialis-	jovialis-	jovialis	[]
+		00117-	lanatii-	lanatii-	lanatii	[]
 		00043-	lateralis-	lateralis-	lateralis	[]
 		00044-	leachi-	leachi-	leachi	[]
 		00045-	levrati-	levrati-	levrati	[]
 		00046-	lewisii-	lewisii-	lewisii	[]
 		00047-	limbalis-	limbalis-	limbalis	[]
 		00048-	longicoxitis-	longicoxitis-	longicoxitis	[]
+		00118-	longula-	longula-	longula	[]
+		00119-	luciae-	luciae-	luciae	[]
 		00049-	lugubris-	lugubris-	lugubris	[]
 		00101-	maindroni-	maindroni-	maindroni	[]
 		00050-	major-	major-	major	[]
+		00120-	matronata-	matronata-	matronata	[Cleothera matronata Mulsant 1853-	Hyperaspis matronata Crotch 1874-	Cleothera cordifera Weise 1895-	Hyperaspis cordifera Korschefsky 1931-	]
 		00051-	mckenziei-	mckenziei-	mckenziei	[]
 		00052-	medialis-	medialis-	medialis	[]
 		00053-	moerens-	moerens-	moerens	[]
+		00121-	nana-	nana-	nana	[]
 		00054-	nigrosuturalis-	nigrosuturalis-	nigrosuturalis	[]
 		00055-	nunenmacheri-	nunenmacheri-	nunenmacheri	[]
 		00056-	octavia-	octavia-	octavia	[]
 		00057-	octonotata-	octonotata-	octonotata	[]
 		00058-	oculaticauda-	oculaticauda-	oculaticauda	[]
 		00059-	oculifera-	oculifera-	oculifera	[]
+		00122-	onerata-	onerata-	onerata	[Cleothera onerata Mulsant 1850: 552. -	Hyperaspis onerata Crotch 1874: 230-	]
 		00060-	oregona-	oregona-	oregona	[]
 		00061-	ornatella-	ornatella-	ornatella	[]
 		00062-	osculans-	osculans-	osculans	[]
 		00063-	paludicola-	paludicola-	paludicola	[]
+		00123-	pectoralis-	pectoralis-	pectoralis	[Hyperaspis pectoralis Crotch 1874: 225. -	Hyperaspis pectoralis Gordon y González 2011: 8.-	]
 		00064-	pinguis-	pinguis-	pinguis	[]
 		00065-	pistillata-	pistillata-	pistillata	[]
 		00066-	pleuralis-	pleuralis-	pleuralis	[]
@@ -944,7 +971,9 @@
 		00068-	postica-	postica-	postica	[]
 		00069-	pratensis-	pratensis-	pratensis	[]
 		00070-	proba-	proba-	proba	[]
+		00124-	prolata-	prolata-	prolata	[]
 		00071-	protensa-	protensa-	protensa	[]
+		00125-	pseudopavida-	pseudopavida-	pseudopavida	[]
 		00072-	psyche-	psyche-	psyche	[]
 		00073-	punctata-	punctata-	punctata	[]
 		00074-	quadrioculata-	quadrioculata-	quadrioculata	[]
@@ -962,35 +991,31 @@
 		00086-	silvestrii-	silvestrii-	silvestrii	[]
 		00087-	simulans-	simulans-	simulans	[]
 		00088-	simulatrix-	simulatrix-	simulatrix	[]
+		00126-	sphaeridioides-	sphaeridioides-	sphaeridioides	[]
 		00089-	spiculinota-	spiculinota-	spiculinota	[]
 		00090-	taeniata-	taeniata-	taeniata	[]
 		00091-	triangulum-	triangulum-	triangulum	[]
-		00092-	trifurcata-	trifurcata-	trifurcata	[]
+		00127-	trifurcata-	-		[]
 		00093-	trilineata-	trilineata-	trilineata	[]
 		00094-	troglodytes-	troglodytes-	troglodytes	[]
 		00095-	tuckeri-	tuckeri-	tuckeri	[]
 		00096-	undulata-	undulata-	undulata	[]
 		00097-	uniformis-	uniformis-	uniformis	[]
+		00128-	unimaculosa-	unimaculosa-	unimaculosa	[]
 		00098-	uteana-	uteana-	uteana	[]
 		00099-	weisei-	weisei-	weisei	[]
 		00100-	wickhami-	wickhami-	wickhami	[]
 	00005-	Thalassa-	Thalassa-	Thalassa
 		00000-	montezumae-	montezumae-	montezumae	[]
 00008-	Lithophilinae-	四节瓢虫亚科-	四節瓢蟲亞科
-00007-	Microweiseinae-	-	
+00007-	Microweiseinae(Sticholotidinae)-	-	
 	00000-	Carinodula-	Carinodula-	Carinodula
 	00001-	Carinodulina-	Carinodulina-	Carinodulina
 	00002-	Carinodulinka-	Carinodulinka-	Carinodulinka
-	00003-	Coccidophilus-	Coccidophilus-	Coccidophilus
-	00014-	Delphastus-	Delphastus-	Delphastus
-	00004-	Gnathoweisea-	Gnathoweisea-	Gnathoweisea
-	00018-	Hikonasukuna-	Hikonasukuna-	Hikonasukuna
 	00005-	Hong-	Hong-	Hong
 	00006-	Microcapillata-	Microcapillata-	Microcapillata
 	00007-	Microfreudea-	Microfreudea-	Microfreudea
 	00015-	Microscymnus-	Microscymnus-	Microscymnus
-	00008-	Microweisea-	Microweisea-	Microweisea
-	00009-	Nipus-	Nipus-	Nipus
 	00019-	Orculus-	Orculus-	Orculus
 	00010-	Paracoelopterus-	Paracoelopterus-	Paracoelopterus
 	00020-	Paraphellus-	Paraphellus-	Paraphellus
@@ -999,8 +1024,6 @@
 	00012-	Sarapidus-	Sarapidus-	Sarapidus
 	00022-	Scymnomorphus-	Scymnomorphus-	Scymnomorphus
 	00016-	Serangiella-	Serangiella-	Serangiella
-	00017-	Serangium-	Serangium-	Serangium
-	00013-	Stictospilus-	Stictospilus-	Stictospilus
 00003-	Ortaliinae-	刻眼瓢虫亚科-	刻眼瓢蟲亞科
 	00000-	Amida-	Amida-	Amida
 		00000-	tricolor-	三色瓢蟲-	三色瓢蟲	[]
@@ -1029,16 +1052,6 @@
 		00001-	beneficus-	beneficus-	beneficus	[]
 		00000-	nigripennis-	黑翅斧瓢虫-	黑翅斧瓢虫	[]
 		00002-	puttarudriahi-	puttarudriahi-	puttarudriahi	[]
-	00022-	Brachiacantha(亚科Hyperaspidinae)-	Brachiacantha-	Brachiacantha
-		00002-	australis-	australis-	australis	[Brachiacantha australe Leng, 1911, Brachiacantha australis Korschefsky 1931. -	]
-		00000-	bistripustulata-	bistripustulata-	bistripustulata	[Coccinella bistripustulata Fabricius 1801, Brachiacantha bistripustulata Mulsant 1850-	Brachiacantha erythrocephala Gorham 1899 -	Brachiacantha guttata Weise 1885, Brachiacantha obscura Leng 1911, Brachiacantha quichiana Leng 1911-	]
-		00003-	bruchi-	bruchi-	bruchi	[]
-		00007-	decora-	-		[]
-		00006-	quadrillum-	-		[]
-		00001-	sellata-	sellata-	sellata	[]
-		00005-	subfasciata-	-		[]
-		00008-	tau-	-		[]
-		00004-	trimaculata-	trimaculata-	trimaculata	[]
 	00030-	Calloeneis-	Calloeneis-	Calloeneis
 		00001-	nigrans-	nigrans-	nigrans	[Oeneis nigrans Mulsant 1850:500-	Cryptognatha nigrans Crotch 1874:207-	Calloeneis nigrans Gordon 1978: 215. -	]
 		00000-	signata-	signata-	signata	[Cryptognatha signata Korschefsky 1936.-	Calloeneis signata González 2010: 248. -	]
@@ -1140,34 +1153,6 @@
 		00000-	modesta-	modesta-	modesta	[]
 		00001-	uncinata-	uncinata-	uncinata	[Cleothera uncinata Mulsant 1853.-	Hyperaspis uncinata Crotch 1874-	Hinda uncinata Milleo & al. 1997.-	]
 	00052-	Horniolus-	Horniolus-	Horniolus
-	00021-	Hyperaspis(亚科Hyperaspidinae)-	Hyperaspis-	Hyperaspis
-		00015-	abscondita-	abscondita-	abscondita	[]
-		00003-	andina-	andina-	andina	[]
-		00005-	arida-	arida-	arida	[]
-		00017-	bisignata-	bisignata-	bisignata	[]
-		00011-	conclusa-	conclusa-	conclusa	[Hyperaspis conclusa Weise 1906, Hyperaspis flavolineata Mader 1957.-	]
-		00018-	corcovado-	corcovado-	corcovado	[]
-		00019-	divaricata-	divaricata-	divaricata	[]
-		00025-	drechseli-	drechseli-	drechseli	[]
-		00013-	elegantissima-	elegantissima-	elegantissima	[]
-		00006-	esmeraldas-	esmeraldas-	esmeraldas	[]
-		00007-	festiva-	festiva-	festiva	[Hyperaspis festiva Mulsant 1850: 659. -	Cleothera cincticollis Mulsant 1850: 553. -	Hyperaspis cincticollis Crotch 1874 -	Hyperaspis lemniscata Boheman 1859-	Hyperaspis apicalis Weise 1885.-	]
-		00000-	funesta-	funesta-	funesta	[Coccinella funesta Germain 1854: 335.-	Hyperaspis funesta Brèthes 1923: 454.-	Hyperaspis chilensis Crotch 1874: 231. -	]
-		00001-	germaini-	germaini-	germaini	[]
-		00012-	gordoni-	gordoni-	gordoni	[Hyperaspis brethesi Gordon & Canepari 2008: 325 no Ricci 1985: 56. -	Hyperaspis gordoni González 2010: 250. -	]
-		00020-	helveola-	helveola-	helveola	[]
-		00016-	lanatii-	lanatii-	lanatii	[]
-		00014-	longula-	longula-	longula	[]
-		00024-	luciae-	luciae-	luciae	[]
-		00008-	matronata-	matronata-	matronata	[Cleothera matronata Mulsant 1853-	Hyperaspis matronata Crotch 1874-	Cleothera cordifera Weise 1895-	Hyperaspis cordifera Korschefsky 1931-	]
-		00002-	nana-	nana-	nana	[]
-		00009-	onerata-	onerata-	onerata	[Cleothera onerata Mulsant 1850: 552. -	Hyperaspis onerata Crotch 1874: 230-	]
-		00021-	pectoralis-	pectoralis-	pectoralis	[Hyperaspis pectoralis Crotch 1874: 225. -	Hyperaspis pectoralis Gordon y González 2011: 8.-	]
-		00010-	prolata-	prolata-	prolata	[]
-		00022-	pseudopavida-	pseudopavida-	pseudopavida	[]
-		00004-	sphaeridioides-	sphaeridioides-	sphaeridioides	[]
-		00026-	trifurcata-	-		[]
-		00023-	unimaculosa-	unimaculosa-	unimaculosa	[]
 	00053-	Keiscymnus-	Keiscymnus-	Keiscymnus
 	00054-	Leptoscymnus-	Leptoscymnus-	Leptoscymnus
 	00041-	Meltema-	Meltema-	Meltema
@@ -1258,6 +1243,7 @@
 		00002-	centralis-	中黑小瓢蟲-	中黑小瓢蟲	[]
 		00042-	citreus-	citreus-	citreus	[]
 		00046-	coccivora-	coccivora-	coccivora	[]
+		00055-	compar-	-		[]
 		00038-	coniferarum-	coniferarum-	coniferarum	[]
 		00039-	demerarensis-	demerarensis-	demerarensis	[]
 		00017-	dorcatomoides-	锈色小瓢虫-	锈色小瓢虫	[]

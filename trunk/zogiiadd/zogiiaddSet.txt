@@ -1,2 +1,2 @@
-country:64
-webaddr:www.texasento.net
+country:178
+webaddr:www.kerbtier.de
