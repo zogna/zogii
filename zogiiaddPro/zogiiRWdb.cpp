@@ -1061,7 +1061,7 @@ void zogiiAddtxtDBLite(struct ZOGII_Coccinellidae_DATA *data,struct ZOGII_Coccin
 		//值相同则不必拷
 		if(strcmp(newdata->Text[i],temp))
 		{
-			sprintf(str,"%s\\Text%02d%s",data->Path,i,strrchr(newdata->Text[i],'.'));
+			sprintf(str,"%s\\Text%05d%s",data->Path,i,strrchr(newdata->Text[i],'.'));
 			//拷贝路径名
 			memcpy(data->Text[i],str,ZOGII_PAT_MAX);
 			
@@ -1104,7 +1104,7 @@ void zogiiADDpicDB(struct ZOGII_Coccinellidae_DATA *data,	\
 		//有新值添加
 		if(NewImagodata[i].flag)
 		{
-			sprintf(str,"%s\\Imago%02d%s",data->Path,i,strrchr(NewImagodata[i].Path,'.'));
+			sprintf(str,"%s\\Imago%05d%s",data->Path,i,strrchr(NewImagodata[i].Path,'.'));
 			// 修改
 			if(tempImago[i] && Imagodata[tempImago[i]].flag)
 			{
@@ -1126,7 +1126,7 @@ void zogiiADDpicDB(struct ZOGII_Coccinellidae_DATA *data,	\
 		//有新值添加
 		if(NewLarvadata[i].flag)
 		{
-			sprintf(str,"%s\\Larva%02d%s",data->Path,i,strrchr(NewLarvadata[i].Path,'.'));
+			sprintf(str,"%s\\Larva%05d%s",data->Path,i,strrchr(NewLarvadata[i].Path,'.'));
 			// 修改
 			if(tempLarva[i] && Larvadata[tempLarva[i]].flag)
 			{
@@ -1148,7 +1148,7 @@ void zogiiADDpicDB(struct ZOGII_Coccinellidae_DATA *data,	\
 		//有新值添加
 		if(NewPupadata[i].flag)
 		{
-			sprintf(str,"%s\\Pupa%02d%s",data->Path,i,strrchr(NewPupadata[i].Path,'.'));
+			sprintf(str,"%s\\Pupa%05d%s",data->Path,i,strrchr(NewPupadata[i].Path,'.'));
 			// 修改
 			if(tempPupa[i] && Pupadata[tempPupa[i]].flag)
 			{
@@ -1169,7 +1169,7 @@ void zogiiADDpicDB(struct ZOGII_Coccinellidae_DATA *data,	\
 		//有新值添加
 		if(NewOvumdata[i].flag)
 		{
-			sprintf(str,"%s\\Ovum%02d%s",data->Path,i,strrchr(NewOvumdata[i].Path,'.'));
+			sprintf(str,"%s\\Ovum%05d%s",data->Path,i,strrchr(NewOvumdata[i].Path,'.'));
 			// 修改
 			if(tempOvum[i] && Ovumdata[tempOvum[i]].flag)
 			{
@@ -1190,7 +1190,7 @@ void zogiiADDpicDB(struct ZOGII_Coccinellidae_DATA *data,	\
 		//有新值添加
 		if(NewCloseupdata[i].flag)
 		{
-			sprintf(str,"%s\\Closeup%02d%s",data->Path,i,strrchr(NewCloseupdata[i].Path,'.'));
+			sprintf(str,"%s\\Closeup%05d%s",data->Path,i,strrchr(NewCloseupdata[i].Path,'.'));
 			// 修改
 			if(tempCloseup[i] && Closeupdata[tempCloseup[i]].flag)
 			{
