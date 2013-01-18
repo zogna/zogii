@@ -4,6 +4,7 @@
 		00000-	matsumurai-	Ë«°ßë[Ã„Æ°Ïx-	Ë«°ßë[Ã„Æ°Ïx	[]
 	00001-	Cryptogonus-	ÒşÊÆÆ°³æÊô-	ÒşÊÆÆ°³æÊô
 		00001-	angusticarinatus-	Õ­±³ÒşÊÆÆ°³æ-	Õ­±³ÒşÊÆÆ°³æ	[]
+		00009-	fractemaculatus-	-		[]
 		00002-	horishanus-	Ì¨³ë[„İÆ°Ïx(¼§Ë«ÎÆĞ¡ºÚÆ°³æ)-	Ì¨³ë[„İÆ°Ïx(¼§Ë«ÎÆĞ¡ºÚÆ°³æ)	[Scymnus horishanus Ohta, 1929-	]
 		00007-	kapuri-	kapuri-	kapuri	[]
 		00003-	kurosawai-	ºÚÉë[„İÆ°Ïx-	ºÚÉë[„İÆ°Ïx	[]
@@ -34,6 +35,7 @@
 		00000-	alishanus-	°¢ÀïÉ½´½Æ°³æ-	°¢ÀïÉ½´½Æ°Ïx	[]
 		00004-	bipustulatus-	bipustulatus-	bipustulatus	[Coccinela bipustulata Linnaeus, 1758: 367-	Chilocorus bipustulatus Mulsant, 1846: 170. -	]
 		00005-	cacti-	cacti-	cacti	[]
+		00021-	canariensis-	-		[]
 		00002-	circumdatus-	¼š¾‰´½Æ°Ïx-	¼š¾‰´½Æ°Ïx	[]
 		00015-	coelosimilis-	coelosimilis-	coelosimilis	[]
 		00006-	fraternus-	fraternus-	fraternus	[]
@@ -224,6 +226,7 @@
 		00002-	formosana-	Ì¨ÍåºìÆ°³æ-	Ì¨ÍåºìÆ°³æ	[]
 		00007-	fumida-	fumida-	fumida	[]
 		00000-	pumila-	Ğ¡ºìÆ°³æ-	Ğ¡¼tÆ°Ïx	[Rodolia okinawensis Miyatake,1959-	]
+		00008-	rufopilosa-	-		[]
 		00003-	sexnotata-	Áù°ßºìÆ°³æ-	Áù°ßºìÆ°³æ	[Epilachna sexnolata Mulsant, 1850-	Rodolia quadrimaculata Mader, 1939, syn. nov-	]
 	00043-	Scymnodes-	Scymnodes-	Scymnodes
 	00044-	Sicara-	Sicara-	Sicara
@@ -247,6 +250,7 @@
 	00003-	Adalia-	´óÀöÆ°³æÊô-	´óÀöÆ°³æÊô
 		00002-	angulifera-	angulifera-	angulifera	[Adalia angulifera Mulsant, 1850:65-	Adalia deficiens var. angulifera Weise, 1898:234-	Coccinella ornata Germain, 1854:334.-	]
 		00001-	bipunctata-	¶şĞÇÆ°³æ-	¶şĞÇÆ°³æ	[Coccinella bipunctata Linnaeus, 1758:364-	Adalia bipunctata Mulsant, 1851:3-	Arrowella porteri Br¨¨thes, 1925:147.-	Para una sinonimia completa ver Gordon (1985) -	]
+			00000-	annulata-	-		[]
 		00000-	conglomerata-	ÍÅ¾ÛÀöÆ°³æ-	ÍÅ¾ÛÀöÆ°³æ	[]
 		00006-	decempunctata-	Ê®ĞÇÆ°³æ-		[]
 		00003-	deficiens-	deficiens-	deficiens	[Adalia deficiens Mulsant, 1850:62 -	Coccinella albofasciata Chevrolat in Mulsant, 1850:64-	Coccinella gemmingeri Mulsant, 1866:48.-	Coccinella varians Germain, 1854:333 (pars).-	Adalia deficiens a. gemmingeri Blackwelder 1945.-	Adalia deficiens var. vittata Weise, 1895:125.-	Adalia deficiens var. clara Weise, 1898:234. -	]
@@ -318,6 +322,7 @@
 		00000-	ulkei-	ulkei-	ulkei	[]
 	00006-	Cheilomenes-	¿í±úÔÂÆ°³æÊô-	¿í±úÔÂÆ°³æÊô
 		00001-	lunata-	lunata-	lunata	[]
+		00002-	propinqua-	-		[]
 		00000-	sexmaculata-	ÁùÌõÆ°³æ(Áù°ßÔÂÆ°³æ)-	Áù—lÆ°Ïx(Áù°ßÔÂÆ°Ïx)	[Menochilus sexmaculatus (Fabricius, 1781)-	Menochilus quadriplagiatus (Swartz, 1808)-	]
 	00048-	Chloroneda-	Chloroneda-	Chloroneda
 		00001-	conspicillata-	conspicillata-	conspicillata	[Daulis conspicillata Mulsant 1850-	Cycloneda conspicillata Crotch 1871-	Cirocolla conspicillata Vandenberg 1992-	]
@@ -343,6 +348,7 @@
 		00027-	magnifica-	-		[]
 		00006-	magnified-	Äâ¾Å°ßÆ°³æ-	Äâ¾Å°ßÆ°³æ	[]
 		00011-	magnopunctata-	´ó°ßÆ°³æ-	´ó°ßÆ°³æ	[]
+		00028-	miranda-	-		[]
 		00024-	monticola-	monticola-	monticola	[]
 		00015-	nivicola-	Îå°ßÆ°³æ-	Îå°ßÆ°³æ	[]
 		00025-	novemnotata-	novemnotata-	novemnotata	[]
@@ -406,6 +412,7 @@
 		00024-	pulchella-	pulchella-	pulchella	[Coccinella pulchella Klug 1829:10.-	Coccinellina pulchella Timberlake 1943:15-	Cycloneda pulchella Iablokoff-Khnzorian 1890:59.-	]
 		00025-	puncticollis-	puncticollis-	puncticollis	[Daulis puncticollis Mulsant 1850-	Cycloneda puncticollis Crotch 1871-	Neda puncticollis Gemminger & Harold 1876-	Cycloneda puncticollis v. livida Weise 1906. -	]
 		00002-	sanguinea-	sanguinea-	sanguinea	[Coccinella sanguinea Linnaeus 1763-	Daulis sanguinea Mulsant 1850-	Cycloneda sanguinea Crotch 1871-	Neda sanguinea Bruch 1915-	Coccinella inmaculata Fabricius 1792-	Daulis steini Mulsant 1866.Cycloneda polonica Hampe 1850.Cycloneda rubripennis Casey 1899.-	Cycloneda hondurasica Casey 1899.Coccinella reflexa Germain 1854¡£Para una sinonimia completa ver Vandenberg 2002.-	]
+			00000-	limbifer-	-		[]
 		00026-	sicardi-	sicardi-	sicardi	[Coccinella sicardi Br¨¨thes 1925:152.-	Coccinella areata Mulsant 1850:99.-	Coccinellina areata Timberlake 1943:52.-	Coccinella boliviana Weise 1910:21 (error de identificaci¨®n). -	]
 		00019-	vandenbergae-	vandenbergae-	vandenbergae	[Cycloneda vandenbergae Gonz¨¢lez, Bustamante & Or¨®z, 2008.-	]
 		00027-	zischkai-	zischkai-	zischkai	[]
@@ -447,6 +454,11 @@
 		00005-	tschitscherini-	tschitscherini-	tschitscherini	[]
 	00013-	Harmonia-	ºÍĞ³Æ°³æÊô-	ºÍĞ³Æ°³æÊô
 		00000-	axyridis-	®É«Æ°Ïx-	®É«Æ°Ïx	[Coccinella axyridis Pallas 1773: 71.-	Leis axyridis Mulsant 1850: 266.-	Ptychanatis axyridis Crotch 1974: 123-	Coccinella (Harmonia) axyridis Weise 1885: 35-	Harmonia axyridis Jacobson 1916: 984.-	Harmonia (Ptychanatis) axyridis Sasaji 1971: 278-	]
+			00003-	axyridis-	-		[]
+			00002-	conspicua-	-		[]
+			00004-	equicolor-	-		[]
+			00001-	spectabilis-	-		[]
+			00000-	succinea-	-		[]
 		00008-	conformis-	conformis-	conformis	[]
 		00002-	dimidiata-	Ğ¡Ê®ÈıĞÇÆ°Ïx(¼t¼çÆ°Ïx)-	Ğ¡Ê®ÈıĞÇÆ°Ïx(¼t¼çÆ°Ïx)	[]
 		00007-	eucharis-	Ææ°ßÆ°³æ-	Ææ°ßÆ°³æ	[]
@@ -590,6 +602,8 @@
 		00029-	impustulata-	-		[]
 		00004-	kirbyi-	ºÚ¾‰ÇÉÆ°Ïx-	ºÚ¾‰ÇÉÆ°Ïx	[]
 		00009-	lanpingensis-	À¸ÆºÇÉÆ°³æ-	À¸ÆºÇÉÆ°³æ	[]
+		00030-	lyncea-	-		[]
+			00000-	agnata-	-		[]
 		00027-	mimica-	mimica-	mimica	[]
 		00021-	modogensis-	Ä«ÍÑÇÉÆ°³æ-	Ä«ÍÑÇÉÆ°³æ	[]
 		00008-	oncina-	Àë°ßÇÉÆ°³æ-	Àë°ßÇÉÆ°³æ	[]
@@ -655,6 +669,7 @@
 		00006-	plagiata-	plagiata-	plagiata	[]
 		00007-	renifer-	renifer-	renifer	[]
 		00018-	rufosignata-	rufosignata-	rufosignata	[Psyllobora rufosignata Mulsant 1850: 189, Almeida 1985: 76 (genitalia). -	Psyllobora cosnardi Mulsant 1850: 169.-	]
+		00020-	variegata-	-		[]
 		00015-	vigintiduonotata-	vigintiduonotata-	vigintiduonotata	[Daulis vigintiduonotata Mulsant, 1850:307-	Leis vigintiduonotata Mulsant, 1966:180-	Cycloneda vigintiduonotata Crotch, 1971: 6-	Spilindolla vigintiduonotata Vandenberg, 1996: 545-	]
 		00001-	vigintiduopunctata-	¶şÊ®¶şĞÇ¾úÆ°³æ-	¶şÊ®¶şĞÇ¾úÆ°³æ	[]
 		00000-	vigintimaculata-	¶şÊ®ĞÇ¾úÆ°Ïx-	¶şÊ®ĞÇ¾úÆ°Ïx	[]
@@ -702,6 +717,7 @@
 		00001-	expansa-	Ò§ÈËØˆºÚ°ßÆ°Ïx(Çò¶ËÆéıXÆ°Ïx)-	Ò§ÈËØˆºÚ°ßÆ°Ïx(Çò¶ËÆéıXÆ°Ïx)	[Epilachna fenchinica Pang, 1993, syn. nov-	Afissa expansa Dieke, 1947-	]
 	00019-	Chnootriba-	Chnootriba-	Chnootriba
 	00008-	Cynegetis-	Cynegetis-	Cynegetis
+		00000-	impunctata-	-		[]
 	00009-	Damatula-	Damatula-	Damatula
 	00001-	Epilachna-	Epilachna-	Epilachna
 		00010-	admirabilis-	¹ÏºÚ°ßÆ°Ïx(¹ÏÇÑÆ°Ïx)-	¹ÏºÚ°ßÆ°Ïx(¹ÏÇÑÆ°Ïx)	[Solanophila alternans Weise, 1923 (nec. Mulsant, 1850)-	Epilachna admirabilis taiwanensis Miyatake, 1965-	]
@@ -722,6 +738,7 @@
 		00027-	dives-	dives-	dives	[]
 		00028-	divisa-	divisa-	divisa	[Solanophila divisa Weise, 1899, Epilachna divisa Korchefsky 1931.-	]
 		00029-	dorsigera-	dorsigera-	dorsigera	[Epilachna dorsigera Erichson 1847: 184 -	]
+		00065-	dregei-	-		[]
 		00030-	eusema-	eusema-	eusema	[Solanophila eusema Weise 1904, Epilachna eusema Korschefski 1931-	Solanophila perdubia Weise 1926, Epilachna perdubia Korschefski 1931-	]
 		00031-	fenestrata-	fenestrata-	fenestrata	[]
 		00032-	fenestroides-	fenestroides-	fenestroides	[]
@@ -750,6 +767,7 @@
 		00042-	parastriata-	parastriata-	parastriata	[]
 		00043-	pastica-	pastica-	pastica	[Solanophila postica Weise 1902, Epilachna pastica Korschefsky 1931-	Solanophila gibbula Weise 1902, Epilachna gibbula Korschefsky 1931-	]
 		00044-	patricia-	patricia-	patricia	[Epilachna patricia Mulsant 1850, .Epilachna archidonae Crotch 1874-	Epilachna bang-haasi Weise 1895-	]
+		00064-	paykulli-	-		[]
 		00045-	persimilis-	persimilis-	persimilis	[]
 		00046-	pseudostriata-	pseudostriata-	pseudostriata	[]
 		00058-	punctatissima-	punctatissima-	punctatissima	[Solanophila punctatissima Weise 1904-	Solanophila punctatissima ab. tetraspila Weise 1922-	Epilachna punctatissima Korchefsky 1931.-	]
@@ -762,6 +780,7 @@
 		00050-	strictanotata-	strictanotata-	strictanotata	[]
 		00051-	transverselineata-	transverselineata-	transverselineata	[Solanophila transverselineata Mader 1958, Epilachna transverselineata Gordon 1975-	]
 		00019-	tredecimnotata-	tredecimnotata-	tredecimnotata	[]
+		00066-	undulata-	-		[]
 		00054-	v-pallidum-	v-pallidum-	v-pallidum	[Epilachna v-pallidum Blanchard 1846, Epilachan v-pallidum v-pallidum Gordon 1975-	Solanophila v-pallidum ab. flavoquadrivittata Mader 1858. -	]
 		00020-	varivestis-	varivestis-	varivestis	[]
 		00052-	velata-	velata-	velata	[]
@@ -773,6 +792,7 @@
 	00010-	Figura-	Figura-	Figura
 	00002-	Henosepilachna-	Henosepilachna-	Henosepilachna
 		00007-	argus-	-		[]
+		00008-	bifasciata-	-		[]
 		00000-	boisduvali-	ÌmZÇÑÊ®¶şĞÇÆ°Ïx(²¨ÊÏÁÑÍÎÆ°³æ)-	ÌmZÇÑÊ®¶şĞÇÆ°Ïx(²¨ÊÏÁÑÍÎÆ°³æ)	[Epilachna boisduvali Mulsant, 1850-	EpHachna indica Miwa et al, 1932 (nec. Mulsant, 1850)-	]
 		00006-	gangetica-	gangetica-	gangetica	[Epilachna gangetica Weise-	]
 		00004-	processa-	³İÒ¶ÁÑÍÎÆ°³æ-	³İÒ¶ÁÑÍÎÆ°³æ	[Epilachna Wissmanni ab. processa Weise, 1908-	]
@@ -1496,6 +1516,7 @@
 		00007-	ferrugineus-	ferrugineus-	ferrugineus	[]
 		00000-	formosana-	ûØWÆ°Ïx-	ûØWÆ°Ïx	[]
 		00003-	hirashimai-	ºÖ±³ÑŞÆ°³æ-	ºÖ±³ÑŞÆ°³æ	[]
+		00010-	madagassa-	-		[]
 		00002-	morimotoi-	ËÄĞÇØWÆ°Ïx-	ËÄĞÇØWÆ°Ïx	[]
 		00008-	obscurella-	obscurella-	obscurella	[]
 		00004-	ruficeps-	ruficeps-	ruficeps	[]

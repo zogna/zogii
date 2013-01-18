@@ -1,2 +1,2 @@
-country:0
-webaddr:www.meloidae.com/en/category/coccinellidae-ladybird-beetles/
+country:178
+webaddr:www.koleopterologie.de/gallery/
