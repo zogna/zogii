@@ -1,2 +1,2 @@
-country:178
-webaddr:www.koleopterologie.de/gallery/
+country:45
+webaddr:www.thaibugs.com
