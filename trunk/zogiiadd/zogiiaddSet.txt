@@ -1,2 +1,2 @@
-country:45
-webaddr:www.thaibugs.com
+country:60
+webaddr:www.brisbaneinsects.com/brisbane_ladybirds/index.html
