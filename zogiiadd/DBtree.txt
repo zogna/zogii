@@ -83,7 +83,7 @@
 		00003-	zonatus-	zonatus-	zonatus	[Orcus (Harpasus) zonatus Mulsant, 1850: 475, 476.-	Curinus (Harpasus) zonatus Crotch, 1874: 190.-	Curinus zonatus Korschefsky, 1932: 252.-	Harpasus zonatus Chapin, 1965: 239-	]
 	00027-	Hypocyrema-	Hypocyrema-	Hypocyrema
 	00012-	Orcus-	Orcus-	Orcus
-		00000-	australasiae-	australasiae-	australasiae	[]
+		00000-	australasiae-	australasiae-	australasiae	[Parapriasus australasiae-	]
 		00001-	ovalis-	ovalis-	ovalis	[]
 	00020-	Parapriasus-	-	
 		00000-	australasiae-	-		[]
@@ -116,7 +116,7 @@
 	00002-	Anovia-	Anovia-	Anovia
 		00000-	virginalis-	virginalis-	virginalis	[]
 	00022-	Apolinus-	-	
-		00000-	lividigaster-	-		[]
+		00000-	lividigaster-	-		[Scymnodes lividigaster-	]
 	00026-	Auladoria-	Auladoria-	Auladoria
 	00003-	Azya-	Azya-	Azya
 		00003-	bioculata-	bioculata-	bioculata	[]
@@ -228,7 +228,6 @@
 		00000-	pumila-	Ğ¡ºìÆ°³æ-	Ğ¡¼tÆ°Ïx	[Rodolia okinawensis Miyatake,1959-	]
 		00008-	rufopilosa-	-		[]
 		00003-	sexnotata-	Áù°ßºìÆ°³æ-	Áù°ßºìÆ°³æ	[Epilachna sexnolata Mulsant, 1850-	Rodolia quadrimaculata Mader, 1939, syn. nov-	]
-	00043-	Scymnodes-	Scymnodes-	Scymnodes
 	00044-	Sicara-	Sicara-	Sicara
 	00016-	Stenadalia-	Stenadalia-	Stenadalia
 		00000-	laskarensis-	laskarensis-	laskarensis	[]
@@ -333,6 +332,7 @@
 	00060-	Clynis-	Clynis-	Clynis
 	00008-	Coccinella-	Æ°³æÊô-	Æ°³æÊô
 		00009-	ainu-	»ªÈÕÆ°³æ -	»ªÈÕÆ°³æ	[]
+		00029-	algerica-	-		[]
 		00018-	alta-	alta-	alta	[]
 		00019-	arcula-	arcula-	arcula	[]
 		00020-	californica-	californica-	californica	[]
@@ -472,6 +472,7 @@
 	00069-	Heterocaria-	Heterocaria-	Heterocaria
 	00070-	Heteroneda-	Heteroneda-	Heteroneda
 	00028-	Hippodamia-	³¤×ãÆ®³æÊô-	³¤×ãÆ®³æÊô
+		00029-	alpina-	-		[]
 		00010-	americana-	americana-	americana	[]
 		00011-	apicalis-	apicalis-	apicalis	[]
 		00000-	arctica-	±±·½ÒìÆ°³æ-	±±·½ÒìÆ°³æ	[]
@@ -558,7 +559,7 @@
 		00002-	luteodorsa-	luteodorsa-	luteodorsa	[]
 		00003-	picta-	picta-	picta	[]
 	00076-	Myrrha-	Myrrha-	Myrrha
-		00000-	octodecimguttata-	-		[]
+		00000-	octodecimguttata-	Ê®°Ë-		[]
 	00024-	Myzia-	ÖĞ³İÆ°³æÊô-	ÖĞ³İÆ°³æÊô
 		00002-	bissexnotata-	Ê®¶şĞÇÖĞ³İÆ°³æ-	Ê®¶şĞÇÖĞ³İÆ°³æ	[]
 		00000-	gebleri-	ºÚÖĞ³İÆ°³æ-	ºÚÖĞ³İÆ°³æ	[]
@@ -671,14 +672,14 @@
 		00018-	rufosignata-	rufosignata-	rufosignata	[Psyllobora rufosignata Mulsant 1850: 189, Almeida 1985: 76 (genitalia). -	Psyllobora cosnardi Mulsant 1850: 169.-	]
 		00020-	variegata-	-		[]
 		00015-	vigintiduonotata-	vigintiduonotata-	vigintiduonotata	[Daulis vigintiduonotata Mulsant, 1850:307-	Leis vigintiduonotata Mulsant, 1966:180-	Cycloneda vigintiduonotata Crotch, 1971: 6-	Spilindolla vigintiduonotata Vandenberg, 1996: 545-	]
-		00001-	vigintiduopunctata-	¶şÊ®¶şĞÇ¾úÆ°³æ-	¶şÊ®¶şĞÇ¾úÆ°³æ	[]
+		00001-	vigintiduopunctata-	¶şÊ®¶şĞÇ¾úÆ°³æ-	¶şÊ®¶şĞÇ¾úÆ°³æ	[Thea vigintiduopunctata-	]
 		00000-	vigintimaculata-	¶şÊ®ĞÇ¾úÆ°Ïx-	¶şÊ®ĞÇ¾úÆ°Ïx	[]
 	00091-	Seladia-	Seladia-	Seladia
 	00034-	Singhikalia-	ĞÂºìÆ°³æÊô-	ĞÂºìÆ°³æÊô
 		00001-	duodecimguttata-	Ê®¶ş°ßĞÂºìÆ°³æ-	Ê®¶ş°ßĞÂºìÆ°³æ	[]
 		00000-	subfasciata-	ºá´øĞÂºìÆ°³æ-	ºá´øĞÂºìÆ°³æ	[]
 	00084-	Sospita-	Sospita-	Sospita
-		00000-	vigintiguttata-	-		[]
+		00000-	vigintiguttata-	¶şÊ®°ß-		[]
 	00085-	Sphaeroneda-	Sphaeroneda-	Sphaeroneda
 	00086-	Spilindolla-	Spilindolla-	Spilindolla
 	00087-	Spiloneda-	Spiloneda-	Spiloneda
@@ -798,7 +799,7 @@
 		00004-	processa-	³İÒ¶ÁÑÍÎÆ°³æ-	³İÒ¶ÁÑÍÎÆ°³æ	[Epilachna Wissmanni ab. processa Weise, 1908-	]
 		00002-	pusillanima-	ÇÑÊ®¶şĞÇÆ°Ïx(äÈ~ÁÑÍÎÆ°Ïx)-	ÇÑÊ®¶şĞÇÆ°Ïx(äÈ~ÁÑÍÎÆ°Ïx)	[]
 		00001-	subfasciata-	°ë§ÁÑÍÎÆ°Ïx-	°ë§ÁÑÍÎÆ°Ïx	[Epilachna semifasciata Dieke, 1947-	 Epilachna indica ab. ceylonia Korschefsky, 1933 (nec. Weise, 1901)-	]
-		00005-	vigintioctomaculata-	ÂíÁåÊíÆ°³æ-	ÂíÁåÊíÆ°³æ	[]
+		00005-	vigintioctomaculata-	ÂíÁåÊíÆ°³æ-	ÂíÁåÊíÆ°³æ	[Epilachna vigintisexpunctata-	]
 		00003-	vigintioctopunctata-	ÇÑ¶şÊ®°ËĞÇÆ°Ïx-	ÇÑ¶şÊ®°ËĞÇÆ°Ïx	[Epilachna vigintioctopunctata (Fabricius, 1775)-	Henosepilachna sparsa (Herbst, 1786-	]
 	00011-	Lorma-	Lorma-	Lorma
 	00020-	Macrolasia-	Macrolasia-	Macrolasia
@@ -810,7 +811,7 @@
 	00015-	Pseudodira-	Pseudodira-	Pseudodira
 	00021-	Subafissa-	Subafissa-	Subafissa
 	00004-	Subcoccinella-	Subcoccinella-	Subcoccinella
-		00000-	vigintiquatuorpunctata-	vigintiquatuorpunctata-	vigintiquatuorpunctata	[]
+		00000-	vigintiquatuorpunctata-	¶şÊ®ËÄĞÇ-		[]
 	00005-	Toxotoma-	Toxotoma-	Toxotoma
 		00000-	cuzcoensis-	cuzcoensis-	cuzcoensis	[]
 		00003-	jujuyi-	jujuyi-	jujuyi	[]
@@ -1268,8 +1269,6 @@
 		00004-	ecuadoricus-	ecuadoricus-	ecuadoricus	[]
 		00002-	galapagoensis-	galapagoensis-	galapagoensis	[Scymnus galapagopensis Waterhouse 1845-	Scymnus ocellatus Sharp 1885.-	]
 		00003-	triangularis-	triangularis-	triangularis	[]
-	00014-	Scymnodes-	Scymnodes-	Scymnodes
-		00000-	lividigaster-	lividigaster-	lividigaster	[]
 	00003-	Scymnus-	Ğ¡Ã«Æ°³æÊô-	Ğ¡Ã«Æ°³æÊô
 		00057-	abietis-	-		[]
 		00022-	alishanensis-	°¢ÀïÉ½ÄâĞ¡Æ°³æ-	°¢ÀïÉ½ÄâĞ¡Æ°³æ	[]
@@ -1393,8 +1392,8 @@
 		00000-	aterrimus-	aterrimus-	aterrimus	[]
 		00001-	eleutherae-	eleutherae-	eleutherae	[]
 		00002-	horni-	horni-	horni	[]
-		00003-	inexpectatus-	inexpectatus-	inexpectatus	[]
 		00004-	inexpectatus-	inexpectatus-	inexpectatus	[]
+		00003-	inexpectatus-	inexpectatus-	inexpectatus	[]
 00005-	Sticholotidinae-	Ğ¡ÑŞÆ°³æÑÇ¿Æ-	Ğ¡ØWÆ°Ïx†¿Æ
 	00022-	Aneaporia-	Aneaporia-	Aneaporia
 	00021-	Argentipilosa-	Argentipilosa-	Argentipilosa
