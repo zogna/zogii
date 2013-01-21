@@ -1,2 +1,2 @@
-country:60
-webaddr:www.brisbaneinsects.com/brisbane_ladybirds/index.html
+country:0
+webaddr:www.pbase.com/terrythormin/coccinellidae
