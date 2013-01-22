@@ -1,2 +1,2 @@
-country:0
-webaddr:www.pbase.com/terrythormin/coccinellidae
+country:92
+webaddr:www.chinita-arlequin.uchile.cl
