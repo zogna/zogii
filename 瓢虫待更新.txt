@@ -12,24 +12,19 @@ http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=11
 
 http://foter.com/Coccinellidae/
 
-http://www.ento.csiro.au/biology/ladybirds/imageGallery.php?pageNo=1
 
 http://www.faunaeur.org/full_results.php?id=230161
 
-http://www.biolib.cz/en/taxontree/id10713/
 
 http://data.gbif.org/species/browse/taxon/7782?qs=coccinellidae
 
-
-http://www.harlequin-survey.org/
-
-http://www.stippen.nl/index.php
-
-http://www.illustration-nature.com/site_photos/accueil_photo.htm
+==========================================
 
 
 
+http://www.biolib.cz/en/taxontree/id10713/
 
+http://www.aboutree.com/forumdisplay.php?fid=27
 
 
 
