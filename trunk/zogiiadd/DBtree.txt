@@ -693,7 +693,7 @@
 	00037-	Tytthaspis-	苤嗎が單扽-	苤嗎が單扽
 		00001-	gebleri-	軝沭苤嗎が單-	軝沭苤嗎が單	[]
 		00000-	lateralis-	耜沭苤嗎が單-	耜沭苤嗎が單	[]
-		00002-	sedecimpunctata-	-		[]
+		00002-	sedecimpunctata-	坋鞠-		[]
 	00046-	Verania-	Verania-	Verania
 		00000-	crocea-	crocea-	crocea	[]
 	00038-	Vibidia-	福歷が單扽-	福歷が單扽
