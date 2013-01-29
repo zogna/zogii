@@ -25,7 +25,9 @@
 		00002-	blumi-	blumi-	blumi	[]
 		00003-	histrio-	histrio-	histrio	[]
 		00000-	lineatus-	¿íÎÆ×İÌõÆ°³æ-	¿íÎÆ×İÌõÆ°³æ	[]
+		00006-	maculatus-	-		[Brumus maculatus Pope, 1954: 127.-	Brumoides maculatus: Slipinski and Giorgi 2006: 268.-	]
 		00001-	ohtai-	³¤×İÌõÆ°³æ-	³¤×İÌõÆ°³æ	[]
+		00007-	piae-	-		[]
 		00004-	septentrionis-	septentrionis-	septentrionis	[]
 		00005-	suturalis-	suturalis-	suturalis	[]
 	00007-	Brumus-	Brumus-	Brumus
@@ -116,7 +118,8 @@
 	00002-	Anovia-	Anovia-	Anovia
 		00000-	virginalis-	virginalis-	virginalis	[]
 	00022-	Apolinus-	-	
-		00000-	lividigaster-	-		[Scymnodes lividigaster-	]
+		00000-	lividigaster-	-		[Scymnodes lividigaster: Blackburn, 1895: 245.-	Platyomus lividigaster Mulsant, 1853: 285.-	Apolinus lividigaster : Slipinski, 2007: 101.-	]
+		00001-	terminalis-	-		[Platyomus terminalis Blackburn, 1895: 245.-	Apolinus terminalis: Slipinski, 2007: 101.-	]
 	00026-	Auladoria-	Auladoria-	Auladoria
 	00003-	Azya-	Azya-	Azya
 		00003-	bioculata-	bioculata-	bioculata	[]
@@ -127,6 +130,18 @@
 		00002-	scutata-	scutata-	scutata	[Azya ardosiaca Mulsant 1853. -	Azya nigrina Weise, 1904-	]
 	00027-	Botynella-	Botynella-	Botynella
 	00023-	Bucolus-	Bucolus-	Bucolus
+		00000-	caesariatus-	-		[]
+		00001-	cirrhosus-	-		[]
+		00003-	convexus-	-		[]
+		00004-	cyaneus-	-		[]
+		00005-	dolambiorum-	-		[]
+		00006-	fourneti-	-		[Bucolus nuytsiae Lea, 1902: 508.-	Bucolus nigripes Lea, 1902: 508.-	Bucolus obscurus Lea, 1902: 509.-	]
+		00007-	frater-	-		[]
+		00008-	idyleae-	-		[]
+		00009-	leucothrix-	-		[]
+		00002-	orbiculatus-	-		[]
+		00010-	posticalis-	-		[]
+		00011-	stragulatus-	-		[Scymnus stragulatus Erichson, 1842: 240.-	Bucolinus longicornis Blackburn, 1892: 252-	Rhizobius blackburni Lea, 1908: 205.-	Bucolinus stragulatus: Lea 1925: 431.-	Bucolus stragulatus: Slipinski 2007: 107.-	]
 	00017-	Chnoodes-	Chnoodes-	Chnoodes
 		00001-	brasiliensis-	brasiliensis-	brasiliensis	[]
 		00002-	chaudoiri-	chaudoiri-	chaudoiri	[Chnoodes chaudoiri Mulsant 1850:911.-	Chnoodes chaudoirii Crotch 1874:286.-	]
@@ -281,15 +296,27 @@
 		00001-	strigata-	Ìõ°ßÒìµãÆ°³æ-	Ìõ°ßÒìµãÆ°³æ	[Coccinella strigata Thunberg,1795-	]
 		00002-	terminassianae-	Â¡ÔµÒìµãÆ°³æ-	Â¡ÔµÒìµãÆ°³æ	[]
 	00057-	Antineda-	Antineda-	Antineda
+		00000-	princeps-	-		[Neda princeps Mulsant, 1850: 278.-	Antineda princeps: Iablokoff-Khnzorian 1982: 142.-	]
 	00002-	Aphidecta-	Aphidecta-	Aphidecta
 		00000-	obliterata-	obliterata-	obliterata	[]
 	00055-	Archegleis-	Archegleis-	
-		00000-	edwardsi-	-		[]
+		00001-	barronensis-	-		[Cycloneda barronensis Blackburn, 1895: 238.-	Archegleis barronensis: Iablokoff-Khnzorian, 1984: 118.-	]
+		00002-	delta-	-		[Archegleis crotchi Iablokoff-Knzorian, 1984: 116.-	Egleis delta Weise, 1898: 225.-	]
+		00003-	duplicata-	-		[Callineda duplicata Crotch, 1874: 161.-	Archegleis duplicata: Pope 1989: 695.-	]
+		00000-	edwardsi-	-		[Egleis edwardsii Mulsant, 1850: 158.-	Egleis Pascoei Crotch, 1874: 131.-	]
+		00004-	interrupta-	-		[Egleis interrupta Weise, 1927: 12.-	Archegleis interrupta: Iablokoff-Khnzorian 1984: 115.-	]
+		00005-	kingi-	-		[Coccinella kingi MacLeay, 1826: 454.-	Egleis varicolor Mulsant, 1850: 154.-	]
 	00058-	Australoneda-	Australoneda-	Australoneda
+		00000-	bourgeoisi-	-		[Neda bourgeoisi Gadeau de Kerville, 1884: 70.-	Australoneda bourgeoisi: Iablokoff-Khnzorian 1984: 204.-	]
 	00025-	Bothrocalvia-	ÎÆÂãÆ°³æÊô-	ÎÆÂãÆ°³æÊô
 		00000-	albolineata-	Ï¸ÎÆÂãÆ°³æ-	Ï¸ÎÆÂãÆ°³æ	[Halyzia albolineata (Gyllenhal, 1808)-	]
 		00002-	lewisii-	¿íÎÆÂãÆ°³æ-	¿íÎÆÂãÆ°³æ	[]
 		00001-	pupillata-	Ê®ÑÛ¿ÃÆ°³æ-	Ê®ÑÛ¿ÃÆ°³æ	[]
+	00078-	Bucollelus(Bucolellus)-	-	
+		00000-	concolor-	-		[Bucollelus concolor: Slipinski 2007: 69-	Cycloscymnus concolor Blackburn, 1895: 254.-	]
+		00001-	minutus-	-		[Cycloscymnus minutus Blackburn, 1892: 251.-	Bucollelus minutus: Slipinski 2007: 69.-	]
+		00002-	ornatus-	-		[]
+		00003-	punctipennis-	-		[Serangium punctipenne Lea, 1902: 510.-	Bucollelus punctipennis: Slipinski, 2007: 69.-	]
 	00036-	Bulaea-	²¼Æ°³æÊô-	²¼Æ°³æÊô
 		00000-	lichatschovi-	Ìğ²ËÆ°³æ-	Ìğ²ËÆ°Ïx	[]
 	00020-	Callicaria-	×³ÀöÆ°³æÊô-	×³ÀöÆ°³æÊô
@@ -643,7 +670,7 @@
 		00002-	unicolor-	ºìĞÇÅÌÆ°³æ-	ºìĞÇÅÌÆ°³æ	[]
 	00090-	Pristonema-	Pristonema-	Pristonema
 	00081-	Procula-	Procula-	Procula
-	00022-	Propylaea-	ı”¼yÆ°ÏxÊô-	ı”¼yÆ°ÏxÊô
+	00022-	Propylaea(Propylea)-	ı”¼yÆ°ÏxÊô-	ı”¼yÆ°ÏxÊô
 		00003-	dissecta-	Î÷ÄÏ¹êÆ°³æ-	Î÷ÄÏ¹êÆ°³æ	[]
 		00000-	japonoca-	ı”¼yÆ°Ïx-	ı”¼yÆ°Ïx	[]
 		00001-	luteopustulata-	»Æ±¦ÅÌÆ°³æ-	üSŒšı”Æ°Ïx	[]
@@ -1086,6 +1113,7 @@
 	00033-	Acarinus-	Acarinus-	Acarinus
 	00048-	Acoccidula-	Acoccidula-	Acoccidula
 	00036-	Andrzej-	Andrzej-	Andrzej
+		00000-	antennatus-	-		[]
 	00049-	Aponephus-	Aponephus-	Aponephus
 	00050-	Apseudoscymnus-	Apseudoscymnus-	Apseudoscymnus
 	00006-	Axinoscymnus-	¸«Æ°³æÊô-	¸«Æ°³æÊô
@@ -1399,7 +1427,6 @@
 	00021-	Argentipilosa-	Argentipilosa-	Argentipilosa
 	00025-	Ballida-	Ballida-	Ballida
 	00036-	Boschalis-	Boschalis-	Boschalis
-	00037-	Bucolellus-	Bucolellus-	Bucolellus
 	00019-	Buprestodera-	Buprestodera-	Buprestodera
 		00000-	mimetica-	mimetica-	mimetica	[]
 	00038-	Bura-	Bura-	Bura
@@ -1412,6 +1439,7 @@
 			00000-	australis-	australis-	australis	[]
 			00001-	zimmermanni-	zimmermanni-	zimmermanni	[]
 	00039-	Chaetolotis-	Chaetolotis-	Chaetolotis
+		00000-	amy-	-		[]
 	00040-	Chilocorellus-	Chilocorellus-	Chilocorellus
 	00008-	Coccidophilus-	Coccidophilus-	Coccidophilus
 		00003-	aimogastaensis-	aimogastaensis-	aimogastaensis	[]
