@@ -69,18 +69,18 @@ enum
 {
 	TYPE_SubFamily=1,
 	TYPE_Genus,
-	TYPE_Name,
-	TYPE_SpName,
+	TYPE_Species,
+	TYPE_Subspecies,
 	TYPE_NEW_SubFamily,
 	TYPE_NEW_Genus,
-	TYPE_NEW_Name,
-	TYPE_NEW_SpName
+	TYPE_NEW_Species,
+	TYPE_NEW_Subspecies
 };
 
 #define NEWSubFamily_STR "New SubFamily"
 #define NEWGenus_STR	"New Genus"
-#define NEWName_STR		"New Species"
-#define NEWSpName_STR	"New Subspecies"
+#define NEWSpecies_STR		"New Species"
+#define NEWSubspecies_STR	"New Subspecies"
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 #pragma pack(1)
 
@@ -283,7 +283,7 @@ struct ZOGII_Coccinellidae_DATA
 	char Text[ZOGII_LAG_MAX][ZOGII_PAT_MAX];
 ///////////////////////////////////////////////////
 	//别名
-	char OtherName[ZOGII_INF_MAX][ZOGII_STR_MAX];
+	char Synonyms[ZOGII_INF_MAX][ZOGII_STR_MAX];
 	//食物
 	//-1 无效
 	// 0 =肉食
@@ -340,12 +340,12 @@ struct ZOGII_Coccinellidae_DATA
 };
 
 //瓢虫科种
-struct ZOGII_Coccinellidae_NAME
+struct ZOGII_Coccinellidae_SPECIES
 {
-	struct ZOGII_Coccinellidae_DATA NA;
+	struct ZOGII_Coccinellidae_DATA SP;
 
-	ZOGII_ULONG_TYPE SpTotal;
-	struct ZOGII_Coccinellidae_DATA *SpData;
+	ZOGII_ULONG_TYPE SubspTotal;
+	struct ZOGII_Coccinellidae_DATA *SubspData;
 };
 
 //瓢虫科属
@@ -353,8 +353,8 @@ struct ZOGII_Coccinellidae_GENUS
 {
 	struct ZOGII_Coccinellidae_DATA GE;
 
-	ZOGII_ULONG_TYPE NameTotal;
-	struct ZOGII_Coccinellidae_NAME *NameData;
+	ZOGII_ULONG_TYPE SpeciesTotal;
+	struct ZOGII_Coccinellidae_SPECIES *SpeciesData;
 };
 
 //瓢虫科亚科
@@ -371,8 +371,8 @@ struct ZOGII_Coccinellidae_SUBFamily
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ZOGII_ULONG_TYPE zogiiSFTotalDB(void);
 ZOGII_ULONG_TYPE zogiiGETotalDB(void);
-ZOGII_ULONG_TYPE zogiiNATotalDB(void);
 ZOGII_ULONG_TYPE zogiiSPTotalDB(void);
+ZOGII_ULONG_TYPE zogiiSSPTotalDB(void);
 
 ZOGII_ULONG_TYPE zogiiVersionDB(void);
 void zogiiSetDirectory(char *dir);
@@ -404,9 +404,12 @@ int zogiiSort_SP(const void *A,const void *B);
 void zogiiSortDB(ZOGII_ULONG_TYPE total,struct ZOGII_Coccinellidae_SUBFamily *&data);
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 int zogiiPrintfDB(ZOGII_ULONG_TYPE total,struct ZOGII_Coccinellidae_SUBFamily *&data);
+
+void zogiiSearchDB(char *printfstr,unsigned int printflen,char *str,
+				  ZOGII_ULONG_TYPE total,struct ZOGII_Coccinellidae_SUBFamily *&data);
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ZOGII_ULONG_TYPE zogiiCodeGen(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily *&data,	\
-					unsigned char type,ZOGII_ULONG_TYPE sf,ZOGII_ULONG_TYPE ge,ZOGII_ULONG_TYPE na);
+					unsigned char type,ZOGII_ULONG_TYPE sf,ZOGII_ULONG_TYPE ge,ZOGII_ULONG_TYPE sp);
 
 void zogiiTEMPSaveDB(struct ZOGII_Coccinellidae_DATA *data,	\
 					ZOGII_ULONG_TYPE *tempImago,	\
@@ -427,7 +430,7 @@ void zogiiAddSaveDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily
 					ZOGII_ULONG_TYPE *Pupatotal,	struct ZOGII_Pupa *&Pupadata,
 					ZOGII_ULONG_TYPE *Ovumtotal,struct ZOGII_Ovum *&Ovumdata,
 					ZOGII_ULONG_TYPE *Closeuptotal,struct ZOGII_Closeup *&Closeupdata,
-					unsigned char type,ZOGII_ULONG_TYPE sf,ZOGII_ULONG_TYPE ge,ZOGII_ULONG_TYPE na,	ZOGII_ULONG_TYPE sp,	\
+					unsigned char type,ZOGII_ULONG_TYPE sf,ZOGII_ULONG_TYPE ge,ZOGII_ULONG_TYPE sp,	ZOGII_ULONG_TYPE ssp,	\
 					struct ZOGII_Coccinellidae_DATA *newdata,
 					struct ZOGII_Imago *NewImagodata,
 					struct ZOGII_Larva *NewLarvadata,
@@ -502,7 +505,7 @@ void zogiiInitpicDB(struct ZOGII_Coccinellidae_DATA *data);
 
 /////////////////////////////////////////////////
 void zogiiDeleteDB(ZOGII_ULONG_TYPE *total,struct ZOGII_Coccinellidae_SUBFamily *&data,	\
-					unsigned char type,ZOGII_ULONG_TYPE sf,ZOGII_ULONG_TYPE ge,ZOGII_ULONG_TYPE na,ZOGII_ULONG_TYPE sp,	\
+					unsigned char type,ZOGII_ULONG_TYPE sf,ZOGII_ULONG_TYPE ge,ZOGII_ULONG_TYPE sp,ZOGII_ULONG_TYPE ssp,	\
 					struct ZOGII_Imago *&Imagodata,
 					struct ZOGII_Larva *&Larvadata,
 					struct ZOGII_Pupa *&Pupadata,

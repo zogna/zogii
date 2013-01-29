@@ -111,6 +111,7 @@ CZogiiaddDlg::CZogiiaddDlg(CWnd* pParent /*=NULL*/)
 	m_CloseupPicPath = _T("");
 	m_minsize = 0;
 	m_maxsize = 0;
+	m_search = _T("");
 	//}}AFX_DATA_INIT
 	// Note that LoadIcon does not require a subsequent DestroyIcon in Win32
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -278,6 +279,8 @@ void CZogiiaddDlg::DoDataExchange(CDataExchange* pDX)
 	DDV_MaxChars(pDX, m_CloseupPicPath, 260);
 	DDX_Slider(pDX, IDC_SLIDER_MINSIZE, m_minsize);
 	DDX_Slider(pDX, IDC_SLIDER_MAXSIZE, m_maxsize);
+	DDX_Text(pDX, IDC_EDIT_SEARCH, m_search);
+	DDV_MaxChars(pDX, m_search, 260);
 	//}}AFX_DATA_MAP
 }
 
@@ -334,6 +337,8 @@ BEGIN_MESSAGE_MAP(CZogiiaddDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_FASTSTR, OnButtonFaststr)
 	ON_NOTIFY(NM_CUSTOMDRAW, IDC_SLIDER_MAXSIZE, OnCustomdrawSliderMaxsize)
 	ON_NOTIFY(NM_CUSTOMDRAW, IDC_SLIDER_MINSIZE, OnCustomdrawSliderMinsize)
+	ON_BN_CLICKED(IDC_BUTTON_SORTSAVEDB, OnButtonSortsavedb)
+	ON_BN_CLICKED(IDC_BUTTON_SEARCH, OnButtonSearch)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -370,7 +375,7 @@ BOOL CZogiiaddDlg::OnInitDialog()
 
     sprintf(str,"zogci_db@zogna      Build:%s,%s     DataBaseVersion:%d    亚科%d属%d种%d亚种%d PicTotal:%d",	\
 			__DATE__,__TIME__,zogiiVersionDB(),	\
-			zogiiSFTotalDB(),zogiiGETotalDB(),zogiiNATotalDB(),zogiiSPTotalDB(),
+			zogiiSFTotalDB(),zogiiGETotalDB(),zogiiSPTotalDB(),zogiiSSPTotalDB(),
 				DBImagototal+DBLarvatotal+DBPupatotal+DBOvumtotal+DBCloseuptotal);
     SetWindowText(str);
 
@@ -469,11 +474,11 @@ void CZogiiaddDlg::OnBUTTONDeleteData()
 
 	if(	(TYPE_NEW_SubFamily !=curlist->type) &&	\
 		(TYPE_NEW_Genus !=curlist->type) &&		\
-		(TYPE_NEW_Name !=curlist->type) &&		\
-		(TYPE_NEW_SpName !=curlist->type))
+		(TYPE_NEW_Species !=curlist->type) &&		\
+		(TYPE_NEW_Subspecies !=curlist->type))
 	{
 		zogiiDeleteDB(&DBtotal,DBdata,
-			curlist->type,curlist->sf,curlist->ge,curlist->na,curlist->sp,
+			curlist->type,curlist->sf,curlist->ge,curlist->sp,curlist->ssp,
 			DBImagodata,DBLarvadata,DBPupadata,	DBOvumdata,DBCloseupdata);
 		//这里做COPY是因为经过BuildDeleteTree函数以后，curlist指针被改变
 		memcpy(&templist,curlist,sizeof(DATALIST));
@@ -503,7 +508,7 @@ void CZogiiaddDlg::OnBUTTONSaveData()
 		&DBPupatotal,DBPupadata,
 		&DBOvumtotal,DBOvumdata,
 		&DBCloseuptotal,DBCloseupdata,
-		curlist->type,curlist->sf,curlist->ge,curlist->na,curlist->sp,
+		curlist->type,curlist->sf,curlist->ge,curlist->sp,curlist->ssp,
 		&Newdata,
 		NewImagodata,NewLarvadata,NewPupadata,NewOvumdata,NewCloseupdata);
 
@@ -511,6 +516,7 @@ void CZogiiaddDlg::OnBUTTONSaveData()
 
 	UpdateData(FALSE);
 	MessageBox(_T("保存成功"), _T("保存"));
+
 }
 /*
 void CZogiiaddDlg::OnBUTTONDataOutputPath() 
@@ -715,6 +721,24 @@ void CZogiiaddDlg::OnSelchangedTree(NMHDR* pNMHDR, LRESULT* pResult)
 //	*pResult = 0;
 }
 
+void CZogiiaddDlg::OnButtonSortsavedb() 
+{
+	// TODO: Add your control notification handler code here
+	//先排序
+	zogiiSortDB(DBtotal,DBdata);
+
+	if(zogiiWriteDB(DBtotal,DBdata,
+		DBImagototal,DBImagodata,
+		DBLarvatotal,DBLarvadata,
+		DBPupatotal,DBPupadata,
+		DBOvumtotal,DBOvumdata,
+		DBCloseuptotal,DBCloseupdata))
+		MessageBox(_T("排序数据库保存成功"), _T("数据库保存"));
+	else
+		MessageBox(_T("排序数据库保存失败"), _T("数据库保存"));
+}
+
+//不排序
 void CZogiiaddDlg::OnBUTTONSaveDB() 
 {
 	// TODO: Add your control notification handler code here
@@ -944,7 +968,7 @@ void CZogiiaddDlg::AddListBuf()
 }
 //增加树的一个项目
 HTREEITEM CZogiiaddDlg::AddTree(HTREEITEM parent,char *str,	\
-								unsigned char type,ZOGII_LONG_TYPE sf,ZOGII_LONG_TYPE ge,ZOGII_LONG_TYPE na,ZOGII_LONG_TYPE sp)
+								unsigned char type,ZOGII_LONG_TYPE sf,ZOGII_LONG_TYPE ge,ZOGII_LONG_TYPE sp,ZOGII_LONG_TYPE ssp)
 {
 	AddListBuf();
 
@@ -962,18 +986,18 @@ HTREEITEM CZogiiaddDlg::AddTree(HTREEITEM parent,char *str,	\
 		DataList[ListTotal].sf=sf;
 		DataList[ListTotal].ge=ge;
 	}
-	else 	if(TYPE_Name == type)
+	else 	if(TYPE_Species == type)
 	{
 		DataList[ListTotal].sf=sf;
 		DataList[ListTotal].ge=ge;
-		DataList[ListTotal].na=na;
-	}	
-	else 	if(TYPE_SpName == type)
-	{
-		DataList[ListTotal].sf=sf;
-		DataList[ListTotal].ge=ge;
-		DataList[ListTotal].na=na;
 		DataList[ListTotal].sp=sp;
+	}	
+	else 	if(TYPE_Subspecies == type)
+	{
+		DataList[ListTotal].sf=sf;
+		DataList[ListTotal].ge=ge;
+		DataList[ListTotal].sp=sp;
+		DataList[ListTotal].ssp=ssp;
 	}
 	else 	if(TYPE_NEW_SubFamily == type)
 	{
@@ -983,16 +1007,16 @@ HTREEITEM CZogiiaddDlg::AddTree(HTREEITEM parent,char *str,	\
 	{
 		DataList[ListTotal].sf=sf;
 	}
-	else 	if(TYPE_NEW_Name == type)
+	else 	if(TYPE_NEW_Species == type)
 	{
 		DataList[ListTotal].sf=sf;
 		DataList[ListTotal].ge=ge;
 	}
-	else 	if(TYPE_NEW_SpName == type)
+	else 	if(TYPE_NEW_Subspecies == type)
 	{
 		DataList[ListTotal].sf=sf;
 		DataList[ListTotal].ge=ge;
-		DataList[ListTotal].na=na;
+		DataList[ListTotal].sp=sp;
 	}
 
 	ListTotal++;
@@ -1013,16 +1037,16 @@ void CZogiiaddDlg::BuildTree()
 		for(j=0;j<DBdata[i].GenusTotal;j++)
 		{
 			hItemB=AddTree(hItemA,DBdata[i].GenusData[j].GE.Genus[language],TYPE_Genus,i,j,0,0);
-			for(k=0;k<DBdata[i].GenusData[j].NameTotal;k++)
+			for(k=0;k<DBdata[i].GenusData[j].SpeciesTotal;k++)
 			{
-				hItemC=AddTree(hItemB,DBdata[i].GenusData[j].NameData[k].NA.Species[language],TYPE_Name,i,j,k,0);
-				for(m=0;m<DBdata[i].GenusData[j].NameData[k].SpTotal;m++)
+				hItemC=AddTree(hItemB,DBdata[i].GenusData[j].SpeciesData[k].SP.Species[language],TYPE_Species,i,j,k,0);
+				for(m=0;m<DBdata[i].GenusData[j].SpeciesData[k].SubspTotal;m++)
 				{
-					AddTree(hItemC,DBdata[i].GenusData[j].NameData[k].SpData[m].Subspecies[language],TYPE_SpName,i,j,k,m);
+					AddTree(hItemC,DBdata[i].GenusData[j].SpeciesData[k].SubspData[m].Subspecies[language],TYPE_Subspecies,i,j,k,m);
 				}
-				AddTree(hItemC,NEWSpName_STR,TYPE_NEW_SpName,i,j,k,0);
+				AddTree(hItemC,NEWSubspecies_STR,TYPE_NEW_Subspecies,i,j,k,0);
 			}
-			AddTree(hItemB,NEWName_STR,TYPE_NEW_Name,i,j,0,0);
+			AddTree(hItemB,NEWSpecies_STR,TYPE_NEW_Species,i,j,0,0);
 		}
 		AddTree(hItemA,NEWGenus_STR,TYPE_NEW_Genus,i,0,0,0);
 	}
@@ -1045,17 +1069,17 @@ void CZogiiaddDlg::BuildNewTree(DATALIST *dl)
 		//修改字符串
 		m_tree.SetItemText(dl->item,DBdata[curlist->sf].GenusData[curlist->ge].GE.Genus[language]);
 	}
-	else 	if(TYPE_Name == dl->type)
+	else 	if(TYPE_Species == dl->type)
 	{
 		//修改字符串
 		m_tree.SetItemText(dl->item,	\
-			DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA.Species[language]);
+			DBdata[curlist->sf].GenusData[curlist->ge].SpeciesData[curlist->sp].SP.Species[language]);
 	}	
-	else 	if(TYPE_SpName == dl->type)
+	else 	if(TYPE_Subspecies == dl->type)
 	{
 		//修改字符串
 		m_tree.SetItemText(dl->item,	\
-			DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].SpData[curlist->sp].Subspecies[language]);
+			DBdata[curlist->sf].GenusData[curlist->ge].SpeciesData[curlist->sp].SubspData[curlist->ssp].Subspecies[language]);
 	}
 	else if(TYPE_NEW_SubFamily == dl->type)
 	{
@@ -1090,50 +1114,50 @@ void CZogiiaddDlg::BuildNewTree(DATALIST *dl)
 		//加一个兄弟
 		AddTree(tempdl.Parent_item,NEWGenus_STR,TYPE_NEW_Genus,tempdl.sf,0,0,0);
 		//加一个子
-		AddTree(tempdl.item,NEWName_STR,TYPE_NEW_Name,tempdl.sf,tempdl.ge,0,0);
+		AddTree(tempdl.item,NEWSpecies_STR,TYPE_NEW_Species,tempdl.sf,tempdl.ge,0,0);
 #else
 		//加一个兄弟
 		AddTree(dl->Parent_item,NEWGenus_STR,TYPE_NEW_Genus,dl->sf,0,0,0);
 		//加一个子
-		AddTree(dl->item,NEWName_STR,TYPE_NEW_Name,dl->sf,dl->ge,0,0);
+		AddTree(dl->item,NEWName_STR,TYPE_NEW_Species,dl->sf,dl->ge,0,0);
 #endif
 	}
-	else if(TYPE_NEW_Name == dl->type)
+	else if(TYPE_NEW_Species == dl->type)
 	{
 		//修改状态
-		dl->type=TYPE_Name;
-		dl->na=DBdata[dl->sf].GenusData[dl->ge].NameTotal-1;
+		dl->type=TYPE_Species;
+		dl->sp=DBdata[dl->sf].GenusData[dl->ge].SpeciesTotal-1;
 		//修改字符串
 		m_tree.SetItemText(dl->item,	\
-			DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA.Species[language]);
+			DBdata[curlist->sf].GenusData[curlist->ge].SpeciesData[curlist->sp].SP.Species[language]);
 #if 1	
 		memcpy(&tempdl,dl,sizeof(DATALIST));
 		//加一个兄弟
-		AddTree(tempdl.Parent_item,NEWName_STR,TYPE_NEW_Name,tempdl.sf,tempdl.ge,0,0);
+		AddTree(tempdl.Parent_item,NEWSpecies_STR,TYPE_NEW_Species,tempdl.sf,tempdl.ge,0,0);
 		//加一个子
-		AddTree(tempdl.item,NEWSpName_STR,TYPE_NEW_SpName,tempdl.sf,tempdl.ge,tempdl.na,0);
+		AddTree(tempdl.item,NEWSubspecies_STR,TYPE_NEW_Subspecies,tempdl.sf,tempdl.ge,tempdl.sp,0);
 #else
 		//加一个兄弟
-		AddTree(dl->Parent_item,NEWName_STR,TYPE_NEW_Name,dl->sf,dl->ge,0,0);
+		AddTree(dl->Parent_item,NEWName_STR,TYPE_NEW_Species,dl->sf,dl->ge,0,0);
 		//加一个子
-		AddTree(dl->item,NEWSpName_STR,TYPE_NEW_SpName,dl->sf,dl->ge,dl->na,0);
+		AddTree(dl->item,NEWSubspecies_STR,TYPE_NEW_Subspecies,dl->sf,dl->ge,dl->sp,0);
 #endif
 	}	
-	else if(TYPE_NEW_SpName == dl->type)
+	else if(TYPE_NEW_Subspecies == dl->type)
 	{
 		//修改状态
-		dl->type=TYPE_SpName;
-		dl->sp=DBdata[dl->sf].GenusData[dl->ge].NameData[dl->na].SpTotal-1;
+		dl->type=TYPE_Subspecies;
+		dl->ssp=DBdata[dl->sf].GenusData[dl->ge].SpeciesData[dl->sp].SubspTotal-1;
 		//修改字符串
 		m_tree.SetItemText(dl->item,	\
-			DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].SpData[curlist->sp].Subspecies[language]);
+			DBdata[curlist->sf].GenusData[curlist->ge].SpeciesData[curlist->sp].SubspData[curlist->ssp].Subspecies[language]);
 #if 1	
 		memcpy(&tempdl,dl,sizeof(DATALIST));
 		//加一个兄弟
-		AddTree(tempdl.Parent_item,NEWSpName_STR,TYPE_NEW_SpName,tempdl.sf,tempdl.ge,tempdl.na,0);
+		AddTree(tempdl.Parent_item,NEWSubspecies_STR,TYPE_NEW_Subspecies,tempdl.sf,tempdl.ge,tempdl.sp,0);
 #else
 		//加一个兄弟
-		AddTree(dl->Parent_item,NEWSpName_STR,TYPE_NEW_SpName,dl->sf,dl->ge,dl->na,0);
+		AddTree(dl->Parent_item,NEWSubspecies_STR,TYPE_NEW_Subspecies,dl->sf,dl->ge,dl->sp,0);
 #endif
 	}
 }
@@ -1146,8 +1170,8 @@ void CZogiiaddDlg::BuildDeleteTree(DATALIST *dl)
 	if( (TYPE_SubFamily == dl->type) || \
 		(TYPE_Genus == dl->type) ||		\
 		(TYPE_NEW_Genus == dl->type)||	\
-		(TYPE_Name == dl->type) ||		\
-		(TYPE_NEW_Name == dl->type) )
+		(TYPE_Species == dl->type) ||		\
+		(TYPE_NEW_Species == dl->type) )
 	{
 		//修改状态
 		for(i=0;i<ListTotal;i++)
@@ -1165,7 +1189,7 @@ void CZogiiaddDlg::BuildDeleteTree(DATALIST *dl)
 		dl->flag=0;
 		m_tree.DeleteItem(dl->item);
 	}
-	else if((TYPE_SpName == dl->type) || (TYPE_NEW_SpName ==dl->type))
+	else if((TYPE_Subspecies == dl->type) || (TYPE_NEW_Subspecies ==dl->type))
 	{
 		//自己被删除
 		dl->flag=0;
@@ -1199,18 +1223,18 @@ void CZogiiaddDlg::BuildDeleteTreeMove(DATALIST *dl)
 						DataList[i].ge--;
 				}
 				break;
-			case TYPE_Name:
-				if(	(DataList[i].na > dl->na) )
-				{
-					if(DataList[i].na >0)
-						DataList[i].na--;
-				}
-				break;
-			case TYPE_SpName:
+			case TYPE_Species:
 				if(	(DataList[i].sp > dl->sp) )
 				{
 					if(DataList[i].sp >0)
 						DataList[i].sp--;
+				}
+				break;
+			case TYPE_Subspecies:
+				if(	(DataList[i].ssp > dl->ssp) )
+				{
+					if(DataList[i].ssp >0)
+						DataList[i].ssp--;
 				}
 				break;
 			default:break;
@@ -1293,45 +1317,45 @@ void CZogiiaddDlg::InitInfoData()
 		UpdateData(FALSE);
 		return ;
 	}
-	else	if(TYPE_Name == curlist->type)
+	else	if(TYPE_Species == curlist->type)
 	{
-		CopyInfoDBData2M(&DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA);
+		CopyInfoDBData2M(&DBdata[curlist->sf].GenusData[curlist->ge].SpeciesData[curlist->sp].SP);
 
-		ReadDB2Imago(&DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA);
+		ReadDB2Imago(&DBdata[curlist->sf].GenusData[curlist->ge].SpeciesData[curlist->sp].SP);
 		ReadImago2M(m_ImagoNo);
 			
-		ReadDB2Larva(&DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA);
+		ReadDB2Larva(&DBdata[curlist->sf].GenusData[curlist->ge].SpeciesData[curlist->sp].SP);
 		ReadLarva2M(m_LarvaNo);
 
-		ReadDB2Pupa(&DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA);
+		ReadDB2Pupa(&DBdata[curlist->sf].GenusData[curlist->ge].SpeciesData[curlist->sp].SP);
 		ReadPupa2M(m_PupaNo);
 
-		ReadDB2Ovum(&DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA);
+		ReadDB2Ovum(&DBdata[curlist->sf].GenusData[curlist->ge].SpeciesData[curlist->sp].SP);
 		ReadOvum2M(m_OvumNo);
 
-		ReadDB2Closeup(&DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA);
+		ReadDB2Closeup(&DBdata[curlist->sf].GenusData[curlist->ge].SpeciesData[curlist->sp].SP);
 		ReadCloseup2M(m_CloseupNo);
 
 		UpdateData(FALSE);
 		return ;
 	}
-	else	if(TYPE_SpName == curlist->type)
+	else	if(TYPE_Subspecies == curlist->type)
 	{
-		CopyInfoDBData2M(&DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].SpData[curlist->sp]);
+		CopyInfoDBData2M(&DBdata[curlist->sf].GenusData[curlist->ge].SpeciesData[curlist->sp].SubspData[curlist->ssp]);
 
-		ReadDB2Imago(&DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].SpData[curlist->sp]);
+		ReadDB2Imago(&DBdata[curlist->sf].GenusData[curlist->ge].SpeciesData[curlist->sp].SubspData[curlist->ssp]);
 		ReadImago2M(m_ImagoNo);
 
-		ReadDB2Larva(&DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].SpData[curlist->sp]);
+		ReadDB2Larva(&DBdata[curlist->sf].GenusData[curlist->ge].SpeciesData[curlist->sp].SubspData[curlist->ssp]);
 		ReadLarva2M(m_LarvaNo);
 
-		ReadDB2Pupa(&DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].SpData[curlist->sp]);
+		ReadDB2Pupa(&DBdata[curlist->sf].GenusData[curlist->ge].SpeciesData[curlist->sp].SubspData[curlist->ssp]);
 		ReadPupa2M(m_PupaNo);
 
-		ReadDB2Ovum(&DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].SpData[curlist->sp]);
+		ReadDB2Ovum(&DBdata[curlist->sf].GenusData[curlist->ge].SpeciesData[curlist->sp].SubspData[curlist->ssp]);
 		ReadOvum2M(m_OvumNo);
 
-		ReadDB2Closeup(&DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].SpData[curlist->sp]);
+		ReadDB2Closeup(&DBdata[curlist->sf].GenusData[curlist->ge].SpeciesData[curlist->sp].SubspData[curlist->ssp]);
 		ReadCloseup2M(m_CloseupNo);
 
 		UpdateData(FALSE);
@@ -1365,7 +1389,7 @@ void CZogiiaddDlg::InitInfoData()
 		m_NameCN = _T("");
 		m_NameTW = _T("");
 	}
-	else	if(TYPE_NEW_Name == curlist->type)
+	else	if(TYPE_NEW_Species == curlist->type)
 	{
 		m_SubFamilyEN = DBdata[curlist->sf].SF.SubFamily[0];
 		m_SubFamilyCN = DBdata[curlist->sf].SF.SubFamily[1];
@@ -1379,7 +1403,7 @@ void CZogiiaddDlg::InitInfoData()
 		m_NameCN = _T("");
 		m_NameTW = _T("");
 	}
-	else	if(TYPE_NEW_SpName == curlist->type)
+	else	if(TYPE_NEW_Subspecies == curlist->type)
 	{
 		m_SubFamilyEN = DBdata[curlist->sf].SF.SubFamily[0];
 		m_SubFamilyCN = DBdata[curlist->sf].SF.SubFamily[1];
@@ -1389,9 +1413,9 @@ void CZogiiaddDlg::InitInfoData()
 		m_GenusCN = DBdata[curlist->sf].GenusData[curlist->ge].GE.Genus[1];
 		m_GenusTW = DBdata[curlist->sf].GenusData[curlist->ge].GE.Genus[2];
 
-		m_NameEN = DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA.Species[0];
-		m_NameCN = DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA.Species[1];
-		m_NameTW = DBdata[curlist->sf].GenusData[curlist->ge].NameData[curlist->na].NA.Species[2];
+		m_NameEN = DBdata[curlist->sf].GenusData[curlist->ge].SpeciesData[curlist->sp].SP.Species[0];
+		m_NameCN = DBdata[curlist->sf].GenusData[curlist->ge].SpeciesData[curlist->sp].SP.Species[1];
+		m_NameTW = DBdata[curlist->sf].GenusData[curlist->ge].SpeciesData[curlist->sp].SP.Species[2];
 	}
 
 	m_code = 0;
@@ -1476,13 +1500,13 @@ void CZogiiaddDlg::CopyInfoDBData2M(struct ZOGII_Coccinellidae_DATA* d)
 	m_TextCNPath = d->Text[1];
 	m_TextTWPath = d->Text[2];
 
-	m_OtherNameA = d->OtherName[0];
-	m_OtherNameB = d->OtherName[1];
-	m_OtherNameC = d->OtherName[2];
-	m_OtherNameD = d->OtherName[3];
-	m_OtherNameE = d->OtherName[4];
-	m_OtherNameF = d->OtherName[5];
-	m_OtherNameG = d->OtherName[6];
+	m_OtherNameA = d->Synonyms[0];
+	m_OtherNameB = d->Synonyms[1];
+	m_OtherNameC = d->Synonyms[2];
+	m_OtherNameD = d->Synonyms[3];
+	m_OtherNameE = d->Synonyms[4];
+	m_OtherNameF = d->Synonyms[5];
+	m_OtherNameG = d->Synonyms[6];
 
 	m_Date = CTime::GetCurrentTime();
 	m_Food = d->FoodType;
@@ -1549,13 +1573,13 @@ void CZogiiaddDlg::CopyInfoM2NewData()
 	sprintf(Newdata.Text[1] , "%s", m_TextCNPath.GetBuffer(0)); 
 	sprintf(Newdata.Text[2] , "%s", m_TextTWPath.GetBuffer(0)); 
 
-	sprintf(Newdata.OtherName[0] , "%s", m_OtherNameA.GetBuffer(0)); 
-	sprintf(Newdata.OtherName[1] , "%s", m_OtherNameB.GetBuffer(0)); 
-	sprintf(Newdata.OtherName[2] , "%s", m_OtherNameC.GetBuffer(0)); 
-	sprintf(Newdata.OtherName[3] , "%s", m_OtherNameD.GetBuffer(0)); 
-	sprintf(Newdata.OtherName[4] , "%s", m_OtherNameE.GetBuffer(0)); 
-	sprintf(Newdata.OtherName[5] , "%s", m_OtherNameF.GetBuffer(0)); 
-	sprintf(Newdata.OtherName[6] , "%s", m_OtherNameG.GetBuffer(0)); 
+	sprintf(Newdata.Synonyms[0] , "%s", m_OtherNameA.GetBuffer(0)); 
+	sprintf(Newdata.Synonyms[1] , "%s", m_OtherNameB.GetBuffer(0)); 
+	sprintf(Newdata.Synonyms[2] , "%s", m_OtherNameC.GetBuffer(0)); 
+	sprintf(Newdata.Synonyms[3] , "%s", m_OtherNameD.GetBuffer(0)); 
+	sprintf(Newdata.Synonyms[4] , "%s", m_OtherNameE.GetBuffer(0)); 
+	sprintf(Newdata.Synonyms[5] , "%s", m_OtherNameF.GetBuffer(0)); 
+	sprintf(Newdata.Synonyms[6] , "%s", m_OtherNameG.GetBuffer(0)); 
 	Newdata.year=(char)(m_Date.GetYear()-2000);
 	Newdata.month=(char)m_Date.GetMonth();
 	Newdata.day=(char)m_Date.GetDay();
@@ -2021,7 +2045,7 @@ void CZogiiaddDlg::OnButtonDatain()
 			&DBPupatotal,DBPupadata,
 			&DBOvumtotal,DBOvumdata,
 			&DBCloseuptotal,DBCloseupdata,
-			curlist->type,curlist->sf,curlist->ge,curlist->na,curlist->sp,
+			curlist->type,curlist->sf,curlist->ge,curlist->sp,curlist->ssp,
 			&Newdata,
 			NewImagodata,NewLarvadata,NewPupadata,NewOvumdata,NewCloseupdata);
 		
@@ -2035,7 +2059,7 @@ void CZogiiaddDlg::OnButtonDatain()
 			&DBPupatotal,DBPupadata,
 			&DBOvumtotal,DBOvumdata,
 			&DBCloseuptotal,DBCloseupdata,
-			curlist->type,curlist->sf,curlist->ge,curlist->na,curlist->sp,
+			curlist->type,curlist->sf,curlist->ge,curlist->sp,curlist->ssp,
 			&Newdata,
 			NewImagodata,NewLarvadata,NewPupadata,NewOvumdata,NewCloseupdata);
 
@@ -2248,4 +2272,14 @@ void CZogiiaddDlg::OnCustomdrawSliderMinsize(NMHDR* pNMHDR, LRESULT* pResult)
 	GetDlgItem(IDC_STATIC_MINSIZE)->SetWindowText(str);
 
 	*pResult = 0;
+}
+
+void CZogiiaddDlg::OnButtonSearch() 
+{
+	// TODO: Add your control notification handler code here
+	UpdateData(TRUE);
+	char printfstr[5120]="";
+
+	zogiiSearchDB(printfstr,5120,m_search.GetBuffer(0),DBtotal,DBdata);
+	MessageBox(printfstr);
 }
