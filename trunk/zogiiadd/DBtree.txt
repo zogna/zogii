@@ -45,7 +45,10 @@
 		00007-	hexacyclus-	hexacyclus-	hexacyclus	[]
 		00017-	infernalis-	infernalis-	infernalis	[]
 		00008-	kuwanae-	kuwanae-	kuwanae	[]
+		00022-	maculatus-	-		[]
+		00023-	malasiae-	-		[Chilocorus australasiae Gadeau de Kerville, 1884: 71.-	Chilocorus Baileyi Blackburn, 1890: 1275-	Chilocorus flavidus Blackburn, 1892: 239.-	Chilocorus diadema Weise, 1898: 228.-	Chilocorus nasicornis Korschefsky, 1944: 52.-	]
 		00018-	melas-	melas-	melas	[]
+		00024-	micrus-	-		[]
 		00014-	nigrita-	nigrita-	nigrita	[Coccinela nigrita Fabricius 1798: 79.-	Chilocorus nigritus Mulsant 1850: 463 -	Chilocorus cerberus Mulsant, 1846: 148. -	]
 		00010-	orbus-	orbus-	orbus	[]
 		00003-	politus-	politus-	politus	[]
@@ -356,6 +359,7 @@
 	00053-	Cirocolla-	Cirocolla-	Cirocolla
 		00000-	conspicillata-	conspicillata-	conspicillata	[Daulis conspicillata Mulsant 1850, Cycloneda conspicillata Crotch 1871-	Cirocolla conspicillata Vandenberg 1992-	]
 	00059-	Cleobora-	Cleobora-	Cleobora
+		00000-	mellyi-	-		[]
 	00060-	Clynis-	Clynis-	Clynis
 	00008-	Coccinella-	∆∞≥Ê Ù-	∆∞≥Ê Ù
 		00009-	ainu-	ª™»’∆∞≥Ê -	ª™»’∆∞≥Ê	[]
@@ -385,7 +389,7 @@
 		00007-	sedakovi-	ÃÏ…Ω∆∞≥Ê-	ÃÏ…Ω∆∞≥Ê	[]
 		00000-	septempunctata-	∆ﬂ–«∆∞≥Ê-	∆ﬂ–«∆∞œx	[Coccinella septempunctata brucki Mulsant-	]
 		00004-	tibetina-	Œ˜≤ÿ∆∞≥Ê-	Œ˜≤ÿ∆∞≥Ê	[]
-		00001-	transversalis-	≤®ºy∆∞œx(™MÕŒ∆∞œx)-	≤®ºy∆∞œx(™MÕŒ∆∞œx)	[Coccinella repanda Thunberg, 1781-	]
+		00001-	transversalis-	≤®ºy∆∞œx(™MÕŒ∆∞œx)-	≤®ºy∆∞œx(™MÕŒ∆∞œx)	[Coccinella repanda Thunberg, 1781-	Coccinella contempta Boisduval, 1835: 592.-	]
 		00002-	transversoguttata-	ôMºy∆∞œx(ôM∞ﬂ∆∞œx)-	ôMºy∆∞œx(ôM∞ﬂ∆∞œx)	[]
 		00012-	trifasciata-	∫·¥¯∆∞≥Ê-	∫·¥¯∆∞≥Ê	[]
 		00008-	undecimpunctata-	 Æ“ª–«∆∞≥Ê-	 Æ“ª–«∆∞≥Ê	[]
@@ -402,8 +406,10 @@
 			00000-	tanoi-	tanoi-	tanoi	[]
 		00004-	decimmaculata-	À´ŒÂ«ª∆∞≥Ê-	À´ŒÂ«ª∆∞≥Ê	[]
 		00003-	flavomarginata-	ª∆‘µ≈Ã∆Æ≥Ê-	ª∆‘µ≈Ã∆Æ≥Ê	[]
-		00002-	inaequalis-	±‰∞ﬂ≈Ã∆∞≥Ê(æ≈–«∆∞≥Ê)-	◊É∞ﬂ±P∆∞œx(æ≈–«∆∞œx)	[]
+		00002-	inaequalis-	±‰∞ﬂ≈Ã∆∞≥Ê(æ≈–«∆∞≥Ê)-	◊É∞ﬂ±P∆∞œx(æ≈–«∆∞œx)	[Coccinella 9punctata Fabricius, 1775: 81.-	Coccinella novemmaculata Fabricius, 1781: 97-	Coleophora Ripponi Crotch, 1874: 156.-	Coleophora Mastersi Blackburn, 1892b: 238.-	Coleophora veranioides Blackburn, 1894: 239-	Coccinella religiosa Lea, 1902: 488.-	]
 		00001-	itoi-	Àƒ∞ﬂª∆∆∞≥Ê-	Àƒ∞ﬂ¸S∆∞œx	[]
+		00009-	jansoni-	-		[Lemnia jansoni: Iablokoff-Khnzorian 1982: 247.-	]
+		00010-	mulsanti-	-		[Coccinella (Daulis) mulsanti Montrouzier, 1861: 304.-	Coelophora ochracea Mulsant, 1866: 262.-	]
 		00008-	pupillata-	pupillata-	pupillata	[]
 		00005-	sexquttata-	¡˘ºt–«∆∞œx-	¡˘ºt–«∆∞œx	[]
 	00039-	Coleomegilla-	Coleomegilla-	Coleomegilla
@@ -752,6 +758,7 @@
 		00057-	albovittata-	albovittata-	albovittata	[Solanophila albovittata Weise 1906, Epilachna albovittata Korchefsky 1931-	]
 		00012-	angusta-	÷±π‹ ≥÷≤∆∞≥Ê-	÷±π‹ ≥÷≤∆∞≥Ê	[]
 		00013-	bifibra-	À´“∂ ≥÷≤∆∞≥Ê-	À´“∂ ≥÷≤∆∞≥Ê	[]
+		00067-	boisduvali-	-		[Epilachna Montrouzieri Fauvel, 1862: 57.-	Henosepilachna boisduvali: Li 1993: 219-	]
 		00018-	borealis-	borealis-	borealis	[]
 		00023-	cacica-	cacica-	cacica	[1844, Epilachna cacica Mulsant 1850-	 Epilachna preacincta Erichson 1847, Epilachna cacica ab. praecincta Korschefsky 1931-	 Epilachna serva Mulsant 1853-	]
 		00024-	callangae-	callangae-	callangae	[]
@@ -773,7 +780,7 @@
 		00033-	flavofasciata-	flavofasciata-	flavofasciata	[]
 		00014-	formosana-	Ã®ÕÂ ≥÷≤∆∞≥Ê-	Ã®ÕÂ ≥÷≤∆∞≥Ê	[Afissa decemguttata  Dieke, 1947 (nec. Weise, 1923)-	Epilachna confusa Li, 1961,syn. nov.-	]
 		00034-	geometrica-	geometrica-	geometrica	[Solanophila geometrica Weise 1899, Epilachna geometrica Korschefsky 1931-	]
-		00059-	guttatopustulata-	-		[]
+		00059-	guttatopustulata-	-		[Coccinella Guttato-pustulata Fabricius, 1775: 87.-	Epilachna pandora Mulsant, 1853: 237.-	Henosepilachna guttatopustulata: Li 1993: 220.-	]
 		00004-	hendecaspilota-	 Æ“ª∞ﬂ ≥÷≤∆∞œx-	 Æ“ª∞ﬂ ≥÷≤∆∞œx	[Epilachna flavicollis  Li et Cook, 1961 (nec. Thunberg, 1781)-	]
 		00035-	ignobilis-	ignobilis-	ignobilis	[Solanophila ignobilis Weise, 1892, Epilachna ignobilis Korchefsky 1931-	]
 		00017-	lata-	Àÿ∫⁄éß∆∞œx-	Àÿ∫⁄éß∆∞œx	[]
@@ -783,6 +790,7 @@
 		00037-	marginella-	marginella-	marginella	[Coccinella marginella Fabricius 1787: 53-	Coccinella palliata Fabricius 1803: 293 -	Coccinella albocincta Germar 1824: 619-	Epilachna marginella Crotch 1874: 64-	Epilachna palliata Mulsant 1850: 943 -	Epilachna albicincta Korschefsky 1931: 63-	]
 		00011-	maxima-	¥Û ≥÷≤∆∞œx-	¥Û ≥÷≤∆∞œx	[Afissa maxima (Weise, 1898)-	Solanophila saginata  Korschefsky, 1933 (nec. Weise, 1902)-	]
 		00007-	microgenitalia-	–°Íñ ≥÷≤∆∞œx-	–°Íñ ≥÷≤∆∞œx	[]
+		00068-	mjoebergi-	-		[Henosepilachna mjoebergi: Li 1993: 218.-	]
 		00008-	mobilitertiae-	 Æ∂˛–« ≥÷≤∆∞œx-	 Æ∂˛–« ≥÷≤∆∞œx	[Epilachna gressitti Li, 1961,syn. nov.-	]
 		00038-	monovittata-	monovittata-	monovittata	[]
 		00063-	mushana-	mushana-	mushana	[]
@@ -806,9 +814,12 @@
 		00049-	simulans-	simulans-	simulans	[]
 		00061-	spreta-	spreta-	spreta	[Epilachna spreta Mulsant 1850: 845. -	Solanophila spreta Weise, 1910: 56.-	Epilachna spreta ab. illusa Mulsant 1850: 846.-	]
 		00050-	strictanotata-	strictanotata-	strictanotata	[]
+		00069-	suffusa-	-		[Epilachna Terrae-reginae Blackburn, 1895: 237.-	Henosepilachna suffusa: Li 1993: 220.-	]
+		00070-	sumbana-	-		[]
 		00051-	transverselineata-	transverselineata-	transverselineata	[Solanophila transverselineata Mader 1958, Epilachna transverselineata Gordon 1975-	]
 		00019-	tredecimnotata-	tredecimnotata-	tredecimnotata	[]
 		00066-	undulata-	-		[]
+		00071-	urvillei-	-		[]
 		00054-	v-pallidum-	v-pallidum-	v-pallidum	[Epilachna v-pallidum Blanchard 1846, Epilachan v-pallidum v-pallidum Gordon 1975-	Solanophila v-pallidum ab. flavoquadrivittata Mader 1858. -	]
 		00020-	varivestis-	varivestis-	varivestis	[]
 		00052-	velata-	velata-	velata	[]
@@ -826,8 +837,8 @@
 		00004-	processa-	≥›“∂¡—ÕŒ∆∞≥Ê-	≥›“∂¡—ÕŒ∆∞≥Ê	[Epilachna Wissmanni ab. processa Weise, 1908-	]
 		00002-	pusillanima-	«— Æ∂˛–«∆∞œx(‰è»~¡—ÕŒ∆∞œx)-	«— Æ∂˛–«∆∞œx(‰è»~¡—ÕŒ∆∞œx)	[]
 		00001-	subfasciata-	∞Îéß¡—ÕŒ∆∞œx-	∞Îéß¡—ÕŒ∆∞œx	[Epilachna semifasciata Dieke, 1947-	 Epilachna indica ab. ceylonia Korschefsky, 1933 (nec. Weise, 1901)-	]
-		00005-	vigintioctomaculata-	¬Ì¡Â Ì∆∞≥Ê-	¬Ì¡Â Ì∆∞≥Ê	[Epilachna vigintisexpunctata-	]
-		00003-	vigintioctopunctata-	«—∂˛ Æ∞À–«∆∞œx-	«—∂˛ Æ∞À–«∆∞œx	[Epilachna vigintioctopunctata (Fabricius, 1775)-	Henosepilachna sparsa (Herbst, 1786-	]
+		00005-	vigintioctomaculata-	¬Ì¡Â Ì∆∞≥Ê-	¬Ì¡Â Ì∆∞≥Ê	[Epilachna vigintisexpunctata-	Coccinella vigintisexpunctata Boisduval, 1835: 590.-	Coccinella doryca Boisduval, 1835: 597.-	Epilachna philippinensis australica Dieke, 1947: 42-	Henosepilachna vigintisexpunctata: Li 1993: 214.-	]
+		00003-	vigintioctopunctata-	«—∂˛ Æ∞À–«∆∞œx-	«—∂˛ Æ∞À–«∆∞œx	[Epilachna vigintioctopunctata (Fabricius, 1775)-	Henosepilachna sparsa (Herbst, 1786-	Coccinella 28 punctata Fabricius, 1775: 84.-	Coccinella pardalis Boisduval, 1835: 596.-	Coccinella 11-variolata Boisduval, 1835: 590.-	]
 	00011-	Lorma-	Lorma-	Lorma
 	00020-	Macrolasia-	Macrolasia-	Macrolasia
 	00007-	Mada-	Mada-	Mada
@@ -1136,7 +1147,8 @@
 		00002-	gemellata-	gemellata-	gemellata	[Cryptognatha gemellata Mulsant 1850:498-	Cryptognatha simillina Sicard 1929:519-	]
 		00000-	nodiceps-	nodiceps-	nodiceps	[]
 	00001-	Cryptolaemus-	Î[¥Ω∆∞œx Ù-	Î[¥Ω∆∞œx Ù
-		00000-	montrouzieri-	√œ œÎ[¥Ω∆∞œx-	√œ œÎ[¥Ω∆∞œx	[Cryptolaemus montrouzieri Crotch, 1874: 204-	Cryptolaemus montrouzieri Gordon, 1985: 105-	Para una sinonimia completa ver Gordon, 1985-	]
+		00001-	affinis-	-		[]
+		00000-	montrouzieri-	√œ œÎ[¥Ω∆∞œx-	√œ œÎ[¥Ω∆∞œx	[Cryptolaemus montrouzieri Crotch, 1874: 204-	Cryptolaemus montrouzieri Gordon, 1985: 105-	Para una sinonimia completa ver Gordon, 1985-	Cryptolaemus simplex Blackburn, 1889: 1506.-	]
 	00044-	Curticornis-	Curticornis-	Curticornis
 	00019-	Cyra-	Cyra-	Cyra
 		00004-	ceciliae-	ceciliae-	ceciliae	[Hyperaspis ceciliae Crotch 1874, Cyra ceciliae Milleo & al. 1997.-	]
@@ -1151,11 +1163,13 @@
 		00007-	scapulata-	scapulata-	scapulata	[Cleothera scapulata Mulsant 1853 -	Hyperaspis scapulata Weise 1906-	Hyperaspis (Cleothera) scapulata Weise 1911 -	Cleothera mercabilis Mulsant 1853-	Hyperaspis mercabilis Crotch 1874 -	Cyra scapulata Milleo & Almeida 2007.-	]
 		00003-	triacantha-	triacantha-	triacantha	[]
 	00051-	Cyrema-	Cyrema-	Cyrema
+		00000-	nigellum-	-		[]
 	00009-	Decadiomus-	Decadiomus-	Decadiomus
 		00000-	bahamicus-	bahamicus-	bahamicus	[]
 	00024-	Diazonema-	Diazonema-	Diazonema
 		00000-	fallax-	fallax-	fallax	[Diazonema fallax, Weise, 1926: 13.-	Corystes hyp®Æcrita Mulsant, 1950 (pars, Milleo & Almeida, 2000). -	]
 	00037-	Dichaina-	Dichaina-	Dichaina
+		00000-	inornata-	-		[]
 	00010-	Didion-	Didion-	Didion
 		00000-	longulum-	longulum-	longulum	[]
 		00001-	nanum-	nanum-	nanum	[]
@@ -1176,6 +1190,7 @@
 		00020-	castilloi-	castilloi-	castilloi	[]
 		00021-	chrysogonus-	chrysogonus-	chrysogonus	[]
 		00006-	debilis-	debilis-	debilis	[]
+		00048-	ementitor-	-		[Amidellus ementitor: Weise, 1923: 141.-	Scymnus ementitor Blackburn, 1895: 248.-	]
 		00035-	faustinus-	faustinus-	faustinus	[]
 		00007-	floridanus-	floridanus-	floridanus	[]
 		00022-	frances-	frances-	frances	[]
@@ -1189,7 +1204,7 @@
 		00009-	liebecki-	liebecki-	liebecki	[]
 		00026-	macarius-	macarius-	macarius	[]
 		00010-	myrmidon-	myrmidon-	myrmidon	[]
-		00047-	notescens-	notescens-	notescens	[]
+		00047-	notescens-	notescens-	notescens	[Scymnus notescens Blackburn, 1889c: 196.-	Diomus notescens: Weise, 1908: 13.-	Diomus rusticus Weise, 1895: 145.-	]
 		00046-	panghongae-	panghongae-	panghongae	[]
 		00036-	petronilla-	petronilla-	petronilla	[]
 		00044-	polycarp-	polycarp-	polycarp	[]
