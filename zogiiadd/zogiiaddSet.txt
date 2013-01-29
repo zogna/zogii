@@ -1,2 +1,2 @@
-country:96
-webaddr:www.uoguelph.ca/debu/lady/lady-beetles.htm
+country:60
+webaddr:www.ento.csiro.au
