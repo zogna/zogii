@@ -1,2 +1,2 @@
-country:178
-webaddr:www.rutkies.de/kaefer/
+country:96
+webaddr:www.uoguelph.ca/debu/lady/lady-beetles.htm
