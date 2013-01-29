@@ -24,8 +24,8 @@ typedef struct
 	//Êý¾ÝÖ¸Õë
 	ZOGII_ULONG_TYPE sf;
 	ZOGII_ULONG_TYPE ge;
-	ZOGII_ULONG_TYPE na;
 	ZOGII_ULONG_TYPE sp;
+	ZOGII_ULONG_TYPE ssp;
 
 }DATALIST;
 
@@ -129,6 +129,7 @@ public:
 	CString	m_CloseupPicPath;
 	int		m_minsize;
 	int		m_maxsize;
+	CString	m_search;
 	//}}AFX_DATA
 
 	// ClassWizard generated virtual function overrides
@@ -195,6 +196,8 @@ protected:
 	afx_msg void OnButtonFaststr();
 	afx_msg void OnCustomdrawSliderMaxsize(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnCustomdrawSliderMinsize(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnButtonSortsavedb();
+	afx_msg void OnButtonSearch();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 	void OnOK();
@@ -208,7 +211,7 @@ protected:
 	/////////////////////////////
 	void AddListBuf();
 	HTREEITEM AddTree(HTREEITEM parent,char *str,	\
-								unsigned char type,ZOGII_LONG_TYPE sf,ZOGII_LONG_TYPE ge,ZOGII_LONG_TYPE na,ZOGII_LONG_TYPE sp);
+								unsigned char type,ZOGII_LONG_TYPE sf,ZOGII_LONG_TYPE ge,ZOGII_LONG_TYPE sp,ZOGII_LONG_TYPE ssp);
 	void BuildTree();
 	void BuildNewTree(DATALIST * dl);
 	void BuildDeleteTree(DATALIST *dl);
