@@ -2277,6 +2277,8 @@ void CZogiiaddDlg::OnCustomdrawSliderMinsize(NMHDR* pNMHDR, LRESULT* pResult)
 void CZogiiaddDlg::OnButtonSearch() 
 {
 	// TODO: Add your control notification handler code here
+
+
 	UpdateData(TRUE);
 	char printfstr[5120]="";
 
