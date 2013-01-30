@@ -1,2 +1,2 @@
 country:60
-webaddr:www.ento.csiro.au
+webaddr:www.ento.csiro.au/biology/ladybirds/speciesIndex.php
