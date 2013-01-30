@@ -24,13 +24,23 @@ int main( int argc, char** argv )
 	for(i=1;i<argc;i++)
 	{
 		src = cvLoadImage(argv[i],1);
-	//	dst = cvCreateImage(cvSize((int)(src->width*0.7),(int)(src->height*0.7)),src->depth,src->nChannels);
-	//	cvResize(src,dst,CV_INTER_LINEAR);
+		
+#if 0
+	//Ëõ·Å
+		dst = cvCreateImage(cvSize((int)(src->width*0.7),(int)(src->height*0.7)),src->depth,src->nChannels);
+		cvResize(src,dst,CV_INTER_LINEAR);
 
-		cvSaveImage(argv[i], src,params);
+		cvSaveImage(argv[i], dst,params);
 		
 		cvReleaseImage(&src);
-		//cvReleaseImage(&dst);
+		cvReleaseImage(&dst);
+
+#else
+		//Ö±½ÓÑ¹Ëõ
+		cvSaveImage(argv[i], src,params);
+		cvReleaseImage(&src);
+#endif
+
 	}
 
 	return 0;
