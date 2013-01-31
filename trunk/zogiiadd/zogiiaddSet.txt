@@ -1,2 +1,2 @@
-country:60
-webaddr:www.ento.csiro.au/biology/ladybirds/speciesIndex.php
+country:56
+webaddr:arthropa.free.fr/index.php?page=liste&css=noir
