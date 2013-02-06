@@ -112,6 +112,10 @@ CZogiiaddDlg::CZogiiaddDlg(CWnd* pParent /*=NULL*/)
 	m_minsize = 0;
 	m_maxsize = 0;
 	m_search = _T("");
+	m_codeSearchSF = -1;
+	m_codeSearchGE = -1;
+	m_codeSearchSP = -1;
+	m_codeSearchSSP = -1;
 	//}}AFX_DATA_INIT
 	// Note that LoadIcon does not require a subsequent DestroyIcon in Win32
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -281,6 +285,10 @@ void CZogiiaddDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Slider(pDX, IDC_SLIDER_MAXSIZE, m_maxsize);
 	DDX_Text(pDX, IDC_EDIT_SEARCH, m_search);
 	DDV_MaxChars(pDX, m_search, 260);
+	DDX_Text(pDX, IDC_EDIT_CODESEARCH, m_codeSearchSF);
+	DDX_Text(pDX, IDC_EDIT_CODESEARCH2, m_codeSearchGE);
+	DDX_Text(pDX, IDC_EDIT_CODESEARCH3, m_codeSearchSP);
+	DDX_Text(pDX, IDC_EDIT_CODESEARCH4, m_codeSearchSSP);
 	//}}AFX_DATA_MAP
 }
 
@@ -339,6 +347,7 @@ BEGIN_MESSAGE_MAP(CZogiiaddDlg, CDialog)
 	ON_NOTIFY(NM_CUSTOMDRAW, IDC_SLIDER_MINSIZE, OnCustomdrawSliderMinsize)
 	ON_BN_CLICKED(IDC_BUTTON_SORTSAVEDB, OnButtonSortsavedb)
 	ON_BN_CLICKED(IDC_BUTTON_SEARCH, OnButtonSearch)
+	ON_BN_CLICKED(IDC_BUTTON_CODESEARCH, OnButtonCodesearch)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -2278,10 +2287,51 @@ void CZogiiaddDlg::OnButtonSearch()
 {
 	// TODO: Add your control notification handler code here
 
-
 	UpdateData(TRUE);
 	char printfstr[5120]="";
 
 	zogiiSearchDB(printfstr,5120,m_search.GetBuffer(0),DBtotal,DBdata);
+	MessageBox(printfstr);
+}
+
+void CZogiiaddDlg::OnButtonCodesearch() 
+{
+	// TODO: Add your control notification handler code here
+
+	UpdateData(TRUE);
+
+	char printfstr[512]="";
+	
+	if((m_codeSearchSF >=0) &&
+		(m_codeSearchGE >=0) &&
+		(m_codeSearchSP >=0)  &&
+		(m_codeSearchSSP >=0) )
+	{
+		zogiiCodeSearchDB(printfstr,	4,
+			m_codeSearchSF,m_codeSearchGE,m_codeSearchSP,m_codeSearchSSP,
+			DBtotal,DBdata);
+	}
+	else	if((m_codeSearchSF >=0) &&
+		(m_codeSearchGE >=0) &&
+		(m_codeSearchSP >=0) )
+	{
+		zogiiCodeSearchDB(printfstr,	3,
+			m_codeSearchSF,m_codeSearchGE,m_codeSearchSP,m_codeSearchSSP,
+			DBtotal,DBdata);
+	}
+	else	if((m_codeSearchSF >=0) &&
+		(m_codeSearchGE >=0) )
+	{
+		zogiiCodeSearchDB(printfstr,	2,
+			m_codeSearchSF,m_codeSearchGE,m_codeSearchSP,m_codeSearchSSP,
+			DBtotal,DBdata);
+	}
+	else	if(m_codeSearchSF >=0) 
+	{
+		zogiiCodeSearchDB(printfstr,	1,
+			m_codeSearchSF,m_codeSearchGE,m_codeSearchSP,m_codeSearchSSP,
+			DBtotal,DBdata);
+	}
+
 	MessageBox(printfstr);
 }

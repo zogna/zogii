@@ -75,6 +75,7 @@
 #define IDC_EDIT_TextTWPath             1030
 #define IDC_EDIT17                      1031
 #define IDC_EDIT_DiscoveryPicInfo       1031
+#define IDC_EDIT_CODESEARCH             1031
 #define IDC_BUTTON7                     1032
 #define IDC_BUTTON_TextTWPath           1032
 #define IDC_COMBO5                      1033
@@ -96,6 +97,7 @@
 #define IDC_DATETIMEPICKER_Date         1039
 #define IDC_EDIT22                      1040
 #define IDC_EDIT_DataOutputPath         1040
+#define IDC_EDIT_CODESEARCH2            1040
 #define IDC_BUTTON8                     1041
 #define IDC_BUTTON_DiscoveryPicView     1041
 #define IDC_BUTTON_DATAIN               1041
@@ -224,6 +226,7 @@
 #define IDC_BUTTON_SaveOtherName        1099
 #define IDC_EDIT_OtherNameG             1099
 #define IDC_BUTTON_DataOutput           1100
+#define IDC_EDIT_CODESEARCH3            1100
 #define IDC_BUTTON_OpenPath             1101
 #define IDC_COMBO_ImagoColorA2          1102
 #define IDC_COMBO_ImagoPronotumColorA   1102
@@ -248,6 +251,7 @@
 #define IDC_COMBO_LIGHT                 1113
 #define IDC_COMBO_LIVING                1114
 #define IDC_COMBO_SIZE                  1115
+#define IDC_EDIT_CODESEARCH4            1115
 #define IDC_COMBO_PupaType              1116
 #define IDC_COMBO_OVERWINTER            1117
 #define IDC_COMBO_StartMonth            1118
@@ -277,6 +281,7 @@
 #define IDC_STATIC_MINSIZE              1148
 #define IDC_BUTTON_SORTSAVEDB           1149
 #define IDC_BUTTON_SEARCH               1150
+#define IDC_BUTTON_CODESEARCH           1151
 
 // Next default values for new objects
 // 
@@ -284,7 +289,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        131
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1151
+#define _APS_NEXT_CONTROL_VALUE         1152
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
