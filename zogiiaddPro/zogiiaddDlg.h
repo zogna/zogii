@@ -130,6 +130,10 @@ public:
 	int		m_minsize;
 	int		m_maxsize;
 	CString	m_search;
+	int		m_codeSearchSF;
+	int		m_codeSearchGE;
+	int		m_codeSearchSP;
+	int		m_codeSearchSSP;
 	//}}AFX_DATA
 
 	// ClassWizard generated virtual function overrides
@@ -198,6 +202,7 @@ protected:
 	afx_msg void OnCustomdrawSliderMinsize(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnButtonSortsavedb();
 	afx_msg void OnButtonSearch();
+	afx_msg void OnButtonCodesearch();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 	void OnOK();

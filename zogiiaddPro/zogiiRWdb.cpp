@@ -490,6 +490,63 @@ void zogiiSearchDB(char *printfstr,unsigned int printflen,char *str,
 		}
 	}
 }
+void zogiiCodeSearchDB(char *printfstr,	char flag,
+					   ZOGII_ULONG_TYPE sf,ZOGII_ULONG_TYPE ge,ZOGII_ULONG_TYPE sp,ZOGII_ULONG_TYPE spp,
+					   ZOGII_ULONG_TYPE total,struct ZOGII_Coccinellidae_SUBFamily *&data)
+{
+	ZOGII_ULONG_TYPE i,j,k,m;
+	
+	for(i=0;i<total;i++)
+	{
+		if(data[i].SF.code == sf)
+		{
+			sprintf(printfstr,"SF:\t%s\n",data[i].SF.SubFamily[0]);
+			
+			if(1== flag )
+				return ;
+			
+			for(j=0;j<data[i].GenusTotal;j++)
+			{
+				if(data[i].GenusData[j].GE.code == ge)
+				{
+					sprintf(printfstr,"GE:\t%s - %s\n",
+						data[i].SF.SubFamily[0],
+						data[i].GenusData[j].GE.Genus[0]);
+					
+					if(2 == flag )
+						return ;
+					
+					for(k=0;k<data[i].GenusData[j].SpeciesTotal;k++)
+					{
+						if(data[i].GenusData[j].SpeciesData[k].SP.code == sp)
+						{
+							sprintf(printfstr,"SP:\t%s - %s - %s\n",
+								data[i].SF.SubFamily[0],
+								data[i].GenusData[j].GE.Genus[0],
+								data[i].GenusData[j].SpeciesData[k].SP.Species[0]);
+							if(3== flag )
+								return ;
+							
+							for(m=0;m<data[i].GenusData[j].SpeciesData[k].SubspTotal;m++)
+							{
+								if(data[i].GenusData[j].SpeciesData[k].SubspData[m].code== spp )
+								{
+									sprintf(printfstr,"SSP:\t%s - %s - %s - %s\n",
+										data[i].SF.SubFamily[0],
+										data[i].GenusData[j].GE.Genus[0],
+										data[i].GenusData[j].SpeciesData[k].SP.Species[0],
+										data[i].GenusData[j].SpeciesData[k].SubspData[m].Subspecies[0]);
+
+									return ;
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+	}
+}
 
 /*
  ////////////////////ÐÞ¸Ä±àºÅ////////////////////////////////////////////////////////////////
