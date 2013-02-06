@@ -1,12 +1,12 @@
 http://waarneming.nl/waarnemingen_all_v1.php?groep=16&z=1&provincie=0&family=1137
 
-http://insecten.startpagina.nl/
+
 
 http://www.natuurkalender.nl/Links.asp
 
 http://coleoptera-neotropical.org/paginaprincipalhome.html
 
-http://www.stippen.nl/lieveheersbeestje.php
+
 
 http://www.itis.gov/servlet/SingleRpt/SingleRpt?search_topic=TSN&search_value=114329
 
@@ -25,30 +25,26 @@ http://data.gbif.org/species/browse/taxon/7782?qs=coccinellidae
 http://www.biolib.cz/en/taxontree/id10713/
 
 
-http://edis.ifas.ufl.edu/in327
-http://www.ars.usda.gov/is/AR/archive/mar95/001030.beetlemagstory.htm
-http://www.uky.edu/Ag/CritterFiles/casefile/insects/beetles/lady/lady.htm
 
-http://www.fcps.edu/islandcreekes/ecology/convergent_ladybug_beetle.htm
-http://www.statesymbolsusa.org/Delaware/insect_ladybug.html
-http://www.bugladyconsulting.com/ladybird_beetles%20ladybugs.htm
 
-http://www.ent.iastate.edu/imagegallery/lady/
+
+
+
+http://www.flickr.com/photos/sanmartin
+
+
 
 http://bugguide.net/node/view/340377
 
-http://www.indianaturewatch.net/view_cat.php?tag=Ladybird%20Beetle
 http://www.uksafari.com/ladybirds.htm
-http://www.butterflyfunfacts.com/ladybug-lifecycle.php
-
-http://insectweb.org/forum/
-http://insectforum.no-ip.org/gods/cgi-bin/leobbs.cgi
-
-http://willy.insectweb.org/forum/index.php
 
 
 
-http://links.biodiv.tw/
+
+
+
+
+
 
 
 
