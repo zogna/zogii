@@ -2297,8 +2297,10 @@ void CZogiiaddDlg::OnButtonSearch()
 void CZogiiaddDlg::OnButtonCodesearch() 
 {
 	// TODO: Add your control notification handler code here
-
+	//不删除树的情况下。搜索有效
 	UpdateData(TRUE);
+	ZOGII_LONG_TYPE i;
+  	ZOGII_ULONG_TYPE sf,ge,sp,ssp;
 
 	char printfstr[512]="";
 	
@@ -2307,31 +2309,85 @@ void CZogiiaddDlg::OnButtonCodesearch()
 		(m_codeSearchSP >=0)  &&
 		(m_codeSearchSSP >=0) )
 	{
-		zogiiCodeSearchDB(printfstr,	4,
+		if(zogiiCodeSearchDB(printfstr,4,
 			m_codeSearchSF,m_codeSearchGE,m_codeSearchSP,m_codeSearchSSP,
-			DBtotal,DBdata);
+			DBtotal,DBdata,
+			&sf,&ge, &sp,&ssp))
+		{
+			for(i=0;i<ListTotal;i++)
+			{
+				if((1==DataList[i].flag)&&
+					(TYPE_Subspecies == DataList[i].type) &&
+					(DataList[i].sf == sf) &&
+					(DataList[i].ge == ge) &&
+					(DataList[i].sp == sp) &&
+					(DataList[i].ssp == ssp) )
+				{
+					m_tree.SelectItem(DataList[i].item);
+				}
+			}
+		}
 	}
 	else	if((m_codeSearchSF >=0) &&
 		(m_codeSearchGE >=0) &&
 		(m_codeSearchSP >=0) )
 	{
-		zogiiCodeSearchDB(printfstr,	3,
+		if(zogiiCodeSearchDB(printfstr,	3,
 			m_codeSearchSF,m_codeSearchGE,m_codeSearchSP,m_codeSearchSSP,
-			DBtotal,DBdata);
+			DBtotal,DBdata,
+			&sf,&ge, &sp,&ssp))
+		{
+			for(i=0;i<ListTotal;i++)
+			{
+				if((1==DataList[i].flag)&&
+					(TYPE_Species == DataList[i].type) &&
+					(DataList[i].sf == sf) &&
+					(DataList[i].ge == ge) &&
+					(DataList[i].sp == sp)	)
+				{
+					m_tree.SelectItem(DataList[i].item);
+				}
+			}
+		}
 	}
 	else	if((m_codeSearchSF >=0) &&
 		(m_codeSearchGE >=0) )
 	{
-		zogiiCodeSearchDB(printfstr,	2,
+		if(zogiiCodeSearchDB(printfstr,	2,
 			m_codeSearchSF,m_codeSearchGE,m_codeSearchSP,m_codeSearchSSP,
-			DBtotal,DBdata);
+			DBtotal,DBdata,
+			&sf,&ge, &sp,&ssp))
+		{
+			for(i=0;i<ListTotal;i++)
+			{
+				if((1==DataList[i].flag)&&
+					(TYPE_Genus == DataList[i].type) &&
+					(DataList[i].sf == sf) &&
+					(DataList[i].ge == ge))
+				{
+					m_tree.SelectItem(DataList[i].item);
+				}
+			}
+		}
 	}
 	else	if(m_codeSearchSF >=0) 
 	{
-		zogiiCodeSearchDB(printfstr,	1,
+		if(zogiiCodeSearchDB(printfstr,	1,
 			m_codeSearchSF,m_codeSearchGE,m_codeSearchSP,m_codeSearchSSP,
-			DBtotal,DBdata);
+			DBtotal,DBdata,
+			&sf,&ge, &sp,&ssp))
+		{
+			for(i=0;i<ListTotal;i++)
+			{
+				if((1==DataList[i].flag)&&
+					(TYPE_SubFamily == DataList[i].type) &&
+					(DataList[i].sf == sf))
+				{
+					m_tree.SelectItem(DataList[i].item);
+				}
+			}
+		}
 	}
-
-	MessageBox(printfstr);
+	UpdateData(FALSE);
+	//MessageBox(printfstr);
 }
