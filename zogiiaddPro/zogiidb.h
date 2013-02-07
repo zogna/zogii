@@ -408,9 +408,10 @@ int zogiiPrintfDB(ZOGII_ULONG_TYPE total,struct ZOGII_Coccinellidae_SUBFamily *&
 void zogiiSearchDB(char *printfstr,unsigned int printflen,char *str,
 				  ZOGII_ULONG_TYPE total,struct ZOGII_Coccinellidae_SUBFamily *&data);
 
-void zogiiCodeSearchDB(char *printfstr,	char flag,
-					ZOGII_ULONG_TYPE sf,ZOGII_ULONG_TYPE ge,ZOGII_ULONG_TYPE sp,ZOGII_ULONG_TYPE spp,
-				  ZOGII_ULONG_TYPE total,struct ZOGII_Coccinellidae_SUBFamily *&data);
+char zogiiCodeSearchDB(char *printfstr,	char flag,
+					   ZOGII_ULONG_TYPE sfcode,ZOGII_ULONG_TYPE gecode,ZOGII_ULONG_TYPE spcode,ZOGII_ULONG_TYPE sppcode,
+					   ZOGII_ULONG_TYPE total,struct ZOGII_Coccinellidae_SUBFamily *&data,
+					   	ZOGII_ULONG_TYPE *sf,ZOGII_ULONG_TYPE *ge,ZOGII_ULONG_TYPE *sp,ZOGII_ULONG_TYPE *ssp);
 
 //void zogiicheckDB(ZOGII_ULONG_TYPE total,struct ZOGII_Coccinellidae_SUBFamily *&data);
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
