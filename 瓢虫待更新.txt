@@ -22,9 +22,17 @@ http://data.gbif.org/species/browse/taxon/7782?qs=coccinellidae
 
 
 
+http://www.flickr.com/photos/35142635@N05/sets/72157622522569801/
 
+http://www.flickr.com/photos/30063276@N02/sets/72157608236919795/
 
-http://www.flickr.com/photos/sanmartin/collections/72157603571001091/
+http://www.flickr.com/photos/fturmog/sets/72157625901588307/
+
+http://www.flickr.com/photos/joaocoelho/sets/72157615261006253/
+
+http://www.flickr.com/photos/25258702@N04/sets/72157615507952635/
+
+http://www.flickr.com/photos/overton_cat/sets/72157600359335930/
 
 
 
@@ -35,8 +43,6 @@ http://bugguide.net/node/view/340377
 
 
 
-
-http://www.flickr.com/photos/suedechen/sets/72157627975214454/
 
 
 
