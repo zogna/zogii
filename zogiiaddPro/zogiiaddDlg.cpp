@@ -871,7 +871,6 @@ int CZogiiaddDlg::SaveToFile(int idc)
 
 int CZogiiaddDlg::OpenToPicFile(int idc)
 {
-
 	// TODO: Add your control notification handler code here
 	char szFilter[]="Picture file(*.jpg;*.jpeg;*.bmp;*.png;*.dib;*.tga;*.gif)|*.jpg;*.jpeg;*.bmp;*.png;*.dib;*.tga;*.gif|All files (*.*)|*.*||";
 #if 0
@@ -880,7 +879,7 @@ int CZogiiaddDlg::OpenToPicFile(int idc)
 	//打开文件
 	CFileDialog dlg(TRUE,"*.*","",OFN_HIDEREADONLY|OFN_OVERWRITEPROMPT, szFilter);
 #else
-	CMyFileDialog dlg(TRUE,"*.*","",OFN_HIDEREADONLY|OFN_OVERWRITEPROMPT, szFilter,NULL,720,480);
+	CMyFileDialog dlg(TRUE,"*.*","",OFN_HIDEREADONLY|OFN_OVERWRITEPROMPT, szFilter,NULL,820,640);
 #endif
 
 	if(dlg.DoModal()==IDOK)
@@ -2199,7 +2198,7 @@ void CZogiiaddDlg::OnButtonFastmap()
 	int i;
 	
 	TCHAR temp[ZOGII_PAT_MAX];
-	unsigned char v;
+	unsigned char v=0;
 
 	_stprintf(temp,_T("%s\\zogiiaddSet.txt"),CurrentDir);
 	FILE *fp=_tfopen(temp,_T("r"));
@@ -2211,6 +2210,9 @@ void CZogiiaddDlg::OnButtonFastmap()
 		fclose(fp);
 	}
 	else
+		return ;
+	// 0 不用插入
+	if(0==v)
 		return ;
 
 	//找重复
