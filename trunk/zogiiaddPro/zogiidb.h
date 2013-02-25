@@ -36,11 +36,11 @@ typedef unsigned __int32 ZOGII_ULONG_TYPE;
 #define ZOGII_DISCOVERY_MAX 256
 
 //最大图片数
-#define ZOGII_PIC_Imago_MAX		256
-#define ZOGII_PIC_Larva_MAX		64
-#define ZOGII_PIC_Pupa_MAX		64	
-#define ZOGII_PIC_Ovum_MAX		64	
-#define ZOGII_PIC_Closeup_MAX	256
+#define ZOGII_PIC_Imago_MAX		512
+#define ZOGII_PIC_Larva_MAX		256
+#define ZOGII_PIC_Pupa_MAX		256	
+#define ZOGII_PIC_Ovum_MAX		128	
+#define ZOGII_PIC_Closeup_MAX	512
 
 ////DB目录
 #define ZOGII_DB_DIRSTR "zogcidb"
@@ -323,13 +323,21 @@ struct ZOGII_Coccinellidae_DATA
 	// 1=越冬
 	// 2=不越冬
 	char OverWintering;
-
+	//胸部颜色
+	char ImagochestColor;
 	//腹部颜色
 	char ImagobellyColor;
 	// -1=无效
 	// 0 =无绒毛
 	// 1 =有绒毛
 	char ImagoVillus; 
+	//外形
+	// -1=无效
+	// 0=未知
+	// 1=圆形
+	// 2=椭圆
+	// 3=长形
+	char  Contour;
 	//数据索引值 0为无效
 	ZOGII_ULONG_TYPE Imago[ZOGII_PIC_Imago_MAX];
 	ZOGII_ULONG_TYPE Larva[ZOGII_PIC_Larva_MAX];
