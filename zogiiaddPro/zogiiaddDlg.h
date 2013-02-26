@@ -134,6 +134,7 @@ public:
 	int		m_codeSearchGE;
 	int		m_codeSearchSP;
 	int		m_codeSearchSSP;
+	int		m_Contour;
 	//}}AFX_DATA
 
 	// ClassWizard generated virtual function overrides
@@ -191,11 +192,11 @@ protected:
 	afx_msg void OnButtonDatain();
 	afx_msg void OnButtonDiscoverymap();
 	afx_msg void OnButtonTreeout();
-	afx_msg void OnBUTTONNEWImago();
-	afx_msg void OnBUTTONNEWLarva();
-	afx_msg void OnBUTTONNEWCloseup();
-	afx_msg void OnBUTTONNEWOvum();
-	afx_msg void OnBUTTONNEWPupa();
+	afx_msg ZOGII_ULONG_TYPE OnBUTTONNEWImago();
+	afx_msg ZOGII_ULONG_TYPE OnBUTTONNEWLarva();
+	afx_msg ZOGII_ULONG_TYPE OnBUTTONNEWCloseup();
+	afx_msg ZOGII_ULONG_TYPE OnBUTTONNEWOvum();
+	afx_msg ZOGII_ULONG_TYPE OnBUTTONNEWPupa();
 	afx_msg void OnButtonFastmap();
 	afx_msg void OnButtonFaststr();
 	afx_msg void OnCustomdrawSliderMaxsize(NMHDR* pNMHDR, LRESULT* pResult);
@@ -203,6 +204,7 @@ protected:
 	afx_msg void OnButtonSortsavedb();
 	afx_msg void OnButtonSearch();
 	afx_msg void OnButtonCodesearch();
+	afx_msg void OnButtonMerge();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 	void OnOK();
@@ -251,6 +253,8 @@ protected:
 	void ReadCloseup2M(int i);
 	void ReadDB2Closeup(struct ZOGII_Coccinellidae_DATA* d);
 	/////////////////////////////////////////////////////////////////
+	void OnButtonFastmapLite(unsigned char v);
+
 
 	char CurrentDir[ZOGII_PAT_MAX];
 	//…Ë∂® ˜”Ô—‘ 

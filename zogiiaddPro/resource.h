@@ -255,6 +255,7 @@
 #define IDC_COMBO_PupaType              1116
 #define IDC_COMBO_OVERWINTER            1117
 #define IDC_COMBO_StartMonth            1118
+#define IDC_COMBO_CONTOUR               1118
 #define IDC_COMBO_EndMonth              1119
 #define IDC_EDIT_CloseupPicPath         1120
 #define IDC_EDIT_CloseupPicInfo         1121
@@ -282,6 +283,7 @@
 #define IDC_BUTTON_SORTSAVEDB           1149
 #define IDC_BUTTON_SEARCH               1150
 #define IDC_BUTTON_CODESEARCH           1151
+#define IDC_BUTTON_MERGE                1153
 
 // Next default values for new objects
 // 
@@ -289,7 +291,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        131
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1152
+#define _APS_NEXT_CONTROL_VALUE         1154
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif
