@@ -1,3 +1,3 @@
-country:191
-webaddr:www.photopictura.cz
+country:0
+webaddr:www.flickr.com/photos/51708886@N03/sets/72157627047616023/
  

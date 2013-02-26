@@ -511,10 +511,6 @@ void  zogiiCopyCloseupDBLite(struct ZOGII_Closeup *pdata,struct ZOGII_Closeup *n
 
 
 
-
-
-
-
 void zogiiInitpicDB(struct ZOGII_Coccinellidae_DATA *data);
 
 

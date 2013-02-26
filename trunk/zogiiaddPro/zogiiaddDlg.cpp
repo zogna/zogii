@@ -116,6 +116,7 @@ CZogiiaddDlg::CZogiiaddDlg(CWnd* pParent /*=NULL*/)
 	m_codeSearchGE = -1;
 	m_codeSearchSP = -1;
 	m_codeSearchSSP = -1;
+	m_Contour = -1;
 	//}}AFX_DATA_INIT
 	// Note that LoadIcon does not require a subsequent DestroyIcon in Win32
 	m_hIcon = AfxGetApp()->LoadIcon(IDR_MAINFRAME);
@@ -289,6 +290,7 @@ void CZogiiaddDlg::DoDataExchange(CDataExchange* pDX)
 	DDX_Text(pDX, IDC_EDIT_CODESEARCH2, m_codeSearchGE);
 	DDX_Text(pDX, IDC_EDIT_CODESEARCH3, m_codeSearchSP);
 	DDX_Text(pDX, IDC_EDIT_CODESEARCH4, m_codeSearchSSP);
+	DDX_CBIndex(pDX, IDC_COMBO_CONTOUR, m_Contour);
 	//}}AFX_DATA_MAP
 }
 
@@ -348,6 +350,7 @@ BEGIN_MESSAGE_MAP(CZogiiaddDlg, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_SORTSAVEDB, OnButtonSortsavedb)
 	ON_BN_CLICKED(IDC_BUTTON_SEARCH, OnButtonSearch)
 	ON_BN_CLICKED(IDC_BUTTON_CODESEARCH, OnButtonCodesearch)
+	ON_BN_CLICKED(IDC_BUTTON_MERGE, OnButtonMerge)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -1467,6 +1470,7 @@ void CZogiiaddDlg::InitInfoData()
 	m_ImagobellyColor = -1;
 	m_ImagoVillus = -1;
 	m_OverWinter = -1;
+	m_Contour = -1;
 
 	CleanImago2M();
 	CleanLarva2M();
@@ -1537,6 +1541,7 @@ void CZogiiaddDlg::CopyInfoDBData2M(struct ZOGII_Coccinellidae_DATA* d)
 	m_ImagobellyColor = d->ImagobellyColor;
 	m_ImagoVillus = d->ImagoVillus;
 	m_OverWinter = d->OverWintering;
+	m_Contour = d->Contour;
 
 	//初始化
 	if(255 == d->DiscoverMapTotal)
@@ -1612,6 +1617,7 @@ void CZogiiaddDlg::CopyInfoM2NewData()
 	Newdata.ImagobellyColor=(char)m_ImagobellyColor;
 	Newdata.ImagoVillus=	(char)m_ImagoVillus;
 	Newdata.OverWintering=	(char)m_OverWinter;
+	Newdata.Contour = (char)m_Contour;
 
 }
 
@@ -2079,6 +2085,119 @@ void CZogiiaddDlg::OnButtonDatain()
 	}
 }
 
+void CZogiiaddDlg::OnButtonMerge() 
+{
+	// TODO: Add your control notification handler code here
+	struct ZOGII_Imago FileImagodata; 
+	struct ZOGII_Larva FileLarvadata; 
+	struct ZOGII_Pupa FilePupadata; 
+	struct ZOGII_Ovum FileOvumdata; 
+	struct ZOGII_Closeup FileCloseupdata; 
+	struct ZOGII_Coccinellidae_DATA FileData;
+
+	FILE *fp;
+	char str[ZOGII_PAT_MAX];
+	ZOGII_ULONG_TYPE i,j;
+	sprintf(str,"%s\\data.temp",CurrentDir);
+	fp=fopen(str,"rb");
+	if(fp)
+	{
+		//先更新。获取当前画面的内容
+		UpdateData(TRUE);
+		CopyInfoM2NewData();
+		
+		//读TEMP文件的内容。然后合并
+		for(i=0;i<ZOGII_PIC_Imago_MAX;i++)
+		{
+			fread(&FileImagodata,sizeof(struct ZOGII_Imago),1,fp);
+			if(0!= FileImagodata.flag)
+			{	
+				j=OnBUTTONNEWImago();
+				memcpy(&(NewImagodata[j]),&FileImagodata,sizeof(struct ZOGII_Imago));
+			}
+		}
+
+		for(i=0;i<ZOGII_PIC_Larva_MAX;i++)
+		{
+			fread(&FileLarvadata,sizeof(struct ZOGII_Larva),1,fp);
+			if(0!= FileLarvadata.flag)
+			{	
+				j=OnBUTTONNEWLarva();
+				memcpy(&(NewLarvadata[j]),&FileLarvadata,sizeof(struct ZOGII_Larva));
+			}
+		}
+
+		for(i=0;i<ZOGII_PIC_Pupa_MAX;i++)
+		{
+			fread(&FilePupadata,sizeof(struct ZOGII_Pupa),1,fp);
+			if(0!= FilePupadata.flag)
+			{	
+				j=OnBUTTONNEWPupa();
+				memcpy(&(NewPupadata[j]),&FilePupadata,sizeof(struct ZOGII_Pupa));
+			}
+		}
+
+		for(i=0;i<ZOGII_PIC_Ovum_MAX;i++)
+		{
+			fread(&FileOvumdata,sizeof(struct ZOGII_Ovum),1,fp);
+			if(0!= FileOvumdata.flag)
+			{	
+				j=OnBUTTONNEWOvum();
+				memcpy(&(NewOvumdata[j]),&FileOvumdata,sizeof(struct ZOGII_Ovum));
+			}
+		}
+
+		for(i=0;i<ZOGII_PIC_Closeup_MAX;i++)
+		{
+			fread(&FileCloseupdata,sizeof(struct ZOGII_Closeup),1,fp);
+			if(0!= FileCloseupdata.flag)
+			{	
+				j=OnBUTTONNEWCloseup();
+				memcpy(&(NewCloseupdata[j]),&FileCloseupdata,sizeof(struct ZOGII_Closeup));
+			}
+		}
+		//合并增加地图。其他不加
+		fread(&FileData,sizeof(struct ZOGII_Coccinellidae_DATA),1,fp);
+
+		//插入地图
+		for(i=0;i<FileData.DiscoverMapTotal;i++)
+			OnButtonFastmapLite(FileData.DiscoverMapList[i]);
+
+		fclose(fp);
+		
+		//增加数据
+		zogiiAddSaveDB(&DBtotal,DBdata,
+			&DBImagototal,DBImagodata,
+			&DBLarvatotal,DBLarvadata,
+			&DBPupatotal,DBPupadata,
+			&DBOvumtotal,DBOvumdata,
+			&DBCloseuptotal,DBCloseupdata,
+			curlist->type,curlist->sf,curlist->ge,curlist->sp,curlist->ssp,
+			&Newdata,
+			NewImagodata,NewLarvadata,NewPupadata,NewOvumdata,NewCloseupdata);
+		
+		BuildNewTree(curlist);
+		
+		UpdateData(FALSE);
+		//再导入一次 为了导入图像数据
+		zogiiAddSaveDB(&DBtotal,DBdata,
+			&DBImagototal,DBImagodata,
+			&DBLarvatotal,DBLarvadata,
+			&DBPupatotal,DBPupadata,
+			&DBOvumtotal,DBOvumdata,
+			&DBCloseuptotal,DBCloseupdata,
+			curlist->type,curlist->sf,curlist->ge,curlist->sp,curlist->ssp,
+			&Newdata,
+			NewImagodata,NewLarvadata,NewPupadata,NewOvumdata,NewCloseupdata);
+
+		BuildNewTree(curlist);
+
+		UpdateData(FALSE);
+
+		MessageBox(_T("合并成功,但基本信息只加了地图"), _T("合并"));
+	}
+}
+
 void CZogiiaddDlg::OnButtonDiscoverymap() 
 {
 	// TODO: Add your control notification handler code here
@@ -2100,10 +2219,10 @@ void CZogiiaddDlg::OnButtonTreeout()
 		MessageBox(_T("印树失败"), _T("印树"));
 }
 ///////////////////////////////////////////////////////////////////////////////////////////
-void CZogiiaddDlg::OnBUTTONNEWImago() 
+ZOGII_ULONG_TYPE CZogiiaddDlg::OnBUTTONNEWImago() 
 {
 	// TODO: Add your control notification handler code here
-	int i;
+	ZOGII_ULONG_TYPE i;
 	for(i=0;i<ZOGII_PIC_Imago_MAX;i++)
 	{
 		if(0==NewImagodata[i].flag)
@@ -2111,18 +2230,19 @@ void CZogiiaddDlg::OnBUTTONNEWImago()
 			m_ImagoNo=i;
 			ReadImago2M(m_ImagoNo);
 			UpdateData(FALSE);
-			return ;
+			return i;
 		}
 	}
 
 	MessageBox(_T("已满"), _T("图片"));
+	return i;
 }
 
 
-void CZogiiaddDlg::OnBUTTONNEWLarva() 
+ZOGII_ULONG_TYPE CZogiiaddDlg::OnBUTTONNEWLarva() 
 {
 	// TODO: Add your control notification handler code here
-	int i;
+	ZOGII_ULONG_TYPE i;
 	for(i=0;i<ZOGII_PIC_Larva_MAX;i++)
 	{
 		if(0==NewLarvadata[i].flag)
@@ -2130,17 +2250,18 @@ void CZogiiaddDlg::OnBUTTONNEWLarva()
 			m_LarvaNo=i;
 			ReadLarva2M(m_LarvaNo);
 			UpdateData(FALSE);
-			return ;
+			return i;
 		}
 	}
 
 	MessageBox(_T("已满"), _T("图片"));
+	return i;
 }
 
-void CZogiiaddDlg::OnBUTTONNEWCloseup() 
+ZOGII_ULONG_TYPE CZogiiaddDlg::OnBUTTONNEWCloseup() 
 {
 	// TODO: Add your control notification handler code here
-	int i;
+	ZOGII_ULONG_TYPE i;
 	for(i=0;i<ZOGII_PIC_Closeup_MAX;i++)
 	{
 		if(0==NewCloseupdata[i].flag)
@@ -2148,17 +2269,18 @@ void CZogiiaddDlg::OnBUTTONNEWCloseup()
 			m_CloseupNo=i;
 			ReadCloseup2M(m_CloseupNo);
 			UpdateData(FALSE);
-			return ;
+			return i;
 		}
 	}
 
 	MessageBox(_T("已满"), _T("图片"));
+	return i;
 }
 
-void CZogiiaddDlg::OnBUTTONNEWOvum() 
+ZOGII_ULONG_TYPE CZogiiaddDlg::OnBUTTONNEWOvum() 
 {
 	// TODO: Add your control notification handler code here
-	int i;
+	ZOGII_ULONG_TYPE i;
 	for(i=0;i<ZOGII_PIC_Ovum_MAX;i++)
 	{
 		if(0==NewOvumdata[i].flag)
@@ -2166,17 +2288,18 @@ void CZogiiaddDlg::OnBUTTONNEWOvum()
 			m_OvumNo=i;
 			ReadOvum2M(m_OvumNo);
 			UpdateData(FALSE);
-			return ;
+			return i;
 		}
 	}
 
 	MessageBox(_T("已满"), _T("图片"));
+	return i;
 }
 
-void CZogiiaddDlg::OnBUTTONNEWPupa() 
+ZOGII_ULONG_TYPE CZogiiaddDlg::OnBUTTONNEWPupa() 
 {
 	// TODO: Add your control notification handler code here
-	int i;
+	ZOGII_ULONG_TYPE i;
 	for(i=0;i<ZOGII_PIC_Pupa_MAX;i++)
 	{
 		if(0==NewPupadata[i].flag)
@@ -2184,19 +2307,34 @@ void CZogiiaddDlg::OnBUTTONNEWPupa()
 			m_PupaNo=i;
 			ReadPupa2M(m_PupaNo);
 			UpdateData(FALSE);
-			return ;
+			return i;
 		}
 	}
 
 	MessageBox(_T("已满"), _T("图片"));
+	return i;
 }
 
+void CZogiiaddDlg::OnButtonFastmapLite(unsigned char v) 
+{
+	int i;
+	//找重复
+	for(i=0;i<Newdata.DiscoverMapTotal;i++)
+	{
+		if(v==Newdata.DiscoverMapList[i])
+			break;
+	}
+	//找不到
+	if(i==Newdata.DiscoverMapTotal)
+	{
+		Newdata.DiscoverMapList[Newdata.DiscoverMapTotal]=v;
+		Newdata.DiscoverMapTotal++;
+	}
+}
 
 void CZogiiaddDlg::OnButtonFastmap() 
 {
 	// TODO: Add your control notification handler code here
-	int i;
-	
 	TCHAR temp[ZOGII_PAT_MAX];
 	unsigned char v=0;
 
@@ -2215,18 +2353,7 @@ void CZogiiaddDlg::OnButtonFastmap()
 	if(0==v)
 		return ;
 
-	//找重复
-	for(i=0;i<Newdata.DiscoverMapTotal;i++)
-	{
-		if(v==Newdata.DiscoverMapList[i])
-			break;
-	}
-	//找不到
-	if(i==Newdata.DiscoverMapTotal)
-	{
-		Newdata.DiscoverMapList[Newdata.DiscoverMapTotal]=v;
-		Newdata.DiscoverMapTotal++;
-	}
+	OnButtonFastmapLite(v);
 
 	char str[32];
 	sprintf(str,"%d",Newdata.DiscoverMapTotal);
@@ -2393,3 +2520,4 @@ void CZogiiaddDlg::OnButtonCodesearch()
 	UpdateData(FALSE);
 	//MessageBox(printfstr);
 }
+

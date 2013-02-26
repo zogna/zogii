@@ -29,14 +29,14 @@ Type=0
 BaseClass=CDialog
 HeaderFile=zogiiaddDlg.h
 ImplementationFile=zogiiaddDlg.cpp
-LastObject=IDC_EDIT_CODESEARCH
+LastObject=IDC_COMBO_CONTOUR
 Filter=D
 VirtualFilter=dWC
 
 [DLG:IDD_ZOGIIADD_DIALOG]
 Type=1
 Class=CZogiiaddDlg
-ControlCount=218
+ControlCount=221
 Control1=IDC_TREE,SysTreeView32,1350631591
 Control2=IDC_EDIT_SubFamilyEN,edit,1350631552
 Control3=IDC_EDIT_SubFamilyCN,edit,1350631552
@@ -255,6 +255,9 @@ Control215=IDC_EDIT_CODESEARCH2,edit,1350631552
 Control216=IDC_EDIT_CODESEARCH3,edit,1350631552
 Control217=IDC_EDIT_CODESEARCH4,edit,1350631552
 Control218=IDC_BUTTON_CODESEARCH,button,1342242816
+Control219=IDC_COMBO_CONTOUR,combobox,1344339971
+Control220=IDC_STATIC,static,1342308352
+Control221=IDC_BUTTON_MERGE,button,1342242816
 
 [DLG:IDD_ZOGIIADD_DIALOG (AA)]
 Type=1
