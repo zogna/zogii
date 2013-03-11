@@ -73,167 +73,76 @@ IDR_MAINFRAME           ICON    DISCARDABLE     "res\\zogci.ico"
 // Dialog
 //
 
-IDD_ZOGCI_DIALOG DIALOGEX 0, 0, 848, 459
-STYLE DS_MODALFRAME | WS_POPUP | WS_VISIBLE | WS_CAPTION | WS_SYSMENU
+IDD_ZOGCI_DIALOG DIALOGEX 0, 0, 791, 371
+STYLE DS_MODALFRAME | WS_MINIMIZEBOX | WS_POPUP | WS_VISIBLE | WS_CAPTION | 
+    WS_SYSMENU
 EXSTYLE WS_EX_APPWINDOW
 CAPTION "zogci"
-FONT 9, "宋体", 0, 0, 0x1
-BEGIN
-    CONTROL         "Tree1",IDC_TREE,"SysTreeView32",TVS_HASBUTTONS | 
-                    TVS_HASLINES | TVS_LINESATROOT | TVS_SHOWSELALWAYS | 
-                    TVS_NOTOOLTIPS | TVS_NOSCROLL | WS_BORDER | WS_TABSTOP,7,
-                    7,154,445
-    EDITTEXT        IDC_EDIT_StartStrSearch,219,15,128,14
-    PUSHBUTTON      "开始",IDC_BUTTON_StartStrSearch,407,15,21,14
-    COMBOBOX        IDC_COMBO_TypeSearch,351,15,53,76,CBS_DROPDOWNLIST | 
-                    WS_VSCROLL | WS_TABSTOP
-    LTEXT           "名称起始查询",IDC_STATIC,167,17,49,8
-    EDITTEXT        IDC_EDIT_StrSearch,219,31,128,14
-    LTEXT           "名称查询",IDC_STATIC,167,33,33,8
-    EDITTEXT        IDC_EDIT_DiscoverSearch,219,47,128,14
-    LTEXT           "命名者查询",IDC_STATIC,167,49,41,8
-    EDITTEXT        IDC_EDIT_FoodSearch,219,63,128,14
-    LTEXT           "食物链查询",IDC_STATIC,167,65,41,8
-    PUSHBUTTON      "开始",IDC_BUTTON_StrSearch,407,31,21,14
-    PUSHBUTTON      "开始",IDC_BUTTON_DiscoverSearch,407,47,21,14
-    PUSHBUTTON      "开始",IDC_BUTTON_FoodSearch,407,63,21,14
-    EDITTEXT        IDC_EDIT_PicturePath,203,134,103,14,ES_AUTOHSCROLL
-    LTEXT           "图片搜索",IDC_STATIC,167,136,33,8
-    PUSHBUTTON      "开始",IDC_BUTTON_Imago,342,149,21,14
-    PUSHBUTTON      "选择图片路径",IDC_BUTTON_ChoosePath,310,134,53,14
-    CONTROL         "List1",IDC_LIST_SearchReport,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
-                    WS_TABSTOP,616,33,225,153
-    GROUPBOX        "输入查询",IDC_STATIC,163,7,267,73
-    PUSHBUTTON      "查看结果图像",IDC_BUTTON_SeeSearchPic,377,172,53,14
-    GROUPBOX        "单项信息",IDC_STATIC,163,188,678,264
-    LTEXT           "名称",IDC_STATIC,169,203,17,8
-    LTEXT           "命名者",IDC_STATIC,169,219,25,8
-    EDITTEXT        IDC_EDIT_Name,195,201,230,14
-    EDITTEXT        IDC_EDIT_DiscoverName,195,217,230,14
-    CONTROL         "List1",IDC_LIST_Picture,"SysListView32",LVS_REPORT | 
-                    LVS_SINGLESEL | LVS_SHOWSELALWAYS | WS_BORDER | 
-                    WS_TABSTOP,168,312,495,134
-    CTEXT           "",IDC_STATIC_Picture,667,295,168,151,SS_NOTIFY | 
-                    WS_BORDER | NOT WS_GROUP
-    PUSHBUTTON      "查看全部图像",IDC_BUTTON_SeeAllPicture,551,294,53,14
-    PUSHBUTTON      "查看原始图像",IDC_BUTTON_SeeSrcPicture,607,294,53,14
-    LTEXT           "食物类型",IDC_STATIC,635,197,33,8
-    LTEXT           "别名",IDC_STATIC,429,197,17,8
-    CONTROL         "List1",IDC_LIST_OtherName,"SysListView32",LVS_LIST | 
-                    LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,427,207,202,
-                    81
-    CONTROL         "List1",IDC_LIST_Food,"SysListView32",LVS_LIST | 
-                    LVS_SHOWSELALWAYS | WS_BORDER | WS_TABSTOP,635,207,200,
-                    81
-    LTEXT           "类型名",IDC_STATIC_FoodType,673,197,25,8
-    PUSHBUTTON      "查看原始文本",IDC_BUTTON_SeeSrcText,427,293,53,14
-    EDITTEXT        IDC_EDIT_Text,169,235,254,74,ES_MULTILINE | WS_VSCROLL
-    GROUPBOX        "成虫",IDC_STATIC,165,125,201,42
-    LTEXT           "纹理",IDC_STATIC,169,152,17,8
-    COMBOBOX        IDC_COMBO_Texture,187,150,48,78,CBS_DROPDOWNLIST | 
-                    WS_VSCROLL | WS_TABSTOP
-    LTEXT           "颜色数量",IDC_STATIC,171,103,18,19
-    COMBOBOX        IDC_COMBO_ColorNum,189,107,39,82,CBS_DROPDOWNLIST | 
-                    WS_VSCROLL | WS_TABSTOP
-    LTEXT           "绒毛",IDC_STATIC,243,152,17,8
-    COMBOBOX        IDC_COMBO_Villus,263,150,48,77,CBS_DROPDOWNLIST | 
-                    WS_VSCROLL | WS_TABSTOP
-    LTEXT           "包含颜色",IDC_STATIC,196,93,33,8
-    COMBOBOX        IDC_COMBO_ColorC,232,107,48,84,CBS_DROPDOWNLIST | 
-                    WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_COMBO_ColorA,232,91,48,94,CBS_DROPDOWNLIST | 
-                    WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_COMBO_ColorD,281,107,48,85,CBS_DROPDOWNLIST | 
-                    WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_COMBO_ColorB,281,91,48,93,CBS_DROPDOWNLIST | 
-                    WS_VSCROLL | WS_TABSTOP
-    GROUPBOX        "幼虫",IDC_STATIC,331,89,100,32
-    PUSHBUTTON      "开始",IDC_BUTTON_Larva,404,102,21,14
-    LTEXT           "棘刺",IDC_STATIC,333,105,17,8
-    COMBOBOX        IDC_COMBO_Calthrop,353,102,48,66,CBS_DROPDOWNLIST | 
-                    WS_VSCROLL | WS_TABSTOP
-    GROUPBOX        "蛹",IDC_STATIC,401,125,30,42
-    PUSHBUTTON      "开始",IDC_BUTTON_Pupa,405,145,21,14
-    GROUPBOX        "卵",IDC_STATIC,370,125,29,42
-    PUSHBUTTON      "开始",IDC_BUTTON_Ovum,374,146,21,14
-    GROUPBOX        "形态查询",IDC_STATIC,165,81,266,86
-    PUSHBUTTON      "关于 - 程序更新 - 特别感谢",IDC_BUTTON_ABOUT,542,13,122,
-                    14
-    PUSHBUTTON      "形态查询新手帮助",IDC_BUTTON_Help,255,172,69,14
-    COMBOBOX        IDC_COMBO_SetLanguage,469,13,61,56,CBS_DROPDOWNLIST | 
-                    WS_VSCROLL | WS_TABSTOP
-    LTEXT           "显示语言",IDC_STATIC,435,16,33,8
-END
-
-IDD_ABOUT DIALOG DISCARDABLE  0, 0, 617, 355
-STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
-CAPTION "关于"
 FONT 9, "宋体"
 BEGIN
-    GROUPBOX        "编程和数据库",IDC_STATIC,7,7,603,52
-    LTEXT           "官泉",IDC_STATIC,14,22,17,8
-    LTEXT           "gbaup_01@163.com",IDC_STATIC,33,22,65,8
-    LTEXT           "此电脑端程序为免费程序。",IDC_STATIC,13,121,97,8
-    GROUPBOX        "免责声明",IDC_STATIC,7,111,189,77
-    LTEXT           "作者将尽可能的署名来源。",IDC_STATIC,13,143,97,8
-    LTEXT           "因数据被使用者盗用等个人行为，所导致的侵权，",
-                    IDC_STATIC,13,165,177,8
-    GROUPBOX        "警告",IDC_STATIC,7,61,190,49
-    LTEXT           "勿复制或使用图片和数据信息用于商业或盈利行为。",
-                    IDC_STATIC,13,74,185,8
-    LTEXT           "使用前请根据“图片来源”信息，进行相关联系。",
-                    IDC_STATIC,13,85,177,8
-    LTEXT           "如出现侵权，自行负责。",IDC_STATIC,13,96,89,8
-    LTEXT           "程序下载:",IDC_STATIC,15,35,37,8
-    LTEXT           "数据下载:",IDC_STATIC,16,47,37,8
-    LTEXT           "其数据，图片来自网络搜索。",IDC_STATIC,13,132,105,8
-    LTEXT           "如有您的数据未被署名，请联系作者。",IDC_STATIC,13,154,
-                    137,8
-    GROUPBOX        "再次 免责声明",IDC_STATIC,304,62,306,126
-    LTEXT           "您应该对使用程序的结果自行承担风险。",IDC_STATIC,207,74,
-                    145,8
-    LTEXT           "作者不做任何形式的保证：",IDC_STATIC,207,85,97,8
-    LTEXT           "不保证程序满足您的要求，不保证程序不会出错，不保证程序的安全性，",
-                    IDC_STATIC,207,96,257,8
-    LTEXT           "不保证数据的正确性、及时性、合法性。",IDC_STATIC,207,
-                    107,145,8
-    LTEXT           "因使用程序而可能遭致的意外、疏忽、侵权及其造成的损失，",
-                    IDC_STATIC,207,118,217,8
-    LTEXT           "作者对其概不负责，亦不承担任何法律责任。",IDC_STATIC,
-                    207,129,161,8
-    LTEXT           "任何单位或个人认为通过本程序提供的图片或数据可能涉嫌侵犯其信息网络传播权，",
-                    IDC_STATIC,207,140,297,8
-    LTEXT           "应该及时联系作者，并提供身份证明、权属证明及详细侵权情况证明。",
-                    IDC_STATIC,207,151,249,8
-    LTEXT           "作者在收到上述文件后，将会去除其图片或数据。",
-                    IDC_STATIC,207,162,177,8
-    LTEXT           "作者不负法律责任。",IDC_STATIC,13,176,73,8
-    GROUPBOX        "非常感谢-参考来源",IDC_STATIC,7,195,603,153
-    LTEXT           "《中国瓢虫亚科图志》2010 虞国跃",IDC_STATIC,15,305,125,
-                    8
-    LTEXT           "《台湾瓢虫图鉴》2011 虞国跃,林义祥",IDC_STATIC,15,319,
-                    137,8
-    LTEXT           "《中国瓢虫原色图鉴》2009 任顺祥,王兴民,庞虹,彭正强,曾涛",
-                    IDC_STATIC,15,333,221,8
-    PUSHBUTTON      "嘎嘎昆虫网  林义祥 gaga.biodiv.tw",IDC_BUTTON_GAGA,18,
-                    209,137,14
-    PUSHBUTTON      "台湾物种名录 taibnet.sinica.edu.tw",IDC_BUTTON_TAIBNET,
-                    18,224,141,14
-    PUSHBUTTON      "六足王國─台灣的昆蟲 Insects of Taiwan 陈敬富 http://freebsd.tspes.ntpc.edu.tw/~afu/",
-                    IDC_BUTTON_AFU,190,207,341,14
-    PUSHBUTTON      "http://www.flickr.com/photos/bettaman",
-                    IDC_BUTTON_bettaman,18,239,153,14
-    PUSHBUTTON      "http://sishou.artspacemedia.com",IDC_BUTTON_SISHOU,18,
-                    254,129,14
-    PUSHBUTTON      "http://bugguide.net/node/view/179",IDC_BUTTON_BG,368,
-                    255,137,14
-    PUSHBUTTON      "http://nc.kl.edu.tw/bbs/index.php",IDC_BUTTON_NCBBS,18,
-                    284,137,14
-    PUSHBUTTON      "http://www.hkwildlife.net",IDC_BUTTON_HKWL,18,269,105,
-                    14
-    LTEXT           "http://www.itis.gov/",IDC_STATIC,361,309,81,8
-    LTEXT           "http://www.discoverlife.org",IDC_STATIC,269,269,109,8
+    CONTROL         "Tree1",IDC_TREE,"SysTreeView32",WS_BORDER | WS_TABSTOP,
+                    7,7,123,357
+    CONTROL         "Tab1",IDC_TAB_MAIN,"SysTabControl32",TCS_FIXEDWIDTH,137,
+                    7,647,357
+END
+
+IDD_ABOUT DIALOG DISCARDABLE  0, 0, 411, 129
+STYLE DS_3DLOOK | WS_CHILD
+FONT 9, "宋体"
+BEGIN
+    PUSHBUTTON      "Announce",IDC_Announce,298,47,97,14
+    COMBOBOX        IDC_Language,356,7,48,61,CBS_DROPDOWNLIST | WS_VSCROLL | 
+                    WS_TABSTOP
+    CTEXT           "Language",IDC_STATIC,313,7,40,12
+    PUSHBUTTON      "Sure and Restart Soft",IDC_LanguageButton,314,23,89,14
+    GROUPBOX        "Authors",IDC_STATIC,7,7,231,86
+    LTEXT           "Static",IDC_Authors,14,23,218,8
+    LTEXT           "Static",IDC_EMAIL,14,36,218,8
+    LTEXT           "Static",IDC_WEBSITE,14,49,45,8
+    LTEXT           "Static",IDC_SOFTVER,14,62,218,8
+    LTEXT           "Static",IDC_DATABASEVER,14,75,218,8
+    LTEXT           "ADDR",IDC_ADDR,70,49,161,8
+END
+
+IDD_SEARCH DIALOG DISCARDABLE  0, 0, 187, 99
+STYLE DS_3DLOOK | WS_CHILD
+FONT 9, "宋体"
+BEGIN
+END
+
+IDD_RESULT DIALOG DISCARDABLE  0, 0, 187, 99
+STYLE DS_3DLOOK | WS_CHILD
+FONT 9, "宋体"
+BEGIN
+END
+
+IDD_INFO DIALOG DISCARDABLE  0, 0, 187, 100
+STYLE DS_3DLOOK | WS_CHILD
+FONT 9, "宋体"
+BEGIN
+END
+
+IDD_Announce DIALOG DISCARDABLE  0, 0, 458, 215
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Announce"
+FONT 9, "宋体"
+BEGIN
+    EDITTEXT        IDC_EDIT_A,7,7,444,201,ES_MULTILINE | ES_READONLY | NOT 
+                    WS_BORDER
+END
+
+IDD_LINK DIALOG DISCARDABLE  0, 0, 645, 301
+STYLE DS_3DLOOK | WS_CHILD
+FONT 9, "宋体"
+BEGIN
+    CONTROL         "List1",IDC_LIST_WEBSITE,"SysListView32",LVS_REPORT | 
+                    LVS_SORTASCENDING | WS_BORDER | WS_TABSTOP,7,7,140,287
+    CONTROL         "List2",IDC_LIST_BBS,"SysListView32",LVS_REPORT | 
+                    LVS_SORTASCENDING | WS_BORDER | WS_TABSTOP,151,7,140,287
+    CONTROL         "List3",IDC_LIST_BOOK,"SysListView32",LVS_REPORT | 
+                    LVS_SORTASCENDING | WS_BORDER | WS_TABSTOP,439,7,199,287
+    CONTROL         "List4",IDC_LIST_FLICKR,"SysListView32",LVS_REPORT | 
+                    LVS_SORTASCENDING | WS_BORDER | WS_TABSTOP,295,7,140,287
 END
 
 
@@ -264,7 +173,7 @@ BEGIN
             VALUE "FileDescription", "zogci Microsoft 基础类应用程序\0"
             VALUE "FileVersion", "1, 0, 0, 1\0"
             VALUE "InternalName", "zogci\0"
-            VALUE "LegalCopyright", "版权所有 (C) 2012\0"
+            VALUE "LegalCopyright", "版权所有 (C) 2013\0"
             VALUE "LegalTrademarks", "\0"
             VALUE "OriginalFilename", "zogci.EXE\0"
             VALUE "ProductName", "zogci 应用程序\0"
@@ -291,17 +200,57 @@ BEGIN
     IDD_ZOGCI_DIALOG, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 841
+        RIGHTMARGIN, 784
         TOPMARGIN, 7
-        BOTTOMMARGIN, 452
+        BOTTOMMARGIN, 364
     END
 
     IDD_ABOUT, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 610
+        RIGHTMARGIN, 404
         TOPMARGIN, 7
-        BOTTOMMARGIN, 348
+        BOTTOMMARGIN, 122
+    END
+
+    IDD_SEARCH, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 92
+    END
+
+    IDD_RESULT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 92
+    END
+
+    IDD_INFO, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 93
+    END
+
+    IDD_Announce, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 451
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 208
+    END
+
+    IDD_LINK, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 638
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 294
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -312,155 +261,13 @@ END
 // Dialog Info
 //
 
-IDD_ZOGCI_DIALOG DLGINIT
+IDD_ABOUT DLGINIT
 BEGIN
-    IDC_COMBO_TypeSearch, 0x403, 5, 0
-0xabc8, 0xbfb2, "\000" 
-    IDC_COMBO_TypeSearch, 0x403, 5, 0
-0xc7d1, 0xc6bf, "\000" 
-    IDC_COMBO_TypeSearch, 0x403, 3, 0
-0xf4ca, "\000" 
-    IDC_COMBO_TypeSearch, 0x403, 3, 0
-0xd6d6, "\000" 
-    IDC_COMBO_TypeSearch, 0x403, 5, 0
-0xe4b1, 0xd6d6, "\000" 
-    IDC_COMBO_Texture, 0x403, 5, 0
-0xb4ce, 0xaad6, "\000" 
-    IDC_COMBO_Texture, 0x403, 3, 0
-0xdece, "\000" 
-    IDC_COMBO_Texture, 0x403, 5, 0
-0xf5cc, 0xc6ce, "\000" 
-    IDC_COMBO_Texture, 0x403, 5, 0
-0xdfb0, 0xe3b5, "\000" 
-    IDC_COMBO_Texture, 0x403, 10, 0
-0xdfb0, 0xe3b5, 0xcc2b, 0xcef5, 0x00c6, 
-    IDC_COMBO_ColorNum, 0x403, 5, 0
-0xb4ce, 0xaad6, "\000" 
-    IDC_COMBO_ColorNum, 0x403, 2, 0
-0x0031, 
-    IDC_COMBO_ColorNum, 0x403, 2, 0
-0x0032, 
-    IDC_COMBO_ColorNum, 0x403, 2, 0
-0x0033, 
-    IDC_COMBO_ColorNum, 0x403, 2, 0
-0x0034, 
-    IDC_COMBO_ColorNum, 0x403, 2, 0
-0x0035, 
-    IDC_COMBO_ColorNum, 0x403, 2, 0
-0x0036, 
-    IDC_COMBO_ColorNum, 0x403, 2, 0
-0x0037, 
-    IDC_COMBO_ColorNum, 0x403, 2, 0
-0x0038, 
-    IDC_COMBO_ColorNum, 0x403, 2, 0
-0x0039, 
-    IDC_COMBO_Villus, 0x403, 5, 0
-0xb4ce, 0xaad6, "\000" 
-    IDC_COMBO_Villus, 0x403, 7, 0
-0xdece, 0xdec8, 0xabc3, "\000" 
-    IDC_COMBO_Villus, 0x403, 7, 0
-0xd0d3, 0xdec8, 0xabc3, "\000" 
-    IDC_COMBO_ColorC, 0x403, 5, 0
-0xb4ce, 0xaad6, "\000" 
-    IDC_COMBO_ColorC, 0x403, 7, 0
-0xfbc4, 0xcac3, 0xc6bb, "\000" 
-    IDC_COMBO_ColorC, 0x403, 5, 0
-0xc8b3, 0xc6bb, "\000" 
-    IDC_COMBO_ColorC, 0x403, 3, 0
-0xecba, "\000" 
-    IDC_COMBO_ColorC, 0x403, 3, 0
-0xb6c0, "\000" 
-    IDC_COMBO_ColorC, 0x403, 3, 0
-0xccc2, "\000" 
-    IDC_COMBO_ColorC, 0x403, 3, 0
-0xdaba, "\000" 
-    IDC_COMBO_ColorC, 0x403, 3, 0
-0xd7b0, "\000" 
-    IDC_COMBO_ColorC, 0x403, 3, 0
-0xd3d0, "\000" 
-    IDC_COMBO_ColorC, 0x403, 3, 0
-0xd6ba, "\000" 
-    IDC_COMBO_ColorC, 0x403, 5, 0
-0xf8d2, 0xd2bb, "\000" 
-    IDC_COMBO_ColorA, 0x403, 5, 0
-0xb4ce, 0xaad6, "\000" 
-    IDC_COMBO_ColorA, 0x403, 7, 0
-0xfbc4, 0xcac3, 0xc6bb, "\000" 
-    IDC_COMBO_ColorA, 0x403, 5, 0
-0xc8b3, 0xc6bb, "\000" 
-    IDC_COMBO_ColorA, 0x403, 3, 0
-0xecba, "\000" 
-    IDC_COMBO_ColorA, 0x403, 3, 0
-0xb6c0, "\000" 
-    IDC_COMBO_ColorA, 0x403, 3, 0
-0xccc2, "\000" 
-    IDC_COMBO_ColorA, 0x403, 3, 0
-0xdaba, "\000" 
-    IDC_COMBO_ColorA, 0x403, 3, 0
-0xd7b0, "\000" 
-    IDC_COMBO_ColorA, 0x403, 3, 0
-0xd3d0, "\000" 
-    IDC_COMBO_ColorA, 0x403, 3, 0
-0xd6ba, "\000" 
-    IDC_COMBO_ColorA, 0x403, 5, 0
-0xf8d2, 0xd2bb, "\000" 
-    IDC_COMBO_ColorD, 0x403, 5, 0
-0xb4ce, 0xaad6, "\000" 
-    IDC_COMBO_ColorD, 0x403, 7, 0
-0xfbc4, 0xcac3, 0xc6bb, "\000" 
-    IDC_COMBO_ColorD, 0x403, 5, 0
-0xc8b3, 0xc6bb, "\000" 
-    IDC_COMBO_ColorD, 0x403, 3, 0
-0xecba, "\000" 
-    IDC_COMBO_ColorD, 0x403, 3, 0
-0xb6c0, "\000" 
-    IDC_COMBO_ColorD, 0x403, 3, 0
-0xccc2, "\000" 
-    IDC_COMBO_ColorD, 0x403, 3, 0
-0xdaba, "\000" 
-    IDC_COMBO_ColorD, 0x403, 3, 0
-0xd7b0, "\000" 
-    IDC_COMBO_ColorD, 0x403, 3, 0
-0xd3d0, "\000" 
-    IDC_COMBO_ColorD, 0x403, 3, 0
-0xd6ba, "\000" 
-    IDC_COMBO_ColorD, 0x403, 5, 0
-0xf8d2, 0xd2bb, "\000" 
-    IDC_COMBO_ColorB, 0x403, 5, 0
-0xb4ce, 0xaad6, "\000" 
-    IDC_COMBO_ColorB, 0x403, 7, 0
-0xfbc4, 0xcac3, 0xc6bb, "\000" 
-    IDC_COMBO_ColorB, 0x403, 5, 0
-0xc8b3, 0xc6bb, "\000" 
-    IDC_COMBO_ColorB, 0x403, 3, 0
-0xecba, "\000" 
-    IDC_COMBO_ColorB, 0x403, 3, 0
-0xb6c0, "\000" 
-    IDC_COMBO_ColorB, 0x403, 3, 0
-0xccc2, "\000" 
-    IDC_COMBO_ColorB, 0x403, 3, 0
-0xdaba, "\000" 
-    IDC_COMBO_ColorB, 0x403, 3, 0
-0xd7b0, "\000" 
-    IDC_COMBO_ColorB, 0x403, 3, 0
-0xd3d0, "\000" 
-    IDC_COMBO_ColorB, 0x403, 3, 0
-0xd6ba, "\000" 
-    IDC_COMBO_ColorB, 0x403, 5, 0
-0xf8d2, 0xd2bb, "\000" 
-    IDC_COMBO_Calthrop, 0x403, 5, 0
-0xb4ce, 0xaad6, "\000" 
-    IDC_COMBO_Calthrop, 0x403, 5, 0
-0xa3b3, 0xe6b9, "\000" 
-    IDC_COMBO_Calthrop, 0x403, 5, 0
-0xabc3, 0xb4d7, "\000" 
-    IDC_COMBO_Calthrop, 0x403, 5, 0
-0xa4b3, 0xccb4, "\000" 
-    IDC_COMBO_SetLanguage, 0x403, 8, 0
+    IDC_Language, 0x403, 8, 0
 0x6e45, 0x6c67, 0x7369, 0x0068, 
-    IDC_COMBO_SetLanguage, 0x403, 9, 0
+    IDC_Language, 0x403, 9, 0
 0xf2bc, 0xe5cc, 0xd0d6, 0xc4ce, "\000" 
-    IDC_COMBO_SetLanguage, 0x403, 9, 0
+    IDC_Language, 0x403, 9, 0
 0xb1b7, 0xe5cc, 0xd0d6, 0xc4ce, "\000" 
     0
 END

@@ -1,9 +1,10 @@
-// DLGABOUT.cpp : implementation file
+// DLGabout.cpp : implementation file
 //
 
 #include "stdafx.h"
 #include "zogci.h"
-#include "DLGABOUT.h"
+#include "DLGabout.h"
+#include "DLGannounce.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -11,93 +12,122 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
+extern char LanguageFlag;
 /////////////////////////////////////////////////////////////////////////////
-// CDLGABOUT dialog
+// CDLGabout dialog
 
 
-CDLGABOUT::CDLGABOUT(CWnd* pParent /*=NULL*/)
-	: CDialog(CDLGABOUT::IDD, pParent)
+CDLGabout::CDLGabout(CWnd* pParent /*=NULL*/)
+	: CDialog(CDLGabout::IDD, pParent)
 {
-	//{{AFX_DATA_INIT(CDLGABOUT)
-		// NOTE: the ClassWizard will add member initialization here
+	//{{AFX_DATA_INIT(CDLGabout)
+	m_Language = 0;
+
 	//}}AFX_DATA_INIT
 }
 
 
-void CDLGABOUT::DoDataExchange(CDataExchange* pDX)
+void CDLGabout::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
-	//{{AFX_DATA_MAP(CDLGABOUT)
-		// NOTE: the ClassWizard will add DDX and DDV calls here
+	//{{AFX_DATA_MAP(CDLGabout)
+	DDX_CBIndex(pDX, IDC_Language, m_Language);
+	DDX_Control(pDX, IDC_ADDR, m_addr);
 	//}}AFX_DATA_MAP
 }
 
 
-BEGIN_MESSAGE_MAP(CDLGABOUT, CDialog)
-	//{{AFX_MSG_MAP(CDLGABOUT)
-	ON_BN_CLICKED(IDC_BUTTON_GAGA, OnButtonGaga)
-	ON_BN_CLICKED(IDC_BUTTON_TAIBNET, OnButtonTaibnet)
-	ON_BN_CLICKED(IDC_BUTTON_AFU, OnButtonAfu)
-	ON_BN_CLICKED(IDC_BUTTON_bettaman, OnBUTTONbettaman)
-	ON_BN_CLICKED(IDC_BUTTON_SISHOU, OnButtonSishou)
-	ON_BN_CLICKED(IDC_BUTTON_BG, OnButtonBg)
-	ON_BN_CLICKED(IDC_BUTTON_NCBBS, OnButtonNcbbs)
-	ON_BN_CLICKED(IDC_BUTTON_HKWL, OnButtonHkwl)
+BEGIN_MESSAGE_MAP(CDLGabout, CDialog)
+	//{{AFX_MSG_MAP(CDLGabout)
+	ON_BN_CLICKED(IDC_Announce, OnAnnounce)
+	ON_BN_CLICKED(IDC_LanguageButton, OnLanguageButton)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
-// CDLGABOUT message handlers
+// CDLGabout message handlers
 
-void CDLGABOUT::OnButtonGaga() 
+BOOL CDLGabout::OnInitDialog()
 {
-	// TODO: Add your control notification handler code here
-	ShellExecute(0, "open", "http://gaga.biodiv.tw/", 0, 0, SW_SHOWNORMAL);
+	Language_SetWndStaticText(this);
+	CDialog::OnInitDialog();
 
+	CRect rc(0, 0, 0, 0);
+	GetParent()->GetClientRect(&rc);
+	((CTabCtrl*)GetParent())->AdjustRect(FALSE, &rc);
+	MoveWindow(&rc);
+
+	Authors();
+
+	return TRUE;  // return TRUE  unless you set the focus to a control
 }
 
-void CDLGABOUT::OnButtonTaibnet() 
+
+void CDLGabout::OnAnnounce() 
 {
 	// TODO: Add your control notification handler code here
-	ShellExecute(0, "open", "http://taibnet.sinica.edu.tw", 0, 0, SW_SHOWNORMAL);
+	CDLGannounce DlgAnnounce;
+	DlgAnnounce.DoModal();
 }
 
-void CDLGABOUT::OnButtonAfu() 
+void CDLGabout::Authors(void)
 {
-	// TODO: Add your control notification handler code here
-	ShellExecute(0, "open", "http://freebsd.tspes.ntpc.edu.tw/~afu/", 0, 0, SW_SHOWNORMAL);
+	char temp[260];
 
+	GetDlgItem(IDC_ADDR)->SetWindowText("code.google.com/p/zogci");
+	//Set the target URL 
+	m_addr.SetLinkUrl("http://code.google.com/p/zogci/");
+	//Enable showing the Tooltip
+	m_addr.ActiveToolTip(1);
+	//Set the Tooltiptext
+	m_addr.SetTootTipText("Click Here to go zogci");
+
+	m_addr.SetLinkColor(RGB(255, 0, 0));
+	m_addr.SetHoverColor(RGB(0, 0, 255));
+	m_addr.SetVisitedColor(RGB(0, 13, 0));
+
+	switch(LanguageFlag)
+	{
+	case 1:
+		GetDlgItem(IDC_Authors)->SetWindowText("代码和数据收集: zogna (Guan Quan)");	
+		GetDlgItem(IDC_EMAIL)->SetWindowText("电子邮箱: zognaproject@gmail.com");
+		GetDlgItem(IDC_WEBSITE)->SetWindowText("网站:");
+		sprintf(temp,"软件版本: 1.0 构建:%s,%s",__DATE__,__TIME__);
+		GetDlgItem(IDC_SOFTVER)->SetWindowText(temp);
+		GetDlgItem(IDC_DATABASEVER)->SetWindowText("数据版本: 1.0");
+		break;
+	case 2:
+		GetDlgItem(IDC_Authors)->SetWindowText("代碼和數據收集: zogna (Guan Quan)");	
+		GetDlgItem(IDC_EMAIL)->SetWindowText("電子郵箱: zognaproject@gmail.com");
+		GetDlgItem(IDC_WEBSITE)->SetWindowText("網站:");
+		sprintf(temp,"軟件版本: 1.0 構建:%s,%s",__DATE__,__TIME__);
+		GetDlgItem(IDC_SOFTVER)->SetWindowText(temp);
+		GetDlgItem(IDC_DATABASEVER)->SetWindowText("數據版本: 1.0");	
+		break;
+	default:
+		GetDlgItem(IDC_Authors)->SetWindowText("Code and Data collect: zogna (Guan Quan)");	
+		GetDlgItem(IDC_EMAIL)->SetWindowText("E-Mail: zognaproject@gmail.com");
+		GetDlgItem(IDC_WEBSITE)->SetWindowText("WebSite:");
+		sprintf(temp,"Soft Version: 1.0 Bulid:%s,%s",__DATE__,__TIME__);
+		GetDlgItem(IDC_SOFTVER)->SetWindowText(temp);
+		GetDlgItem(IDC_DATABASEVER)->SetWindowText("Data Version: 1.0");
+		break;
+	}
 }
 
-void CDLGABOUT::OnBUTTONbettaman() 
+void CDLGabout::OnLanguageButton() 
 {
+	UpdateData(TRUE);
+	LanguageFlag=(char)m_Language;
 	// TODO: Add your control notification handler code here
-	ShellExecute(0, "open", "http://www.flickr.com/photos/bettaman", 0, 0, SW_SHOWNORMAL);
-}
+	Language_WriteUserInfo();
 
-void CDLGABOUT::OnButtonSishou() 
-{
-	// TODO: Add your control notification handler code here
-	ShellExecute(0, "open", "http://sishou.artspacemedia.com", 0, 0, SW_SHOWNORMAL);
-}
+	
+	//开启另一个程序
+	WinExec("zogci.exe",SW_NORMAL);
+	//关闭本程序
+	AfxGetMainWnd()->SendMessage(WM_CLOSE);
 
-void CDLGABOUT::OnButtonBg() 
-{
-	// TODO: Add your control notification handler code here
-	ShellExecute(0, "open", "http://bugguide.net/node/view/179", 0, 0, SW_SHOWNORMAL);
-}
 
-void CDLGABOUT::OnButtonNcbbs() 
-{
-	// TODO: Add your control notification handler code here
-	ShellExecute(0, "open", "http://nc.kl.edu.tw/bbs/index.php", 0, 0, SW_SHOWNORMAL);
-}
-
-void CDLGABOUT::OnButtonHkwl() 
-{
-	// TODO: Add your control notification handler code here
-	ShellExecute(0, "open", "http://www.hkwildlife.net", 0, 0, SW_SHOWNORMAL);
 
 }
-
-////www.coccinellidae.cl
