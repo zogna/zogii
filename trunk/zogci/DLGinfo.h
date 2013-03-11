@@ -1,35 +1,32 @@
-#if !defined(AFX_DLGABOUT_H__33723444_4631_4EBB_B16D_9515DE517650__INCLUDED_)
-#define AFX_DLGABOUT_H__33723444_4631_4EBB_B16D_9515DE517650__INCLUDED_
+#if !defined(AFX_DLGINFO_H__AA38EFBA_C4E2_466D_AB5C_2FDD0407810F__INCLUDED_)
+#define AFX_DLGINFO_H__AA38EFBA_C4E2_466D_AB5C_2FDD0407810F__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// DLGabout.h : header file
+// DLGinfo.h : header file
 //
-#include "MyHyperLink.h"
 
 /////////////////////////////////////////////////////////////////////////////
-// CDLGabout dialog
+// CDLGinfo dialog
 
-class CDLGabout : public CDialog
+class CDLGinfo : public CDialog
 {
 // Construction
 public:
-	CDLGabout(CWnd* pParent = NULL);   // standard constructor
+	CDLGinfo(CWnd* pParent = NULL);   // standard constructor
 
 // Dialog Data
-	//{{AFX_DATA(CDLGabout)
-	enum { IDD = IDD_ABOUT };
-	int		m_Language;
-	CMyHyperLink	m_addr;
+	//{{AFX_DATA(CDLGinfo)
+	enum { IDD = IDD_INFO };
+		// NOTE: the ClassWizard will add data members here
 	//}}AFX_DATA
 
 	BOOL OnInitDialog();
-	void Authors(void);
 
 // Overrides
 	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CDLGabout)
+	//{{AFX_VIRTUAL(CDLGinfo)
 	protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	//}}AFX_VIRTUAL
@@ -38,9 +35,8 @@ public:
 protected:
 
 	// Generated message map functions
-	//{{AFX_MSG(CDLGabout)
-	afx_msg void OnAnnounce();
-	afx_msg void OnLanguageButton();
+	//{{AFX_MSG(CDLGinfo)
+		// NOTE: the ClassWizard will add member functions here
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
@@ -48,4 +44,4 @@ protected:
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ will insert additional declarations immediately before the previous line.
 
-#endif // !defined(AFX_DLGABOUT_H__33723444_4631_4EBB_B16D_9515DE517650__INCLUDED_)
+#endif // !defined(AFX_DLGINFO_H__AA38EFBA_C4E2_466D_AB5C_2FDD0407810F__INCLUDED_)

@@ -67,7 +67,7 @@ LINK32=link.exe
 # PROP Intermediate_Dir "Debug"
 # PROP Target_Dir ""
 # ADD BASE CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /Yu"stdafx.h" /FD /GZ /c
-# ADD CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /Yu"stdafx.h" /FD /GZ /c
+# ADD CPP /nologo /MTd /W3 /Gm /GX /ZI /Od /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /FR /Yu"stdafx.h" /FD /GZ /c
 # ADD BASE MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD MTL /nologo /D "_DEBUG" /mktyplib203 /win32
 # ADD BASE RSC /l 0x804 /d "_DEBUG"
@@ -90,7 +90,31 @@ LINK32=link.exe
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 # Begin Source File
 
-SOURCE=.\DLGABOUT.cpp
+SOURCE=.\DLGabout.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DLGannounce.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DLGinfo.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DLGlink.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DLGresult.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DLGsearch.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\MyHyperLink.cpp
 # End Source File
 # Begin Source File
 
@@ -109,17 +133,41 @@ SOURCE=.\zogci.rc
 
 SOURCE=.\zogciDlg.cpp
 # End Source File
-# Begin Source File
-
-SOURCE=.\zogiiRWdb.cpp
-# End Source File
 # End Group
 # Begin Group "Header Files"
 
 # PROP Default_Filter "h;hpp;hxx;hm;inl"
 # Begin Source File
 
-SOURCE=.\DLGABOUT.h
+SOURCE=.\DLGabout.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DLGannounce.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DLGinfo.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DLGlink.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DLGresult.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DLGsearch.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\link.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\MyHyperLink.h
 # End Source File
 # Begin Source File
 
@@ -136,10 +184,6 @@ SOURCE=.\zogci.h
 # Begin Source File
 
 SOURCE=.\zogciDlg.h
-# End Source File
-# Begin Source File
-
-SOURCE=.\zogiidb.h
 # End Source File
 # End Group
 # Begin Group "Resource Files"
