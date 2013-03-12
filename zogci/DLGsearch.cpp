@@ -46,11 +46,15 @@ BOOL CDLGsearch::OnInitDialog()
 	Language_SetWndStaticText(this);
 	CDialog::OnInitDialog();
 
+	AutoSize();
+
+	return TRUE;  // return TRUE  unless you set the focus to a control
+}
+
+void CDLGsearch::AutoSize()
+{
 	CRect rc(0, 0, 0, 0);
 	GetParent()->GetClientRect(&rc);
 	((CTabCtrl*)GetParent())->AdjustRect(FALSE, &rc);
 	MoveWindow(&rc);
-
-
-	return TRUE;  // return TRUE  unless you set the focus to a control
 }

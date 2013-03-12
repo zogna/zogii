@@ -106,7 +106,15 @@ SOURCE=.\DLGlink.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\DLGpicture.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\DLGresult.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DLGResultPannel.cpp
 # End Source File
 # Begin Source File
 
@@ -155,7 +163,15 @@ SOURCE=.\DLGlink.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DLGpicture.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DLGresult.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DLGResultPannel.h
 # End Source File
 # Begin Source File
 

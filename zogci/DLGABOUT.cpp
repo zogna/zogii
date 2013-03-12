@@ -52,16 +52,20 @@ BOOL CDLGabout::OnInitDialog()
 	Language_SetWndStaticText(this);
 	CDialog::OnInitDialog();
 
-	CRect rc(0, 0, 0, 0);
-	GetParent()->GetClientRect(&rc);
-	((CTabCtrl*)GetParent())->AdjustRect(FALSE, &rc);
-	MoveWindow(&rc);
+	AutoSize();
 
 	Authors();
 
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
 
+void CDLGabout::AutoSize()
+{
+	CRect rc(0, 0, 0, 0);
+	GetParent()->GetClientRect(&rc);
+	((CTabCtrl*)GetParent())->AdjustRect(FALSE, &rc);
+	MoveWindow(&rc);
+}
 
 void CDLGabout::OnAnnounce() 
 {

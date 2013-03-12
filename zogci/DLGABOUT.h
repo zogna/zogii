@@ -23,7 +23,7 @@ public:
 	int		m_Language;
 	CMyHyperLink	m_addr;
 	//}}AFX_DATA
-
+	void AutoSize();
 	BOOL OnInitDialog();
 	void Authors(void);
 

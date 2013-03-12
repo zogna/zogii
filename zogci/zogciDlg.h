@@ -35,7 +35,9 @@ public:
 	void TabMainInit(void);
 	void OnOK();
 
+	CRect		m_clientRect;		//程序界面区域位置
 
+	void UpdatePannelPosition();
 // Implementation
 protected:
 	HICON m_hIcon;
@@ -46,6 +48,7 @@ protected:
 	afx_msg void OnPaint();
 	afx_msg HCURSOR OnQueryDragIcon();
 	afx_msg void OnSelchangeTabMain(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnSize(UINT nType, int cx, int cy);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 

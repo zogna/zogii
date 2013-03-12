@@ -1,32 +1,32 @@
-#if !defined(AFX_DLGINFO_H__AA38EFBA_C4E2_466D_AB5C_2FDD0407810F__INCLUDED_)
-#define AFX_DLGINFO_H__AA38EFBA_C4E2_466D_AB5C_2FDD0407810F__INCLUDED_
+#if !defined(AFX_DLGPICTURE_H__553E2BF2_8C77_4D51_89EA_049532EE564C__INCLUDED_)
+#define AFX_DLGPICTURE_H__553E2BF2_8C77_4D51_89EA_049532EE564C__INCLUDED_
 
 #if _MSC_VER > 1000
 #pragma once
 #endif // _MSC_VER > 1000
-// DLGinfo.h : header file
+// DLGpicture.h : header file
 //
 
 /////////////////////////////////////////////////////////////////////////////
-// CDLGinfo dialog
+// CDLGpicture dialog
 
-class CDLGinfo : public CDialog
+class CDLGpicture : public CDialog
 {
 // Construction
 public:
-	CDLGinfo(CWnd* pParent = NULL);   // standard constructor
+	CDLGpicture(CWnd* pParent = NULL);   // standard constructor
 
 // Dialog Data
-	//{{AFX_DATA(CDLGinfo)
-	enum { IDD = IDD_INFO };
+	//{{AFX_DATA(CDLGpicture)
+	enum { IDD = IDD_PICTURE };
 		// NOTE: the ClassWizard will add data members here
 	//}}AFX_DATA
-	void AutoSize();
 	BOOL OnInitDialog();
+	void AutoSize();
 
 // Overrides
 	// ClassWizard generated virtual function overrides
-	//{{AFX_VIRTUAL(CDLGinfo)
+	//{{AFX_VIRTUAL(CDLGpicture)
 	protected:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	//}}AFX_VIRTUAL
@@ -35,8 +35,8 @@ public:
 protected:
 
 	// Generated message map functions
-	//{{AFX_MSG(CDLGinfo)
-		// NOTE: the ClassWizard will add member functions here
+	//{{AFX_MSG(CDLGpicture)
+	afx_msg void OnTxtwin();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
@@ -44,4 +44,4 @@ protected:
 //{{AFX_INSERT_LOCATION}}
 // Microsoft Visual C++ will insert additional declarations immediately before the previous line.
 
-#endif // !defined(AFX_DLGINFO_H__AA38EFBA_C4E2_466D_AB5C_2FDD0407810F__INCLUDED_)
+#endif // !defined(AFX_DLGPICTURE_H__553E2BF2_8C77_4D51_89EA_049532EE564C__INCLUDED_)
