@@ -50,6 +50,7 @@ BEGIN_MESSAGE_MAP(CZogciDlg, CDialog)
 	ON_WM_PAINT()
 	ON_WM_QUERYDRAGICON()
 	ON_NOTIFY(TCN_SELCHANGE, IDC_TAB_MAIN, OnSelchangeTabMain)
+	ON_WM_SIZE()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -71,7 +72,6 @@ BOOL CZogciDlg::OnInitDialog()
 	
 	// TODO: Add extra initialization here
 	TabMainInit();
-
 
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
@@ -115,6 +115,59 @@ HCURSOR CZogciDlg::OnQueryDragIcon()
 void CZogciDlg::OnOK()
 {
 	// TODO: Add your control notification handler code here
+}
+//窗口改变时的处理
+void CZogciDlg::OnSize(UINT nType, int cx, int cy) 
+{
+	CDialog::OnSize(nType, cx, cy);
+
+	//窗口最小化与窗口大小无变化不处理
+	if ((cx ==0 && cy == 0) || 
+		(cx == m_clientRect.Width() && cy == m_clientRect.Height())) 
+	{
+		return;
+	}
+	else
+	{
+		UpdatePannelPosition();
+		Invalidate();
+	}
+}
+
+void CZogciDlg::UpdatePannelPosition()
+{
+	GetClientRect(&m_clientRect);
+	//树宽度
+	int tree_width=200;
+	//窗体边距
+	int distance=5;
+	//树
+	CRect tree_Rect;
+	tree_Rect.top = m_clientRect.top+distance/* + 5*/;
+	tree_Rect.bottom = m_clientRect.bottom-distance/* - 10*/;
+	tree_Rect.left = m_clientRect.left+distance/* + 10*/;
+	tree_Rect.right = m_clientRect.left+tree_width+distance;
+	//必须 样式=重叠，边框=调整大小
+	GetDlgItem(IDC_TREE)->MoveWindow(tree_Rect);
+
+	//切换栏
+	CRect tab_Rect;
+	tab_Rect.top = m_clientRect.top+distance/* + 5*/;
+	tab_Rect.bottom = m_clientRect.bottom-distance/* - 10*/;
+	tab_Rect.left = m_clientRect.left+tree_Rect.right+distance/* + 10*/;
+	tab_Rect.right = m_clientRect.right-distance;
+	//必须 样式=重叠，边框=调整大小
+	GetDlgItem(IDC_TAB_MAIN)->MoveWindow(tab_Rect);
+
+	DlgLink.AutoSize();
+	DlgAbout.AutoSize();
+	DlgInfo.AutoSize();
+	DlgResult.AutoSize();
+	DlgSearch.AutoSize();
+
+
+	//m_screenPannel.MoveWindow(m_screenRect);
+
 }
 
 //初始化切换栏

@@ -53,15 +53,61 @@ BOOL CDLGlink::OnInitDialog()
 	Language_SetWndStaticText(this);
 	CDialog::OnInitDialog();
 
-	CRect rc(0, 0, 0, 0);
-	GetParent()->GetClientRect(&rc);
-	((CTabCtrl*)GetParent())->AdjustRect(FALSE, &rc);
-	MoveWindow(&rc);
+	AutoSize();
 
 	List();
 
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
+
+void CDLGlink::AutoSize()
+{
+	CRect rc(0, 0, 0, 0);
+	GetParent()->GetClientRect(&rc);
+	((CTabCtrl*)GetParent())->AdjustRect(FALSE, &rc);
+	MoveWindow(&rc);
+
+	//列表移动
+	//宽度
+	int list_width=210;
+
+	//WEBSITE
+	CRect website_Rect;
+	website_Rect.top = rc.top-10/* + 5*/;
+	website_Rect.bottom = rc.bottom-25/* - 10*/;
+	website_Rect.left = rc.left/* + 10*/;
+	website_Rect.right = rc.left+list_width;
+	//必须 样式=重叠，边框=调整大小
+	GetDlgItem(IDC_LIST_WEBSITE)->MoveWindow(website_Rect);
+
+	//BBS
+	CRect bbs_Rect;
+	bbs_Rect.top = rc.top-10/* + 5*/;
+	bbs_Rect.bottom = rc.bottom-25/* - 10*/;
+	bbs_Rect.left = website_Rect.right+5/* + 10*/;
+	bbs_Rect.right = bbs_Rect.left+list_width;
+	//必须 样式=重叠，边框=调整大小
+	GetDlgItem(IDC_LIST_BBS)->MoveWindow(bbs_Rect);
+
+	//flickr
+	CRect flickr_Rect;
+	flickr_Rect.top = rc.top-10/* + 5*/;
+	flickr_Rect.bottom = rc.bottom-25/* - 10*/;
+	flickr_Rect.left = bbs_Rect.right+5/* + 10*/;
+	flickr_Rect.right = flickr_Rect.left+list_width;
+	//必须 样式=重叠，边框=调整大小
+	GetDlgItem(IDC_LIST_FLICKR)->MoveWindow(flickr_Rect);
+
+	//BOOK
+	CRect book_Rect;
+	book_Rect.top = rc.top-10/* + 5*/;
+	book_Rect.bottom = rc.bottom-25/* - 10*/;
+	book_Rect.left = flickr_Rect.right+5/* + 10*/;
+	book_Rect.right = rc.right;
+	//必须 样式=重叠，边框=调整大小
+	GetDlgItem(IDC_LIST_BOOK)->MoveWindow(book_Rect);
+}
+
 
 void CDLGlink::List(void)
 {
@@ -75,7 +121,7 @@ void CDLGlink::List(void)
 	m_website.InsertColumn(1, Language_ConvertString("Other Website"), LVCFMT_LEFT, 160);
 
 	m_book.InsertColumn(0, Language_ConvertString("Books"), LVCFMT_LEFT, 140);
-	m_book.InsertColumn(1, Language_ConvertString("Authors"), LVCFMT_LEFT,200);
+	m_book.InsertColumn(1, Language_ConvertString("Authors"), LVCFMT_LEFT,250);
 
 	m_bbs.SetExtendedStyle(LVS_EX_FULLROWSELECT|LVS_EX_GRIDLINES);
 	m_book.SetExtendedStyle(LVS_EX_FULLROWSELECT|LVS_EX_GRIDLINES);

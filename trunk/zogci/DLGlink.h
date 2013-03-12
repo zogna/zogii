@@ -25,7 +25,7 @@ public:
 	CListCtrl	m_website;
 	//}}AFX_DATA
 
-
+	void AutoSize();
 // Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CDLGlink)

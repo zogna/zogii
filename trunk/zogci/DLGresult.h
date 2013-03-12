@@ -6,7 +6,8 @@
 #endif // _MSC_VER > 1000
 // DLGresult.h : header file
 //
-
+#include "DLGResultPannel.h"
+#include "DLGpicture.h"
 /////////////////////////////////////////////////////////////////////////////
 // CDLGresult dialog
 
@@ -21,8 +22,12 @@ public:
 	enum { IDD = IDD_RESULT };
 		// NOTE: the ClassWizard will add data members here
 	//}}AFX_DATA
+	CDLGResultPannel  DlgResultPannel;
+	CDLGpicture		DlgPicture[MAX_PICTURE_WIN];
+	int CurrentPicWinMax;
 
-
+	void AutoSize();
+	void AutoSizePictureWin(CRect rc);
 // Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CDLGresult)

@@ -7,6 +7,7 @@
 // DLGsearch.h : header file
 //
 
+
 /////////////////////////////////////////////////////////////////////////////
 // CDLGsearch dialog
 
@@ -22,7 +23,7 @@ public:
 		// NOTE: the ClassWizard will add data members here
 	//}}AFX_DATA
 
-
+	void AutoSize();
 // Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CDLGsearch)
