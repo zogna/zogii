@@ -6,6 +6,8 @@
 #endif // _MSC_VER > 1000
 // DLGpicture.h : header file
 //
+#include "cv.h"		
+#include "highgui.h"	 
 
 /////////////////////////////////////////////////////////////////////////////
 // CDLGpicture dialog
@@ -19,12 +21,28 @@ public:
 // Dialog Data
 	//{{AFX_DATA(CDLGpicture)
 	enum { IDD = IDD_PICTURE };
-		// NOTE: the ClassWizard will add data members here
+	CStatic	m_pic;
 	//}}AFX_DATA
 	BOOL OnInitDialog();
 	void AutoSize();
 
+	CRect pic_Rect;
+	bool LoadFlag;
+	char *txtbuf;
+	char *picpath;
+
+	void Load(char *path,char *txt);
+	void UnLoad(void);
+	void Show(void);
+	void ReShow(void);
+
+	IplImage* m_Image;
+
+	void ReadImage(CString imgPath);
+void ResizeImage(IplImage* img);
+void ShowImage(IplImage* img, UINT ID);
 // Overrides
+
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CDLGpicture)
 	protected:

@@ -2,7 +2,7 @@
 
 [General Info]
 Version=1
-LastClass=CDLGResultPannel
+LastClass=CDLGpicture
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "zogci.h"
@@ -12,22 +12,22 @@ Class1=CZogciApp
 Class2=CZogciDlg
 
 ResourceCount=10
-Resource2=IDD_LINK
-Resource3=IDD_Announce
-Resource4=IDD_RESULT_PANNEL
-Resource5=IDD_ABOUT
+Resource2=IDD_ABOUT
+Resource3=IDD_INFO
+Resource4=IDD_ZOGCI_DIALOG
+Resource5=IDD_SEARCH
 Resource1=IDR_MAINFRAME
 Class3=CDLGabout
-Resource6=IDD_SEARCH
-Resource7=IDD_RESULT
+Resource6=IDD_LINK
+Resource7=IDD_Announce
 Class4=CDLGinfo
 Class5=CDLGlink
 Class6=CDLGresult
 Class7=CDLGsearch
 Class8=CDLGannounce
-Resource8=IDD_INFO
+Resource8=IDD_RESULT
 Class9=CDLGResultPannel
-Resource9=IDD_ZOGCI_DIALOG
+Resource9=IDD_RESULT_PANNEL
 Class10=CDLGpicture
 Resource10=IDD_PICTURE
 
@@ -155,7 +155,7 @@ VirtualFilter=dWC
 [DLG:IDD_RESULT_PANNEL]
 Type=1
 Class=CDLGResultPannel
-ControlCount=8
+ControlCount=10
 Control1=IDC_BUTTON_First,button,1342242816
 Control2=IDC_BUTTON_Previous,button,1342242816
 Control3=IDC_BUTTON_Next,button,1342242816
@@ -164,6 +164,8 @@ Control5=IDC_EDIT1,edit,1350631552
 Control6=IDC_BUTTON_Jump,button,1342242816
 Control7=IDC_COMBO,combobox,1342242819
 Control8=IDC_STATIC,static,1342308352
+Control9=IDC_STATIC,static,1342177287
+Control10=IDC_STATIC,static,1342308353
 
 [CLS:CDLGResultPannel]
 Type=0
@@ -178,7 +180,7 @@ VirtualFilter=dWC
 Type=1
 Class=CDLGpicture
 ControlCount=2
-Control1=IDC_PICWIN,static,1342177287
+Control1=IDC_PICWIN,static,1342177799
 Control2=IDC_TXTWIN,button,1342254848
 
 [CLS:CDLGpicture]
@@ -187,6 +189,6 @@ HeaderFile=DLGpicture.h
 ImplementationFile=DLGpicture.cpp
 BaseClass=CDialog
 Filter=D
-LastObject=CDLGpicture
+LastObject=IDC_PICWIN
 VirtualFilter=dWC
 

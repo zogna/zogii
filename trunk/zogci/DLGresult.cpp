@@ -55,12 +55,45 @@ BOOL CDLGresult::OnInitDialog()
 	for(i=0;i<MAX_PICTURE_WIN;i++)
 		DlgPicture[i].Create(IDD_PICTURE,this);
 	
-
 	//放在所有CREATE最后
 	AutoSize();
+	
+
+
+
+	DlgPicture[0].Load("1.JPG","ok\r\ndown");
+	if(DlgPicture[0].LoadFlag)
+		DlgPicture[0].Show();
+
+		DlgPicture[1].Load("22.JPG","ok\r\nup");
+	if(DlgPicture[1].LoadFlag)
+		DlgPicture[1].Show();
+//	DlgPicture[0].UnLoad();
 
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
+
+/*
+void CDLGresult::ReadImage(char *path,unsigned char **image,unsigned long int *size)
+{
+	FILE *fp;
+	fp=fopen(path,"rb");
+	if(NULL == fp)
+		return ;
+	(*size)=0;
+	fseek(fp,0,SEEK_END);
+	(*size) = ftell(fp);
+
+	*image=(unsigned char *)calloc(*size,sizeof(unsigned char));
+	fseek(fp,0,SEEK_SET);
+	fread(*image,(*size)*sizeof(unsigned char),1,fp);
+	fclose(fp);
+}
+void CDLGresult::CloseImage(unsigned char **image)
+{
+	free(*image);
+}
+*/
 
 void CDLGresult::AutoSize()
 {
@@ -71,37 +104,39 @@ void CDLGresult::AutoSize()
 
 	//Pannel
 	CRect website_Rect;
-	website_Rect.top = rc.bottom-75/* + 5*/;
+	website_Rect.top = rc.bottom-70/* + 5*/;
 	website_Rect.bottom = rc.bottom/* - 10*/;
-	website_Rect.left = rc.left+100/* + 10*/;
+	website_Rect.left = rc.left+50/* + 10*/;
 	website_Rect.right = rc.right;
 	//必须 样式=重叠，边框=调整大小
 	DlgResultPannel.MoveWindow(website_Rect);
 	//调整窗口
 	AutoSizePictureWin(rc);
-
+	Invalidate();
 }
 
 void CDLGresult::AutoSizePictureWin(CRect rc)
 {
 	CRect rect;
 	int i;
-	int w;
 
-	rc.top-=15;
+	int w;
+	int h;
+
+	rc.top-=20;
 	rc.bottom-=65;
-	rc.right-=5;
+	rc.left-=5;
 
 	switch(CurrentPicWinMax)
 	{
-	case MAX_PICTURE_WIN	:w=6;break;	
-	case MID_PICTURE_WIN	:w=5;break;	
-	case MIN_PICTURE_WIN	:w=4;break;	
+	case MAX_PICTURE_WIN	:w=6;h=5;break;	
+	case MID_PICTURE_WIN	:w=5;h=4;break;	
+	case MIN_PICTURE_WIN	:w=4;h=3;break;	
 	default:MessageBox("CDLGresult::AutoSizePictureWin ERROR");return;
 	}
 
 	int width=(rc.right-rc.left)/w;
-	int hight=(rc.bottom-rc.top)/w;
+	int hight=(rc.bottom-rc.top)/h;
 
 	for(i=0;i<CurrentPicWinMax;i++)
 	{

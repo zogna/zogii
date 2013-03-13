@@ -58,4 +58,6 @@ void CDLGinfo::AutoSize()
 	GetParent()->GetClientRect(&rc);
 	((CTabCtrl*)GetParent())->AdjustRect(FALSE, &rc);
 	MoveWindow(&rc);
+
+	Invalidate();
 }
