@@ -28,6 +28,10 @@ public:
 
 	void AutoSize();
 	void AutoSizePictureWin(CRect rc);
+
+
+	void CloseImage(unsigned char **image);
+	void ReadImage(char *path,unsigned char **image,unsigned long int *size);
 // Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CDLGresult)

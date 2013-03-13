@@ -106,6 +106,8 @@ void CDLGlink::AutoSize()
 	book_Rect.right = rc.right;
 	//必须 样式=重叠，边框=调整大小
 	GetDlgItem(IDC_LIST_BOOK)->MoveWindow(book_Rect);
+
+	Invalidate();
 }
 
 

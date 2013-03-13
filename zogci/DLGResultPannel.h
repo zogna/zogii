@@ -6,9 +6,9 @@
 #endif // _MSC_VER > 1000
 // DLGResultPannel.h : header file
 //
-#define MAX_PICTURE_WIN	36
-#define MID_PICTURE_WIN	25
-#define MIN_PICTURE_WIN	16
+#define MAX_PICTURE_WIN	30
+#define MID_PICTURE_WIN	20
+#define MIN_PICTURE_WIN	12
 
 /////////////////////////////////////////////////////////////////////////////
 // CDLGResultPannel dialog
