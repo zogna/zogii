@@ -125,15 +125,11 @@ void CDLGabout::OnLanguageButton()
 {
 	UpdateData(TRUE);
 	LanguageFlag=(char)m_Language;
-	// TODO: Add your control notification handler code here
+	//写入用户配置
 	Language_WriteUserInfo();
 
-	
 	//开启另一个程序
 	WinExec("zogci.exe",SW_NORMAL);
 	//关闭本程序
 	AfxGetMainWnd()->SendMessage(WM_CLOSE);
-
-
-
 }

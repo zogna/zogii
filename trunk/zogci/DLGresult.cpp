@@ -62,12 +62,10 @@ BOOL CDLGresult::OnInitDialog()
 
 
 	DlgPicture[0].Load("1.JPG","ok\r\ndown");
-	if(DlgPicture[0].LoadFlag)
-		DlgPicture[0].Show();
+
 
 		DlgPicture[1].Load("22.JPG","ok\r\nup");
-	if(DlgPicture[1].LoadFlag)
-		DlgPicture[1].Show();
+
 //	DlgPicture[0].UnLoad();
 
 	return TRUE;  // return TRUE  unless you set the focus to a control
