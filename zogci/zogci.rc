@@ -166,10 +166,10 @@ IDD_PICTURE DIALOG DISCARDABLE  0, 0, 175, 131
 STYLE WS_CHILD
 FONT 9, "ËÎÌו"
 BEGIN
-    CONTROL         "",IDC_PICWIN,"Static",SS_BLACKFRAME | SS_CENTERIMAGE,14,
-                    13,15,14
     PUSHBUTTON      "Button1kljjjjjjjjjjjjjjjjjjjjjjjjjjjjj",IDC_TXTWIN,13,
                     103,142,15,BS_CENTER | BS_VCENTER | BS_MULTILINE
+    PUSHBUTTON      "picwin",IDC_PICWIN,67,38,50,14,BS_BITMAP | BS_CENTER | 
+                    BS_VCENTER
 END
 
 

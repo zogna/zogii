@@ -23,7 +23,6 @@ CDLGpicture::CDLGpicture(CWnd* pParent /*=NULL*/)
 	: CDialog(CDLGpicture::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CDLGpicture)
-		// NOTE: the ClassWizard will add member initialization here
 	//}}AFX_DATA_INIT
 
 	LoadFlag=false;
@@ -44,6 +43,7 @@ void CDLGpicture::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CDLGpicture, CDialog)
 	//{{AFX_MSG_MAP(CDLGpicture)
 	ON_BN_CLICKED(IDC_TXTWIN, OnTxtwin)
+	ON_BN_CLICKED(IDC_PICWIN, OnPicwin)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -78,6 +78,9 @@ void CDLGpicture::AutoSize()
 	txt_Rect.left = rc.left+3/* + 10*/;
 	txt_Rect.right = rc.right-3;
 	GetDlgItem(IDC_TXTWIN)->MoveWindow(txt_Rect);
+	//显示图片
+	if(LoadFlag)
+		ReSizeShowImage();
 
 	Invalidate();
 }
@@ -107,12 +110,10 @@ void CDLGpicture::Load(char *path,char *txt)
 		len=strlen(path);
 		picpath=(char*)calloc(len,sizeof(char));
 		strcpy(picpath,path);
-		//图片显示的窗口
-		cvNamedWindow(picpath, 1);
-		HWND hWnd = (HWND) cvGetWindowHandle(picpath);
-		HWND hParent = ::GetParent(hWnd);
-		::SetParent(hWnd, GetDlgItem(IDC_PICWIN)->m_hWnd);
-		::ShowWindow(hParent, SW_HIDE);
+		//图片显示
+		//ReSizeShowImage();
+		//文本显示
+		GetDlgItem(IDC_TXTWIN)->SetWindowText(txtbuf);
 	}
 }
 
@@ -121,49 +122,132 @@ void CDLGpicture::UnLoad(void)
 {	
 	if(false==LoadFlag)
 		return;
-	//销毁窗口
-	cvDestroyWindow(picpath);
 
 	cvReleaseImage(&m_Image); 
 	m_Image=NULL;
 
-	if(txtbuf)
-	{
-		free(txtbuf);
-		txtbuf=NULL;
+	free(txtbuf);
+	txtbuf=NULL;
 	
-		free(picpath);
-		picpath=NULL;
-	}
-
+	free(picpath);
+	picpath=NULL;
+	
 	LoadFlag=false;
 }
 
-void CDLGpicture::Show(void)
+//比例变小，转换成BMP并显示
+void CDLGpicture::ReSizeShowImage(void)
 {
+	//宽高限制
+#if 0
+	int limitw=480;
+	int limith=480;
+#else
 	CRect rect;
 	GetDlgItem(IDC_PICWIN)->GetClientRect(&rect);
 
-	// 获得显示控件的 DC
-//	CDC* pCDC = GetDlgItem(IDC_PICWIN)->GetDC();
+	int limitw=rect.right-rect.left;
+	int limith=rect.bottom-rect.top;
+#endif
 
-	// 获取HDC（设备句柄）来进行绘图操作
-//	HDC pHDC = pCDC->GetSafeHdc();
+	int width = m_Image->width;
+	int height = m_Image->height;
 
+	int dstw;
+	int dsth;
+	//等比例缩放
+	if((width > limitw) && (width > height))
+	{
+		dstw=limitw;
+		dsth=(int)((float)dstw/(float)width*height);
+	}
+	if(height > limith)
+	{
+		dsth=limith;
+		dstw=(int)((float)dsth/(float)height*width);
+	}
+	else
+	{
+		dstw=width;
+		dsth=height;
+	}
+	//创建缩小
+	miniImage = cvCreateImage( cvSize(dstw,dsth), IPL_DEPTH_8U, 3 );
+	cvResize(m_Image,miniImage);
+	//转换
+	HBITMAP	hbitmap ;
+	IplImage2Bmp(miniImage,hbitmap);
+	//显示
+	m_pic.SetBitmap(hbitmap);
+	//释放
+	cvReleaseImage(&miniImage); 
+	miniImage=NULL;
 
-//	ReleaseDC( pCDC);
+/*
+	HBITMAP	hbitmap = (HBITMAP)LoadImage(
+		NULL,				// handle of the instance that contains the image
+		str,
+		IMAGE_BITMAP,		// type of image-- can also be IMAGE_CURSOR or IMAGE_ICON 
+		0,0,				// desired width and height
+		LR_LOADFROMFILE);	// load flags-- with LR_LOADTRANSPARENT makes transparent to bkgrnd
 
-//
-	//图像显示
+	char str[260];
+	sprintf(str,"%s.bmp",picpath);
+	cvSaveImage(str,bmpImage);
+*/
+	//图片显示的窗口
+	/*	
+	cvNamedWindow(picpath, 1);
+	HWND hWnd = (HWND) cvGetWindowHandle(picpath);
+	HWND hParent = ::GetParent(hWnd);
+	::SetParent(hWnd, GetDlgItem(IDC_PICWIN)->m_hWnd);
+	::ShowWindow(hParent, SW_HIDE);
 	cvShowImage(picpath,m_Image);
-	//文本显示
-	GetDlgItem(IDC_TXTWIN)->SetWindowText(txtbuf);
-	
-}
-void CDLGpicture::ReShow(void)
-{
+	cvDestroyWindow(picpath);
+	*/
 }
 
+bool CDLGpicture::IplImage2Bmp(IplImage *pImage,HBITMAP &hBitmap)
+{
+	if( pImage && pImage->depth == IPL_DEPTH_8U )
+    {
+        uchar buffer[sizeof(BITMAPINFOHEADER) + 1024];
+        BITMAPINFO* bmi = (BITMAPINFO*)buffer;
+        int bmp_w = pImage->width, bmp_h = pImage->height;
+		
+		int width=bmp_w;
+		int height=bmp_h;
+		int bpp=pImage ? (pImage->depth & 255)*pImage->nChannels : 0;
+		int origin=pImage->origin;
+		
+		assert( bmi && width >= 0 && height >= 0 && (bpp == 8 || bpp == 24 || bpp == 32));
+		
+		BITMAPINFOHEADER* bmih = &(bmi->bmiHeader);
+		
+		memset( bmih, 0, sizeof(*bmih));
+		bmih->biSize = sizeof(BITMAPINFOHEADER);
+		bmih->biWidth = width;
+		bmih->biHeight = origin ? abs(height) : -abs(height);
+		bmih->biPlanes = 1;
+		bmih->biBitCount = (unsigned short)bpp;
+		bmih->biCompression = BI_RGB;
+		
+		if( bpp == 8 )
+		{
+			RGBQUAD* palette = bmi->bmiColors;
+			int i;
+			for( i = 0; i < 256; i++ )
+			{
+				palette[i].rgbBlue = palette[i].rgbGreen = palette[i].rgbRed = (BYTE)i;
+				palette[i].rgbReserved = 0;
+			}
+		}
+		
+		hBitmap=CreateDIBitmap(CClientDC(NULL),bmih,CBM_INIT,pImage->imageData,bmi,DIB_RGB_COLORS);
+		return true;
+    }
+	return false;
+}
 
 void CDLGpicture::OnTxtwin() 
 {
@@ -171,103 +255,9 @@ void CDLGpicture::OnTxtwin()
 	
 }
 
-
-void CDLGpicture::ReadImage(CString imgPath)
+void CDLGpicture::OnPicwin() 
 {
-	// 读取图片、缓存到一个局部变量 ipl 中
-	//IplImage* ipl = cvLoadImage((const char *)(LPCTSTR)imgPath, 1);
-
-
-/*
-	if((src_.cols > 900) && (src_.cols > src_.rows))
-		{
-			width_ = 900;
-			height_ = int(width_*src_.rows/src_.cols);
-		}
-
-		if(src_.rows > 500)
-		{
-			height_ = 500;
-			width_ = int(height_*src_.cols/src_.rows);
-		}
-
-		else
-		{
-			width_ = src_.cols;
-			height_ = src_.rows;
-		}
-*/
-
-	// 对读入的图片进行缩放，使其宽或高最高值刚好等于256，再复制到 m_Image 中
-//	ResizeImage(ipl);
-
-	// 调用显示图片函数
-	ShowImage(this->m_Image, IDC_PICWIN);
-
-
-}
-
-void CDLGpicture::ResizeImage(IplImage* img)
-{
-	// 获取图片的宽和高
-	int width = img->width;
-	int height = img->height;
-
-	// 找出宽和高的较大值
-	int max = (width > height) ? width : height;
-
-	// 计算将图片缩放到Image区域所需的比例因子
-	float scale = (float) ((float) max / 256.0f);
-
-	// 缩放后图片的宽和高
-	int nwidth = 100;//(int) (width / scale);
-	int nheight = 100;//(int) (height / scale);
-
-	// 计算图片在Image左上角的期望坐标值
-	int tlx = 7;//(nwidth > nheight) ? 0 : (int) (256 - nwidth) / 2;
-	int tly = 7;//(nwidth > nheight) ? (int) (256 - nwidth) / 2 : 0;
-
-	// 设置Image的ROI区域，用于存入图片Img
-	cvSetImageROI(this->m_Image, cvRect( tlx, tly, nwidth, nheight) );
-
-	// 对图片img进行缩放，并存入m_Image中
-	cvResize( img, this->m_Image);
-
-	// 重置m_Image的ROI准备读入下一幅图像
-	cvResetImageROI(this->m_Image);	  
-}
-
-void CDLGpicture::ShowImage(IplImage* img, UINT ID)
-{
-	// 获得显示控件的 DC
-	CDC* pCDC = GetDlgItem(ID)->GetDC();
-
-	// 获取HDC（设备句柄）来进行绘图操作
-	HDC pHDC = pCDC->GetSafeHdc();
-
-	CRect rect;
-	GetDlgItem(ID)->GetClientRect(&rect);
-
-	// 求出图片控件的宽和高
-	int rw = rect.right - rect.left;
-	int rh = rect.bottom - rect.top;
-
-	// 读取图片的宽和高
-	int iw = img->width;
-	int ih = img->height;
-
-	// 使图片的显示位置正好在控件的正中
-	int tx = (int) (rw - iw) / 2;
-	int ty = (int) (rh - ih) / 2;
-
-	SetRect( rect, tx, ty, tx+iw, ty+ih);
-
-	cvNamedWindow("Image Display", 1);
-	HWND hWnd = (HWND) cvGetWindowHandle("Image Display");
-	HWND hParent = ::GetParent(hWnd);
-	::SetParent(hWnd, GetDlgItem(ID)->m_hWnd);
-	::ShowWindow(hParent, SW_HIDE);
-	cvShowImage("Image Display",img);
-
-
+	// TODO: Add your control notification handler code here
+	if(LoadFlag)
+		ShellExecute(this->m_hWnd,NULL,picpath,NULL,NULL,SW_NORMAL);
 }

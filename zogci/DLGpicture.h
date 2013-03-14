@@ -21,7 +21,7 @@ public:
 // Dialog Data
 	//{{AFX_DATA(CDLGpicture)
 	enum { IDD = IDD_PICTURE };
-	CStatic	m_pic;
+	CButton	m_pic;
 	//}}AFX_DATA
 	BOOL OnInitDialog();
 	void AutoSize();
@@ -33,14 +33,12 @@ public:
 
 	void Load(char *path,char *txt);
 	void UnLoad(void);
-	void Show(void);
-	void ReShow(void);
 
 	IplImage* m_Image;
+	IplImage* miniImage;
 
-	void ReadImage(CString imgPath);
-void ResizeImage(IplImage* img);
-void ShowImage(IplImage* img, UINT ID);
+	void ReSizeShowImage(void);
+	bool IplImage2Bmp(IplImage *pImage,HBITMAP &hBitmap);
 // Overrides
 
 	// ClassWizard generated virtual function overrides
@@ -55,6 +53,7 @@ protected:
 	// Generated message map functions
 	//{{AFX_MSG(CDLGpicture)
 	afx_msg void OnTxtwin();
+	afx_msg void OnPicwin();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

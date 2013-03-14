@@ -12,22 +12,22 @@ Class1=CZogciApp
 Class2=CZogciDlg
 
 ResourceCount=10
-Resource2=IDD_ABOUT
-Resource3=IDD_INFO
-Resource4=IDD_ZOGCI_DIALOG
-Resource5=IDD_SEARCH
+Resource2=IDD_RESULT
+Resource3=IDD_LINK
+Resource4=IDD_SEARCH
+Resource5=IDD_INFO
 Resource1=IDR_MAINFRAME
 Class3=CDLGabout
-Resource6=IDD_LINK
-Resource7=IDD_Announce
+Resource6=IDD_ZOGCI_DIALOG
+Resource7=IDD_RESULT_PANNEL
 Class4=CDLGinfo
 Class5=CDLGlink
 Class6=CDLGresult
 Class7=CDLGsearch
 Class8=CDLGannounce
-Resource8=IDD_RESULT
+Resource8=IDD_Announce
 Class9=CDLGResultPannel
-Resource9=IDD_RESULT_PANNEL
+Resource9=IDD_ABOUT
 Class10=CDLGpicture
 Resource10=IDD_PICTURE
 
@@ -180,8 +180,8 @@ VirtualFilter=dWC
 Type=1
 Class=CDLGpicture
 ControlCount=2
-Control1=IDC_PICWIN,static,1342177799
-Control2=IDC_TXTWIN,button,1342254848
+Control1=IDC_TXTWIN,button,1342254848
+Control2=IDC_PICWIN,button,1342246784
 
 [CLS:CDLGpicture]
 Type=0
