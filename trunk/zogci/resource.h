@@ -12,6 +12,9 @@
 #define IDD_LINK                        135
 #define IDD_RESULT_PANNEL               137
 #define IDD_PICTURE                     139
+#define IDD_MARK                        140
+#define IDD_INFO_TXT                    141
+#define IDD_MAP                         142
 #define IDC_TREE                        1000
 #define IDC_TAB_MAIN                    1001
 #define IDC_Announce                    1002
@@ -37,14 +40,22 @@
 #define IDC_COMBO                       1024
 #define IDC_TXTWIN                      1027
 #define IDC_PICWIN                      1029
+#define IDC_TAB_INFO                    1030
+#define IDC_STATIC_SF                   1031
+#define IDC_STATIC_GE                   1032
+#define IDC_STATIC_SP                   1033
+#define IDC_STATIC_SSP                  1034
+#define IDC_STATIC_DISCOVERY            1035
+#define IDC_COMBO_COLOR                 1038
+#define IDC_BUTTON_MARK                 1039
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        140
+#define _APS_NEXT_RESOURCE_VALUE        143
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1030
+#define _APS_NEXT_CONTROL_VALUE         1040
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

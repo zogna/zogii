@@ -91,6 +91,10 @@ LINK32=link.exe
 # PROP Default_Filter "cpp;c;cxx;rc;def;r;odl;idl;hpj;bat"
 # Begin Source File
 
+SOURCE=.\ColourPickerCB.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\DLGabout.cpp
 # End Source File
 # Begin Source File
@@ -103,7 +107,19 @@ SOURCE=.\DLGinfo.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\DLGInfoTxt.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\DLGlink.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DLGMap.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DLGMark.cpp
 # End Source File
 # Begin Source File
 
@@ -148,6 +164,10 @@ SOURCE=.\zogciDlg.cpp
 # PROP Default_Filter "h;hpp;hxx;hm;inl"
 # Begin Source File
 
+SOURCE=.\ColourPickerCB.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DLGabout.h
 # End Source File
 # Begin Source File
@@ -160,7 +180,19 @@ SOURCE=.\DLGinfo.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DLGInfoTxt.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\DLGlink.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DLGMap.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DLGMark.h
 # End Source File
 # Begin Source File
 

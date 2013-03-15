@@ -2,34 +2,40 @@
 
 [General Info]
 Version=1
-LastClass=CDLGpicture
+LastClass=CDLGMap
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "zogci.h"
 
-ClassCount=10
+ClassCount=13
 Class1=CZogciApp
 Class2=CZogciDlg
 
-ResourceCount=10
-Resource2=IDD_RESULT
-Resource3=IDD_LINK
-Resource4=IDD_SEARCH
-Resource5=IDD_INFO
+ResourceCount=13
+Resource2=IDD_INFO
+Resource3=IDD_MARK
+Resource4=IDD_RESULT
+Resource5=IDD_ZOGCI_DIALOG
 Resource1=IDR_MAINFRAME
 Class3=CDLGabout
-Resource6=IDD_ZOGCI_DIALOG
-Resource7=IDD_RESULT_PANNEL
+Resource6=IDD_SEARCH
+Resource7=IDD_PICTURE
 Class4=CDLGinfo
 Class5=CDLGlink
 Class6=CDLGresult
 Class7=CDLGsearch
 Class8=CDLGannounce
-Resource8=IDD_Announce
+Resource8=IDD_RESULT_PANNEL
 Class9=CDLGResultPannel
-Resource9=IDD_ABOUT
+Resource9=IDD_LINK
 Class10=CDLGpicture
-Resource10=IDD_PICTURE
+Resource10=IDD_Announce
+Class11=CDLGMark
+Resource11=IDD_ABOUT
+Class12=CDLGInfoTxt
+Resource12=IDD_INFO_TXT
+Class13=CDLGMap
+Resource13=IDD_MAP
 
 [CLS:CZogciApp]
 Type=0
@@ -84,7 +90,17 @@ ControlCount=0
 [DLG:IDD_INFO]
 Type=1
 Class=CDLGinfo
-ControlCount=0
+ControlCount=10
+Control1=IDC_TAB_INFO,SysTabControl32,1342178304
+Control2=IDC_STATIC_SF,static,1342308864
+Control3=IDC_STATIC_GE,static,1342308864
+Control4=IDC_STATIC_SP,static,1342308864
+Control5=IDC_STATIC_SSP,static,1342308864
+Control6=IDC_STATIC_DISCOVERY,static,1342308352
+Control7=IDC_STATIC,static,1342308352
+Control8=IDC_STATIC,static,1342308352
+Control9=IDC_STATIC,static,1342308352
+Control10=IDC_STATIC,static,1342308352
 
 [CLS:CDLGabout]
 Type=0
@@ -116,7 +132,8 @@ HeaderFile=DLGinfo.h
 ImplementationFile=DLGinfo.cpp
 BaseClass=CDialog
 Filter=D
-LastObject=CDLGinfo
+LastObject=IDC_TAB_INFO
+VirtualFilter=dWC
 
 [CLS:CDLGlink]
 Type=0
@@ -189,6 +206,55 @@ HeaderFile=DLGpicture.h
 ImplementationFile=DLGpicture.cpp
 BaseClass=CDialog
 Filter=D
-LastObject=IDC_PICWIN
+LastObject=CDLGpicture
 VirtualFilter=dWC
+
+[DLG:IDD_MARK]
+Type=1
+Class=CDLGMark
+ControlCount=3
+Control1=IDC_STATIC,static,1342308353
+Control2=IDC_COMBO_COLOR,combobox,1342243347
+Control3=IDC_BUTTON_MARK,button,1342242816
+
+[CLS:CDLGMark]
+Type=0
+HeaderFile=DLGMark.h
+ImplementationFile=DLGMark.cpp
+BaseClass=CDialog
+Filter=D
+LastObject=CDLGMark
+VirtualFilter=dWC
+
+[DLG:IDD_INFO_TXT]
+Type=1
+Class=CDLGInfoTxt
+ControlCount=6
+Control1=IDC_EDIT1,edit,1350631552
+Control2=IDC_BUTTON_First,button,1342242816
+Control3=IDC_BUTTON_Previous,button,1342242816
+Control4=IDC_BUTTON_Next,button,1342242816
+Control5=IDC_BUTTON_Last,button,1342242816
+Control6=IDC_STATIC,static,1342308353
+
+[CLS:CDLGInfoTxt]
+Type=0
+HeaderFile=DLGInfoTxt.h
+ImplementationFile=DLGInfoTxt.cpp
+BaseClass=CDialog
+Filter=D
+LastObject=CDLGInfoTxt
+
+[DLG:IDD_MAP]
+Type=1
+Class=CDLGMap
+ControlCount=0
+
+[CLS:CDLGMap]
+Type=0
+HeaderFile=DLGMap.h
+ImplementationFile=DLGMap.cpp
+BaseClass=CDialog
+Filter=D
+LastObject=CDLGMap
 
