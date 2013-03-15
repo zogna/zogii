@@ -36,7 +36,10 @@ protected:
 
 	// Generated message map functions
 	//{{AFX_MSG(CDLGInfoTxt)
-		// NOTE: the ClassWizard will add member functions here
+	afx_msg void OnBUTTONPrevious();
+	afx_msg void OnBUTTONFirst();
+	afx_msg void OnBUTTONNext();
+	afx_msg void OnBUTTONLast();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

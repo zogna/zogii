@@ -35,7 +35,10 @@ void CDLGInfoTxt::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CDLGInfoTxt, CDialog)
 	//{{AFX_MSG_MAP(CDLGInfoTxt)
-		// NOTE: the ClassWizard will add message map macros here
+	ON_BN_CLICKED(IDC_BUTTON_Previous, OnBUTTONPrevious)
+	ON_BN_CLICKED(IDC_BUTTON_First, OnBUTTONFirst)
+	ON_BN_CLICKED(IDC_BUTTON_Next, OnBUTTONNext)
+	ON_BN_CLICKED(IDC_BUTTON_Last, OnBUTTONLast)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -58,4 +61,28 @@ void CDLGInfoTxt::AutoSize()
 	GetParent()->GetClientRect(&rc);
 	((CTabCtrl*)GetParent())->AdjustRect(FALSE, &rc);
 	MoveWindow(&rc);
+}
+
+void CDLGInfoTxt::OnBUTTONPrevious() 
+{
+	// TODO: Add your control notification handler code here
+	
+}
+
+void CDLGInfoTxt::OnBUTTONFirst() 
+{
+	// TODO: Add your control notification handler code here
+	
+}
+
+void CDLGInfoTxt::OnBUTTONNext() 
+{
+	// TODO: Add your control notification handler code here
+	
+}
+
+void CDLGInfoTxt::OnBUTTONLast() 
+{
+	// TODO: Add your control notification handler code here
+	
 }
