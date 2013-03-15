@@ -72,6 +72,7 @@ BOOL CZogciDlg::OnInitDialog()
 	
 	// TODO: Add extra initialization here
 	TabMainInit();
+	OnSelchangeTabMain(NULL,NULL);
 
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }

@@ -51,6 +51,7 @@ BOOL CDLGinfo::OnInitDialog()
 	DlgMark.ShowWindow(SW_SHOW);
 
 	TabInfoInit();
+	OnSelchangeTabInfo(NULL,NULL);
 
 	AutoSize();
 
@@ -103,8 +104,8 @@ void CDLGinfo::AutoSize()
 	//必须 样式=重叠，边框=调整大小
 	DlgMark.MoveWindow(mark_Rect);
 
-//	DlgInfoTxt.AutoSize();
-//	DlgInfoMap.AutoSize();
+	DlgInfoTxt.AutoSize();
+	DlgInfoMap.AutoSize();
 
 	DlgInfoAdult.AutoSize();
 	DlgInfoLarva.AutoSize();
