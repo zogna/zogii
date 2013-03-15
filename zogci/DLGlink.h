@@ -24,7 +24,7 @@ public:
 	CListCtrl	m_flickr;
 	CListCtrl	m_website;
 	//}}AFX_DATA
-
+	BOOL	OnInitDialog();
 	void AutoSize();
 // Overrides
 	// ClassWizard generated virtual function overrides
@@ -33,7 +33,7 @@ public:
 	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV support
 	//}}AFX_VIRTUAL
 
-	BOOL	OnInitDialog();
+
 	void List(void);
 
 // Implementation

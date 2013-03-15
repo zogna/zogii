@@ -64,7 +64,7 @@ BOOL CDLGresult::OnInitDialog()
 	DlgPicture[0].Load("1.JPG","ok\r\ndown");
 
 
-		DlgPicture[1].Load("22.JPG","ok\r\nup");
+	DlgPicture[1].Load("22.JPG","ok\r\nup");
 
 //	DlgPicture[0].UnLoad();
 

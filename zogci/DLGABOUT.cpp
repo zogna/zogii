@@ -80,7 +80,7 @@ void CDLGabout::Authors(void)
 {
 	char temp[260];
 
-	GetDlgItem(IDC_ADDR)->SetWindowText("code.google.com/p/zogci");
+	m_addr.SetLinkText("code.google.com/p/zogci");
 	//Set the target URL 
 	m_addr.SetLinkUrl("http://code.google.com/p/zogci/");
 	//Enable showing the Tooltip
