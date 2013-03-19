@@ -5,4 +5,5 @@ del /S /Q *.sdf
 del /S /Q *.user
 del /S /Q *.plg
 del /S /Q *.opt
+rmdir /s /q Debug
 pause
