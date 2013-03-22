@@ -1,0 +1,55 @@
+设置LVS_EX_CHECKBOXES风格 
+    ListView_SetExtendedListViewStyle(m_List.GetSafeHwnd(), m_List.GetExStyle() | LVS_EX_CHECKBOXES); 
+为listctrl添加测试项 
+    在OnInitDialog()中添加如下代码： 
+     m_List.InsertColumn(0,"Name",LVCFMT_LEFT,150); 
+     m_List.InsertColumn(1,"***",LVCFMT_LEFT,200); 
+     m_List.InsertItem(0, "ZhangSan"); 
+     m_List.InsertItem(1, "LiSi"); 
+添加控件通知消息 
+    为ListCtrl控件添加LVN_ITEMCHANGED消息。系统生成如下代码： 
+void CXXXDlg::OnLvnItemchangedList1(NMHDR *pNMHDR, LRESULT *pResult) 
+{ 
+LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR); 
+// TODO: Add your control notification handler code here 
+*pResult = 0; 
+} 
+
+在LVN_ITEMCHANGED消息处理函数中添加代码如下： 
+void CXXXDlg::OnLvnItemchangedList1(NMHDR *pNMHDR, LRESULT *pResult) 
+{ 
+LPNMLISTVIEW pNMLV = reinterpret_cast<LPNMLISTVIEW>(pNMHDR); 
+// TODO: Add your control notification handler code here 
+/* 
+typedef struct tagNMLISTVIEW 
+{ 
+NMHDR   hdr; 
+int     iItem; 
+int     iSubItem; 
+UINT    uNewState; 
+UINT    uOldState; 
+UINT    uChanged; 
+POINT   ptAction; 
+LPARAM  lParam; 
+} NMLISTVIEW, *LPNMLISTVIEW; 
+*/ 
+if((pNMLV->uOldState & INDEXTOSTATEIMAGEMASK(1)) /* old state : unchecked */ 
+  && (pNMLV->uNewState & INDEXTOSTATEIMAGEMASK(2)) /* new state : checked */ 
+  ) 
+{ 
+  TRACE("Item %d is checked\n", pNMLV->iItem); 
+} 
+else if((pNMLV->uOldState & INDEXTOSTATEIMAGEMASK(2)) /* old state : checked */ 
+  && (pNMLV->uNewState & INDEXTOSTATEIMAGEMASK(1)) /* new state : unchecked */ 
+  ) 
+{ 
+  TRACE("Item %d is unchecked\n", pNMLV->iItem); 
+} 
+else 
+{ 
+  TRACE("Item %d does't change the check-status\n", pNMLV->iItem); 
+} 
+
+*pResult = 0; 
+} 
+
