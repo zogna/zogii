@@ -9,6 +9,8 @@
 #include "cv.h"		
 #include "highgui.h"	 
 
+#define UNM_HYPERLINK_CLICKED	(WM_APP + 0x100)
+#include "PPTooltip.h"
 /////////////////////////////////////////////////////////////////////////////
 // CDLGpicture dialog
 
@@ -33,13 +35,20 @@ public:
 
 	void Load(char *path,char *txt);
 	void UnLoad(void);
-
+	///////////////	///////////////	///////////////
 	IplImage* m_Image;
 	IplImage* miniImage;
 
 	void ReSizeShowImage(void);
 	bool IplImage2Bmp(IplImage *pImage,HBITMAP &hBitmap);
+	///////////////	///////////////	///////////////
+	CPPToolTip m_tooltip;
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
+
+	///////////////	///////////////	///////////////
+
 // Overrides
+
 
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CDLGpicture)
@@ -52,8 +61,8 @@ protected:
 
 	// Generated message map functions
 	//{{AFX_MSG(CDLGpicture)
-	afx_msg void OnTxtwin();
 	afx_msg void OnPicwin();
+
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

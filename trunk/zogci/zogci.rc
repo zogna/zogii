@@ -179,11 +179,7 @@ IDD_PICTURE DIALOG DISCARDABLE  0, 0, 175, 131
 STYLE WS_CHILD
 FONT 9, "ËÎÌו"
 BEGIN
-    PUSHBUTTON      "Button1kljjjjjjjjjjjjjjjjjjjjjjjjjjjjj",IDC_TXTWIN,13,
-                    103,142,15,BS_CENTER | BS_VCENTER | BS_MULTILINE | 
-                    BS_FLAT
-    PUSHBUTTON      "picwin",IDC_PICWIN,67,38,50,14,BS_BITMAP | BS_CENTER | 
-                    BS_VCENTER | BS_FLAT
+    PUSHBUTTON      "picwin",IDC_PICWIN,67,38,50,14,BS_BITMAP
 END
 
 IDD_MARK DIALOG DISCARDABLE  0, 0, 61, 56
