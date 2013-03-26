@@ -30,7 +30,6 @@ CDLGpicture::CDLGpicture(CWnd* pParent /*=NULL*/)
 	m_Image=NULL;
 }
 
-
 void CDLGpicture::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
@@ -42,8 +41,8 @@ void CDLGpicture::DoDataExchange(CDataExchange* pDX)
 
 BEGIN_MESSAGE_MAP(CDLGpicture, CDialog)
 	//{{AFX_MSG_MAP(CDLGpicture)
-	ON_BN_CLICKED(IDC_TXTWIN, OnTxtwin)
 	ON_BN_CLICKED(IDC_PICWIN, OnPicwin)
+
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -57,6 +56,34 @@ BOOL CDLGpicture::OnInitDialog()
 
 	AutoSize();
 
+	/*SetEffectBk();
+	  SOLID =0
+	  HGRADIENT=1
+	  VGRADIENT=2
+	  HCGRADIENT=3
+	  HVGRADIENT=4
+	  3HGRADIENT=5
+	  3VGRADIENT=6
+	  NOISE =无特效=7
+	  DIAGSHADE=8
+	  HSHADE=9
+	  VSHADE=10
+	  HBUMP=11
+	  VBUMP=12
+	  SOFTBUMP=13
+	  HARDBUMP=14
+	  METAL=15
+	*/
+	m_tooltip.Create(this);
+	m_tooltip.SetBehaviour(PPTOOLTIP_NOCLOSE_OVER | PPTOOLTIP_CLOSE_LEAVEWND | PPTOOLTIP_DISABLE_AUTOPOP);
+	m_tooltip.SetColorBk(RGB(255, 255, 255), RGB(242, 246, 251), RGB(202, 218, 239));
+	//m_tooltip.SetCallbackHyperlink(this->GetSafeHwnd(), UNM_HYPERLINK_CLICKED);
+	m_tooltip.SetEffectBk(15,0);
+	m_tooltip.SetDirection(PPTOOLTIP_BOTTOMEDGE_CENTER);
+	//关闭阴影
+	m_tooltip.SetTooltipShadow(0, 0, 0, 0, 0, 0);
+	m_tooltip.SetImageShadow(0, 0, 0, 0, 0, 0);
+
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
 
@@ -67,17 +94,11 @@ void CDLGpicture::AutoSize()
 	//Pannel
 
 	pic_Rect.top = rc.top+5/* + 5*/;
-	pic_Rect.bottom = rc.bottom-30/* - 10*/;
+	pic_Rect.bottom = rc.bottom/* - 10*/;
 	pic_Rect.left = rc.left+3/* + 10*/;
 	pic_Rect.right = rc.right-3;
 	GetDlgItem(IDC_PICWIN)->MoveWindow(pic_Rect);
 
-	CRect txt_Rect;
-	txt_Rect.top = 	pic_Rect.bottom/* + 5*/;
-	txt_Rect.bottom = rc.bottom/* - 10*/;
-	txt_Rect.left = rc.left+3/* + 10*/;
-	txt_Rect.right = rc.right-3;
-	GetDlgItem(IDC_TXTWIN)->MoveWindow(txt_Rect);
 	//显示图片
 	if(LoadFlag)
 		ReSizeShowImage();
@@ -112,8 +133,9 @@ void CDLGpicture::Load(char *path,char *txt)
 		strcpy(picpath,path);
 		//图片显示
 		//ReSizeShowImage();
-		//文本显示
-		GetDlgItem(IDC_TXTWIN)->SetWindowText(txtbuf);
+		//字
+		m_tooltip.AddTool(GetDlgItem(IDC_PICWIN),
+	_T("<center><h2>Disables a button</h2></center><br><hr color=green><br>To open URL click<b><a href=\"http://www.codeproject.com\">link</a></b>"));
 	}
 }
 
@@ -132,6 +154,7 @@ void CDLGpicture::UnLoad(void)
 	free(picpath);
 	picpath=NULL;
 	
+	m_tooltip.RemoveAllTools();
 	LoadFlag=false;
 }
 
@@ -249,15 +272,21 @@ bool CDLGpicture::IplImage2Bmp(IplImage *pImage,HBITMAP &hBitmap)
 	return false;
 }
 
-void CDLGpicture::OnTxtwin() 
-{
-	// TODO: Add your control notification handler code here
-	
-}
-
 void CDLGpicture::OnPicwin() 
 {
 	// TODO: Add your control notification handler code here
 	if(LoadFlag)
-		ShellExecute(this->m_hWnd,NULL,picpath,NULL,NULL,SW_NORMAL);
+		NULL;
+	//	ShellExecute(this->m_hWnd,NULL,picpath,NULL,NULL,SW_NORMAL);
+	//跳转到详细信息
+
 }
+
+//为了TOOLTIP
+BOOL CDLGpicture::PreTranslateMessage(MSG* pMsg) 
+{
+	m_tooltip.RelayEvent(pMsg);
+	return CDialog::PreTranslateMessage(pMsg);
+}
+
+

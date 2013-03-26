@@ -38,7 +38,6 @@
 #define IDC_EDIT1                       1022
 #define IDC_BUTTON_Jump                 1023
 #define IDC_COMBO                       1024
-#define IDC_TXTWIN                      1027
 #define IDC_PICWIN                      1029
 #define IDC_TAB_INFO                    1030
 #define IDC_STATIC_SF                   1031
