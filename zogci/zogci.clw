@@ -2,40 +2,41 @@
 
 [General Info]
 Version=1
-LastClass=CDLGInfoTxt
+LastClass=DLGpicwin
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "zogci.h"
 
-ClassCount=13
+ClassCount=14
 Class1=CZogciApp
 Class2=CZogciDlg
 
 ResourceCount=13
-Resource2=IDD_RESULT
-Resource3=IDD_RESULT_PANNEL
-Resource4=IDD_Announce
-Resource5=IDD_PICTURE
+Resource2=IDD_MARK
+Resource3=IDD_SEARCH
+Resource4=IDD_LINK
+Resource5=IDD_RESULT
 Resource1=IDR_MAINFRAME
 Class3=CDLGabout
-Resource6=IDD_ABOUT
-Resource7=IDD_LINK
+Resource6=IDD_RESULT_PANNEL
+Resource7=IDD_MAP
 Class4=CDLGinfo
 Class5=CDLGlink
 Class6=CDLGresult
 Class7=CDLGsearch
 Class8=CDLGannounce
-Resource8=IDD_INFO
+Resource8=IDD_ZOGCI_DIALOG
 Class9=CDLGResultPannel
-Resource9=IDD_ZOGCI_DIALOG
+Resource9=IDD_INFO
 Class10=CDLGpicture
 Resource10=IDD_INFO_TXT
 Class11=CDLGMark
-Resource11=IDD_MARK
+Resource11=IDD_ABOUT
 Class12=CDLGInfoTxt
-Resource12=IDD_SEARCH
+Resource12=IDD_Announce
 Class13=CDLGMap
-Resource13=IDD_MAP
+Class14=DLGpicwin
+Resource13=IDD_PICWIN
 
 [CLS:CZogciApp]
 Type=0
@@ -174,7 +175,7 @@ VirtualFilter=dWC
 [DLG:IDD_RESULT_PANNEL]
 Type=1
 Class=CDLGResultPannel
-ControlCount=10
+ControlCount=9
 Control1=IDC_BUTTON_First,button,1342242816
 Control2=IDC_BUTTON_Previous,button,1342242816
 Control3=IDC_BUTTON_Next,button,1342242816
@@ -183,8 +184,7 @@ Control5=IDC_EDIT1,edit,1350631552
 Control6=IDC_BUTTON_Jump,button,1342242816
 Control7=IDC_COMBO,combobox,1342242819
 Control8=IDC_STATIC,static,1342308352
-Control9=IDC_STATIC,static,1342177287
-Control10=IDC_STATIC,static,1342308353
+Control9=IDC_STATIC,static,1342308353
 
 [CLS:CDLGResultPannel]
 Type=0
@@ -194,12 +194,6 @@ BaseClass=CDialog
 Filter=D
 LastObject=IDC_COMBO
 VirtualFilter=dWC
-
-[DLG:IDD_PICTURE]
-Type=1
-Class=CDLGpicture
-ControlCount=1
-Control1=IDC_PICWIN,button,1342242944
 
 [CLS:CDLGpicture]
 Type=0
@@ -245,7 +239,7 @@ HeaderFile=DLGInfoTxt.h
 ImplementationFile=DLGInfoTxt.cpp
 BaseClass=CDialog
 Filter=D
-LastObject=IDC_EDIT1
+LastObject=CDLGInfoTxt
 VirtualFilter=dWC
 
 [DLG:IDD_MAP]
@@ -262,4 +256,48 @@ ImplementationFile=DLGMap.cpp
 BaseClass=CDialog
 Filter=D
 LastObject=CDLGMap
+
+[DLG:IDD_PICWIN]
+Type=1
+Class=DLGpicwin
+ControlCount=30
+Control1=IDC_BUTTON_PICWIN1,button,1342279552
+Control2=IDC_BUTTON_PICWIN2,button,1342275712
+Control3=IDC_BUTTON_PICWIN3,button,1342275712
+Control4=IDC_BUTTON_PICWIN4,button,1342275712
+Control5=IDC_BUTTON_PICWIN5,button,1342275712
+Control6=IDC_BUTTON_PICWIN6,button,1342275712
+Control7=IDC_BUTTON_PICWIN7,button,1342275712
+Control8=IDC_BUTTON_PICWIN8,button,1342275712
+Control9=IDC_BUTTON_PICWIN9,button,1342275712
+Control10=IDC_BUTTON_PICWIN10,button,1342275712
+Control11=IDC_BUTTON_PICWIN11,button,1342275712
+Control12=IDC_BUTTON_PICWIN12,button,1342275712
+Control13=IDC_BUTTON_PICWIN13,button,1342275712
+Control14=IDC_BUTTON_PICWIN14,button,1342275712
+Control15=IDC_BUTTON_PICWIN15,button,1342275712
+Control16=IDC_BUTTON_PICWIN16,button,1342275712
+Control17=IDC_BUTTON_PICWIN17,button,1342275712
+Control18=IDC_BUTTON_PICWIN18,button,1342275712
+Control19=IDC_BUTTON_PICWIN19,button,1342279552
+Control20=IDC_BUTTON_PICWIN20,button,1342275712
+Control21=IDC_BUTTON_PICWIN21,button,1342275712
+Control22=IDC_BUTTON_PICWIN22,button,1342275712
+Control23=IDC_BUTTON_PICWIN23,button,1342275712
+Control24=IDC_BUTTON_PICWIN24,button,1342275712
+Control25=IDC_BUTTON_PICWIN25,button,1342275712
+Control26=IDC_BUTTON_PICWIN26,button,1342275712
+Control27=IDC_BUTTON_PICWIN27,button,1342275712
+Control28=IDC_BUTTON_PICWIN28,button,1342275712
+Control29=IDC_BUTTON_PICWIN29,button,1342275712
+Control30=IDC_BUTTON_PICWIN30,button,1342275712
+
+[CLS:DLGpicwin]
+Type=0
+HeaderFile=DLGpicwin.h
+ImplementationFile=DLGpicwin.cpp
+BaseClass=CDialog
+Filter=D
+LastObject=IDC_BUTTON_PICWIN1
+VirtualFilter=dWC
 

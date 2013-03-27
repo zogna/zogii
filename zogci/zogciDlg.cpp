@@ -4,11 +4,7 @@
 #include "stdafx.h"
 #include "zogci.h"
 #include "zogciDlg.h"
-#include "DLGabout.h"
-#include "DLGinfo.h"
-#include "DLGlink.h"
-#include "DLGresult.h"
-#include "DLGsearch.h"
+
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -19,11 +15,6 @@ static char THIS_FILE[] = __FILE__;
 /////////////////////////////////////////////////////////////////////////////
 // CZogciDlg dialog
 
-CDLGabout	DlgAbout;
-CDLGinfo	DlgInfo;
-CDLGlink	DlgLink;
-CDLGresult	DlgResult;
-CDLGsearch	DlgSearch;
 
 CZogciDlg::CZogciDlg(CWnd* pParent /*=NULL*/)
 	: CDialog(CZogciDlg::IDD, pParent)

@@ -127,7 +127,7 @@ SOURCE=.\DLGMark.cpp
 # End Source File
 # Begin Source File
 
-SOURCE=.\DLGpicture.cpp
+SOURCE=.\DLGpicwin.cpp
 # End Source File
 # Begin Source File
 
@@ -216,7 +216,7 @@ SOURCE=.\DLGMark.h
 # End Source File
 # Begin Source File
 
-SOURCE=.\DLGpicture.h
+SOURCE=.\DLGpicwin.h
 # End Source File
 # Begin Source File
 

@@ -45,13 +45,14 @@ public:
 
 #define  ZOG_MAX_PATH_STR 260
 void Set_AllPath(void);
-	TCHAR* Language_GetIniPath(void);
-	CString Language_ConvertString(CString strText);
-	void Language_SetWndStaticText(CWnd * pWnd);
-	void Language_ConvertComboBox(CComboBox &stuComboBox);
+TCHAR* Language_GetIniPath(void);
+CString Language_ConvertString(CString strText);
+void Language_SetWndStaticText(CWnd * pWnd);
+void Language_ConvertComboBox(CComboBox &stuComboBox);
 
-	void Language_WriteUserInfo(void);
-	void Language_ReadUserInfo(void);
+void Language_WriteUserInfo(void);
+void Language_ReadUserInfo(void);
+
 /////////////////////////////////////////////////////////////////////////////
 
 //{{AFX_INSERT_LOCATION}}

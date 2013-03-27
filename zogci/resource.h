@@ -15,6 +15,7 @@
 #define IDD_MARK                        140
 #define IDD_INFO_TXT                    141
 #define IDD_MAP                         142
+#define IDD_PICWIN                      143
 #define IDC_TREE                        1000
 #define IDC_TAB_MAIN                    1001
 #define IDC_Announce                    1002
@@ -48,14 +49,44 @@
 #define IDC_COMBO_COLOR                 1038
 #define IDC_BUTTON_MARK                 1039
 #define IDC_BUTTON1                     1040
+#define IDC_BUTTON_PICWIN2              1041
+#define IDC_BUTTON_PICWIN3              1042
+#define IDC_BUTTON_PICWIN4              1043
+#define IDC_BUTTON_PICWIN5              1044
+#define IDC_BUTTON_PICWIN6              1045
+#define IDC_BUTTON_PICWIN7              1046
+#define IDC_BUTTON_PICWIN8              1047
+#define IDC_BUTTON_PICWIN9              1048
+#define IDC_BUTTON_PICWIN10             1049
+#define IDC_BUTTON_PICWIN11             1050
+#define IDC_BUTTON_PICWIN12             1051
+#define IDC_BUTTON_PICWIN13             1052
+#define IDC_BUTTON_PICWIN14             1053
+#define IDC_BUTTON_PICWIN15             1054
+#define IDC_BUTTON_PICWIN1              1070
+#define IDC_BUTTON_PICWIN16             1071
+#define IDC_BUTTON_PICWIN17             1072
+#define IDC_BUTTON_PICWIN18             1073
+#define IDC_BUTTON_PICWIN19             1074
+#define IDC_BUTTON_PICWIN20             1075
+#define IDC_BUTTON_PICWIN21             1076
+#define IDC_BUTTON_PICWIN22             1077
+#define IDC_BUTTON_PICWIN23             1078
+#define IDC_BUTTON_PICWIN24             1079
+#define IDC_BUTTON_PICWIN25             1080
+#define IDC_BUTTON_PICWIN26             1081
+#define IDC_BUTTON_PICWIN27             1082
+#define IDC_BUTTON_PICWIN28             1083
+#define IDC_BUTTON_PICWIN29             1084
+#define IDC_BUTTON_PICWIN30             1085
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        143
+#define _APS_NEXT_RESOURCE_VALUE        145
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1041
+#define _APS_NEXT_CONTROL_VALUE         1071
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

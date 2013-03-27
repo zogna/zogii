@@ -10,6 +10,11 @@
 
 /////////////////////////////////////////////////////////////////////////////
 // CZogciDlg dialog
+#include "DLGabout.h"
+#include "DLGinfo.h"
+#include "DLGlink.h"
+#include "DLGresult.h"
+#include "DLGsearch.h"
 
 class CZogciDlg : public CDialog
 {
@@ -31,6 +36,11 @@ public:
 	//}}AFX_VIRTUAL
 
 
+CDLGabout	DlgAbout;
+CDLGinfo	DlgInfo;
+CDLGlink	DlgLink;
+CDLGresult	DlgResult;
+CDLGsearch	DlgSearch;
 
 	void TabMainInit(void);
 	void OnOK();

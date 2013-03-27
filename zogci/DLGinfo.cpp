@@ -36,6 +36,7 @@ void CDLGinfo::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CDLGinfo, CDialog)
 	//{{AFX_MSG_MAP(CDLGinfo)
 	ON_NOTIFY(TCN_SELCHANGE, IDC_TAB_INFO, OnSelchangeTabInfo)
+	ON_WM_CTLCOLOR()
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -56,17 +57,17 @@ BOOL CDLGinfo::OnInitDialog()
 	AutoSize();
 
 
-	SFTextFont.CreatePointFont(160,_T("宋体"));
+	SFTextFont.CreatePointFont(130,_T("宋体"));
 	GetDlgItem(IDC_STATIC_SF)->SetFont(&SFTextFont,true);
 	//文本显示
 	GetDlgItem(IDC_STATIC_SF)->SetWindowText("Microweisepqae(Sticholotidinae)");
 
-	GETextFont.CreatePointFont(140,_T("宋体"));
+	GETextFont.CreatePointFont(120,_T("宋体"));
 	GetDlgItem(IDC_STATIC_GE)->SetFont(&GETextFont,true);
 	//文本显示
 	GetDlgItem(IDC_STATIC_GE)->SetWindowText("Microweiseinaap(Sticholotidinae)");
 
-	SPTextFont.CreatePointFont(150,_T("宋体"));
+	SPTextFont.CreatePointFont(110,_T("宋体"));
 	GetDlgItem(IDC_STATIC_SP)->SetFont(&SPTextFont,true);
 	//文本显示
 	GetDlgItem(IDC_STATIC_SP)->SetWindowText("Microweipqnae(Sticholotidinae)");
@@ -129,11 +130,17 @@ void CDLGinfo::TabInfoInit(void)
 
 	DlgInfoTxt.Create(IDD_INFO_TXT,&m_tabinfo);
 	DlgInfoMap.Create(IDD_MAP,&m_tabinfo);
-	DlgInfoAdult.Create(IDD_RESULT,&m_tabinfo);
-	DlgInfoLarva.Create(IDD_RESULT,&m_tabinfo);
-	DlgInfoPupa.Create(IDD_RESULT,&m_tabinfo);
-	DlgInfoOvum.Create(IDD_RESULT,&m_tabinfo);
-	DlgInfoOther.Create(IDD_RESULT,&m_tabinfo);
+
+	DlgInfoAdult.flag=FLAG_WIN_ADULT;
+	DlgInfoAdult.Create(IDD_PICWIN,&m_tabinfo);
+	DlgInfoLarva.flag=FLAG_WIN_LARVA;
+	DlgInfoLarva.Create(IDD_PICWIN,&m_tabinfo);
+	DlgInfoPupa.flag=FLAG_WIN_PUPA;
+	DlgInfoPupa.Create(IDD_PICWIN,&m_tabinfo);
+	DlgInfoOvum.flag=FLAG_WIN_OVUM;
+	DlgInfoOvum.Create(IDD_PICWIN,&m_tabinfo);
+	DlgInfoOther.flag=FLAG_WIN_OTHER;
+	DlgInfoOther.Create(IDD_PICWIN,&m_tabinfo);
 }
 
 //切换 切换栏
@@ -213,4 +220,22 @@ void CDLGinfo::OnSelchangeTabInfo(NMHDR* pNMHDR, LRESULT* pResult)
 		break;
 	}
 
+}
+
+HBRUSH CDLGinfo::OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor) 
+{
+	HBRUSH hbr = CDialog::OnCtlColor(pDC, pWnd, nCtlColor);
+	
+	//字体颜色
+	// TODO: Change any attributes of the DC here
+	switch(pWnd->GetDlgCtrlID())
+	{
+	case IDC_STATIC_SF:pDC->SetTextColor(RGB(0,0,255));break;
+	case IDC_STATIC_GE:pDC->SetTextColor(RGB(255,0,255));break;
+	case IDC_STATIC_SP:pDC->SetTextColor(RGB(255,127,0));break;
+	case IDC_STATIC_SSP:pDC->SetTextColor(RGB(255,0,0));break;
+	default:break;
+	}
+	// TODO: Return a different brush if the default is not desired
+	return hbr;
 }

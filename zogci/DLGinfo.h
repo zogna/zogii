@@ -8,7 +8,7 @@
 //
 #include "DLGMark.h"
 #include "DLGInfoTxt.h"
-#include "DLGresult.h"
+#include "DLGpicwin.h"
 #include "DLGMap.h"
 /////////////////////////////////////////////////////////////////////////////
 // CDLGinfo dialog
@@ -38,11 +38,11 @@ public:
 	void TabInfoInit(void);
 	CDLGInfoTxt DlgInfoTxt;
 	CDLGMap		DlgInfoMap;
-	CDLGresult	DlgInfoAdult;
-	CDLGresult	DlgInfoLarva;
-	CDLGresult	DlgInfoPupa;
-	CDLGresult	DlgInfoOvum;
-	CDLGresult	DlgInfoOther;
+	DLGpicwin	DlgInfoAdult;
+	DLGpicwin	DlgInfoLarva;
+	DLGpicwin	DlgInfoPupa;
+	DLGpicwin	DlgInfoOvum;
+	DLGpicwin	DlgInfoOther;
 // Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CDLGinfo)
@@ -56,6 +56,7 @@ protected:
 	// Generated message map functions
 	//{{AFX_MSG(CDLGinfo)
 	afx_msg void OnSelchangeTabInfo(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg HBRUSH OnCtlColor(CDC* pDC, CWnd* pWnd, UINT nCtlColor);
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
