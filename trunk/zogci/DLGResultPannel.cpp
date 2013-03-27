@@ -5,7 +5,7 @@
 #include "zogci.h"
 #include "DLGResultPannel.h"
 
-#include "DLGresult.h"
+#include "DLGpicwin.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -13,8 +13,7 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-
-extern CDLGresult	DlgResult;
+extern DLGpicwin *DlgPicWin;
 /////////////////////////////////////////////////////////////////////////////
 // CDLGResultPannel dialog
 
@@ -95,10 +94,10 @@ void CDLGResultPannel::OnSelchangeCombo()
 	UpdateData(TRUE);
 	switch(m_split)
 	{
-	case 	0:	DlgResult.CurrentPicWinMax=MIN_PICTURE_WIN;break;	
-	case 	1:	DlgResult.CurrentPicWinMax=MID_PICTURE_WIN;break;	
-	case 	2:	DlgResult.CurrentPicWinMax=MAX_PICTURE_WIN;break;	
+	case 	0:	DlgPicWin->CurrentPicWinMax=MIN_PICTURE_WIN;break;	
+	case 	1:	DlgPicWin->CurrentPicWinMax=MID_PICTURE_WIN;break;	
+	case 	2:	DlgPicWin->CurrentPicWinMax=MAX_PICTURE_WIN;break;	
 	default:break;
 	}
-	DlgResult.AutoSize();
+	DlgPicWin->AutoSize();
 }
