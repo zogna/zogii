@@ -67,12 +67,12 @@ BOOL CDLGinfo::OnInitDialog()
 	//文本显示
 	GetDlgItem(IDC_STATIC_GE)->SetWindowText("Microweiseinaap(Sticholotidinae)");
 
-	SPTextFont.CreatePointFont(110,_T("宋体"));
+	SPTextFont.CreatePointFont(120,_T("宋体"));
 	GetDlgItem(IDC_STATIC_SP)->SetFont(&SPTextFont,true);
 	//文本显示
 	GetDlgItem(IDC_STATIC_SP)->SetWindowText("Microweipqnae(Sticholotidinae)");
 
-	SSPTextFont.CreatePointFont(100,_T("宋体"));
+	SSPTextFont.CreatePointFont(110,_T("宋体"));
 	GetDlgItem(IDC_STATIC_SSP)->SetFont(&SSPTextFont,true);
 	//文本显示
 	GetDlgItem(IDC_STATIC_SSP)->SetWindowText("Micrpqseinae(Sticholotidinae)");
@@ -89,7 +89,7 @@ void CDLGinfo::AutoSize()
 
 	//切换栏
 	CRect tab_Rect;
-	tab_Rect.top = rc.top+70/* + 5*/;
+	tab_Rect.top = rc.top+60/* + 5*/;
 	tab_Rect.bottom = rc.bottom-25/* - 10*/;
 	tab_Rect.left = rc.left/* + 10*/;
 	tab_Rect.right = rc.right-5;

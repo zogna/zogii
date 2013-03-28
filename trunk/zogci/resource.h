@@ -16,6 +16,7 @@
 #define IDD_INFO_TXT                    141
 #define IDD_MAP                         142
 #define IDD_PICWIN                      143
+#define IDB_BITMAP_MAP                  145
 #define IDC_TREE                        1000
 #define IDC_TAB_MAIN                    1001
 #define IDC_Announce                    1002
@@ -65,6 +66,7 @@
 #define IDC_BUTTON_PICWIN15             1054
 #define IDC_BUTTON_PICWIN1              1070
 #define IDC_BUTTON_PICWIN16             1071
+#define IDC_STATIC_MAP                  1071
 #define IDC_BUTTON_PICWIN17             1072
 #define IDC_BUTTON_PICWIN18             1073
 #define IDC_BUTTON_PICWIN19             1074
@@ -84,9 +86,9 @@
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        145
+#define _APS_NEXT_RESOURCE_VALUE        146
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1071
+#define _APS_NEXT_CONTROL_VALUE         1072
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

@@ -300,6 +300,11 @@ void DLGpicwin::ReSizeShowImage(CButton *buttonres,IplImage *pImage)
 		dstw=width;
 		dsth=height;
 	}
+
+	//太小返回
+	if(dstw<=10 || dsth<=10)
+		return ;
+
 	//创建缩小
 	miniImage = cvCreateImage( cvSize(dstw,dsth), IPL_DEPTH_8U, 3 );
 	cvResize(pImage,miniImage);
@@ -457,6 +462,11 @@ void DLGpicwin::ResultToolTipLoad(int i,char* title)
 		dstw=width;
 		dsth=height;
 	}
+	
+	//太小返回
+	if(dstw<=10 || dsth<=10)
+		return ;
+
 	//创建缩小
 	miniImage = cvCreateImage( cvSize(dstw,dsth), IPL_DEPTH_8U, 3 );
 	cvResize(PicWinData[i].Image,miniImage);
