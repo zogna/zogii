@@ -75,6 +75,7 @@ TCHAR CurrentDir[ZOG_MAX_PATH_STR]="";
 TCHAR LanguageChsDir[ZOG_MAX_PATH_STR]="";
 TCHAR LanguageChtDir[ZOG_MAX_PATH_STR]="";
 TCHAR UserInfoDir[ZOG_MAX_PATH_STR]="";
+TCHAR MapPath[ZOG_MAX_PATH_STR]="";
 // 0=英语 1=简中 2=繁中
 char LanguageFlag=1;
 
@@ -84,7 +85,7 @@ void Set_AllPath(void)
 	sprintf(LanguageChsDir, "%s\\langchs.ini", CurrentDir);
 	sprintf(LanguageChtDir, "%s\\langcht.ini", CurrentDir);
 	sprintf(UserInfoDir, "%s\\userinfo.ini", CurrentDir);
-	
+	sprintf(MapPath, "%s\\map.bmp", CurrentDir);
 }
 
 //获取配置路径

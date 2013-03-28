@@ -2,7 +2,7 @@
 
 [General Info]
 Version=1
-LastClass=DLGpicwin
+LastClass=CDLGMap
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "zogci.h"
@@ -12,28 +12,28 @@ Class1=CZogciApp
 Class2=CZogciDlg
 
 ResourceCount=13
-Resource2=IDD_MARK
+Resource2=IDD_LINK
 Resource3=IDD_SEARCH
-Resource4=IDD_LINK
-Resource5=IDD_RESULT
+Resource4=IDD_MARK
+Resource5=IDD_MAP
 Resource1=IDR_MAINFRAME
 Class3=CDLGabout
-Resource6=IDD_RESULT_PANNEL
-Resource7=IDD_MAP
+Resource6=IDD_ABOUT
+Resource7=IDD_Announce
 Class4=CDLGinfo
 Class5=CDLGlink
 Class6=CDLGresult
 Class7=CDLGsearch
 Class8=CDLGannounce
-Resource8=IDD_ZOGCI_DIALOG
+Resource8=IDD_RESULT_PANNEL
 Class9=CDLGResultPannel
-Resource9=IDD_INFO
+Resource9=IDD_RESULT
 Class10=CDLGpicture
-Resource10=IDD_INFO_TXT
+Resource10=IDD_ZOGCI_DIALOG
 Class11=CDLGMark
-Resource11=IDD_ABOUT
+Resource11=IDD_INFO_TXT
 Class12=CDLGInfoTxt
-Resource12=IDD_Announce
+Resource12=IDD_INFO
 Class13=CDLGMap
 Class14=DLGpicwin
 Resource13=IDD_PICWIN
@@ -97,11 +97,11 @@ ControlCount=10
 Control1=IDC_TAB_INFO,SysTabControl32,1342178304
 Control2=IDC_STATIC_SF,static,1342308864
 Control3=IDC_STATIC_GE,static,1342308864
-Control4=IDC_STATIC_SP,static,1342308864
-Control5=IDC_STATIC_SSP,static,1342308864
+Control4=IDC_STATIC_SP,static,1342308352
+Control5=IDC_STATIC_SSP,static,1342308352
 Control6=IDC_STATIC_DISCOVERY,static,1342308352
-Control7=IDC_STATIC,static,1342308352
-Control8=IDC_STATIC,static,1342308352
+Control7=IDC_STATIC,static,1342308864
+Control8=IDC_STATIC,static,1342308864
 Control9=IDC_STATIC,static,1342308352
 Control10=IDC_STATIC,static,1342308352
 
@@ -245,9 +245,8 @@ VirtualFilter=dWC
 [DLG:IDD_MAP]
 Type=1
 Class=CDLGMap
-ControlCount=2
-Control1=IDC_STATIC,static,1342177806
-Control2=IDC_STATIC,static,1342308352
+ControlCount=1
+Control1=IDC_STATIC_MAP,static,1342177806
 
 [CLS:CDLGMap]
 Type=0
@@ -256,6 +255,7 @@ ImplementationFile=DLGMap.cpp
 BaseClass=CDialog
 Filter=D
 LastObject=CDLGMap
+VirtualFilter=dWC
 
 [DLG:IDD_PICWIN]
 Type=1

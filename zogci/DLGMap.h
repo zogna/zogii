@@ -6,7 +6,8 @@
 #endif // _MSC_VER > 1000
 // DLGMap.h : header file
 //
-
+#include "cv.h"		
+#include "highgui.h"	 
 /////////////////////////////////////////////////////////////////////////////
 // CDLGMap dialog
 
@@ -15,15 +16,25 @@ class CDLGMap : public CDialog
 // Construction
 public:
 	CDLGMap(CWnd* pParent = NULL);   // standard constructor
-
+	~CDLGMap();
 // Dialog Data
 	//{{AFX_DATA(CDLGMap)
 	enum { IDD = IDD_MAP };
-		// NOTE: the ClassWizard will add data members here
+	CStatic	m_map;
 	//}}AFX_DATA
 
 	BOOL	OnInitDialog();
 	void AutoSize();
+
+	IplImage* srcImage;
+	IplImage* miniImage;
+
+	void Load();
+	void BuildMap();
+	void ReSizeShowImage(IplImage *pImage);
+
+	bool IplImage2Bmp(IplImage *pImage,HBITMAP &hBitmap);
+
 // Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CDLGMap)
@@ -36,7 +47,7 @@ protected:
 
 	// Generated message map functions
 	//{{AFX_MSG(CDLGMap)
-		// NOTE: the ClassWizard will add member functions here
+	afx_msg void OnPaint();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
