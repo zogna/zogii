@@ -6,7 +6,8 @@
 #endif // _MSC_VER > 1000
 // DLGInfoTxt.h : header file
 //
-
+#include "DLGInfotxtInfo.h"
+#include "DLGInfotxtPannel.h"
 /////////////////////////////////////////////////////////////////////////////
 // CDLGInfoTxt dialog
 
@@ -19,8 +20,11 @@ public:
 // Dialog Data
 	//{{AFX_DATA(CDLGInfoTxt)
 	enum { IDD = IDD_INFO_TXT };
-		// NOTE: the ClassWizard will add data members here
+	CString	m_edit_txt;
 	//}}AFX_DATA
+
+	CDLGInfotxtInfo	DlgInfotxtInfo;
+	CDLGInfotxtPannel	DlgInfotxtPannel;
 
 	BOOL	OnInitDialog();
 	void AutoSize();
@@ -36,10 +40,6 @@ protected:
 
 	// Generated message map functions
 	//{{AFX_MSG(CDLGInfoTxt)
-	afx_msg void OnBUTTONPrevious();
-	afx_msg void OnBUTTONFirst();
-	afx_msg void OnBUTTONNext();
-	afx_msg void OnBUTTONLast();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

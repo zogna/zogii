@@ -5,6 +5,8 @@
 #include "zogci.h"
 #include "DLGInfoTxt.h"
 
+
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
@@ -19,7 +21,7 @@ CDLGInfoTxt::CDLGInfoTxt(CWnd* pParent /*=NULL*/)
 	: CDialog(CDLGInfoTxt::IDD, pParent)
 {
 	//{{AFX_DATA_INIT(CDLGInfoTxt)
-		// NOTE: the ClassWizard will add member initialization here
+	m_edit_txt = _T("");
 	//}}AFX_DATA_INIT
 }
 
@@ -28,17 +30,13 @@ void CDLGInfoTxt::DoDataExchange(CDataExchange* pDX)
 {
 	CDialog::DoDataExchange(pDX);
 	//{{AFX_DATA_MAP(CDLGInfoTxt)
-		// NOTE: the ClassWizard will add DDX and DDV calls here
+	DDX_Text(pDX, IDC_EDIT_TXT, m_edit_txt);
 	//}}AFX_DATA_MAP
 }
 
 
 BEGIN_MESSAGE_MAP(CDLGInfoTxt, CDialog)
 	//{{AFX_MSG_MAP(CDLGInfoTxt)
-	ON_BN_CLICKED(IDC_BUTTON_Previous, OnBUTTONPrevious)
-	ON_BN_CLICKED(IDC_BUTTON_First, OnBUTTONFirst)
-	ON_BN_CLICKED(IDC_BUTTON_Next, OnBUTTONNext)
-	ON_BN_CLICKED(IDC_BUTTON_Last, OnBUTTONLast)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -49,6 +47,13 @@ BOOL CDLGInfoTxt::OnInitDialog()
 {
 	Language_SetWndStaticText(this);
 	CDialog::OnInitDialog();
+
+	//显示窗口
+	DlgInfotxtInfo.Create(IDD_INFOTXT_INFO,this);
+	DlgInfotxtInfo.ShowWindow(SW_SHOW);
+
+	DlgInfotxtPannel.Create(IDD_INFOTXT_PANNEL,this);
+	DlgInfotxtPannel.ShowWindow(SW_SHOW);
 
 	AutoSize();
 
@@ -61,28 +66,26 @@ void CDLGInfoTxt::AutoSize()
 	GetParent()->GetClientRect(&rc);
 	((CTabCtrl*)GetParent())->AdjustRect(FALSE, &rc);
 	MoveWindow(&rc);
-}
 
-void CDLGInfoTxt::OnBUTTONPrevious() 
-{
-	// TODO: Add your control notification handler code here
-	
-}
+	//Pannel
+	CRect pannel_Rect;
+	pannel_Rect.top = rc.bottom-50;
+	pannel_Rect.bottom = rc.bottom;
+	pannel_Rect.left = rc.left+50;
+	pannel_Rect.right = rc.right;
+	//必须 样式=重叠，边框=调整大小
+	DlgInfotxtPannel.MoveWindow(pannel_Rect);
 
-void CDLGInfoTxt::OnBUTTONFirst() 
-{
-	// TODO: Add your control notification handler code here
-	
-}
+	//txt
+	CRect txtwin_Rect;
 
-void CDLGInfoTxt::OnBUTTONNext() 
-{
-	// TODO: Add your control notification handler code here
-	
-}
+	txtwin_Rect.top = rc.top+175;
+	txtwin_Rect.bottom = rc.bottom-55;
+	txtwin_Rect.left = rc.left-5;
+	txtwin_Rect.right = rc.right-5;
 
-void CDLGInfoTxt::OnBUTTONLast() 
-{
-	// TODO: Add your control notification handler code here
-	
+	GetDlgItem(IDC_EDIT_TXT)->MoveWindow(txtwin_Rect);
+
+	Invalidate();
+
 }
