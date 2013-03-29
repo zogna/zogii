@@ -168,13 +168,13 @@ void DLGpicwin::AutoSize()
 	AutoSizePictureWin(rc);
 
 	//Pannel
-	CRect website_Rect;
-	website_Rect.top = rc.bottom-30/* + 5*/;
-	website_Rect.bottom = rc.bottom/* - 10*/;
-	website_Rect.left = rc.left+50/* + 10*/;
-	website_Rect.right = rc.right;
+	CRect pannel_Rect;
+	pannel_Rect.top = rc.bottom-30/* + 5*/;
+	pannel_Rect.bottom = rc.bottom/* - 10*/;
+	pannel_Rect.left = rc.left+50/* + 10*/;
+	pannel_Rect.right = rc.right;
 	//必须 样式=重叠，边框=调整大小
-	DlgResultPannel.MoveWindow(website_Rect);
+	DlgResultPannel.MoveWindow(pannel_Rect);
 
 	//调整图片
 	int i;

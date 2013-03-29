@@ -2,41 +2,45 @@
 
 [General Info]
 Version=1
-LastClass=CDLGMap
+LastClass=CDLGInfoTxt
 LastTemplate=CDialog
 NewFileInclude1=#include "stdafx.h"
 NewFileInclude2=#include "zogci.h"
 
-ClassCount=14
+ClassCount=16
 Class1=CZogciApp
 Class2=CZogciDlg
 
-ResourceCount=13
-Resource2=IDD_LINK
-Resource3=IDD_SEARCH
-Resource4=IDD_MARK
+ResourceCount=15
+Resource2=IDD_Announce
+Resource3=IDD_ZOGCI_DIALOG
+Resource4=IDD_LINK
 Resource5=IDD_MAP
 Resource1=IDR_MAINFRAME
 Class3=CDLGabout
-Resource6=IDD_ABOUT
-Resource7=IDD_Announce
+Resource6=IDD_SEARCH
+Resource7=IDD_INFOTXT_PANNEL
 Class4=CDLGinfo
 Class5=CDLGlink
 Class6=CDLGresult
 Class7=CDLGsearch
 Class8=CDLGannounce
-Resource8=IDD_RESULT_PANNEL
+Resource8=IDD_ABOUT
 Class9=CDLGResultPannel
-Resource9=IDD_RESULT
+Resource9=IDD_PICWIN
 Class10=CDLGpicture
-Resource10=IDD_ZOGCI_DIALOG
+Resource10=IDD_INFO
 Class11=CDLGMark
-Resource11=IDD_INFO_TXT
+Resource11=IDD_RESULT_PANNEL
 Class12=CDLGInfoTxt
-Resource12=IDD_INFO
+Resource12=IDD_MARK
 Class13=CDLGMap
 Class14=DLGpicwin
-Resource13=IDD_PICWIN
+Resource13=IDD_RESULT
+Class15=CDLGInfotxtPannel
+Resource14=IDD_INFO_TXT
+Class16=CDLGInfotxtInfo
+Resource15=IDD_INFOTXT_INFO
 
 [CLS:CZogciApp]
 Type=0
@@ -224,14 +228,8 @@ VirtualFilter=dWC
 [DLG:IDD_INFO_TXT]
 Type=1
 Class=CDLGInfoTxt
-ControlCount=7
-Control1=IDC_STATIC,static,1342308352
-Control2=IDC_BUTTON_First,button,1342242816
-Control3=IDC_BUTTON_Previous,button,1342242816
-Control4=IDC_BUTTON_Next,button,1342242816
-Control5=IDC_BUTTON_Last,button,1342242816
-Control6=IDC_STATIC,static,1342308353
-Control7=IDC_EDIT1,edit,1350631552
+ControlCount=1
+Control1=IDC_EDIT_TXT,edit,1350631428
 
 [CLS:CDLGInfoTxt]
 Type=0
@@ -239,7 +237,7 @@ HeaderFile=DLGInfoTxt.h
 ImplementationFile=DLGInfoTxt.cpp
 BaseClass=CDialog
 Filter=D
-LastObject=CDLGInfoTxt
+LastObject=IDC_EDIT_TXT
 VirtualFilter=dWC
 
 [DLG:IDD_MAP]
@@ -300,4 +298,41 @@ BaseClass=CDialog
 Filter=D
 LastObject=IDC_BUTTON_PICWIN1
 VirtualFilter=dWC
+
+[DLG:IDD_INFOTXT_PANNEL]
+Type=1
+Class=CDLGInfotxtPannel
+ControlCount=7
+Control1=IDC_BUTTON_First,button,1342242816
+Control2=IDC_BUTTON_Previous,button,1342242816
+Control3=IDC_BUTTON_Next,button,1342242816
+Control4=IDC_BUTTON_Last,button,1342242816
+Control5=IDC_EDIT1,edit,1350631552
+Control6=IDC_BUTTON_Jump,button,1342242816
+Control7=IDC_STATIC,static,1342308353
+
+[CLS:CDLGInfotxtPannel]
+Type=0
+HeaderFile=DLGInfotxtPannel.h
+ImplementationFile=DLGInfotxtPannel.cpp
+BaseClass=CDialog
+Filter=D
+LastObject=CDLGInfotxtPannel
+VirtualFilter=dWC
+
+[DLG:IDD_INFOTXT_INFO]
+Type=1
+Class=CDLGInfotxtInfo
+ControlCount=3
+Control1=IDC_LIST,SysListView32,1350631425
+Control2=IDC_STATIC,static,1342308352
+Control3=IDC_STATIC,static,1342308352
+
+[CLS:CDLGInfotxtInfo]
+Type=0
+HeaderFile=DLGInfotxtInfo.h
+ImplementationFile=DLGInfotxtInfo.cpp
+BaseClass=CDialog
+Filter=D
+LastObject=CDLGInfotxtInfo
 

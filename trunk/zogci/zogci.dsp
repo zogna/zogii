@@ -115,6 +115,14 @@ SOURCE=.\DLGInfoTxt.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\DLGInfotxtInfo.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DLGInfotxtPannel.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\DLGlink.cpp
 # End Source File
 # Begin Source File
@@ -201,6 +209,14 @@ SOURCE=.\DLGinfo.h
 # Begin Source File
 
 SOURCE=.\DLGInfoTxt.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DLGInfotxtInfo.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DLGInfotxtPannel.h
 # End Source File
 # Begin Source File
 

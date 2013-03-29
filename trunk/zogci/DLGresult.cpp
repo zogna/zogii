@@ -88,8 +88,7 @@ void CDLGresult::AutoSize()
 	GetParent()->GetClientRect(&rc);
 	((CTabCtrl*)GetParent())->AdjustRect(FALSE, &rc);
 	MoveWindow(&rc);
-
-	//Pannel
+	//PIC
 	CRect picwin_Rect(rc);
 
 	picwin_Rect.top = rc.top-15/* + 5*/;
