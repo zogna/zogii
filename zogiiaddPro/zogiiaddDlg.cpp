@@ -394,6 +394,12 @@ BOOL CZogiiaddDlg::OnInitDialog()
 	sprintf(str,"%d",Newdata.DiscoverMapTotal);
 	GetDlgItem(IDC_STATIC_DISCOVERTOTAL)->SetWindowText(str);
 
+	sprintf(str,"%d mm",m_minsize);
+	GetDlgItem(IDC_STATIC_MINSIZE)->SetWindowText(str);
+	sprintf(str,"%d mm",m_maxsize);
+	GetDlgItem(IDC_STATIC_MAXSIZE)->SetWindowText(str);
+
+
 	//²åÐòºÅ
 	int i;
 
@@ -505,6 +511,11 @@ void CZogiiaddDlg::OnBUTTONDeleteData()
 	char str[10];
 	sprintf(str,"%d",Newdata.DiscoverMapTotal);
 	GetDlgItem(IDC_STATIC_DISCOVERTOTAL)->SetWindowText(str);
+	
+	sprintf(str,"%d mm",m_minsize);
+	GetDlgItem(IDC_STATIC_MINSIZE)->SetWindowText(str);
+	sprintf(str,"%d mm",m_maxsize);
+	GetDlgItem(IDC_STATIC_MAXSIZE)->SetWindowText(str);
 }
 
 void CZogiiaddDlg::OnBUTTONSaveData() 
@@ -726,6 +737,12 @@ void CZogiiaddDlg::OnSelchangedTree(NMHDR* pNMHDR, LRESULT* pResult)
 			
 			sprintf(str,"%d",Newdata.DiscoverMapTotal);
 			GetDlgItem(IDC_STATIC_DISCOVERTOTAL)->SetWindowText(str);
+			
+			sprintf(str,"%d mm",m_minsize);
+			GetDlgItem(IDC_STATIC_MINSIZE)->SetWindowText(str);
+			sprintf(str,"%d mm",m_maxsize);
+			GetDlgItem(IDC_STATIC_MAXSIZE)->SetWindowText(str);
+
 			break;
 		}
 	}
