@@ -5,11 +5,15 @@
 #include "zogci.h"
 #include "DLGMap.h"
 
+#include "map.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #undef THIS_FILE
 static char THIS_FILE[] = __FILE__;
 #endif
+
+
 
 extern TCHAR MapPath[ZOG_MAX_PATH_STR];
 /////////////////////////////////////////////////////////////////////////////
@@ -23,12 +27,18 @@ CDLGMap::CDLGMap(CWnd* pParent /*=NULL*/)
 		// NOTE: the ClassWizard will add member initialization here
 	//}}AFX_DATA_INIT
 	srcImage=NULL;
+	dstImage=NULL;
+	MapTotal=0;
+
 }
 
 CDLGMap::~CDLGMap()
 {
 	cvReleaseImage(&srcImage);
 	srcImage=NULL;
+
+	cvReleaseImage(&dstImage);
+	dstImage=NULL;
 }
 
 
@@ -44,7 +54,9 @@ void CDLGMap::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CDLGMap, CDialog)
 	//{{AFX_MSG_MAP(CDLGMap)
 	ON_WM_PAINT()
+
 	//}}AFX_MSG_MAP
+	ON_NOTIFY (UDM_TOOLTIP_DISPLAY, NULL, NotifyDisplayTooltip)
 END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -57,15 +69,35 @@ BOOL CDLGMap::OnInitDialog()
 
 	//载入原始图片
 	if(srcImage)
+	{
 		cvReleaseImage(&srcImage);
+		srcImage=NULL;
+	}
 	srcImage = cvLoadImage(MapPath, CV_LOAD_IMAGE_UNCHANGED);
 	if(NULL==srcImage)
 		MessageBox("miss map.bmp file");
 
+	if(dstImage)
+	{
+		cvReleaseImage(&dstImage);
+		dstImage=NULL;
+	}
+	dstImage=cvCloneImage(srcImage);
+	if(NULL==dstImage)
+	{
+		MessageBox("CDLGMap::OnInitDialog error");
+		return TRUE;
+	}
 
-	Load();
+	
+	Load(4,(unsigned char*)"0123");
+
+
+	InitToolTip();
 
 	AutoSize();
+
+	
 
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }
@@ -83,22 +115,63 @@ void CDLGMap::AutoSize()
 
 	m_map.MoveWindow(&rc);
 
-	ReSizeShowImage(srcImage);
+	ReSizeShowImage(dstImage);
 }
 
 //比例变小，转换成BMP并显示
-void CDLGMap::Load()
+void CDLGMap::Load(int total,unsigned char *imap)
 {
-	BuildMap();
-	ReSizeShowImage(srcImage);
+	if(dstImage)
+	{
+		cvReleaseImage(&dstImage);
+		dstImage=NULL;
+	}
+	dstImage=cvCloneImage(srcImage);
+	if(NULL==dstImage)
+	{
+		MessageBox("CDLGMap::Load error");
+		return ;
+	}
+
+	MapTotal=0;
+
+	int i,j;
+	for(i=0;i<total;i++)
+	{
+		j=imap[i];
+		if(j >=0 && j < DiscoverMapTotal)
+		{
+			switch(DiscoverMap[j].flag)
+			{
+			case MAP_CONTINENT:
+				cvCircle(dstImage,cvPoint(DiscoverMap[j].x,DiscoverMap[j].y),10,CV_RGB(255, 0, 255 ),-1);
+
+				MapData[MapTotal]=j;
+				MapTotal++;
+				break;
+			case  MAP_COUNTRY:
+				cvCircle(dstImage,cvPoint(DiscoverMap[j].x,DiscoverMap[j].y),6,CV_RGB(255, 255,0),-1);
+			
+				MapData[MapTotal]=j;
+				MapTotal++;
+				break;
+			case MAP_CITY:
+				cvCircle(dstImage,cvPoint(DiscoverMap[j].x,DiscoverMap[j].y),4,CV_RGB(255, 127,0),-1);
+
+				MapData[MapTotal]=j;
+				MapTotal++;
+				break;
+			default:
+				break;
+			}
+		}
+	}
+
+	//重画
+	ReSizeShowImage(dstImage);
 }
 
 
-void CDLGMap::BuildMap()
-{
-
-
-}
 //比例变小，转换成BMP并显示
 void CDLGMap::ReSizeShowImage(IplImage *pImage)
 {
@@ -129,8 +202,22 @@ void CDLGMap::ReSizeShowImage(IplImage *pImage)
 	cvReleaseImage(&miniImage); 
 	miniImage=NULL;
 
-}
+	//重设 静态图片控件大小
+	rect.top+=(rect.Height()-dsth)/2;
+	rect.bottom=rect.top+dsth;
+	rect.right=rect.left+dstw;
+	m_map.MoveWindow(&rect);
 
+	//赋值
+	MapRect.top=rect.top;
+	MapRect.bottom=rect.bottom;
+	MapRect.left=rect.left;
+	MapRect.right=rect.right;
+	MapRect.rate=rate;
+	MapRect.width=dstw;
+	MapRect.height=dsth;
+
+}
 
 bool CDLGMap::IplImage2Bmp(IplImage *pImage,HBITMAP &hBitmap)
 {
@@ -177,7 +264,21 @@ bool CDLGMap::IplImage2Bmp(IplImage *pImage,HBITMAP &hBitmap)
 void CDLGMap::OnPaint() 
 {
 	CPaintDC dc(this); // device context for painting
+/*
+	RECT	m_rect [4]=
+	{
+		{0, 200, 100, 300},
+		{100, 200, 200, 300},
+		{0, 300, 100, 400},
+		{100, 300, 200, 400},
+	};
 	
+	dc.FillSolidRect(&(m_rect [0]), RGB(255, 0, 0));
+	dc.FillSolidRect(&(m_rect [1]), RGB(0, 255, 0));
+	dc.FillSolidRect(&(m_rect [2]), RGB(0, 0, 255));
+	dc.FillSolidRect(&(m_rect [3]), RGB(0, 255, 255));
+*/	
+
 	// TODO: Add your message handler code here
 	/*
 	// Do not call CDialog::OnPaint() for painting messages
@@ -207,3 +308,78 @@ void CDLGMap::OnPaint()
 	memdc.DeleteDC();
 	*/
 }
+void CDLGMap::InitToolTip(void)
+{
+	/*SetEffectBk();
+	  SOLID =0
+	  HGRADIENT=1
+	  VGRADIENT=2
+	  HCGRADIENT=3
+	  HVGRADIENT=4
+	  3HGRADIENT=5
+	  3VGRADIENT=6
+	  NOISE =无特效=7
+	  DIAGSHADE=8
+	  HSHADE=9
+	  VSHADE=10
+	  HBUMP=11
+	  VBUMP=12
+	  SOFTBUMP=13
+	  HARDBUMP=14
+	  METAL=15
+	*/
+	m_tooltip.Create(this);
+	m_tooltip.SetNotify();//必须要有这个
+
+	m_tooltip.SetBehaviour(PPTOOLTIP_MULTIPLE_SHOW);
+	m_tooltip.SetColorBk(RGB(255, 255, 255), RGB(242, 246, 251), RGB(202, 218, 239));
+	//m_tooltip.SetCallbackHyperlink(this->GetSafeHwnd(), UNM_HYPERLINK_CLICKED);
+	m_tooltip.SetEffectBk(15,10);
+	m_tooltip.SetDirection(PPTOOLTIP_LEFTEDGE_VCENTER);
+	//关闭阴影
+	m_tooltip.SetTooltipShadow(0, 0, 0, 0, 0, 0);
+	//设置透明度
+	m_tooltip.SetTransparency(30);
+
+	m_tooltip.AddTool(GetDlgItem(IDC_STATIC_MAP), "");
+}
+
+BOOL CDLGMap::PreTranslateMessage(MSG* pMsg) 
+{
+	m_tooltip.RelayEvent(pMsg);
+	return CDialog::PreTranslateMessage(pMsg);
+}
+
+void CDLGMap::NotifyDisplayTooltip(NMHDR * pNMHDR, LRESULT * result)
+{
+	*result = 0;
+	NM_PPTOOLTIP_DISPLAY * pNotify = (NM_PPTOOLTIP_DISPLAY*)pNMHDR;
+
+	if (pNotify->hwndTool==	(GetDlgItem(IDC_STATIC_MAP)->m_hWnd))
+	{
+		CPoint pt = *pNotify->pt;
+		//映射到相对坐标
+		GetDlgItem(IDC_STATIC_MAP)->ScreenToClient(&pt);
+
+		int i,j;
+		for (i = 0; i < MapTotal; i++)
+		{
+			j=MapData[i];
+
+			if(pt.x>=(DiscoverMap[j].x*MapRect.rate-4) 
+				&& pt.x<=(DiscoverMap[j].x*MapRect.rate+4)
+				&& 	pt.y>=(DiscoverMap[j].y*MapRect.rate-4)
+				&& 	pt.y<=(DiscoverMap[j].y*MapRect.rate+4)
+				)
+			{
+			//	CString str;
+			//	str.Format(_T("Map x=%d, y=%d,mx=%f,my=%f"),
+			//		pt.x, pt.y,DiscoverMap[j].x*MapRect.rate,DiscoverMap[j].y*MapRect.rate);
+			//	pNotify->ti->sTooltip = str + _T("<br><hr color=green><br><font color=green>City was found</font>");
+				pNotify->ti->sTooltip.Format("<font color=navy><b>%s</b></font>",DiscoverMap[j].cn);
+
+				return;
+			}
+		}
+	} //if
+} //End NotifyDisplayTooltip
