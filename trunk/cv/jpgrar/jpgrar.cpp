@@ -25,7 +25,7 @@ int main( int argc, char** argv )
 	{
 		src = cvLoadImage(argv[i],1);
 		
-#if 0
+#if 1
 	//Ëõ·Å
 		dst = cvCreateImage(cvSize((int)(src->width*0.7),(int)(src->height*0.7)),src->depth,src->nChannels);
 		cvResize(src,dst,CV_INTER_LINEAR);
