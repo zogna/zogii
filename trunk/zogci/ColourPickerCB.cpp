@@ -18,16 +18,16 @@ static char THIS_FILE[] = __FILE__;
 
 Colour g_arrColours[] =
 {
-	Colour( RGB( 000, 000, 000 ), "Black" ),
+	Colour( RGB( 0, 0, 0 ), "Black" ),
 	Colour( RGB( 255, 255, 255 ), "White" ),
 	Colour( RGB( 127, 127, 127 ), "Grey" ),
-	Colour( RGB( 255, 000, 000 ), "Red" ),
-	Colour( RGB( 255, 127, 000 ), "Orange" ),
-	Colour( RGB( 255, 255, 000 ), "Yellow" ),
-	Colour( RGB( 000, 255, 000 ), "Green" ),
-	Colour( RGB( 000, 255, 255 ), "Cyan" ),
-	Colour( RGB( 000, 000, 255 ), "Blue" ),
-	Colour( RGB( 255, 000, 255 ), "Fuchsia" )
+	Colour( RGB( 255, 0, 0 ), "Red" ),
+	Colour( RGB( 255, 127, 0 ), "Orange" ),
+	Colour( RGB( 255, 255, 0 ), "Yellow" ),
+	Colour( RGB( 0, 255, 0 ), "Green" ),
+	Colour( RGB( 0, 255, 255 ), "Cyan" ),
+	Colour( RGB( 0, 0, 255 ), "Blue" ),
+	Colour( RGB( 255, 0, 255 ), "Fuchsia" )
 };
 
 CColourPickerCB::CColourPickerCB()

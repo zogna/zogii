@@ -10,6 +10,19 @@
 #include "highgui.h"	 
 /////////////////////////////////////////////////////////////////////////////
 // CDLGMap dialog
+#include "PPTooltip.h"
+
+struct MapRect_ST
+{
+	int top;
+	int bottom;
+	int left;
+	int right;
+	int width;
+	int height;
+	//Í¼ÏñËõ·ÅÂÊ
+	float rate;
+};
 
 class CDLGMap : public CDialog
 {
@@ -27,14 +40,23 @@ public:
 	void AutoSize();
 
 	IplImage* srcImage;
+	IplImage* dstImage;
 	IplImage* miniImage;
 
-	void Load();
-	void BuildMap();
-	void ReSizeShowImage(IplImage *pImage);
+	void Load(int total,unsigned char *imap);
 
+	void ReSizeShowImage(IplImage *pImage);
 	bool IplImage2Bmp(IplImage *pImage,HBITMAP &hBitmap);
 
+	struct MapRect_ST MapRect;
+///////////////////////////////////////////////
+	int MapTotal;
+	unsigned char MapData[256];
+///////////////////////////////////////////////
+	CPPToolTip m_tooltip;
+	void InitToolTip(void);
+	virtual BOOL PreTranslateMessage(MSG* pMsg);
+	afx_msg void NotifyDisplayTooltip(NMHDR * pNMHDR, LRESULT * result);
 // Overrides
 	// ClassWizard generated virtual function overrides
 	//{{AFX_VIRTUAL(CDLGMap)

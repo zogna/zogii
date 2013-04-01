@@ -252,6 +252,10 @@ SOURCE=.\link.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\map.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\MyHyperLink.h
 # End Source File
 # Begin Source File
