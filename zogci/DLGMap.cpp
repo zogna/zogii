@@ -13,7 +13,7 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-
+extern char LanguageFlag;
 
 extern TCHAR MapPath[ZOG_MAX_PATH_STR];
 /////////////////////////////////////////////////////////////////////////////
@@ -90,8 +90,7 @@ BOOL CDLGMap::OnInitDialog()
 	}
 
 	
-	Load(4,(unsigned char*)"0123");
-
+	Load(10,(unsigned char*)"0123456789");
 
 	InitToolTip();
 
@@ -150,7 +149,7 @@ void CDLGMap::Load(int total,unsigned char *imap)
 				MapTotal++;
 				break;
 			case  MAP_COUNTRY:
-				cvCircle(dstImage,cvPoint(DiscoverMap[j].x,DiscoverMap[j].y),6,CV_RGB(255, 255,0),-1);
+				cvCircle(dstImage,cvPoint(DiscoverMap[j].x,DiscoverMap[j].y),6,CV_RGB(127, 255,64),-1);
 			
 				MapData[MapTotal]=j;
 				MapTotal++;
@@ -216,7 +215,6 @@ void CDLGMap::ReSizeShowImage(IplImage *pImage)
 	MapRect.rate=rate;
 	MapRect.width=dstw;
 	MapRect.height=dsth;
-
 }
 
 bool CDLGMap::IplImage2Bmp(IplImage *pImage,HBITMAP &hBitmap)
@@ -339,7 +337,7 @@ void CDLGMap::InitToolTip(void)
 	//关闭阴影
 	m_tooltip.SetTooltipShadow(0, 0, 0, 0, 0, 0);
 	//设置透明度
-	m_tooltip.SetTransparency(30);
+	m_tooltip.SetTransparency(10);
 
 	m_tooltip.AddTool(GetDlgItem(IDC_STATIC_MAP), "");
 }
@@ -376,8 +374,18 @@ void CDLGMap::NotifyDisplayTooltip(NMHDR * pNMHDR, LRESULT * result)
 			//	str.Format(_T("Map x=%d, y=%d,mx=%f,my=%f"),
 			//		pt.x, pt.y,DiscoverMap[j].x*MapRect.rate,DiscoverMap[j].y*MapRect.rate);
 			//	pNotify->ti->sTooltip = str + _T("<br><hr color=green><br><font color=green>City was found</font>");
-				pNotify->ti->sTooltip.Format("<font color=navy><b>%s</b></font>",DiscoverMap[j].cn);
-
+				switch(LanguageFlag)
+				{
+				case 1:		
+					pNotify->ti->sTooltip.Format("<font color=navy><b>%s</b></font>",DiscoverMap[j].cn);
+					break;
+				case 2:		
+					pNotify->ti->sTooltip.Format("<font color=navy><b>%s</b></font>",DiscoverMap[j].tw);
+					break;
+				default: 	
+					pNotify->ti->sTooltip.Format("<font color=navy><b>%s</b></font>",DiscoverMap[j].en);
+					break;
+				}
 				return;
 			}
 		}
