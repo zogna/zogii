@@ -105,12 +105,91 @@ BEGIN
     LTEXT           "ADDR",IDC_ADDR,70,49,161,8
 END
 
-IDD_SEARCH DIALOG DISCARDABLE  0, 0, 187, 99
+IDD_SEARCH DIALOG DISCARDABLE  0, 0, 528, 353
 STYLE DS_3DLOOK | WS_CHILD
 FONT 9, "宋体"
 BEGIN
-    EDITTEXT        IDC_EDIT1,29,35,40,14,ES_AUTOHSCROLL
-    PUSHBUTTON      "Button1",IDC_BUTTON1,117,39,50,14
+    EDITTEXT        IDC_EDIT_TXT,87,7,323,14,ES_AUTOHSCROLL
+    LTEXT           "Name",IDC_STATIC,65,8,17,8
+    CONTROL         "SubFamily",IDC_CHECK_SF,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,141,25,48,10
+    CONTROL         "Genus",IDC_CHECK_GE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,195,25,48,10
+    CONTROL         "Species",IDC_CHECK_SP,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,249,25,48,10
+    CONTROL         "SubSpecies",IDC_CHECK_SSP,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,303,25,48,10
+    CONTROL         "All Name",IDC_CHECK_ALLNAME,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,87,25,48,10
+    CONTROL         "Document",IDC_CHECK_DOC,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,357,25,48,10
+    PUSHBUTTON      "Reset",IDC_BUTTON_RESET,471,7,50,14
+    GROUPBOX        "Adult",IDC_STATIC,7,39,514,124
+    CONTROL         "0 - 2 mm",IDC_CHECK_ADULT_SIZE_02,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,81,56,10
+    GROUPBOX        "Size",IDC_STATIC,7,53,66,110
+    CONTROL         "All Size",IDC_CHECK_ADULT_SIZE_ANY,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,65,56,10
+    CONTROL         "2 - 5 mm",IDC_CHECK_ADULT_SIZE_25,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,97,56,10
+    CONTROL         "5 - 8 mm",IDC_CHECK_ADULT_SIZE_58,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,113,56,10
+    CONTROL         "8 - 10 mm",IDC_CHECK_ADULT_SIZE_810,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,129,56,10
+    CONTROL         "over 10 mm",IDC_CHECK_ADULT_SIZE_10,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,145,56,10
+    GROUPBOX        "Contour",IDC_STATIC,72,54,67,109
+    PUSHBUTTON      "View Adult Photo",IDC_BUTTON_ADULT,119,332,69,14
+    PUSHBUTTON      "View Larva Photo",IDC_BUTTON_LARVA,213,332,69,14
+    PUSHBUTTON      "View Pupa Photo",IDC_BUTTON_PUPA,302,332,65,14
+    GROUPBOX        "Larva",IDC_STATIC,7,165,514,87
+    GROUPBOX        "Pupa",IDC_STATIC,7,254,514,73
+    CONTROL         "常规",IDC_CHECK_LARVA_NORMAL,"Button",BS_AUTOCHECKBOX | 
+                    BS_BITMAP | BS_CENTER | BS_VCENTER | WS_TABSTOP,13,187,
+                    66,62
+    CONTROL         "错枝",IDC_CHECK_LARVA_BRANCH,"Button",BS_AUTOCHECKBOX | 
+                    BS_BITMAP | BS_CENTER | BS_VCENTER | WS_TABSTOP,85,187,
+                    66,62
+    CONTROL         "刺",IDC_CHECK_LARVA_THORN,"Button",BS_AUTOCHECKBOX | 
+                    BS_BITMAP | BS_CENTER | BS_VCENTER | WS_TABSTOP,157,187,
+                    66,62
+    CONTROL         "全毛",IDC_CHECK_LARVA_ALLHAIR,"Button",BS_AUTOCHECKBOX | 
+                    BS_BITMAP | BS_CENTER | BS_VCENTER | WS_TABSTOP,229,187,
+                    66,62
+    CONTROL         "半毛",IDC_CHECK_LARVA_HALFHAIR,"Button",BS_AUTOCHECKBOX | 
+                    BS_BITMAP | BS_CENTER | BS_VCENTER | WS_TABSTOP,301,187,
+                    66,62
+    CONTROL         "无毛",IDC_CHECK_LARVA_NULLHAIR,"Button",BS_AUTOCHECKBOX | 
+                    BS_BITMAP | BS_CENTER | BS_VCENTER | WS_TABSTOP,373,187,
+                    66,62
+    CONTROL         "扁平",IDC_CHECK_LARVA_FLAT,"Button",BS_AUTOCHECKBOX | 
+                    BS_BITMAP | BS_CENTER | BS_VCENTER | WS_TABSTOP,445,188,
+                    66,62
+    CONTROL         "All",IDC_CHECK_LARVA_ALL,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,85,172,46,10
+    CONTROL         "All",IDC_CHECK_PUPA_ALL,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,15,289,41,10
+    CONTROL         "常规",IDC_CHECK_PUPA_NORMAL,"Button",BS_AUTOCHECKBOX | 
+                    BS_BITMAP | BS_CENTER | BS_VCENTER | WS_TABSTOP,85,263,
+                    66,62
+    CONTROL         "错枝",IDC_CHECK_PUPA_HAIR,"Button",BS_AUTOCHECKBOX | 
+                    BS_BITMAP | BS_CENTER | BS_VCENTER | WS_TABSTOP,157,263,
+                    66,62
+    CONTROL         "刺",IDC_CHECK_PUPA_HARDTHORN,"Button",BS_AUTOCHECKBOX | 
+                    BS_BITMAP | BS_CENTER | BS_VCENTER | WS_TABSTOP,229,263,
+                    66,62
+    CONTROL         "全毛",IDC_CHECK_PUPA_SOFTTHORN,"Button",BS_AUTOCHECKBOX | 
+                    BS_BITMAP | BS_CENTER | BS_VCENTER | WS_TABSTOP,301,263,
+                    66,62
+    CONTROL         "All Contour",IDC_CHECK_CONTOUR_ANY,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,76,67,60,10
+    CONTROL         "椭圆",IDC_CHECK_CONTOUR_ELLIPSE,"Button",
+                    BS_AUTOCHECKBOX | BS_BITMAP | WS_TABSTOP,76,110,36,23
+    CONTROL         "圆形",IDC_CHECK_CONTOUR_CIRCLE,"Button",BS_AUTOCHECKBOX | 
+                    BS_BITMAP | WS_TABSTOP,76,137,36,23
+    CONTROL         "长形",IDC_CHECK_CONTOUR_RACTANGLE,"Button",
+                    BS_AUTOCHECKBOX | BS_BITMAP | WS_TABSTOP,76,83,36,23
+    PUSHBUTTON      "Button1",IDC_BUTTON1,336,62,50,14
 END
 
 IDD_RESULT DIALOG DISCARDABLE  0, 0, 688, 414
@@ -288,6 +367,83 @@ BEGIN
     LTEXT           "Static",IDC_STATIC,484,57,25,8
 END
 
+IDD_COLOR DIALOG DISCARDABLE  0, 0, 187, 100
+STYLE WS_CHILD
+FONT 9, "宋体"
+BEGIN
+    CONTROL         "Check1",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | BS_BITMAP | 
+                    WS_TABSTOP,7,7,40,10
+    CONTROL         "Check1",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | BS_BITMAP | 
+                    WS_TABSTOP,7,17,40,10
+    CONTROL         "Check1",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | BS_BITMAP | 
+                    WS_TABSTOP,7,29,40,10
+    CONTROL         "Check1",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | BS_BITMAP | 
+                    WS_TABSTOP,7,43,40,10
+    CONTROL         "Check1",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | BS_BITMAP | 
+                    WS_TABSTOP,7,55,40,10
+    CONTROL         "Check1",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | BS_BITMAP | 
+                    WS_TABSTOP,7,67,40,10
+    CONTROL         "Check1",IDC_CHECK11,"Button",BS_AUTOCHECKBOX | 
+                    BS_BITMAP | WS_TABSTOP,71,7,40,10
+    CONTROL         "Check1",IDC_CHECK12,"Button",BS_AUTOCHECKBOX | 
+                    BS_BITMAP | WS_TABSTOP,71,17,40,10
+    CONTROL         "Check1",IDC_CHECK26,"Button",BS_AUTOCHECKBOX | 
+                    BS_BITMAP | WS_TABSTOP,71,29,40,10
+    CONTROL         "Check1",IDC_CHECK27,"Button",BS_AUTOCHECKBOX | 
+                    BS_BITMAP | WS_TABSTOP,71,43,40,10
+    CONTROL         "Check1",IDC_CHECK28,"Button",BS_AUTOCHECKBOX | 
+                    BS_BITMAP | WS_TABSTOP,71,55,40,10
+    CONTROL         "Check1",IDC_CHECK29,"Button",BS_AUTOCHECKBOX | 
+                    BS_BITMAP | WS_TABSTOP,71,67,40,10
+END
+
+IDD_SEARCH_ADULT DIALOG DISCARDABLE  0, 0, 391, 247
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+FONT 9, "宋体"
+BEGIN
+    GROUPBOX        "Static",IDC_STATIC,7,7,377,114
+    CONTROL         "All",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    13,25,28,10
+    CONTROL         "Other",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    15,43,36,10
+    CONTROL         "1 - 5",IDC_CHECK_ADULT_SIZE_02,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,13,156,44,10
+    GROUPBOX        "Size",IDC_STATIC,7,123,58,117
+    CONTROL         "All",IDC_CHECK_ADULT_SIZE_ANY,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,13,140,44,10
+    CONTROL         "6 - 10",IDC_CHECK_ADULT_SIZE_25,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,172,44,10
+    CONTROL         "11 - 15",IDC_CHECK_ADULT_SIZE_58,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,188,44,10
+    CONTROL         "16 - 20",IDC_CHECK_ADULT_SIZE_810,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,204,44,10
+    CONTROL         "over 20",IDC_CHECK_ADULT_SIZE_10,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,13,220,44,10
+    CONTROL         "1 - 3",IDC_CHECK_ADULT_SIZE_3,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,84,156,44,10
+    GROUPBOX        "Size",IDC_STATIC,78,123,66,117
+    CONTROL         "All",IDC_CHECK_ADULT_SIZE_ANY2,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,84,140,44,10
+    CONTROL         "4 - 6",IDC_CHECK_ADULT_SIZE_26,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,84,172,44,10
+    CONTROL         "7 - 9",IDC_CHECK_ADULT_SIZE_59,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,84,188,44,10
+    CONTROL         "10 - 12",IDC_CHECK_ADULT_SIZE_811,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,84,204,44,10
+    CONTROL         "over 12",IDC_CHECK_ADULT_SIZE_11,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,84,220,44,10
+    CONTROL         "Check3",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,104,53,40,10
+    CONTROL         "Check3",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,149,75,40,10
+    CONTROL         "Check3",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,201,51,40,10
+    CONTROL         "Check3",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,263,69,40,10
+    CONTROL         "Check3",IDC_CHECK7,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,264,93,40,10
+END
+
 
 #ifndef _MAC
 /////////////////////////////////////////////////////////////////////////////
@@ -359,9 +515,9 @@ BEGIN
     IDD_SEARCH, DIALOG
     BEGIN
         LEFTMARGIN, 7
-        RIGHTMARGIN, 180
+        RIGHTMARGIN, 521
         TOPMARGIN, 7
-        BOTTOMMARGIN, 92
+        BOTTOMMARGIN, 346
     END
 
     IDD_RESULT, DIALOG
@@ -433,6 +589,22 @@ BEGIN
         TOPMARGIN, 7
         BOTTOMMARGIN, 291
     END
+
+    IDD_COLOR, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 180
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 93
+    END
+
+    IDD_SEARCH_ADULT, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 384
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 240
+    END
 END
 #endif    // APSTUDIO_INVOKED
 
@@ -464,6 +636,26 @@ BEGIN
     0
 END
 
+
+/////////////////////////////////////////////////////////////////////////////
+//
+// Bitmap
+//
+
+IDB_PUPA_SOFTTHORN      BITMAP  DISCARDABLE     "res\\pupa-softthorn.bmp"
+IDB_CONTOUR_CIRCLE      BITMAP  DISCARDABLE     "res\\contour-circle.bmp"
+IDB_CONTOUR_ELLIPSE     BITMAP  DISCARDABLE     "res\\contour-ellipse.bmp"
+IDB_CONTOUT_RACTANGLE   BITMAP  DISCARDABLE     "res\\contour-rectangle.bmp"
+IDB_LARVA_ALLHAIR       BITMAP  DISCARDABLE     "res\\larva-allhair.bmp"
+IDB_LARVA_BRANCH        BITMAP  DISCARDABLE     "res\\larva-branch.bmp"
+IDB_LARVA_FLAT          BITMAP  DISCARDABLE     "res\\larva-flat.bmp"
+IDB_LARVA_HALFHAIR      BITMAP  DISCARDABLE     "res\\larva-halfhair.bmp"
+IDB_LARVA_NORMAL        BITMAP  DISCARDABLE     "res\\larva-normal.bmp"
+IDB_LARVA_NULLHAIR      BITMAP  DISCARDABLE     "res\\larva-nullhair.bmp"
+IDB_LARVA_THORN         BITMAP  DISCARDABLE     "res\\larva-thorn.bmp"
+IDB_PUPA_HAIR           BITMAP  DISCARDABLE     "res\\pupa-hair.bmp"
+IDB_PUPA_HARDTHORN      BITMAP  DISCARDABLE     "res\\pupa-hardthorn.bmp"
+IDB_PUPA_NORMAL         BITMAP  DISCARDABLE     "res\\pupa-normal.bmp"
 #endif    // Chinese (中国) resources
 /////////////////////////////////////////////////////////////////////////////
 

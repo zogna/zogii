@@ -292,7 +292,63 @@ SOURCE=.\zogciDlg.h
 # PROP Default_Filter "ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe"
 # Begin Source File
 
+SOURCE=".\res\contour-circle.bmp"
+# End Source File
+# Begin Source File
+
+SOURCE=".\res\contour-ellipse.bmp"
+# End Source File
+# Begin Source File
+
+SOURCE=".\res\contour-rectangle.bmp"
+# End Source File
+# Begin Source File
+
+SOURCE=".\res\larva-allhair.bmp"
+# End Source File
+# Begin Source File
+
+SOURCE=".\res\larva-branch.bmp"
+# End Source File
+# Begin Source File
+
+SOURCE=".\res\larva-flat.bmp"
+# End Source File
+# Begin Source File
+
+SOURCE=".\res\larva-halfhair.bmp"
+# End Source File
+# Begin Source File
+
+SOURCE=".\res\larva-normal.bmp"
+# End Source File
+# Begin Source File
+
+SOURCE=".\res\larva-nullhair.bmp"
+# End Source File
+# Begin Source File
+
+SOURCE=".\res\larva-thorn.bmp"
+# End Source File
+# Begin Source File
+
 SOURCE=.\res\Map.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=".\res\pupa-hair.bmp"
+# End Source File
+# Begin Source File
+
+SOURCE=".\res\pupa-hardthorn.bmp"
+# End Source File
+# Begin Source File
+
+SOURCE=".\res\pupa-normal.bmp"
+# End Source File
+# Begin Source File
+
+SOURCE=".\res\pupa-softthorn.bmp"
 # End Source File
 # Begin Source File
 
