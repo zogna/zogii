@@ -20,7 +20,36 @@ public:
 // Dialog Data
 	//{{AFX_DATA(CDLGsearch)
 	enum { IDD = IDD_SEARCH };
-		// NOTE: the ClassWizard will add data members here
+	CButton	m_contour_ractangle;
+	CButton	m_contour_ellipse;
+	CButton	m_contour_circle;
+	CButton	m_pupa_softthorn;
+	CButton	m_pupa_normal;
+	CButton	m_pupa_hardthorn;
+	CButton	m_pupa_hair;
+	CButton	m_larva_allhair;
+	BOOL	m_adult_size_02;
+	BOOL	m_adult_size_10;
+	BOOL	m_adult_size_25;
+	BOOL	m_adult_size_58;
+	BOOL	m_adult_size_810;
+	BOOL	m_adult_size_any;
+	BOOL	m_allname;
+	BOOL	m_doc;
+	BOOL	m_ge;
+	BOOL	m_sf;
+	BOOL	m_sp;
+	BOOL	m_ssp;
+	CString	m_txt;
+	BOOL	m_larva_all;
+	CButton	m_larva_branch;
+	CButton	m_larva_flat;
+	CButton	m_larva_halfhair;
+	CButton	m_larva_normal;
+	CButton	m_larva_nullhair;
+	CButton	m_larva_thorn;
+	BOOL	m_pupa_all;
+	BOOL	m_contour_any;
 	//}}AFX_DATA
 
 	void AutoSize();
@@ -36,7 +65,10 @@ protected:
 
 	// Generated message map functions
 	//{{AFX_MSG(CDLGsearch)
-		// NOTE: the ClassWizard will add member functions here
+	afx_msg void OnButtonReset();
+	afx_msg void OnButtonAdult();
+	afx_msg void OnButtonLarva();
+	afx_msg void OnButtonPupa();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };

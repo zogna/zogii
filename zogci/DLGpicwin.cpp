@@ -311,6 +311,7 @@ void DLGpicwin::ReSizeShowImage(CButton *buttonres,IplImage *pImage)
 	//×ª»»
 	HBITMAP	hbitmap ;
 	IplImage2Bmp(miniImage,hbitmap);
+
 	//ÏÔÊ¾
 	buttonres->SetBitmap(hbitmap);
 	//ÊÍ·Å
