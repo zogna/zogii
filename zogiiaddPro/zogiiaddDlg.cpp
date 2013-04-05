@@ -441,10 +441,10 @@ BOOL CZogiiaddDlg::OnInitDialog()
 	CSliderCtrl* sliderctrl;
 
 	sliderctrl=(CSliderCtrl*)GetDlgItem(IDC_SLIDER_MAXSIZE);
-	sliderctrl->SetRange(0,20,TRUE); 
+	sliderctrl->SetRange(0,15,TRUE); 
 
 	sliderctrl=(CSliderCtrl*)GetDlgItem(IDC_SLIDER_MINSIZE);
-	sliderctrl->SetRange(0,20,TRUE); 
+	sliderctrl->SetRange(0,15,TRUE); 
 
 	return TRUE;  // return TRUE  unless you set the focus to a control
 }

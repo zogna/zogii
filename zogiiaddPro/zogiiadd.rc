@@ -334,13 +334,13 @@ BEGIN
     PUSHBUTTON      "快速地理",IDC_BUTTON_FASTMAP,231,125,50,14
     PUSHBUTTON      "快速剪贴板",IDC_BUTTON_FASTSTR,289,125,50,14
     CONTROL         "Slider1",IDC_SLIDER_MINSIZE,"msctls_trackbar32",TBS_TOP | 
-                    TBS_NOTICKS | WS_TABSTOP,555,107,59,15
+                    TBS_NOTICKS | WS_TABSTOP,555,107,79,15
     CONTROL         "Slider1",IDC_SLIDER_MAXSIZE,"msctls_trackbar32",TBS_TOP | 
-                    TBS_NOTICKS | WS_TABSTOP,680,109,59,15
-    LTEXT           "Static",IDC_STATIC_MAXSIZE,743,113,25,8
+                    TBS_NOTICKS | WS_TABSTOP,699,107,81,15
+    LTEXT           "aamm",IDC_STATIC_MAXSIZE,784,112,22,8
     LTEXT           "最小体长",IDC_STATIC,522,111,33,8
-    LTEXT           "最大体长",IDC_STATIC,647,111,33,8
-    LTEXT           "Static",IDC_STATIC_MINSIZE,616,112,25,8
+    LTEXT           "最大体长",IDC_STATIC,663,111,33,8
+    LTEXT           "aamm",IDC_STATIC_MINSIZE,639,111,22,8
     PUSHBUTTON      "排序保存数据库",IDC_BUTTON_SORTSAVEDB,741,151,61,14
     EDITTEXT        IDC_EDIT_SEARCH,346,126,110,14,ES_AUTOHSCROLL
     PUSHBUTTON      "搜索",IDC_BUTTON_SEARCH,458,126,21,14
@@ -500,11 +500,17 @@ BEGIN
     IDC_COMBO_LarvaCalthrop, 0x403, 5, 0
 0xa3b3, 0xe6b9, "\000" 
     IDC_COMBO_LarvaCalthrop, 0x403, 5, 0
-0xabc3, 0xb4d7, "\000" 
+0xabc8, 0xabc3, "\000" 
     IDC_COMBO_LarvaCalthrop, 0x403, 5, 0
-0xa4b3, 0xccb4, "\000" 
+0xa6d6, 0xccb4, "\000" 
     IDC_COMBO_LarvaCalthrop, 0x403, 5, 0
 0xe2b1, 0xbdc6, "\000" 
+    IDC_COMBO_LarvaCalthrop, 0x403, 5, 0
+0xebb0, 0xabc3, "\000" 
+    IDC_COMBO_LarvaCalthrop, 0x403, 5, 0
+0xdece, 0xabc3, "\000" 
+    IDC_COMBO_LarvaCalthrop, 0x403, 5, 0
+0xa1d0, 0xccb4, "\000" 
     IDC_COMBO_LarvaColorB, 0x403, 3, 0
 0xdece, "\000" 
     IDC_COMBO_LarvaColorB, 0x403, 7, 0
@@ -1317,8 +1323,14 @@ BEGIN
 0xb4ce, 0xaad6, "\000" 
     IDC_COMBO_PupaType, 0x403, 5, 0
 0xb0c7, 0xbcd3, "\000" 
-    IDC_COMBO_PupaType, 0x403, 3, 0
-0xbcd3, "\000" 
+    IDC_COMBO_PupaType, 0x403, 8, 0
+0xbcd3, 0xb32d, 0xb9a3, 0x00e6, 
+    IDC_COMBO_PupaType, 0x403, 8, 0
+0xbcd3, 0xc82d, 0xc3ab, 0x00ab, 
+    IDC_COMBO_PupaType, 0x403, 8, 0
+0xbcd3, 0xd32d, 0xb4b2, 0x00cc, 
+    IDC_COMBO_PupaType, 0x403, 8, 0
+0xbcd3, 0xc82d, 0xb4ed, 0x00cc, 
     IDC_COMBO_PupaType, 0x403, 5, 0
 0xbcd3, 0xc7bf, "\000" 
     IDC_COMBO_OVERWINTER, 0x403, 5, 0
