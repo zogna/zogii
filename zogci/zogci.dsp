@@ -151,6 +151,14 @@ SOURCE=.\DLGsearch.cpp
 # End Source File
 # Begin Source File
 
+SOURCE=.\DLGSearchElytron.cpp
+# End Source File
+# Begin Source File
+
+SOURCE=.\DLGSearchPronotum.cpp
+# End Source File
+# Begin Source File
+
 SOURCE=.\MyHyperLink.cpp
 # End Source File
 # Begin Source File
@@ -248,6 +256,14 @@ SOURCE=.\DLGsearch.h
 # End Source File
 # Begin Source File
 
+SOURCE=.\DLGSearchElytron.h
+# End Source File
+# Begin Source File
+
+SOURCE=.\DLGSearchPronotum.h
+# End Source File
+# Begin Source File
+
 SOURCE=.\link.h
 # End Source File
 # Begin Source File
@@ -304,6 +320,30 @@ SOURCE=".\res\contour-rectangle.bmp"
 # End Source File
 # Begin Source File
 
+SOURCE=.\res\Elytron_banded.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Elytron_circle.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Elytron_eye.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Elytron_solid.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Elytron_spots.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Elytron_striped.bmp
+# End Source File
+# Begin Source File
+
 SOURCE=".\res\larva-allhair.bmp"
 # End Source File
 # Begin Source File
@@ -333,6 +373,18 @@ SOURCE=".\res\larva-thorn.bmp"
 # Begin Source File
 
 SOURCE=.\res\Map.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Pronotum_2big.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Pronotum_solid.bmp
+# End Source File
+# Begin Source File
+
+SOURCE=.\res\Pronotum_spot.bmp
 # End Source File
 # Begin Source File
 
