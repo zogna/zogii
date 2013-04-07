@@ -4,6 +4,8 @@
 #include "stdafx.h"
 #include "zogci.h"
 #include "DLGsearch.h"
+#include "DLGSearchElytron.h"
+#include "DLGSearchPronotum.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -20,7 +22,6 @@ CDLGsearch::CDLGsearch(CWnd* pParent /*=NULL*/)
 {
 	//{{AFX_DATA_INIT(CDLGsearch)
 	m_adult_size_02 = FALSE;
-	m_adult_size_10 = FALSE;
 	m_adult_size_25 = FALSE;
 	m_adult_size_58 = FALSE;
 	m_adult_size_810 = FALSE;
@@ -35,6 +36,7 @@ CDLGsearch::CDLGsearch(CWnd* pParent /*=NULL*/)
 	m_larva_all = FALSE;
 	m_pupa_all = FALSE;
 	m_contour_any = FALSE;
+	m_adult_size_m10 = FALSE;
 	//}}AFX_DATA_INIT
 }
 
@@ -52,7 +54,6 @@ void CDLGsearch::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_CHECK_PUPA_HAIR, m_pupa_hair);
 	DDX_Control(pDX, IDC_CHECK_LARVA_ALLHAIR, m_larva_allhair);
 	DDX_Check(pDX, IDC_CHECK_ADULT_SIZE_02, m_adult_size_02);
-	DDX_Check(pDX, IDC_CHECK_ADULT_SIZE_10, m_adult_size_10);
 	DDX_Check(pDX, IDC_CHECK_ADULT_SIZE_25, m_adult_size_25);
 	DDX_Check(pDX, IDC_CHECK_ADULT_SIZE_58, m_adult_size_58);
 	DDX_Check(pDX, IDC_CHECK_ADULT_SIZE_810, m_adult_size_810);
@@ -74,6 +75,7 @@ void CDLGsearch::DoDataExchange(CDataExchange* pDX)
 	DDX_Control(pDX, IDC_CHECK_LARVA_THORN, m_larva_thorn);
 	DDX_Check(pDX, IDC_CHECK_PUPA_ALL, m_pupa_all);
 	DDX_Check(pDX, IDC_CHECK_CONTOUR_ANY, m_contour_any);
+	DDX_Check(pDX, IDC_CHECK_ADULT_SIZE_M10, m_adult_size_m10);
 	//}}AFX_DATA_MAP
 }
 
@@ -84,6 +86,8 @@ BEGIN_MESSAGE_MAP(CDLGsearch, CDialog)
 	ON_BN_CLICKED(IDC_BUTTON_ADULT, OnButtonAdult)
 	ON_BN_CLICKED(IDC_BUTTON_LARVA, OnButtonLarva)
 	ON_BN_CLICKED(IDC_BUTTON_PUPA, OnButtonPupa)
+	ON_BN_CLICKED(IDC_BUTTON_ELYTRON, OnButtonElytron)
+	ON_BN_CLICKED(IDC_BUTTON_PRONOTUM, OnButtonPronotum)
 	//}}AFX_MSG_MAP
 END_MESSAGE_MAP()
 
@@ -180,4 +184,20 @@ void CDLGsearch::OnButtonPupa()
 {
 	// TODO: Add your control notification handler code here
 	
+}
+
+void CDLGsearch::OnButtonElytron() 
+{
+	// TODO: Add your control notification handler code here
+	CDLGSearchElytron DlgSearchElytron;
+	DlgSearchElytron.DoModal();
+}
+
+void CDLGsearch::OnButtonPronotum() 
+{
+	// TODO: Add your control notification handler code here
+
+	CDLGSearchPronotum DlgSearchPronotum;
+	DlgSearchPronotum.DoModal();
+
 }

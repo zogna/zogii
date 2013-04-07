@@ -127,7 +127,7 @@ BEGIN
     GROUPBOX        "Adult",IDC_STATIC,7,39,514,124
     CONTROL         "0 - 2 mm",IDC_CHECK_ADULT_SIZE_02,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,13,81,56,10
-    GROUPBOX        "Size",IDC_STATIC,7,53,66,110
+    GROUPBOX        "Size",IDC_STATIC,7,54,66,109
     CONTROL         "All Size",IDC_CHECK_ADULT_SIZE_ANY,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,13,65,56,10
     CONTROL         "2 - 5 mm",IDC_CHECK_ADULT_SIZE_25,"Button",
@@ -136,9 +136,9 @@ BEGIN
                     BS_AUTOCHECKBOX | WS_TABSTOP,13,113,56,10
     CONTROL         "8 - 10 mm",IDC_CHECK_ADULT_SIZE_810,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,13,129,56,10
-    CONTROL         "over 10 mm",IDC_CHECK_ADULT_SIZE_10,"Button",
+    CONTROL         "over 10 mm",IDC_CHECK_ADULT_SIZE_M10,"Button",
                     BS_AUTOCHECKBOX | WS_TABSTOP,13,145,56,10
-    GROUPBOX        "Contour",IDC_STATIC,72,54,67,109
+    GROUPBOX        "Contour",IDC_STATIC,72,54,47,109
     PUSHBUTTON      "View Adult Photo",IDC_BUTTON_ADULT,119,332,69,14
     PUSHBUTTON      "View Larva Photo",IDC_BUTTON_LARVA,213,332,69,14
     PUSHBUTTON      "View Pupa Photo",IDC_BUTTON_PUPA,302,332,65,14
@@ -166,7 +166,7 @@ BEGIN
                     BS_BITMAP | BS_CENTER | BS_VCENTER | WS_TABSTOP,445,188,
                     66,62
     CONTROL         "All",IDC_CHECK_LARVA_ALL,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,85,172,46,10
+                    WS_TABSTOP,14,177,46,10
     CONTROL         "All",IDC_CHECK_PUPA_ALL,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,15,289,41,10
     CONTROL         "常规",IDC_CHECK_PUPA_NORMAL,"Button",BS_AUTOCHECKBOX | 
@@ -181,15 +181,32 @@ BEGIN
     CONTROL         "全毛",IDC_CHECK_PUPA_SOFTTHORN,"Button",BS_AUTOCHECKBOX | 
                     BS_BITMAP | BS_CENTER | BS_VCENTER | WS_TABSTOP,301,263,
                     66,62
-    CONTROL         "All Contour",IDC_CHECK_CONTOUR_ANY,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,76,67,60,10
+    CONTROL         "All ",IDC_CHECK_CONTOUR_ANY,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,76,67,32,10
     CONTROL         "椭圆",IDC_CHECK_CONTOUR_ELLIPSE,"Button",
                     BS_AUTOCHECKBOX | BS_BITMAP | WS_TABSTOP,76,110,36,23
     CONTROL         "圆形",IDC_CHECK_CONTOUR_CIRCLE,"Button",BS_AUTOCHECKBOX | 
                     BS_BITMAP | WS_TABSTOP,76,137,36,23
     CONTROL         "长形",IDC_CHECK_CONTOUR_RACTANGLE,"Button",
                     BS_AUTOCHECKBOX | BS_BITMAP | WS_TABSTOP,76,83,36,23
-    PUSHBUTTON      "Button1",IDC_BUTTON1,336,62,50,14
+    PUSHBUTTON      "Elytron",IDC_BUTTON_ELYTRON,329,72,50,14
+    GROUPBOX        "Diet",IDC_STATIC,118,54,49,109
+    CONTROL         "Meat",IDC_DIET_MEAT,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,124,88,40,10
+    CONTROL         "All",IDC_DIET_ANY,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    124,68,40,10
+    CONTROL         "Plant",IDC_DIET_PLANT,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,124,108,40,10
+    CONTROL         "Fungus",IDC_DIET_FUNGUS,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,124,128,40,10
+    GROUPBOX        "Villus",IDC_STATIC,166,54,37,109
+    CONTROL         "All",IDC_VILLUS_ANY,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,170,68,32,10
+    CONTROL         "Have",IDC_VILLUS_HAVE,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,170,86,32,10
+    CONTROL         "No",IDC_VILLUS_NO,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
+                    170,104,32,10
+    PUSHBUTTON      "Pronotum",IDC_BUTTON_PRONOTUM,329,111,50,14
 END
 
 IDD_RESULT DIALOG DISCARDABLE  0, 0, 688, 414
@@ -397,51 +414,98 @@ BEGIN
                     BS_BITMAP | WS_TABSTOP,71,67,40,10
 END
 
-IDD_SEARCH_ADULT DIALOG DISCARDABLE  0, 0, 391, 247
+IDD_SEARCH_ELYTRON DIALOG DISCARDABLE  0, 0, 391, 317
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Elytron"
 FONT 9, "宋体"
 BEGIN
-    GROUPBOX        "Static",IDC_STATIC,7,7,377,114
-    CONTROL         "All",IDC_CHECK1,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    13,25,28,10
-    CONTROL         "Other",IDC_CHECK2,"Button",BS_AUTOCHECKBOX | WS_TABSTOP,
-                    15,43,36,10
-    CONTROL         "1 - 5",IDC_CHECK_ADULT_SIZE_02,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,13,156,44,10
-    GROUPBOX        "Size",IDC_STATIC,7,123,58,117
-    CONTROL         "All",IDC_CHECK_ADULT_SIZE_ANY,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,13,140,44,10
-    CONTROL         "6 - 10",IDC_CHECK_ADULT_SIZE_25,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,13,172,44,10
-    CONTROL         "11 - 15",IDC_CHECK_ADULT_SIZE_58,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,13,188,44,10
-    CONTROL         "16 - 20",IDC_CHECK_ADULT_SIZE_810,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,13,204,44,10
-    CONTROL         "over 20",IDC_CHECK_ADULT_SIZE_10,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,13,220,44,10
-    CONTROL         "1 - 3",IDC_CHECK_ADULT_SIZE_3,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,84,156,44,10
-    GROUPBOX        "Size",IDC_STATIC,78,123,66,117
-    CONTROL         "All",IDC_CHECK_ADULT_SIZE_ANY2,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,84,140,44,10
-    CONTROL         "4 - 6",IDC_CHECK_ADULT_SIZE_26,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,84,172,44,10
-    CONTROL         "7 - 9",IDC_CHECK_ADULT_SIZE_59,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,84,188,44,10
-    CONTROL         "10 - 12",IDC_CHECK_ADULT_SIZE_811,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,84,204,44,10
-    CONTROL         "over 12",IDC_CHECK_ADULT_SIZE_11,"Button",
-                    BS_AUTOCHECKBOX | WS_TABSTOP,84,220,44,10
-    CONTROL         "Check3",IDC_CHECK3,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,104,53,40,10
-    CONTROL         "Check3",IDC_CHECK4,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,149,75,40,10
-    CONTROL         "Check3",IDC_CHECK5,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,201,51,40,10
-    CONTROL         "Check3",IDC_CHECK6,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,263,69,40,10
-    CONTROL         "Check3",IDC_CHECK7,"Button",BS_AUTOCHECKBOX | 
-                    WS_TABSTOP,264,93,40,10
+    GROUPBOX        "Pattern",IDC_STATIC,7,7,377,178
+    CONTROL         "All",IDC_CHECK_ELYTRON_ANY,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,13,25,28,10
+    CONTROL         "Other",IDC_CHECK_ELYTRON_OTHER,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,13,43,36,10
+    CONTROL         "1 - 4",IDC_CHECK_SPOT_14,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,14,224,44,10
+    GROUPBOX        "Spot or Eye Number",IDC_STATIC,7,193,83,117
+    CONTROL         "All",IDC_CHECK_SPOT_ANY,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,14,210,44,10
+    CONTROL         "5 - 8",IDC_CHECK_SPOT_58,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,14,238,44,10
+    CONTROL         "9 - 12",IDC_CHECK_SPOT_912,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,14,252,44,10
+    CONTROL         "13 - 16",IDC_CHECK_SPOT_1316,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,14,266,44,10
+    CONTROL         "over 20",IDC_CHECK_SPOT_M20,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,14,294,44,10
+    CONTROL         "2 - 3",IDC_CHECK_STRIPED_23,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,103,236,44,10
+    GROUPBOX        "Striped or Banded Number",IDC_STATIC,93,193,114,117
+    CONTROL         "All",IDC_CHECK_STRIPED_ANY,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,103,208,44,10
+    CONTROL         "4 - 6",IDC_CHECK_STRIPED_46,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,103,250,44,10
+    CONTROL         "7 - 9",IDC_CHECK_STRIPED_79,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,103,264,44,10
+    CONTROL         "10 - 12",IDC_CHECK_STRIPED_1012,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,103,278,44,10
+    CONTROL         "over 12",IDC_CHECK_STRIPED_M12,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,103,292,44,10
+    CONTROL         "banded",IDC_CHECK_ELYTRON_BANDED,"Button",
+                    BS_AUTOCHECKBOX | BS_BITMAP | WS_TABSTOP,51,29,78,66
+    CONTROL         "EYE",IDC_CHECK_ELYTRON_EYE,"Button",BS_AUTOCHECKBOX | 
+                    BS_BITMAP | WS_TABSTOP,219,113,78,66
+    CONTROL         "CIRCLE",IDC_CHECK_ELYTRON_CIRCLE,"Button",
+                    BS_AUTOCHECKBOX | BS_BITMAP | WS_TABSTOP,219,29,78,66
+    CONTROL         "SOLID",IDC_CHECK_ELYTRON_SOLID,"Button",BS_AUTOCHECKBOX | 
+                    BS_BITMAP | WS_TABSTOP,51,113,78,66
+    CONTROL         "SPOTS",IDC_CHECK_ELYTRON_SPOTS,"Button",BS_AUTOCHECKBOX | 
+                    BS_BITMAP | WS_TABSTOP,135,113,78,66
+    GROUPBOX        "Color Number",IDC_STATIC,211,193,63,117
+    CONTROL         "1",IDC_CHECK_COLOR_NUM_1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,220,224,44,10
+    CONTROL         "All",IDC_CHECK_COLOR_NUM_ANY,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,220,208,44,10
+    CONTROL         "2",IDC_CHECK_COLOR_NUM_2,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,220,240,44,10
+    CONTROL         "3",IDC_CHECK_COLOR_NUM_3,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,220,256,44,10
+    CONTROL         "4",IDC_CHECK_COLOR_NUM_4,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,220,272,20,10
+    CONTROL         "over 4",IDC_CHECK_COLOR_NUM_M4,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,220,288,40,10
+    CONTROL         "17 - 20 ",IDC_CHECK_SPOT_1720,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,14,280,44,10
+    CONTROL         "1",IDC_CHECK_STRIPED_1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,103,222,44,10
+    CONTROL         "STRIPED",IDC_CHECK_ELYTRON_STRIPED,"Button",
+                    BS_AUTOCHECKBOX | BS_BITMAP | WS_TABSTOP,135,29,78,66
+    CTEXT           "Banded",IDC_STATIC,51,13,78,8
+    CTEXT           "Striped",IDC_STATIC,135,13,78,8
+    CTEXT           "Edge Circle",IDC_STATIC,219,13,78,8
+    CTEXT           "Solid,No Spots",IDC_STATIC,51,99,78,8
+    CTEXT           "Spots",IDC_STATIC,135,99,78,8
+    CTEXT           "Eye",IDC_STATIC,219,99,78,8
+END
+
+IDD_SEARCH_PRONOTUM DIALOG DISCARDABLE  0, 0, 404, 305
+STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
+CAPTION "Pronotum"
+FONT 9, "宋体"
+BEGIN
+    GROUPBOX        "Pattern",IDC_STATIC,7,7,390,61
+    CONTROL         "All",IDC_CHECK_PRONOTUM_ANY,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,14,21,28,10
+    CONTROL         "Other",IDC_CHECK_PRONOTUM_OTHER,"Button",
+                    BS_AUTOCHECKBOX | WS_TABSTOP,14,39,36,10
+    CONTROL         "SOLID",IDC_CHECK_PRONOTUM_SOLID,"Button",
+                    BS_AUTOCHECKBOX | BS_BITMAP | WS_TABSTOP,53,27,99,31
+    CONTROL         "2big",IDC_CHECK_PRONOTUM_2BIG,"Button",BS_AUTOCHECKBOX | 
+                    BS_BITMAP | WS_TABSTOP,166,27,99,31
+    CONTROL         "spots",IDC_CHECK_PRONOTUM_SPOTS,"Button",
+                    BS_AUTOCHECKBOX | BS_BITMAP | WS_TABSTOP,279,27,99,31
+    CTEXT           "Solid,No Spots",IDC_STATIC,53,13,99,8
+    CTEXT           "Spots",IDC_STATIC,279,13,99,8
+    CTEXT           "2 Big Spots",IDC_STATIC,166,13,99,8
 END
 
 
@@ -598,12 +662,20 @@ BEGIN
         BOTTOMMARGIN, 93
     END
 
-    IDD_SEARCH_ADULT, DIALOG
+    IDD_SEARCH_ELYTRON, DIALOG
     BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 384
         TOPMARGIN, 7
-        BOTTOMMARGIN, 240
+        BOTTOMMARGIN, 310
+    END
+
+    IDD_SEARCH_PRONOTUM, DIALOG
+    BEGIN
+        LEFTMARGIN, 7
+        RIGHTMARGIN, 397
+        TOPMARGIN, 7
+        BOTTOMMARGIN, 298
     END
 END
 #endif    // APSTUDIO_INVOKED
@@ -656,6 +728,15 @@ IDB_LARVA_THORN         BITMAP  DISCARDABLE     "res\\larva-thorn.bmp"
 IDB_PUPA_HAIR           BITMAP  DISCARDABLE     "res\\pupa-hair.bmp"
 IDB_PUPA_HARDTHORN      BITMAP  DISCARDABLE     "res\\pupa-hardthorn.bmp"
 IDB_PUPA_NORMAL         BITMAP  DISCARDABLE     "res\\pupa-normal.bmp"
+IDB_ELYTRON_STRIPED     BITMAP  DISCARDABLE     "res\\Elytron_striped.bmp"
+IDB_ELYTRON_BANDED      BITMAP  DISCARDABLE     "res\\Elytron_banded.bmp"
+IDB_ELYTRON_CIRCLE      BITMAP  DISCARDABLE     "res\\Elytron_circle.bmp"
+IDB_ELYTRON_EYE         BITMAP  DISCARDABLE     "res\\Elytron_eye.bmp"
+IDB_ELYTRON_SOLID       BITMAP  DISCARDABLE     "res\\Elytron_solid.bmp"
+IDB_ELYTRON_SPOTS       BITMAP  DISCARDABLE     "res\\Elytron_spots.bmp"
+IDB_PRONOTUM_2BIG       BITMAP  DISCARDABLE     "res\\Pronotum_2big.bmp"
+IDB_PRONOTUM_SOLID      BITMAP  DISCARDABLE     "res\\Pronotum_solid.bmp"
+IDB_PRONOTUM_SPOTS      BITMAP  DISCARDABLE     "res\\Pronotum_spot.bmp"
 #endif    // Chinese (中国) resources
 /////////////////////////////////////////////////////////////////////////////
 

@@ -29,7 +29,6 @@ public:
 	CButton	m_pupa_hair;
 	CButton	m_larva_allhair;
 	BOOL	m_adult_size_02;
-	BOOL	m_adult_size_10;
 	BOOL	m_adult_size_25;
 	BOOL	m_adult_size_58;
 	BOOL	m_adult_size_810;
@@ -50,6 +49,7 @@ public:
 	CButton	m_larva_thorn;
 	BOOL	m_pupa_all;
 	BOOL	m_contour_any;
+	BOOL	m_adult_size_m10;
 	//}}AFX_DATA
 
 	void AutoSize();
@@ -69,6 +69,8 @@ protected:
 	afx_msg void OnButtonAdult();
 	afx_msg void OnButtonLarva();
 	afx_msg void OnButtonPupa();
+	afx_msg void OnButtonElytron();
+	afx_msg void OnButtonPronotum();
 	//}}AFX_MSG
 	DECLARE_MESSAGE_MAP()
 };
