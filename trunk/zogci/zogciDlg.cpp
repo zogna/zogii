@@ -156,10 +156,6 @@ void CZogciDlg::UpdatePannelPosition()
 	DlgInfo.AutoSize();
 	DlgResult.AutoSize();
 	DlgSearch.AutoSize();
-
-
-	//m_screenPannel.MoveWindow(m_screenRect);
-
 }
 
 //≥ı ºªØ«–ªª¿∏

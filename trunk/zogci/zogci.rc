@@ -487,12 +487,12 @@ BEGIN
     CTEXT           "Eye",IDC_STATIC,219,99,78,8
 END
 
-IDD_SEARCH_PRONOTUM DIALOG DISCARDABLE  0, 0, 404, 305
+IDD_SEARCH_PRONOTUM DIALOG DISCARDABLE  0, 0, 404, 197
 STYLE DS_MODALFRAME | WS_POPUP | WS_CAPTION | WS_SYSMENU
 CAPTION "Pronotum"
 FONT 9, "ËÎÌו"
 BEGIN
-    GROUPBOX        "Pattern",IDC_STATIC,7,7,390,61
+    GROUPBOX        "Pattern",IDC_STATIC,7,7,390,58
     CONTROL         "All",IDC_CHECK_PRONOTUM_ANY,"Button",BS_AUTOCHECKBOX | 
                     WS_TABSTOP,14,21,28,10
     CONTROL         "Other",IDC_CHECK_PRONOTUM_OTHER,"Button",
@@ -506,6 +506,34 @@ BEGIN
     CTEXT           "Solid,No Spots",IDC_STATIC,53,13,99,8
     CTEXT           "Spots",IDC_STATIC,279,13,99,8
     CTEXT           "2 Big Spots",IDC_STATIC,166,13,99,8
+    CONTROL         "1 - 2",IDC_CHECK_SPOT_12,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,14,104,44,10
+    GROUPBOX        "Spot Number",IDC_STATIC,7,73,83,117
+    CONTROL         "All",IDC_CHECK_SPOT_ANY,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,14,90,44,10
+    CONTROL         "3 - 4",IDC_CHECK_SPOT_34,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,14,118,44,10
+    CONTROL         "5 - 6",IDC_CHECK_SPOT_56,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,14,132,44,10
+    CONTROL         "7 - 8",IDC_CHECK_SPOT_78,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,14,146,36,10
+    CONTROL         "over 10",IDC_CHECK_SPOT_M10,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,14,174,44,10
+    GROUPBOX        "Color Number",IDC_STATIC,93,73,63,117
+    CONTROL         "1",IDC_CHECK_COLOR_NUM_1,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,102,104,44,10
+    CONTROL         "All",IDC_CHECK_COLOR_NUM_ANY,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,102,88,44,10
+    CONTROL         "2",IDC_CHECK_COLOR_NUM_2,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,102,120,44,10
+    CONTROL         "3",IDC_CHECK_COLOR_NUM_3,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,102,136,44,10
+    CONTROL         "4",IDC_CHECK_COLOR_NUM_4,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,102,152,20,10
+    CONTROL         "over 4",IDC_CHECK_COLOR_NUM_M4,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,102,168,40,10
+    CONTROL         "9 - 10",IDC_CHECK_SPOT_910,"Button",BS_AUTOCHECKBOX | 
+                    WS_TABSTOP,14,160,44,10
 END
 
 
@@ -675,7 +703,7 @@ BEGIN
         LEFTMARGIN, 7
         RIGHTMARGIN, 397
         TOPMARGIN, 7
-        BOTTOMMARGIN, 298
+        BOTTOMMARGIN, 190
     END
 END
 #endif    // APSTUDIO_INVOKED

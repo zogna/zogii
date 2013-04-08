@@ -253,7 +253,7 @@ BEGIN
     PUSHBUTTON      "´ò¿ª",IDC_BUTTON_OpenPath,376,151,26,14
     COMBOBOX        IDC_COMBO_ImagoElytraColorA,344,259,48,96,
                     CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
-    COMBOBOX        IDC_COMBO_ImagoElytraTexture,192,259,66,64,
+    COMBOBOX        IDC_COMBO_ImagoElytraTexture,192,259,66,110,
                     CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
     COMBOBOX        IDC_COMBO_ImagoElytraColorB,396,259,53,97,
                     CBS_DROPDOWNLIST | WS_VSCROLL | WS_TABSTOP
@@ -825,14 +825,22 @@ BEGIN
 0xf0bd, 0xc6bb, "\000" 
     IDC_COMBO_ImagoElytraColorA, 0x403, 7, 0
 0xeec9, 0xecba, 0xd6ba, "\000" 
-    IDC_COMBO_ImagoElytraTexture, 0x403, 3, 0
-0xdece, "\000" 
     IDC_COMBO_ImagoElytraTexture, 0x403, 5, 0
-0xf5cc, 0xc6ce, "\000" 
+0xb4ce, 0xaad6, "\000" 
+    IDC_COMBO_ImagoElytraTexture, 0x403, 5, 0
+0xe4c6, 0xfbcb, "\000" 
+    IDC_COMBO_ImagoElytraTexture, 0x403, 5, 0
+0xdece, 0xdfb0, "\000" 
     IDC_COMBO_ImagoElytraTexture, 0x403, 5, 0
 0xdfb0, 0xe3b5, "\000" 
-    IDC_COMBO_ImagoElytraTexture, 0x403, 10, 0
-0xdfb0, 0xe3b5, 0xcc2b, 0xcef5, 0x00c6, 
+    IDC_COMBO_ImagoElytraTexture, 0x403, 5, 0
+0xdbd1, 0xdfb0, "\000" 
+    IDC_COMBO_ImagoElytraTexture, 0x403, 5, 0
+0xe1ba, 0xc6ce, "\000" 
+    IDC_COMBO_ImagoElytraTexture, 0x403, 5, 0
+0xddd7, 0xc6ce, "\000" 
+    IDC_COMBO_ImagoElytraTexture, 0x403, 5, 0
+0xb2d4, 0xb7bb, "\000" 
     IDC_COMBO_ImagoElytraColorB, 0x403, 3, 0
 0xdece, "\000" 
     IDC_COMBO_ImagoElytraColorB, 0x403, 7, 0
@@ -1273,14 +1281,16 @@ BEGIN
 0x3934, "\000" 
     IDC_COMBO_ImagoPronotumPointNum, 0x403, 3, 0
 0x3035, "\000" 
-    IDC_COMBO_ImagoPronotumTexture, 0x403, 3, 0
-0xdece, "\000" 
     IDC_COMBO_ImagoPronotumTexture, 0x403, 5, 0
-0xf5cc, 0xc6ce, "\000" 
+0xb4ce, 0xaad6, "\000" 
+    IDC_COMBO_ImagoPronotumTexture, 0x403, 5, 0
+0xe4c6, 0xfbcb, "\000" 
+    IDC_COMBO_ImagoPronotumTexture, 0x403, 5, 0
+0xdece, 0xdfb0, "\000" 
+    IDC_COMBO_ImagoPronotumTexture, 0x403, 6, 0
+0xb432, 0xb0f3, 0x00df, 
     IDC_COMBO_ImagoPronotumTexture, 0x403, 5, 0
 0xdfb0, 0xe3b5, "\000" 
-    IDC_COMBO_ImagoPronotumTexture, 0x403, 10, 0
-0xdfb0, 0xe3b5, 0xcc2b, 0xcef5, 0x00c6, 
     IDC_COMBO_ImagobellyColor, 0x403, 3, 0
 0xdece, "\000" 
     IDC_COMBO_ImagobellyColor, 0x403, 7, 0

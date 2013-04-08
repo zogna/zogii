@@ -24,6 +24,19 @@ public:
 	CButton	m_pronotum_2big;
 	BOOL	m_pronotum_any;
 	BOOL	m_pronotum_other;
+	BOOL	m_colornum_1;
+	BOOL	m_colornum_2;
+	BOOL	m_colornum_3;
+	BOOL	m_colornum_4;
+	BOOL	m_colornum_any;
+	BOOL	m_colornum_m4;
+	BOOL	m_spot_12;
+	BOOL	m_spot_34;
+	BOOL	m_spot_56;
+	BOOL	m_spot_78;
+	BOOL	m_spot_910;
+	BOOL	m_spot_any;
+	BOOL	m_spot_m10;
 	//}}AFX_DATA
 
 	BOOL OnInitDialog();
