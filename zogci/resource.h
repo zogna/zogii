@@ -198,6 +198,12 @@
 #define IDC_CHECK_PRONOTUM_SPOTS        1151
 #define IDC_CHECK_PRONOTUM_ANY          1152
 #define IDC_CHECK_PRONOTUM_OTHER        1153
+#define IDC_CHECK_SPOT_12               1154
+#define IDC_CHECK_SPOT_34               1155
+#define IDC_CHECK_SPOT_56               1156
+#define IDC_CHECK_SPOT_78               1157
+#define IDC_CHECK_SPOT_910              1158
+#define IDC_CHECK_SPOT_M10              1159
 
 // Next default values for new objects
 // 
@@ -205,7 +211,7 @@
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        175
 #define _APS_NEXT_COMMAND_VALUE         32771
-#define _APS_NEXT_CONTROL_VALUE         1154
+#define _APS_NEXT_CONTROL_VALUE         1160
 #define _APS_NEXT_SYMED_VALUE           101
 #endif
 #endif

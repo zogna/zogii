@@ -103,10 +103,14 @@ struct ZOGII_Imago
 	char ElytraColor[ZOGII_COR_MAX];
 	//斑纹
 	// -1=无效
-	// 0 =无
-	// 1 =条纹
-	// 2 =斑点
-	// 3 =斑点+条纹
+	//	0=未知
+	//	1=其他
+	//	2=无斑
+	//	3=斑点
+	//	4=眼斑
+	//	5=横纹
+	//	6=纵纹
+	//	7=圆环
 	char ElytraTexture; 
 	//斑点数 0-50
 	char ElytraPointNum; 
@@ -120,10 +124,11 @@ struct ZOGII_Imago
 	char PronotumColor[ZOGII_COR_MAX];
 	//斑纹
 	// -1=无效
-	// 0 =无
-	// 1 =条纹
-	// 2 =斑点
-	// 3 =斑点+条纹
+	// 0=未知
+	// 1=其他
+	// 2=无斑
+	// 3=2大斑
+	// 4=斑点
 	char PronotumTexture; 
 	//斑点数 0-50
 	char PronotumPointNum; 
