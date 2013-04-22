@@ -220,6 +220,8 @@ protected:
 	HTREEITEM AddTree(HTREEITEM parent,char *str,	\
 								unsigned char type,ZOGII_LONG_TYPE sf,ZOGII_LONG_TYPE ge,ZOGII_LONG_TYPE sp,ZOGII_LONG_TYPE ssp);
 	void BuildTree();
+	void BuildTreeMoveNull();
+
 	void BuildNewTree(DATALIST * dl);
 	void BuildDeleteTree(DATALIST *dl);
 	void BuildDeleteTreeMove(DATALIST *dl);

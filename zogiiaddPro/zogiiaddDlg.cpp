@@ -380,7 +380,10 @@ BOOL CZogiiaddDlg::OnInitDialog()
 		&DBOvumtotal,DBOvumdata,
 		&DBCloseuptotal,DBCloseupdata);
 
-	BuildTree();
+//	BuildTree();
+	//使用修改模式
+	BuildTreeMoveNull();
+
 	InitInfoData();
 
   	char str[250];
@@ -538,7 +541,8 @@ void CZogiiaddDlg::OnBUTTONSaveData()
 	BuildNewTree(curlist);
 
 	UpdateData(FALSE);
-	MessageBox(_T("保存成功"), _T("保存"));
+//	MessageBox(_T("保存成功"), _T("保存"));
+	GetDlgItem(IDC_STATIC_MSG)->SetWindowText("保存成功");
 
 }
 /*
@@ -743,9 +747,11 @@ void CZogiiaddDlg::OnSelchangedTree(NMHDR* pNMHDR, LRESULT* pResult)
 			sprintf(str,"%d mm",m_maxsize);
 			GetDlgItem(IDC_STATIC_MAXSIZE)->SetWindowText(str);
 
+			GetDlgItem(IDC_STATIC_MSG)->SetWindowText("NULL");
 			break;
 		}
 	}
+
 
 //	*pResult = 0;
 }
@@ -777,9 +783,11 @@ void CZogiiaddDlg::OnBUTTONSaveDB()
 		DBPupatotal,DBPupadata,
 		DBOvumtotal,DBOvumdata,
 		DBCloseuptotal,DBCloseupdata))
-		MessageBox(_T("数据库保存成功"), _T("数据库保存"));
+	//	MessageBox(_T("数据库保存成功"), _T("数据库保存"));
+		GetDlgItem(IDC_STATIC_MSG)->SetWindowText("数据库保存成功");
 	else
-		MessageBox(_T("数据库保存失败"), _T("数据库保存"));
+	//	MessageBox(_T("数据库保存失败"), _T("数据库保存"));
+		GetDlgItem(IDC_STATIC_MSG)->SetWindowText("数据库保存失败");
 }
 
 void CZogiiaddDlg::OnCloseupCOMBOImagoNo() 
@@ -1082,6 +1090,50 @@ void CZogiiaddDlg::BuildTree()
 
 	curlist=&DataList[0];
 }
+
+//初始化建立树 移除空项目
+void CZogiiaddDlg::BuildTreeMoveNull()
+{
+	HTREEITEM hItemA,hItemB,hItemC;
+	ZOGII_ULONG_TYPE i,j,k,m;
+
+	m_tree.DeleteAllItems();
+
+	ListTotal=0;
+	for(i=0;i<DBtotal;i++)
+	{
+		hItemA=AddTree(TVI_ROOT,DBdata[i].SF.SubFamily[language],TYPE_SubFamily,i,0,0,0);
+		for(j=0;j<DBdata[i].GenusTotal;j++)
+		{
+			if(DBdata[i].GenusData[j].SpeciesTotal)
+			{
+				hItemB=AddTree(hItemA,DBdata[i].GenusData[j].GE.Genus[language],TYPE_Genus,i,j,0,0);
+				for(k=0;k<DBdata[i].GenusData[j].SpeciesTotal;k++)
+				{
+					if( DBdata[i].GenusData[j].SpeciesData[k].SP.Imago[0] 
+						|| DBdata[i].GenusData[j].SpeciesData[k].SubspTotal)
+					{
+						hItemC=AddTree(hItemB,
+							DBdata[i].GenusData[j].SpeciesData[k].SP.Species[language],TYPE_Species,
+							i,j,k,0);
+						
+						for(m=0;m<DBdata[i].GenusData[j].SpeciesData[k].SubspTotal;m++)
+						{
+							if( DBdata[i].GenusData[j].SpeciesData[k].SubspData[m].Imago[0] )
+								AddTree(hItemC,
+								DBdata[i].GenusData[j].SpeciesData[k].SubspData[m].Subspecies[language],
+								TYPE_Subspecies,i,j,k,m);
+						}
+					}
+				
+				}
+			}
+		}
+	}
+
+	curlist=&DataList[0];
+}
+
 //在新增完数据之后调用 之前要遍历树一次
 void CZogiiaddDlg::BuildNewTree(DATALIST *dl)
 {
